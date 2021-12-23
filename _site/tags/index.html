@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>FE개발자를 꿈꾸다</title>
+<!-- begin _includes/seo.html --><title>Posts by Tag - FE개발자를 꿈꾸다</title>
 <meta name="description" content="An amazing website.">
 
 
@@ -20,8 +20,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="FE개발자를 꿈꾸다">
-<meta property="og:title" content="FE개발자를 꿈꾸다">
-<meta property="og:url" content="http://localhost:4000/">
+<meta property="og:title" content="Posts by Tag">
+<meta property="og:url" content="http://localhost:4000/tags/">
 
 
   <meta property="og:description" content="An amazing website.">
@@ -43,7 +43,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/">
+<link rel="canonical" href="http://localhost:4000/tags/">
 
 
 
@@ -94,7 +94,7 @@
 
   </head>
 
-  <body class="layout--home">
+  <body class="layout--tags">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -267,18 +267,53 @@
 
   <div class="archive">
     
-      <h1 id="page-title" class="page__title"></h1>
+      <h1 id="page-title" class="page__title">Posts by Tag</h1>
     
     
 
-<h3 class="archive__subtitle">최근 포스트</h3>
 
 
 
 
-<div class="entries-list">
+<ul class="taxonomy__index">
   
     
+      
+        <li>
+          <a href="#jekyll">
+            <strong>Jekyll</strong> <span class="taxonomy__count">1</span>
+          </a>
+        </li>
+      
+    
+      
+        <li>
+          <a href="#theme">
+            <strong>theme</strong> <span class="taxonomy__count">1</span>
+          </a>
+        </li>
+      
+    
+      
+        <li>
+          <a href="#blog">
+            <strong>Blog</strong> <span class="taxonomy__count">1</span>
+          </a>
+        </li>
+      
+    
+  
+</ul>
+
+
+
+  
+    
+      <section id="jekyll" class="taxonomy__section">
+        <h2 class="archive__subtitle">Jekyll</h2>
+        <div class="entries-list">
+          
+            
 
 
 
@@ -312,10 +347,102 @@
 </p>
   </article>
 </div>
+          
+        </div>
+        <a href="#page-title" class="back-to-top">맨 위로 이동 &uarr;</a>
+      </section>
+    
   
+    
+      <section id="theme" class="taxonomy__section">
+        <h2 class="archive__subtitle">theme</h2>
+        <div class="entries-list">
+          
+            
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/firstpost/" rel="permalink">github.io 블로그 시작하기
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 03 2021</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.
+</p>
+  </article>
 </div>
+          
+        </div>
+        <a href="#page-title" class="back-to-top">맨 위로 이동 &uarr;</a>
+      </section>
+    
+  
+    
+      <section id="blog" class="taxonomy__section">
+        <h2 class="archive__subtitle">Blog</h2>
+        <div class="entries-list">
+          
+            
 
 
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/firstpost/" rel="permalink">github.io 블로그 시작하기
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 03 2021</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.
+</p>
+  </article>
+</div>
+          
+        </div>
+        <a href="#page-title" class="back-to-top">맨 위로 이동 &uarr;</a>
+      </section>
+    
+  
 
 
   </div>

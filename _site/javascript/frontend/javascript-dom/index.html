@@ -9,22 +9,24 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Posts by Category - FE개발자를 꿈꾸다</title>
-<meta name="description" content="An amazing website.">
+<!-- begin _includes/seo.html --><title>DOM - FE개발자를 꿈꾸다</title>
+<meta name="description" content="DOM 소개">
 
 
   <meta name="author" content="FE Developer">
   
+  <meta property="article:author" content="FE Developer">
+  
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="FE개발자를 꿈꾸다">
-<meta property="og:title" content="Posts by Category">
-<meta property="og:url" content="http://localhost:4000/categories/">
+<meta property="og:title" content="DOM">
+<meta property="og:url" content="http://localhost:4000/javascript/frontend/javascript-dom/">
 
 
-  <meta property="og:description" content="An amazing website.">
+  <meta property="og:description" content="DOM 소개">
 
 
 
@@ -34,6 +36,8 @@
 
 
 
+  <meta property="article:published_time" content="2021-12-05T00:00:00+09:00">
+
 
 
 
@@ -43,7 +47,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/categories/">
+<link rel="canonical" href="http://localhost:4000/javascript/frontend/javascript-dom/">
 
 
 
@@ -94,7 +98,7 @@
 
   </head>
 
-  <body class="layout--categories">
+  <body class="layout--single">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -265,93 +269,170 @@
 
 
 
-  <div class="archive">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="DOM">
+    <meta itemprop="description" content="DOM 소개">
+    <meta itemprop="datePublished" content="2021-12-05T00:00:00+09:00">
     
-      <h1 id="page-title" class="page__title">Posts by Category</h1>
-    
-    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">DOM
+</h1>
+          
+<!--
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
 
 
 
 
+  최대 1 분 소요
+</p>
+            devinlife comments :
+                싱글 페이지(포스트)에 제목 밑에 Updated 시간 표기
+                기존에는 read_time이 표기. read_time -> date 변경
+-->
+            <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2021-12-05T00:00:00+09:00">December 05, 2021</time></p>
+          
+        </header>
+      
 
-<ul class="taxonomy__index">
-  
-    
-      
-    
-      
-        <li>
-          <a href="#javascript">
-            <strong>javascript</strong> <span class="taxonomy__count">5</span>
-          </a>
-        </li>
-      
-    
-      
-    
-  
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
-        <li>
-          <a href="#blog">
-            <strong>Blog</strong> <span class="taxonomy__count">3</span>
-          </a>
-        </li>
-      
-    
-      
-    
-      
-    
-  
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
-    
-      
-    
-      
-        <li>
-          <a href="#frontend">
-            <strong>frontend</strong> <span class="taxonomy__count">1</span>
-          </a>
-        </li>
-      
-    
-  
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="dom-소개">DOM 소개</h2>
+
+<p>javascript를 공부하면서 DOM을 빼놓고 이야기 할 수 없다.</p>
+
+<p>DOM이란 무엇인가? 그전에 BOM에 대해서 알아보자.</p>
+
+<blockquote>
+  <p>BOM이란 무엇인가?</p>
+</blockquote>
+
+<p>브라우저를 바탕으로 웹서비스가 실행이 되는데, 이와 관련된 객체들의 집합을 브라우저객체모델(Browser Object Model)이라고 한다.</p>
+
+<ul>
+  <li>웹브라우저와 관련된 객체의 집합</li>
+  <li>window객체가 최상위 객체</li>
+  <li>웹브라우저가 제공하는 기능</li>
 </ul>
 
+<blockquote>
+  <p>DOM의 정의(MDN참조)</p>
+</blockquote>
+
+<p>DOM은 Document Object Model의 약자이다.</p>
+<ul>
+  <li>HTML, XML 문서의 프로그래밍 인터페이스</li>
+  <li>문서의 구조화된 표현을 제공하고, 프로그래밍 언어가 DOM구조에 접근할 수 있는 방법을 제공해서 문서구조, 스타일, 내용등을 변경할 수 있게 한다.</li>
+  <li>웹페이지를 스크립트 또는 프로그래밍 언어들에서 사용되도록 연결해준다.</li>
+</ul>
+
+<p>DOM이 무엇인가…</p>
+<ul>
+  <li>내가 html에 쓴 파일이 DOM은 아니다. 그러나 브라우저에 의해서 파싱이 된다면 DOM이 된다.</li>
+  <li>view source에서 보이는것도 DOM이 아니다.</li>
+  <li>dev Tools(개발자 도구)에서 보여주는 것이 DOM이다.</li>
+</ul>
+
+<p>DOM은 웹페이지의 객체 지향 표현이고, 자바스크립트와 같은 스크립트 언어로 DOM을 수정할수 있다.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
 
 
   
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
     
+      <a href="/tags/#dom" class="page__taxonomy-item p-category" rel="tag">DOM</a><span class="sep">, </span>
+    
+      <a href="/tags/#javascript" class="page__taxonomy-item p-category" rel="tag">javascript</a>
+    
+    </span>
+  </p>
+
+
+
+
   
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
     
-      <section id="javascript" class="taxonomy__section">
-        <h2 class="archive__subtitle">javascript</h2>
-        <div class="entries-list">
+      
+      
+      <a href="/categories/#frontend" class="page__taxonomy-item" rel="tag">frontend</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#javascript" class="page__taxonomy-item" rel="tag">javascript</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-12-05T00:00:00+09:00">December 5, 2021</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=DOM%20http%3A%2F%2Flocalhost%3A4000%2Fjavascript%2Ffrontend%2Fjavascript-dom%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjavascript%2Ffrontend%2Fjavascript-dom%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjavascript%2Ffrontend%2Fjavascript-dom%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/blog/post/" class="pagination--pager" title="GitHub 글 쓰기
+">이전</a>
+    
+    
+      <a href="/javascript/javascript-function1/" class="pagination--pager" title="call/apply/bind 함수의 차이점
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
           
-            
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline">
@@ -381,12 +462,12 @@
 </p>
   </article>
 </div>
+        
           
-            
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline">
@@ -416,12 +497,12 @@
 </p>
   </article>
 </div>
+        
           
-            
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline">
@@ -451,104 +532,12 @@
 </p>
   </article>
 </div>
+        
           
-            
 
 
 
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/javascript/frontend/javascript-dom/" rel="permalink">DOM
-</a>
-      
-    </h2>
-<!--
-    devinlife comments :
-        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
-        기존에는 read_time이 표기. read_time -> date 변경
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  최대 1 분 소요
-</p>
-    
--->
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 05 2021</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">DOM 소개
-</p>
-  </article>
-</div>
-          
-            
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/javascript/javascript-instance/" rel="permalink">인스턴스
-</a>
-      
-    </h2>
-<!--
-    devinlife comments :
-        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
-        기존에는 read_time이 표기. read_time -> date 변경
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  최대 1 분 소요
-</p>
-    
--->
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 03 2021</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">인스턴스란
-</p>
-  </article>
-</div>
-          
-        </div>
-        <a href="#page-title" class="back-to-top">맨 위로 이동 &uarr;</a>
-      </section>
-    
-  
-    
-  
-
-  
-    
-  
-    
-  
-    
-  
-
-  
-    
-      <section id="blog" class="taxonomy__section">
-        <h2 class="archive__subtitle">Blog</h2>
-        <div class="entries-list">
-          
-            
-
-
-
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline">
@@ -578,148 +567,11 @@
 </p>
   </article>
 </div>
-          
-            
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/blog/md/" rel="permalink">마크다운 문법
-</a>
-      
-    </h2>
-<!--
-    devinlife comments :
-        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
-        기존에는 read_time이 표기. read_time -> date 변경
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  최대 1 분 소요
-</p>
-    
--->
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 03 2021</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">md문법 알아보자
-</p>
-  </article>
-</div>
-          
-            
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/blog/firstpost/" rel="permalink">github.io 블로그 시작하기
-</a>
-      
-    </h2>
-<!--
-    devinlife comments :
-        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
-        기존에는 read_time이 표기. read_time -> date 변경
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  최대 1 분 소요
-</p>
-    
--->
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 03 2021</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.
-</p>
-  </article>
-</div>
-          
-        </div>
-        <a href="#page-title" class="back-to-top">맨 위로 이동 &uarr;</a>
-      </section>
-    
+        
+      </div>
+    </div>
   
-    
   
-    
-  
-
-  
-    
-  
-    
-  
-    
-  
-
-  
-    
-  
-    
-  
-    
-      <section id="frontend" class="taxonomy__section">
-        <h2 class="archive__subtitle">frontend</h2>
-        <div class="entries-list">
-          
-            
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/javascript/frontend/javascript-dom/" rel="permalink">DOM
-</a>
-      
-    </h2>
-<!--
-    devinlife comments :
-        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
-        기존에는 read_time이 표기. read_time -> date 변경
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  최대 1 분 소요
-</p>
-    
--->
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 05 2021</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">DOM 소개
-</p>
-  </article>
-</div>
-          
-        </div>
-        <a href="#page-title" class="back-to-top">맨 위로 이동 &uarr;</a>
-      </section>
-    
-  
-
-
-  </div>
 </div>
     </div>
 

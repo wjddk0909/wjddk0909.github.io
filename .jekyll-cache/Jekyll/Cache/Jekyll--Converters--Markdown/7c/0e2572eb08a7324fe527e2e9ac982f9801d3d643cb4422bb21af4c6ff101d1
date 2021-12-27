@@ -1,0 +1,39 @@
+I"<h2 id="dom-소개">DOM 소개</h2>
+
+<p>javascript를 공부하면서 DOM을 빼놓고 이야기 할 수 없다.</p>
+
+<p>DOM이란 무엇인가? 그전에 BOM에 대해서 알아보자.</p>
+
+<blockquote>
+  <p>BOM이란 무엇인가?</p>
+</blockquote>
+
+<p>브라우저를 바탕으로 웹서비스가 실행이 되는데, 이와 관련된 객체들의 집합을 브라우저객체모델(Browser Object Model)이라고 한다.</p>
+
+<ul>
+  <li>웹브라우저와 관련된 객체의 집합</li>
+  <li>window객체가 최상위 객체</li>
+  <li>웹브라우저가 제공하는 기능</li>
+</ul>
+
+<blockquote>
+  <p>DOM의 정의(MDN참조)</p>
+</blockquote>
+
+<p>DOM은 Document Object Model의 약자이다.</p>
+<ul>
+  <li>HTML, XML 문서의 프로그래밍 인터페이스</li>
+  <li>문서의 구조화된 표현을 제공하고, 프로그래밍 언어가 DOM구조에 접근할 수 있는 방법을 제공해서 문서구조, 스타일, 내용등을 변경할 수 있게 한다.</li>
+  <li>웹페이지를 스크립트 또는 프로그래밍 언어들에서 사용되도록 연결해준다.</li>
+</ul>
+
+<p>DOM이 무엇인가…</p>
+<ul>
+  <li>내가 html에 쓴 파일이 DOM은 아니다. 그러나 브라우저에 의해서 파싱이 된다면 DOM이 된다.</li>
+  <li>view source에서 보이는것도 DOM이 아니다.</li>
+  <li>dev Tools(개발자 도구)에서 보여주는 것이 DOM이다.</li>
+</ul>
+
+<p>DOM은 웹페이지의 객체 지향 표현이고, 자바스크립트와 같은 스크립트 언어로 DOM을 수정할수 있다.</p>
+
+:ET

@@ -9,22 +9,24 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Posts by Category - FE개발자를 꿈꾸다</title>
-<meta name="description" content="An amazing website.">
+<!-- begin _includes/seo.html --><title>마크다운 문법 - FE개발자를 꿈꾸다</title>
+<meta name="description" content="md문법 알아보자">
 
 
   <meta name="author" content="FE Developer">
   
+  <meta property="article:author" content="FE Developer">
+  
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="FE개발자를 꿈꾸다">
-<meta property="og:title" content="Posts by Category">
-<meta property="og:url" content="http://localhost:4000/categories/">
+<meta property="og:title" content="마크다운 문법">
+<meta property="og:url" content="http://localhost:4000/blog/md/">
 
 
-  <meta property="og:description" content="An amazing website.">
+  <meta property="og:description" content="md문법 알아보자">
 
 
 
@@ -34,7 +36,11 @@
 
 
 
+  <meta property="article:published_time" content="2021-12-03T00:00:00+09:00">
 
+
+
+  <meta property="article:modified_time" content="2021-12-03T00:00:00+09:00">
 
 
 
@@ -43,7 +49,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/categories/">
+<link rel="canonical" href="http://localhost:4000/blog/md/">
 
 
 
@@ -94,7 +100,7 @@
 
   </head>
 
-  <body class="layout--categories">
+  <body class="layout--single">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -265,93 +271,171 @@
 
 
 
-  <div class="archive">
-    
-      <h1 id="page-title" class="page__title">Posts by Category</h1>
-    
-    
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="마크다운 문법">
+    <meta itemprop="description" content="md문법 알아보자">
+    <meta itemprop="datePublished" content="2021-12-03T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-12-03T00:00:00+09:00">
 
-
-
-
-
-<ul class="taxonomy__index">
-  
-    
+    <div class="page__inner-wrap">
       
-    
-      
-        <li>
-          <a href="#javascript">
-            <strong>javascript</strong> <span class="taxonomy__count">5</span>
-          </a>
-        </li>
-      
-    
-      
-    
-  
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
-        <li>
-          <a href="#blog">
-            <strong>Blog</strong> <span class="taxonomy__count">3</span>
-          </a>
-        </li>
-      
-    
-      
-    
-      
-    
-  
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
-    
-      
-    
-      
-        <li>
-          <a href="#frontend">
-            <strong>frontend</strong> <span class="taxonomy__count">1</span>
-          </a>
-        </li>
-      
-    
-  
-</ul>
-
-
-
-  
-    
-  
-    
-      <section id="javascript" class="taxonomy__section">
-        <h2 class="archive__subtitle">javascript</h2>
-        <div class="entries-list">
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">마크다운 문법
+</h1>
           
-            
+<!--
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
 
 
 
-<div class="list__item">
+
+  최대 1 분 소요
+</p>
+            devinlife comments :
+                싱글 페이지(포스트)에 제목 밑에 Updated 시간 표기
+                기존에는 read_time이 표기. read_time -> date 변경
+-->
+            <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2021-12-03T00:00:00+09:00">December 03, 2021</time></p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="마크다운-문법에-대하여">마크다운 문법에 대하여</h2>
+
+<p>예)</p>
+<blockquote>
+  <p>```html</p>
+
+  <p>&lt;div&gt;<br />
+ &lt;p&gt;Hello, JEKYLL!&lt;/p&gt;<br />
+&lt;/div&gt;  <br />
+```</p>
+</blockquote>
+
+<p>결과)</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>
+ <span class="nt">&lt;p&gt;</span>Hello, JEKYLL!<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>예)</p>
+<blockquote>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\*별표이지, 강조가 아닙니다\*
+</code></pre></div>  </div>
+</blockquote>
+
+<p>결과)
+*별표이지, 강조가 아닙니다*</p>
+
+<hr />
+<blockquote>
+  <p>변수 입력은 `$var = “JEKYLL”;` 이렇게 합니다.</p>
+</blockquote>
+
+<p>변수 입력은 <code class="language-plaintext highlighter-rouge">$var = "JEKYLL";</code> 이렇게 합니다.</p>
+
+<hr />
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">syntaxHighlight</span><span class="p">(</span><span class="nx">code</span><span class="p">,</span> <span class="nx">lang</span><span class="p">)</span> <span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">;</span>
+   <span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#blog" class="page__taxonomy-item p-category" rel="tag">Blog</a><span class="sep">, </span>
+    
+      <a href="/tags/#markdown" class="page__taxonomy-item p-category" rel="tag">Markdown</a><span class="sep">, </span>
+    
+      <a href="/tags/#post" class="page__taxonomy-item p-category" rel="tag">Post</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#blog" class="page__taxonomy-item" rel="tag">Blog</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-12-03">December 3, 2021</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4+%EB%AC%B8%EB%B2%95%20http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fmd%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fmd%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fmd%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/javascript/javascript-instance/" class="pagination--pager" title="인스턴스
+">이전</a>
+    
+    
+      <a href="/blog/post/" class="pagination--pager" title="GitHub 글 쓰기
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline">
@@ -381,12 +465,12 @@
 </p>
   </article>
 </div>
+        
           
-            
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline">
@@ -416,12 +500,12 @@
 </p>
   </article>
 </div>
+        
           
-            
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline">
@@ -451,12 +535,12 @@
 </p>
   </article>
 </div>
+        
           
-            
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline">
@@ -486,240 +570,11 @@
 </p>
   </article>
 </div>
-          
-            
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/javascript/javascript-instance/" rel="permalink">인스턴스
-</a>
-      
-    </h2>
-<!--
-    devinlife comments :
-        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
-        기존에는 read_time이 표기. read_time -> date 변경
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  최대 1 분 소요
-</p>
-    
--->
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 03 2021</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">인스턴스란
-</p>
-  </article>
-</div>
-          
-        </div>
-        <a href="#page-title" class="back-to-top">맨 위로 이동 &uarr;</a>
-      </section>
-    
+        
+      </div>
+    </div>
   
-    
   
-
-  
-    
-  
-    
-  
-    
-  
-
-  
-    
-      <section id="blog" class="taxonomy__section">
-        <h2 class="archive__subtitle">Blog</h2>
-        <div class="entries-list">
-          
-            
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/blog/post/" rel="permalink">GitHub 글 쓰기
-</a>
-      
-    </h2>
-<!--
-    devinlife comments :
-        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
-        기존에는 read_time이 표기. read_time -> date 변경
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  최대 1 분 소요
-</p>
-    
--->
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 03 2021</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">post 등록하기
-</p>
-  </article>
-</div>
-          
-            
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/blog/md/" rel="permalink">마크다운 문법
-</a>
-      
-    </h2>
-<!--
-    devinlife comments :
-        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
-        기존에는 read_time이 표기. read_time -> date 변경
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  최대 1 분 소요
-</p>
-    
--->
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 03 2021</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">md문법 알아보자
-</p>
-  </article>
-</div>
-          
-            
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/blog/firstpost/" rel="permalink">github.io 블로그 시작하기
-</a>
-      
-    </h2>
-<!--
-    devinlife comments :
-        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
-        기존에는 read_time이 표기. read_time -> date 변경
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  최대 1 분 소요
-</p>
-    
--->
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 03 2021</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.
-</p>
-  </article>
-</div>
-          
-        </div>
-        <a href="#page-title" class="back-to-top">맨 위로 이동 &uarr;</a>
-      </section>
-    
-  
-    
-  
-    
-  
-
-  
-    
-  
-    
-  
-    
-  
-
-  
-    
-  
-    
-  
-    
-      <section id="frontend" class="taxonomy__section">
-        <h2 class="archive__subtitle">frontend</h2>
-        <div class="entries-list">
-          
-            
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/javascript/frontend/javascript-dom/" rel="permalink">DOM
-</a>
-      
-    </h2>
-<!--
-    devinlife comments :
-        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
-        기존에는 read_time이 표기. read_time -> date 변경
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  최대 1 분 소요
-</p>
-    
--->
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 05 2021</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">DOM 소개
-</p>
-  </article>
-</div>
-          
-        </div>
-        <a href="#page-title" class="back-to-top">맨 위로 이동 &uarr;</a>
-      </section>
-    
-  
-
-
-  </div>
 </div>
     </div>
 

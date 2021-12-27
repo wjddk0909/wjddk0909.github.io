@@ -1,0 +1,26 @@
+I"�<h2 id="hoisting에-대해-알아보자">hoisting에 대해 알아보자</h2>
+
+<blockquote>
+  <p>자바스크립트에서 호이스팅(Hoisting)이란, 인터프리터가 변수와 함수의 공간을 선언전에 미리 할당 하는 것을 의미한다.</p>
+</blockquote>
+
+<p>실행컨텍스트의 처리 순서를 살펴보면,</p>
+<ol>
+  <li>선언 단계(Declaration phase) : 변수, 함수선언문 설정</li>
+  <li>초기화 단계(Initialization phase) : 변수 이름 바인딩 (값은 undefined로 초기화)</li>
+  <li>할당 단계(Assignment phase)</li>
+</ol>
+
+<p>위 순서로 처리가 된다.</p>
+
+<p>이때, let변수는 호이스팅 되지 않는다.(사실상 호이스팅은 되지만 안되는것과 비슷하다.)
+var 변수는 선언단계와 초기화단계가 동시에 진행되어 변수이름을 바인딩하면서 값이 undefined로 초기화되는 반면,<br />
+let 변수는 선언단계와 초기화단계가 따로 진행된다.<br />
+그래서 실행컨텍스트에 변수가 등록이 되었지만 메모리가 할당이 되어있지 않기 때문에 ReferenceError가 발생한다.</p>
+
+<p>여기서 TDZ가 무엇인지 알고 가자.<br />
+TDZ란 “temporal dead zone” 일시적인 사각지대 라고 직역할 수 있다.<br />
+TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간이다.</p>
+
+<p>즉, let변수는 TDZ구간에 의해 메모리가 할당이 되지 않기 때문에 참조에러(ReferenceError)가 발생한다.</p>
+:ET

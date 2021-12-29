@@ -1,4 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-12-27T16:33:36+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">호이스팅(Hoisting)</title><link href="http://localhost:4000/javascript/hoisting/" rel="alternate" type="text/html" title="호이스팅(Hoisting)" /><published>2021-12-08T00:00:00+09:00</published><updated>2021-12-08T00:00:00+09:00</updated><id>http://localhost:4000/javascript/hoisting</id><content type="html" xml:base="http://localhost:4000/javascript/hoisting/">&lt;h2 id=&quot;hoisting에-대해-알아보자&quot;&gt;hoisting에 대해 알아보자&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-12-29T18:50:16+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">REST</title><link href="http://localhost:4000/javascript/rest/" rel="alternate" type="text/html" title="REST" /><published>2021-12-09T00:00:00+09:00</published><updated>2021-12-09T00:00:00+09:00</updated><id>http://localhost:4000/javascript/rest</id><content type="html" xml:base="http://localhost:4000/javascript/rest/">&lt;h2 id=&quot;rest에-대해-알아보자&quot;&gt;REST에 대해 알아보자&lt;/h2&gt;
+
+&lt;p&gt;REST에 대해 알아보기전에 api에 대해 다시 한번 확인해보자.&lt;br /&gt;
+api에 대한 포스팅이 따로 있지만 여기에서는 비유를 통해 간단히 설명한다.&lt;/p&gt;
+
+&lt;p&gt;좋아하는 드라마의 본방사수를 위해서 집에 서둘러 들어와 티비를 켜고 원하는 채널을 틀어야 하는 상황일때 이러한 과정이 필요하다.&lt;br /&gt;
+티비 리모컨의 전원 버튼을 눌러 티비를 켜고 채널 버튼을 눌러 원하는 채널로 돌려야 한다.&lt;br /&gt;
+나 &amp;gt; &lt;strong&gt;리모컨&lt;/strong&gt; &amp;gt; 티비 이러한 순서로 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;즉 API는 리모컨 처럼 애플리케이션과 운영체게 사이의 ‘상호작용’을 돕는다.&lt;/p&gt;
+
+&lt;h3 id=&quot;웹-api의-역할&quot;&gt;웹 API의 역할&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;권한을 가진 사람만 서버와 데이터베이스안의 리소스에 접근이 가능하게 해준다.&lt;/li&gt;
+  &lt;li&gt;모든 요청(request)와 응답(response)를 표준화 해준다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;rest의-구성요소&quot;&gt;REST의 구성요소&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;자원(Resource) : HTTP UIR 를 통한 자원 명시&lt;/li&gt;
+  &lt;li&gt;자원에 대한 행위(Verb) : HTTP Method(post, get put, delete)&lt;/li&gt;
+  &lt;li&gt;자원에 대한 행위의 내용(Representations) : HTTP Message Pay Load&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;rest-api&quot;&gt;REST API&lt;/h2&gt;
+
+&lt;p&gt;REST API란 REST의 원리를 따르는 API를 의미한다.
+리소스(HTTP URI)로 어떠한 행위(HTTP Method + Pay Load)를 하겠다는 것을 구조적으로 표현하는 방법이다.&lt;/p&gt;
+
+&lt;p&gt;REST API의 설계 가이드를 살펴보자.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;URI는 명사, 소문자를 사용한다.&lt;/li&gt;
+  &lt;li&gt;마지막에 슬래시를 포함하지 않는다.&lt;/li&gt;
+  &lt;li&gt;언더바 대신 하이픈을 사용한다.&lt;/li&gt;
+  &lt;li&gt;URI에 파일확장자는 포함하지 않는다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;restful-이란&quot;&gt;RESTful 이란?&lt;/h2&gt;
+
+&lt;p&gt;RESTful이란 REST API의 설계 가이드를 올바르게 지킨 시스템을 RESTful 하다고 말할 수 있다.
+RESTful하게 만들면 그자체로 API의 목적이 무엇인지 명확하게 알 수 있다.&lt;/p&gt;</content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="api" /><category term="REST" /><category term="RESTful" /><summary type="html">REST API, RESTful 이란</summary></entry><entry><title type="html">호이스팅(Hoisting)</title><link href="http://localhost:4000/javascript/hoisting/" rel="alternate" type="text/html" title="호이스팅(Hoisting)" /><published>2021-12-08T00:00:00+09:00</published><updated>2021-12-08T00:00:00+09:00</updated><id>http://localhost:4000/javascript/hoisting</id><content type="html" xml:base="http://localhost:4000/javascript/hoisting/">&lt;h2 id=&quot;hoisting에-대해-알아보자&quot;&gt;hoisting에 대해 알아보자&lt;/h2&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;자바스크립트에서 호이스팅(Hoisting)이란, 인터프리터가 변수와 함수의 공간을 선언전에 미리 할당 하는 것을 의미한다.&lt;/p&gt;
@@ -119,26 +162,7 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
   &lt;li&gt;dev Tools(개발자 도구)에서 보여주는 것이 DOM이다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;DOM은 웹페이지의 객체 지향 표현이고, 자바스크립트와 같은 스크립트 언어로 DOM을 수정할수 있다.&lt;/p&gt;</content><author><name>FE Developer</name></author><category term="javascript" /><category term="frontend" /><category term="javascript" /><category term="DOM" /><summary type="html">DOM 소개</summary></entry><entry><title type="html">인스턴스</title><link href="http://localhost:4000/javascript/javascript-instance/" rel="alternate" type="text/html" title="인스턴스" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/javascript/javascript-instance</id><content type="html" xml:base="http://localhost:4000/javascript/javascript-instance/">&lt;h2 id=&quot;인스턴스란&quot;&gt;인스턴스란?&lt;/h2&gt;
-
-&lt;p&gt;인스턴스는 클래스나 프로토타입을 사용해 만든다.
-즉, 프로퍼티와 메소드를 상속 받는다.&lt;/p&gt;
-
-&lt;p&gt;원래의 객체가 가지고 있던 것을 동일하게 사용하면서, 거기에 확장시켜 추가된 개별속성을 가질 수 있다.&lt;/p&gt;
-
-&lt;p&gt;예를 들어, “모자”라는 객체의 인스턴스로 “모자1”을 생성했을때 “모자1”은 “파란 모자”가 될 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nx&quot;&gt;cap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cap1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;blue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cap2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;black&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;✅ 추가 설명
-떡볶이 레시피를 가지고 떡볶이를 먹으려면 “떡볶이”를 만들어야 한다. 
-어제 “떡볶이”를 만들고, 오늘 또 “떡볶이”를 만들었다고 가정 했을때 만들어진 “떡볶이”는 [인스턴스]가 된다.
-여기서 두개의 떡볶이는 같은 레시피를 보고 만들었지만 동일한 대상은 아니다.&lt;/p&gt;</content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="instance" /><category term="primitive" /><summary type="html">인스턴스란</summary></entry><entry><title type="html">마크다운 문법</title><link href="http://localhost:4000/blog/md/" rel="alternate" type="text/html" title="마크다운 문법" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/blog/md</id><content type="html" xml:base="http://localhost:4000/blog/md/">&lt;h2 id=&quot;마크다운-문법에-대하여&quot;&gt;마크다운 문법에 대하여&lt;/h2&gt;
+&lt;p&gt;DOM은 웹페이지의 객체 지향 표현이고, 자바스크립트와 같은 스크립트 언어로 DOM을 수정할수 있다.&lt;/p&gt;</content><author><name>FE Developer</name></author><category term="javascript" /><category term="frontend" /><category term="javascript" /><category term="DOM" /><summary type="html">DOM 소개</summary></entry><entry><title type="html">마크다운 문법</title><link href="http://localhost:4000/blog/md/" rel="alternate" type="text/html" title="마크다운 문법" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/blog/md</id><content type="html" xml:base="http://localhost:4000/blog/md/">&lt;h2 id=&quot;마크다운-문법에-대하여&quot;&gt;마크다운 문법에 대하여&lt;/h2&gt;
 
 &lt;p&gt;예)&lt;/p&gt;
 &lt;blockquote&gt;
@@ -178,7 +202,34 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bar&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1234&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>FE Developer</name></author><category term="Blog" /><category term="Blog" /><category term="Post" /><category term="Markdown" /><summary type="html">md문법 알아보자</summary></entry><entry><title type="html">GitHub 글 쓰기</title><link href="http://localhost:4000/blog/post/" rel="alternate" type="text/html" title="GitHub 글 쓰기" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/blog/post</id><content type="html" xml:base="http://localhost:4000/blog/post/">&lt;h2 id=&quot;github-블로그-글-등록하기&quot;&gt;GitHub 블로그 글 등록하기&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>FE Developer</name></author><category term="Blog" /><category term="Blog" /><category term="Post" /><category term="Markdown" /><summary type="html">md문법 알아보자</summary></entry><entry><title type="html">인스턴스</title><link href="http://localhost:4000/javascript/javascript-instance/" rel="alternate" type="text/html" title="인스턴스" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/javascript/javascript-instance</id><content type="html" xml:base="http://localhost:4000/javascript/javascript-instance/">&lt;h2 id=&quot;인스턴스란&quot;&gt;인스턴스란?&lt;/h2&gt;
+
+&lt;p&gt;인스턴스는 클래스나 프로토타입을 사용해 만든다.
+즉, 프로퍼티와 메소드를 상속 받는다.&lt;/p&gt;
+
+&lt;p&gt;원래의 객체가 가지고 있던 것을 동일하게 사용하면서, 거기에 확장시켜 추가된 개별속성을 가질 수 있다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어, “모자”라는 객체의 인스턴스로 “모자1”을 생성했을때 “모자1”은 “파란 모자”가 될 수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nx&quot;&gt;cap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cap1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;blue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cap2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;black&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;✅ 추가 설명
+떡볶이 레시피를 가지고 떡볶이를 먹으려면 “떡볶이”를 만들어야 한다. 
+어제 “떡볶이”를 만들고, 오늘 또 “떡볶이”를 만들었다고 가정 했을때 만들어진 “떡볶이”는 [인스턴스]가 된다.
+여기서 두개의 떡볶이는 같은 레시피를 보고 만들었지만 동일한 대상은 아니다.&lt;/p&gt;</content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="instance" /><category term="primitive" /><summary type="html">인스턴스란</summary></entry><entry><title type="html">github.io 블로그 시작하기</title><link href="http://localhost:4000/blog/firstpost/" rel="alternate" type="text/html" title="github.io 블로그 시작하기" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/blog/firstpost</id><content type="html" xml:base="http://localhost:4000/blog/firstpost/">&lt;h2 id=&quot;jekyll-블로그-시작&quot;&gt;jekyll 블로그 시작&lt;/h2&gt;
+
+&lt;p&gt;무료 Jekyll theme 중 가장 많이 사용되고 있는 “minimal-mistakes”를 사용해서 만들기&lt;/p&gt;
+
+&lt;p&gt;디자인도 깔끔하고 제작자가 꾸준히 업데이트를 하고있으며, 많이 사용되고 있는 만큼 참고할 자료도 많을 것으로 보인다.&lt;/p&gt;
+
+&lt;p&gt;이글의 제목은 github.io 블로그 시작하기 이고,
+오늘은 2021-12-03이다.
+앞으로 공부하면서 계속해서 정리해서 올려봐야겠다.&lt;/p&gt;</content><author><name>FE Developer</name></author><category term="Blog" /><category term="Jekyll" /><category term="theme" /><category term="Blog" /><summary type="html">GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.</summary></entry><entry><title type="html">GitHub 글 쓰기</title><link href="http://localhost:4000/blog/post/" rel="alternate" type="text/html" title="GitHub 글 쓰기" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/blog/post</id><content type="html" xml:base="http://localhost:4000/blog/post/">&lt;h2 id=&quot;github-블로그-글-등록하기&quot;&gt;GitHub 블로그 글 등록하기&lt;/h2&gt;
 
 &lt;p&gt;첫 글을 등록해보자.&lt;/p&gt;
 
@@ -212,12 +263,4 @@ tags:
 
 &lt;p&gt;이런 형식으로 올리면 
 &lt;img src=&quot;https://user-images.githubusercontent.com/34855369/144614561-69bbe98a-3797-4e7d-8209-399fe73e4690.png&quot; alt=&quot;post등록하기&quot; /&gt;
-이렇게 등록이 된 것을 확인 할 수 있다.&lt;/p&gt;</content><author><name>FE Developer</name></author><category term="Blog" /><category term="Blog" /><category term="Post" /><summary type="html">post 등록하기</summary></entry><entry><title type="html">github.io 블로그 시작하기</title><link href="http://localhost:4000/blog/firstpost/" rel="alternate" type="text/html" title="github.io 블로그 시작하기" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/blog/firstpost</id><content type="html" xml:base="http://localhost:4000/blog/firstpost/">&lt;h2 id=&quot;jekyll-블로그-시작&quot;&gt;jekyll 블로그 시작&lt;/h2&gt;
-
-&lt;p&gt;무료 Jekyll theme 중 가장 많이 사용되고 있는 “minimal-mistakes”를 사용해서 만들기&lt;/p&gt;
-
-&lt;p&gt;디자인도 깔끔하고 제작자가 꾸준히 업데이트를 하고있으며, 많이 사용되고 있는 만큼 참고할 자료도 많을 것으로 보인다.&lt;/p&gt;
-
-&lt;p&gt;이글의 제목은 github.io 블로그 시작하기 이고,
-오늘은 2021-12-03이다.
-앞으로 공부하면서 계속해서 정리해서 올려봐야겠다.&lt;/p&gt;</content><author><name>FE Developer</name></author><category term="Blog" /><category term="Jekyll" /><category term="theme" /><category term="Blog" /><summary type="html">GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.</summary></entry></feed>
+이렇게 등록이 된 것을 확인 할 수 있다.&lt;/p&gt;</content><author><name>FE Developer</name></author><category term="Blog" /><category term="Blog" /><category term="Post" /><summary type="html">post 등록하기</summary></entry></feed>

@@ -12,7 +12,7 @@ var store = [{
         "teaser": null
       },{
         "title": "마크다운 문법",
-        "excerpt":"마크다운 문법에 대하여   예)     ```html     &lt;div&gt;   &lt;p&gt;Hello, JEKYLL!&lt;/p&gt;  &lt;/div&gt;    ```    결과)  &lt;div&gt;  &lt;p&gt;Hello, JEKYLL!&lt;/p&gt; &lt;/div&gt;   예)     \\*별표이지, 강조가 아닙니다\\*      결과) *별표이지, 강조가 아닙니다*       변수 입력은 `$var = “JEKYLL”;` 이렇게 합니다.    변수 입력은 $var = \"JEKYLL\"; 이렇게 합니다.     function syntaxHighlight(code, lang) {    var foo = 'hi';    var bar = 1234; }  ","categories": ["Blog"],
+        "excerpt":"마크다운 문법에 대하여   제목을 쓸 때는 #을 이용     #h1  ##h2  ###h3  ####h4  #####h5  ######h6    강조는 각각 &lt;em&gt;, &lt;strong&gt;, &lt;del&gt; 사용   html 태그표현은  예)     ```html     &lt;div&gt;   &lt;p&gt;Hello, JEKYLL!&lt;/p&gt;  &lt;/div&gt;    ```    결과)  &lt;div&gt;  &lt;p&gt;Hello, JEKYLL!&lt;/p&gt; &lt;/div&gt;   별표시  예)     \\*별표이지, 강조가 아닙니다\\*      결과) *별표이지, 강조가 아닙니다*       변수 입력은 `$var = “JEKYLL”;` 이렇게 합니다.    변수 입력은 $var = \"JEKYLL\"; 이렇게 합니다.     자바스크립트  function syntaxHighlight(code, lang) {    var foo = 'hi';    var bar = 1234; }  ","categories": ["Blog"],
         "tags": ["Blog","Post","Markdown"],
         "url": "/blog/md/",
         "teaser": null

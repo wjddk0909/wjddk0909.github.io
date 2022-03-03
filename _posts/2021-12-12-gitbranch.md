@@ -9,6 +9,8 @@ tags:
 --- 
 ## git branch 생성하고 사용하는 방법
 
+- git init : git 저장소 생성(초기화)
+- git remote add origin {link} : link에 생성한 레포지토리 url복사해서 넣기
 - git branch : 깃 브랜치 확인
 - git branch -v : 마지막 커밋메세지 확인
 - git branch 브랜치명 : 브랜치 생성

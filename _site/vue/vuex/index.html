@@ -1,0 +1,692 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>vuex - FE개발자를 꿈꾸다</title>
+<meta name="description" content="vuex란?">
+
+
+  <meta name="author" content="FE Developer">
+  
+  <meta property="article:author" content="FE Developer">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="FE개발자를 꿈꾸다">
+<meta property="og:title" content="vuex">
+<meta property="og:url" content="http://localhost:4000/vue/vuex/">
+
+
+  <meta property="og:description" content="vuex란?">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo2.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2022-03-12T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/vue/vuex/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "꿈꾸는 개발자",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="FE개발자를 꿈꾸다 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          FE개발자를 꿈꾸다
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/logo2.png" alt="FE Developer" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">FE Developer</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>꿈꾸는 개발자</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:wjddk0909@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="vuex">
+    <meta itemprop="description" content="vuex란?">
+    <meta itemprop="datePublished" content="2022-03-12T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">vuex
+</h1>
+          
+<!--
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+            devinlife comments :
+                싱글 페이지(포스트)에 제목 밑에 Updated 시간 표기
+                기존에는 read_time이 표기. read_time -> date 변경
+-->
+            <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2022-03-12T00:00:00+09:00">March 12, 2022</time></p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="vuex-소개">vuex 소개</h2>
+
+<ul>
+  <li>복잡한 애플리케이션의 컴포넌트들을 효율적으로 관리하는 vuex 라이브러리</li>
+  <li>React의 Flux패턴에서 기인함</li>
+  <li>vue.js 중고급 개발자로 성장하기 위한 필수 관문</li>
+</ul>
+
+<h2 id="flux란">Flux란?</h2>
+
+<ul>
+  <li>MVC 패턴의 복잡한 데이터 흐름 문제를 해결하는 개발 패턴
+    <ol>
+      <li>action : 화면에서 발생하는 이벤트 또는 사용자의 입력</li>
+      <li>dispatcher : 데이터를 변경하는 방법, 메서드</li>
+      <li>model : 화면에 표시할 데이터</li>
+      <li>view : 사용자에게 비춰지는 화면</li>
+    </ol>
+  </li>
+  <li>MVC패턴과 Flux패턴 비교<br />
+<img src="/assets/images/mvc_vs_flux.png" alt="mvc_vs_flux" />
+    <ul>
+      <li>view : 보고있는 화면</li>
+      <li>model : 데이터</li>
+      <li>controller : model과 view 제어
+        <blockquote>
+          <p>Flux패턴은 action에서 view까지 단방향으로 일어남 반면 MVC패턴은 model과 view가 서로 데이터를 주고받아서 양방향으로 일어남</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>MVC패턴의 문제점<br />
+<img src="/assets/images/mvc_problem.png" alt="mvc_problem" />
+    <ul>
+      <li>기능 추가 및 변경에 따라 생기는 문제점을 예측할 수 없음.</li>
+      <li>앱이 복잡해지면서 생기는 업데이트 루프</li>
+    </ul>
+  </li>
+  <li>Flux패턴의 단방향 흐름<br />
+<img src="/assets/images/flux_flow.png" alt="flux_flow" />
+    <ul>
+      <li>데이터의 흐름이 여러 갈래로 나뉘지 않고 단방향으로만 처리</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="vuex가-왜-필요할까">vuex가 왜 필요할까?</h2>
+
+<p>복잡한 애플리케이션에서 컴포넌트의 개수가 많아지면 컴포넌트간에 데이터 전달이 어려워진다.</p>
+
+<ul>
+  <li>vuex로 해결할 수 있는 문제
+    <ol>
+      <li>MVC 패턴에서 발생하는 구조적 오류</li>
+      <li>컴포넌트 간 데이터 전달 명시</li>
+      <li>여러 개의 컴포넌트에서 같은 데이터를 업데이트 할 때 동기화 문제</li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="이벤트-버스로-해결">이벤트 버스로 해결?</h4>
+<p>어디서 이벤트를 보냈는지 혹은 어디서 이벤트를 받았는지 알기 어려움</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Login.vue</span>
+<span class="nx">eventBus</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">fetch</span><span class="dl">'</span><span class="p">,</span> <span class="nx">loginInfo</span><span class="p">);</span>
+
+<span class="c1">// List.vue</span>
+<span class="nx">eventBus</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="dl">'</span><span class="s1">display</span><span class="dl">'</span><span class="p">,</span> <span class="nx">data</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">displayOnScreen</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+
+<span class="c1">// Chart.vue</span>
+<span class="nx">eventBus</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">refreshData</span><span class="dl">'</span><span class="p">,</span> <span class="nx">chartData</span><span class="p">);</span>
+</code></pre></div></div>
+<p>컴포넌트 간 데이터 전달이 명시적이지 않음</p>
+
+<h2 id="vuex-컨셉">vuex 컨셉</h2>
+<ul>
+  <li>State : 컴포넌트 간에 공유하는 데이터 <code class="language-plaintext highlighter-rouge">data()</code></li>
+  <li>View : 데이터를 표시하는 화면 <code class="language-plaintext highlighter-rouge">template</code></li>
+  <li>Action : 사용자의 입력에 따라 데이터를 변경하는 <code class="language-plaintext highlighter-rouge">methods</code>
+<img src="/assets/images/vuex_flow.png" alt="vuex_flow" /><br />
+흐름 설명 : 화면(view)에서 버튼을 클릭 하면 버튼이 action을 발생시킴 &gt; action이 발동하면 데이터(state)를 변경</li>
+</ul>
+
+<h2 id="vuex-구조">vuex 구조</h2>
+<p>컴포넌트 -&gt; 비동기 로직 -&gt; 동기 로직 -&gt; 상태
+<img src="/assets/images/vuex_construction.png" alt="vuex_construction" /><br />
+action : 비동기 로직<br />
+mutations : 동기 로직</p>
+
+<p><a href="https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-operation/">자바스크립트 비동기 처리와 콜백함수 참고 링크</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#store" class="page__taxonomy-item p-category" rel="tag">store</a><span class="sep">, </span>
+    
+      <a href="/tags/#vuex" class="page__taxonomy-item p-category" rel="tag">vuex</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#vue" class="page__taxonomy-item" rel="tag">vue</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-03-12T00:00:00+09:00">March 12, 2022</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=vuex%20http%3A%2F%2Flocalhost%3A4000%2Fvue%2Fvuex%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fvue%2Fvuex%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fvue%2Fvuex%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/git/gitbranch/" class="pagination--pager" title="git branch
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/git/gitbranch/" rel="permalink">git branch
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 12 2021</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">branch 생성하고 사용하기
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue/fontawesome/" rel="permalink">Vue에서 Fontawesome 사용하기
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 11 2021</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Fontawesome 삽입하기
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/javascript/rest/" rel="permalink">REST
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 09 2021</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">REST API, RESTful 이란
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/javascript/hoisting/" rel="permalink">호이스팅(Hoisting)
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 08 2021</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">javascript에서 호이스팅이란?
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 꿈꾸는 개발자. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

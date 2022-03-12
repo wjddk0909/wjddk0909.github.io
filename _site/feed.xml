@@ -1,261 +1,282 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-01-16T18:08:38+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">REST</title><link href="http://localhost:4000/javascript/rest/" rel="alternate" type="text/html" title="REST" /><published>2021-12-09T00:00:00+09:00</published><updated>2021-12-09T00:00:00+09:00</updated><id>http://localhost:4000/javascript/rest</id><content type="html" xml:base="http://localhost:4000/javascript/rest/">&lt;h2 id=&quot;rest에-대해-알아보자&quot;&gt;REST에 대해 알아보자&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-03-12T18:20:52+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">vuex</title><link href="http://localhost:4000/vue/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue/vuex</id><content type="html" xml:base="http://localhost:4000/vue/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
+
+<ul>
+  <li>복잡한 애플리케이션의 컴포넌트들을 효율적으로 관리하는 vuex 라이브러리</li>
+  <li>React의 Flux패턴에서 기인함</li>
+  <li>vue.js 중고급 개발자로 성장하기 위한 필수 관문</li>
+</ul>
+
+<h2 id="flux란">Flux란?</h2>
+
+<ul>
+  <li>MVC 패턴의 복잡한 데이터 흐름 문제를 해결하는 개발 패턴
+    <ol>
+      <li>action : 화면에서 발생하는 이벤트 또는 사용자의 입력</li>
+      <li>dispatcher : 데이터를 변경하는 방법, 메서드</li>
+      <li>model : 화면에 표시할 데이터</li>
+      <li>view : 사용자에게 비춰지는 화면</li>
+    </ol>
+  </li>
+  <li>MVC패턴과 Flux패턴 비교<br />
+<img src="/assets/images/mvc_vs_flux.png" alt="mvc_vs_flux" />
+    <ul>
+      <li>view : 보고있는 화면</li>
+      <li>model : 데이터</li>
+      <li>controller : model과 view 제어
+        <blockquote>
+          <p>Flux패턴은 action에서 view까지 단방향으로 일어남 반면 MVC패턴은 model과 view가 서로 데이터를 주고받아서 양방향으로 일어남</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>MVC패턴의 문제점<br />
+<img src="/assets/images/mvc_problem.png" alt="mvc_problem" />
+    <ul>
+      <li>기능 추가 및 변경에 따라 생기는 문제점을 예측할 수 없음.</li>
+      <li>앱이 복잡해지면서 생기는 업데이트 루프</li>
+    </ul>
+  </li>
+  <li>Flux패턴의 단방향 흐름<br />
+<img src="/assets/images/flux_flow.png" alt="flux_flow" />
+    <ul>
+      <li>데이터의 흐름이 여러 갈래로 나뉘지 않고 단방향으로만 처리</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="vuex가-왜-필요할까">vuex가 왜 필요할까?</h2>
+
+<p>복잡한 애플리케이션에서 컴포넌트의 개수가 많아지면 컴포넌트간에 데이터 전달이 어려워진다.</p>
+
+<ul>
+  <li>vuex로 해결할 수 있는 문제
+    <ol>
+      <li>MVC 패턴에서 발생하는 구조적 오류</li>
+      <li>컴포넌트 간 데이터 전달 명시</li>
+      <li>여러 개의 컴포넌트에서 같은 데이터를 업데이트 할 때 동기화 문제</li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="이벤트-버스로-해결">이벤트 버스로 해결?</h4>
+<p>어디서 이벤트를 보냈는지 혹은 어디서 이벤트를 받았는지 알기 어려움</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Login.vue</span>
+<span class="nx">eventBus</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">fetch</span><span class="dl">'</span><span class="p">,</span> <span class="nx">loginInfo</span><span class="p">);</span>
+
+<span class="c1">// List.vue</span>
+<span class="nx">eventBus</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="dl">'</span><span class="s1">display</span><span class="dl">'</span><span class="p">,</span> <span class="nx">data</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">displayOnScreen</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+
+<span class="c1">// Chart.vue</span>
+<span class="nx">eventBus</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">refreshData</span><span class="dl">'</span><span class="p">,</span> <span class="nx">chartData</span><span class="p">);</span>
+</code></pre></div></div>
+<p>컴포넌트 간 데이터 전달이 명시적이지 않음</p>
+
+<h2 id="vuex-컨셉">vuex 컨셉</h2>
+<ul>
+  <li>State : 컴포넌트 간에 공유하는 데이터 <code class="language-plaintext highlighter-rouge">data()</code></li>
+  <li>View : 데이터를 표시하는 화면 <code class="language-plaintext highlighter-rouge">template</code></li>
+  <li>Action : 사용자의 입력에 따라 데이터를 변경하는 <code class="language-plaintext highlighter-rouge">methods</code>
+<img src="/assets/images/vuex_flow.png" alt="vuex_flow" /><br />
+흐름 설명 : 화면(view)에서 버튼을 클릭 하면 버튼이 action을 발생시킴 &gt; action이 발동하면 데이터(state)를 변경</li>
+</ul>
+
+<h2 id="vuex-구조">vuex 구조</h2>
+<p>컴포넌트 -&gt; 비동기 로직 -&gt; 동기 로직 -&gt; 상태
+<img src="/assets/images/vuex_construction.png" alt="vuex_construction" /><br />
+action : 비동기 로직<br />
+mutations : 동기 로직</p>
+
+<p><a href="https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-operation/">자바스크립트 비동기 처리와 콜백함수 참고 링크</a></p>]]></content><author><name>FE Developer</name></author><category term="vue" /><category term="vuex" /><category term="store" /><summary type="html"><![CDATA[vuex란?]]></summary></entry><entry><title type="html">git branch</title><link href="http://localhost:4000/git/gitbranch/" rel="alternate" type="text/html" title="git branch" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/git/gitbranch</id><content type="html" xml:base="http://localhost:4000/git/gitbranch/"><![CDATA[<h2 id="git-branch-생성하고-사용하는-방법">git branch 생성하고 사용하는 방법</h2>
+
+<ul>
+  <li>git init : git 저장소 생성(초기화)</li>
+  <li>git remote add origin {link} : link에 생성한 레포지토리 url복사해서 넣기</li>
+  <li>git branch : 깃 브랜치 확인</li>
+  <li>git branch -v : 마지막 커밋메세지 확인</li>
+  <li>git branch 브랜치명 : 브랜치 생성</li>
+  <li>git checkout 브랜치명 : 선택한 브랜치로 이동</li>
+  <li>git add . : 변경한 파일을 저장</li>
+  <li>git commit -m “커밋메세지” : 커밋메세지 입력</li>
+  <li>git push origin 브랜치명 : 원격저장소 브랜치에 push 하기</li>
+</ul>]]></content><author><name>FE Developer</name></author><category term="git" /><category term="git" /><category term="branch" /><summary type="html"><![CDATA[branch 생성하고 사용하기]]></summary></entry><entry><title type="html">Vue에서 Fontawesome 사용하기</title><link href="http://localhost:4000/vue/fontawesome/" rel="alternate" type="text/html" title="Vue에서 Fontawesome 사용하기" /><published>2021-12-11T00:00:00+09:00</published><updated>2021-12-11T00:00:00+09:00</updated><id>http://localhost:4000/vue/fontawesome</id><content type="html" xml:base="http://localhost:4000/vue/fontawesome/"><![CDATA[<h2 id="vue에서-fontawesome-사용하기">Vue에서 Fontawesome 사용하기</h2>
 
-&lt;p&gt;REST에 대해 알아보기전에 api에 대해 다시 한번 확인해보자.&lt;br /&gt;
-api에 대한 포스팅이 따로 있지만 여기에서는 비유를 통해 간단히 설명한다.&lt;/p&gt;
+<p>폰트어썸 업데이트하면서 부터인지 vue에서 사용하려면 메일로 무료키트 사용 링크를 받아야한다.<br />
+fontawsome.com/start로 접속 &gt; 이메일 입력 &gt; 확인, 설정 버튼 클릭 &gt; 폰트어썸 로그인 후 무료키트 링크 카피해서 index.html 헤드에 추가</p>]]></content><author><name>FE Developer</name></author><category term="vue" /><category term="vue" /><category term="fontawesome" /><summary type="html"><![CDATA[Fontawesome 삽입하기]]></summary></entry><entry><title type="html">REST</title><link href="http://localhost:4000/javascript/rest/" rel="alternate" type="text/html" title="REST" /><published>2021-12-09T00:00:00+09:00</published><updated>2021-12-09T00:00:00+09:00</updated><id>http://localhost:4000/javascript/rest</id><content type="html" xml:base="http://localhost:4000/javascript/rest/"><![CDATA[<h2 id="rest에-대해-알아보자">REST에 대해 알아보자</h2>
 
-&lt;p&gt;좋아하는 드라마의 본방사수를 위해서 집에 서둘러 들어와 티비를 켜고 원하는 채널을 틀어야 하는 상황일때 이러한 과정이 필요하다.&lt;br /&gt;
-티비 리모컨의 전원 버튼을 눌러 티비를 켜고 채널 버튼을 눌러 원하는 채널로 돌려야 한다.&lt;br /&gt;
-나 &amp;gt; &lt;strong&gt;리모컨&lt;/strong&gt; &amp;gt; 티비 이러한 순서로 볼 수 있다.&lt;/p&gt;
+<p>REST에 대해 알아보기전에 api에 대해 다시 한번 확인해보자.<br />
+api에 대한 포스팅이 따로 있지만 여기에서는 비유를 통해 간단히 설명한다.</p>
 
-&lt;p&gt;즉 API는 리모컨 처럼 애플리케이션과 운영체게 사이의 ‘상호작용’을 돕는다.&lt;/p&gt;
+<p>좋아하는 드라마의 본방사수를 위해서 집에 서둘러 들어와 티비를 켜고 원하는 채널을 틀어야 하는 상황일때 이러한 과정이 필요하다.<br />
+티비 리모컨의 전원 버튼을 눌러 티비를 켜고 채널 버튼을 눌러 원하는 채널로 돌려야 한다.<br />
+나 &gt; <strong>리모컨</strong> &gt; 티비 이러한 순서로 볼 수 있다.</p>
 
-&lt;h3 id=&quot;웹-api의-역할&quot;&gt;웹 API의 역할&lt;/h3&gt;
+<p>즉 API는 리모컨 처럼 애플리케이션과 운영체게 사이의 ‘상호작용’을 돕는다.</p>
 
-&lt;ul&gt;
-  &lt;li&gt;권한을 가진 사람만 서버와 데이터베이스안의 리소스에 접근이 가능하게 해준다.&lt;/li&gt;
-  &lt;li&gt;모든 요청(request)와 응답(response)를 표준화 해준다.&lt;/li&gt;
-&lt;/ul&gt;
+<h3 id="웹-api의-역할">웹 API의 역할</h3>
 
-&lt;h2 id=&quot;rest의-구성요소&quot;&gt;REST의 구성요소&lt;/h2&gt;
+<ul>
+  <li>권한을 가진 사람만 서버와 데이터베이스안의 리소스에 접근이 가능하게 해준다.</li>
+  <li>모든 요청(request)와 응답(response)를 표준화 해준다.</li>
+</ul>
 
-&lt;ol&gt;
-  &lt;li&gt;자원(Resource) : HTTP UIR 를 통한 자원 명시&lt;/li&gt;
-  &lt;li&gt;자원에 대한 행위(Verb) : HTTP Method(post, get put, delete)&lt;/li&gt;
-  &lt;li&gt;자원에 대한 행위의 내용(Representations) : HTTP Message Pay Load&lt;/li&gt;
-&lt;/ol&gt;
+<h2 id="rest의-구성요소">REST의 구성요소</h2>
 
-&lt;h2 id=&quot;rest-api&quot;&gt;REST API&lt;/h2&gt;
+<ol>
+  <li>자원(Resource) : HTTP UIR 를 통한 자원 명시</li>
+  <li>자원에 대한 행위(Verb) : HTTP Method(post, get put, delete)</li>
+  <li>자원에 대한 행위의 내용(Representations) : HTTP Message Pay Load</li>
+</ol>
 
-&lt;p&gt;REST API란 REST의 원리를 따르는 API를 의미한다.
-리소스(HTTP URI)로 어떠한 행위(HTTP Method + Pay Load)를 하겠다는 것을 구조적으로 표현하는 방법이다.&lt;/p&gt;
+<h2 id="rest-api">REST API</h2>
 
-&lt;p&gt;REST API의 설계 가이드를 살펴보자.&lt;/p&gt;
+<p>REST API란 REST의 원리를 따르는 API를 의미한다.
+리소스(HTTP URI)로 어떠한 행위(HTTP Method + Pay Load)를 하겠다는 것을 구조적으로 표현하는 방법이다.</p>
 
-&lt;ol&gt;
-  &lt;li&gt;URI는 명사, 소문자를 사용한다.&lt;/li&gt;
-  &lt;li&gt;마지막에 슬래시를 포함하지 않는다.&lt;/li&gt;
-  &lt;li&gt;언더바 대신 하이픈을 사용한다.&lt;/li&gt;
-  &lt;li&gt;URI에 파일확장자는 포함하지 않는다.&lt;/li&gt;
-&lt;/ol&gt;
+<p>REST API의 설계 가이드를 살펴보자.</p>
 
-&lt;h2 id=&quot;restful-이란&quot;&gt;RESTful 이란?&lt;/h2&gt;
+<ol>
+  <li>URI는 명사, 소문자를 사용한다.</li>
+  <li>마지막에 슬래시를 포함하지 않는다.</li>
+  <li>언더바 대신 하이픈을 사용한다.</li>
+  <li>URI에 파일확장자는 포함하지 않는다.</li>
+</ol>
 
-&lt;p&gt;RESTful이란 REST API의 설계 가이드를 올바르게 지킨 시스템을 RESTful 하다고 말할 수 있다.
-RESTful하게 만들면 그자체로 API의 목적이 무엇인지 명확하게 알 수 있다.&lt;/p&gt;</content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="api" /><category term="REST" /><category term="RESTful" /><summary type="html">REST API, RESTful 이란</summary></entry><entry><title type="html">호이스팅(Hoisting)</title><link href="http://localhost:4000/javascript/hoisting/" rel="alternate" type="text/html" title="호이스팅(Hoisting)" /><published>2021-12-08T00:00:00+09:00</published><updated>2021-12-08T00:00:00+09:00</updated><id>http://localhost:4000/javascript/hoisting</id><content type="html" xml:base="http://localhost:4000/javascript/hoisting/">&lt;h2 id=&quot;hoisting에-대해-알아보자&quot;&gt;hoisting에 대해 알아보자&lt;/h2&gt;
+<h2 id="restful-이란">RESTful 이란?</h2>
 
-&lt;blockquote&gt;
-  &lt;p&gt;자바스크립트에서 호이스팅(Hoisting)이란, 인터프리터가 변수와 함수의 공간을 선언전에 미리 할당 하는 것을 의미한다.&lt;/p&gt;
-&lt;/blockquote&gt;
+<p>RESTful이란 REST API의 설계 가이드를 올바르게 지킨 시스템을 RESTful 하다고 말할 수 있다.
+RESTful하게 만들면 그자체로 API의 목적이 무엇인지 명확하게 알 수 있다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="api" /><category term="REST" /><category term="RESTful" /><summary type="html"><![CDATA[REST API, RESTful 이란]]></summary></entry><entry><title type="html">호이스팅(Hoisting)</title><link href="http://localhost:4000/javascript/hoisting/" rel="alternate" type="text/html" title="호이스팅(Hoisting)" /><published>2021-12-08T00:00:00+09:00</published><updated>2021-12-08T00:00:00+09:00</updated><id>http://localhost:4000/javascript/hoisting</id><content type="html" xml:base="http://localhost:4000/javascript/hoisting/"><![CDATA[<h2 id="hoisting에-대해-알아보자">hoisting에 대해 알아보자</h2>
 
-&lt;p&gt;실행컨텍스트의 처리 순서를 살펴보면,&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;선언 단계(Declaration phase) : 변수, 함수선언문 설정&lt;/li&gt;
-  &lt;li&gt;초기화 단계(Initialization phase) : 변수 이름 바인딩 (값은 undefined로 초기화)&lt;/li&gt;
-  &lt;li&gt;할당 단계(Assignment phase)&lt;/li&gt;
-&lt;/ol&gt;
+<blockquote>
+  <p>자바스크립트에서 호이스팅(Hoisting)이란, 인터프리터가 변수와 함수의 공간을 선언전에 미리 할당 하는 것을 의미한다.</p>
+</blockquote>
 
-&lt;p&gt;위 순서로 처리가 된다.&lt;/p&gt;
+<p>실행컨텍스트의 처리 순서를 살펴보면,</p>
+<ol>
+  <li>선언 단계(Declaration phase) : 변수, 함수선언문 설정</li>
+  <li>초기화 단계(Initialization phase) : 변수 이름 바인딩 (값은 undefined로 초기화)</li>
+  <li>할당 단계(Assignment phase)</li>
+</ol>
 
-&lt;p&gt;이때, let변수는 호이스팅 되지 않는다.(사실상 호이스팅은 되지만 안되는것과 비슷하다.)
-var 변수는 선언단계와 초기화단계가 동시에 진행되어 변수이름을 바인딩하면서 값이 undefined로 초기화되는 반면,&lt;br /&gt;
-let 변수는 선언단계와 초기화단계가 따로 진행된다.&lt;br /&gt;
-그래서 실행컨텍스트에 변수가 등록이 되었지만 메모리가 할당이 되어있지 않기 때문에 ReferenceError가 발생한다.&lt;/p&gt;
+<p>위 순서로 처리가 된다.</p>
 
-&lt;p&gt;여기서 TDZ가 무엇인지 알고 가자.&lt;br /&gt;
-TDZ란 “temporal dead zone” 일시적인 사각지대 라고 직역할 수 있다.&lt;br /&gt;
-TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간이다.&lt;/p&gt;
+<p>이때, let변수는 호이스팅 되지 않는다.(사실상 호이스팅은 되지만 안되는것과 비슷하다.)
+var 변수는 선언단계와 초기화단계가 동시에 진행되어 변수이름을 바인딩하면서 값이 undefined로 초기화되는 반면,<br />
+let 변수는 선언단계와 초기화단계가 따로 진행된다.<br />
+그래서 실행컨텍스트에 변수가 등록이 되었지만 메모리가 할당이 되어있지 않기 때문에 ReferenceError가 발생한다.</p>
 
-&lt;p&gt;즉, let변수는 TDZ구간에 의해 메모리가 할당이 되지 않기 때문에 참조에러(ReferenceError)가 발생한다.&lt;/p&gt;
+<p>여기서 TDZ가 무엇인지 알고 가자.<br />
+TDZ란 “temporal dead zone” 일시적인 사각지대 라고 직역할 수 있다.<br />
+TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간이다.</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;예)&lt;/p&gt;
-&lt;/blockquote&gt;
+<p>즉, let변수는 TDZ구간에 의해 메모리가 할당이 되지 않기 때문에 참조에러(ReferenceError)가 발생한다.</p>
 
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`스포츠: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 스포츠: undefined&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;축구&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+<blockquote>
+  <p>예)</p>
+</blockquote>
 
-    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`스포츠: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// ReferenceError: sports is not defined&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;축구&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="hoisting" /><summary type="html">javascript에서 호이스팅이란?</summary></entry><entry><title type="html">api</title><link href="http://localhost:4000/javascript/api/" rel="alternate" type="text/html" title="api" /><published>2021-12-07T00:00:00+09:00</published><updated>2021-12-07T00:00:00+09:00</updated><id>http://localhost:4000/javascript/api</id><content type="html" xml:base="http://localhost:4000/javascript/api/">&lt;h2 id=&quot;api에-대해-알아보자&quot;&gt;api에 대해 알아보자&lt;/h2&gt;
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`스포츠: </span><span class="p">${</span><span class="nx">sports</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// 스포츠: undefined</span>
+    <span class="kd">var</span> <span class="nx">sports</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">축구</span><span class="dl">'</span><span class="p">;</span>
 
-&lt;p&gt;“API(Application Progtamming Interface, 응용프로그램 프로그래밍 인터페이스)는 응용 프로그램에서 사용할 수 있도록, 운영체제나 프로그래밍 언어가 제공하는 기능을 제어할 수 있게 만든 인터페이스를 뜻한다.” -위키백과&lt;/p&gt;
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`스포츠: </span><span class="p">${</span><span class="nx">sports</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// ReferenceError: sports is not defined</span>
+    <span class="kd">let</span> <span class="nx">sports</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">축구</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="hoisting" /><summary type="html"><![CDATA[javascript에서 호이스팅이란?]]></summary></entry><entry><title type="html">api</title><link href="http://localhost:4000/javascript/api/" rel="alternate" type="text/html" title="api" /><published>2021-12-07T00:00:00+09:00</published><updated>2021-12-07T00:00:00+09:00</updated><id>http://localhost:4000/javascript/api</id><content type="html" xml:base="http://localhost:4000/javascript/api/"><![CDATA[<h2 id="api에-대해-알아보자">api에 대해 알아보자</h2>
 
-&lt;p&gt;api는 프로그램이 서로 상호작용하는 것을 도와주는 매개체라고 볼 수 있다.&lt;br /&gt;
-프로그램이 주문하도록 명령을 정리하고, 그 명령을 받아서 응용프로그램과 상호작용하여 요청된 명령에 대한 값을 전달한다.&lt;/p&gt;
+<p>“API(Application Progtamming Interface, 응용프로그램 프로그래밍 인터페이스)는 응용 프로그램에서 사용할 수 있도록, 운영체제나 프로그래밍 언어가 제공하는 기능을 제어할 수 있게 만든 인터페이스를 뜻한다.” -위키백과</p>
 
-&lt;ol&gt;
-  &lt;li&gt;서버와 데이터베이스의 출입구 역할을 한다.&lt;/li&gt;
-  &lt;li&gt;애플리케이션과 기기가 원활하게 통신하도록 한다.&lt;/li&gt;
-  &lt;li&gt;모든 접속을 표준화 한다.&lt;/li&gt;
-&lt;/ol&gt;
+<p>api는 프로그램이 서로 상호작용하는 것을 도와주는 매개체라고 볼 수 있다.<br />
+프로그램이 주문하도록 명령을 정리하고, 그 명령을 받아서 응용프로그램과 상호작용하여 요청된 명령에 대한 값을 전달한다.</p>
 
-&lt;p&gt;개발자들이 어플리케이션 코드 작성을 표준화 해서 빠르고 간단히 프로세스 처리가 가능하다.&lt;br /&gt;
-또한 개발자들간의 협업도 용이해진다.&lt;/p&gt;
-
-&lt;p&gt;즉, api는 어떠한 응용프로그램에서 데이터를 주고받기 위한 방법이다.&lt;br /&gt;
-특정 사이트에서 데이터를 공유할때 어떤 방식으로 요청해야 하는지, 어떤 데이터를 제공 받을수 있는지에 대한 규격들을 말한다.&lt;/p&gt;</content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="api" /><summary type="html">api란 무엇인가</summary></entry><entry><title type="html">call/apply/bind 함수의 차이점</title><link href="http://localhost:4000/javascript/javascript-function1/" rel="alternate" type="text/html" title="call/apply/bind 함수의 차이점" /><published>2021-12-06T00:00:00+09:00</published><updated>2021-12-06T00:00:00+09:00</updated><id>http://localhost:4000/javascript/javascript-function1</id><content type="html" xml:base="http://localhost:4000/javascript/javascript-function1/">&lt;h2 id=&quot;callapplybind-함수의-차이점은&quot;&gt;call/apply/bind 함수의 차이점은?&lt;/h2&gt;
+<ol>
+  <li>서버와 데이터베이스의 출입구 역할을 한다.</li>
+  <li>애플리케이션과 기기가 원활하게 통신하도록 한다.</li>
+  <li>모든 접속을 표준화 한다.</li>
+</ol>
 
-&lt;p&gt;예제를 보고 확인해보자.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;예)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;maru&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;live&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`Hi my name is &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, I live in &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;live&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;korea&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Hi my name is , I live in korea&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;live&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;korea&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Hi my name is maru, I live in korea&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;live&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;korea&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Hi my name is maru, I live in korea&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;call과 apply는 함수를 호출하는 함수&lt;br /&gt;
-첫번째 인자인 “obj”로 this를 변경하고 함수를 실행한다.&lt;br /&gt;
-(apply는 파라미터를 배열로 넣어야 한다.)&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;예)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;maru&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;live&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`Hi my name is &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, I live in &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;city&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bound&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;live&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;bound&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;korea&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Hi my name is maru, I live in korea&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;bind함수는 함수를 실행하지 않는다.&lt;/p&gt;</content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="function" /><category term="call" /><category term="apply" /><category term="bind" /><summary type="html">call()/apply()/bind()</summary></entry><entry><title type="html">DOM</title><link href="http://localhost:4000/javascript/frontend/javascript-dom/" rel="alternate" type="text/html" title="DOM" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>http://localhost:4000/javascript/frontend/javascript-dom</id><content type="html" xml:base="http://localhost:4000/javascript/frontend/javascript-dom/">&lt;h2 id=&quot;dom-소개&quot;&gt;DOM 소개&lt;/h2&gt;
-
-&lt;p&gt;javascript를 공부하면서 DOM을 빼놓고 이야기 할 수 없다.&lt;/p&gt;
-
-&lt;p&gt;DOM이란 무엇인가? 그전에 BOM에 대해서 알아보자.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;BOM이란 무엇인가?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;브라우저를 바탕으로 웹서비스가 실행이 되는데, 이와 관련된 객체들의 집합을 브라우저객체모델(Browser Object Model)이라고 한다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;웹브라우저와 관련된 객체의 집합&lt;/li&gt;
-  &lt;li&gt;window객체가 최상위 객체&lt;/li&gt;
-  &lt;li&gt;웹브라우저가 제공하는 기능&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;DOM의 정의(MDN참조)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;DOM은 Document Object Model의 약자이다.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;HTML, XML 문서의 프로그래밍 인터페이스&lt;/li&gt;
-  &lt;li&gt;문서의 구조화된 표현을 제공하고, 프로그래밍 언어가 DOM구조에 접근할 수 있는 방법을 제공해서 문서구조, 스타일, 내용등을 변경할 수 있게 한다.&lt;/li&gt;
-  &lt;li&gt;웹페이지를 스크립트 또는 프로그래밍 언어들에서 사용되도록 연결해준다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;DOM이 무엇인가…&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;내가 html에 쓴 파일이 DOM은 아니다. 그러나 브라우저에 의해서 파싱이 된다면 DOM이 된다.&lt;/li&gt;
-  &lt;li&gt;view source에서 보이는것도 DOM이 아니다.&lt;/li&gt;
-  &lt;li&gt;dev Tools(개발자 도구)에서 보여주는 것이 DOM이다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;DOM은 웹페이지의 객체 지향 표현이고, 자바스크립트와 같은 스크립트 언어로 DOM을 수정할수 있다.&lt;/p&gt;</content><author><name>FE Developer</name></author><category term="javascript" /><category term="frontend" /><category term="javascript" /><category term="DOM" /><summary type="html">DOM 소개</summary></entry><entry><title type="html">마크다운 문법</title><link href="http://localhost:4000/blog/md/" rel="alternate" type="text/html" title="마크다운 문법" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/blog/md</id><content type="html" xml:base="http://localhost:4000/blog/md/">&lt;h2 id=&quot;마크다운-문법에-대하여&quot;&gt;마크다운 문법에 대하여&lt;/h2&gt;
-
-&lt;p&gt;제목을 쓸 때는 #을 이용&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;#h1&lt;br /&gt;
-##h2&lt;br /&gt;
-###h3&lt;br /&gt;
-####h4&lt;br /&gt;
-#####h5&lt;br /&gt;
-######h6&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;강조는 각각 &amp;lt;em&amp;gt;, &amp;lt;strong&amp;gt;, &amp;lt;del&amp;gt; 사용&lt;/p&gt;
-
-&lt;p&gt;html 태그표현은&lt;br /&gt;
-예)&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;```html&lt;/p&gt;
-
-  &lt;p&gt;&amp;lt;div&amp;gt;&lt;br /&gt;
- &amp;lt;p&amp;gt;Hello, JEKYLL!&amp;lt;/p&amp;gt;&lt;br /&gt;
-&amp;lt;/div&amp;gt;  &lt;br /&gt;
-```&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;결과)&lt;/p&gt;
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
- &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Hello, JEKYLL!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;별표시&lt;br /&gt;
-예)&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\*별표이지, 강조가 아닙니다\*
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;결과)
-*별표이지, 강조가 아닙니다*&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;변수 입력은 `$var = “JEKYLL”;` 이렇게 합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;변수 입력은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$var = &quot;JEKYLL&quot;;&lt;/code&gt; 이렇게 합니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;자바스크립트&lt;/p&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;syntaxHighlight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-   &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-   &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bar&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1234&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>FE Developer</name></author><category term="Blog" /><category term="Blog" /><category term="Post" /><category term="Markdown" /><summary type="html">md문법 알아보자</summary></entry><entry><title type="html">인스턴스</title><link href="http://localhost:4000/javascript/javascript-instance/" rel="alternate" type="text/html" title="인스턴스" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/javascript/javascript-instance</id><content type="html" xml:base="http://localhost:4000/javascript/javascript-instance/">&lt;h2 id=&quot;인스턴스란&quot;&gt;인스턴스란?&lt;/h2&gt;
-
-&lt;p&gt;인스턴스는 클래스나 프로토타입을 사용해 만든다.
-즉, 프로퍼티와 메소드를 상속 받는다.&lt;/p&gt;
-
-&lt;p&gt;원래의 객체가 가지고 있던 것을 동일하게 사용하면서, 거기에 확장시켜 추가된 개별속성을 가질 수 있다.&lt;/p&gt;
-
-&lt;p&gt;예를 들어, “모자”라는 객체의 인스턴스로 “모자1”을 생성했을때 “모자1”은 “파란 모자”가 될 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nx&quot;&gt;cap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cap1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;blue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cap2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;black&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;✅ 추가 설명
-떡볶이 레시피를 가지고 떡볶이를 먹으려면 “떡볶이”를 만들어야 한다. 
-어제 “떡볶이”를 만들고, 오늘 또 “떡볶이”를 만들었다고 가정 했을때 만들어진 “떡볶이”는 [인스턴스]가 된다.
-여기서 두개의 떡볶이는 같은 레시피를 보고 만들었지만 동일한 대상은 아니다.&lt;/p&gt;</content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="instance" /><category term="primitive" /><summary type="html">인스턴스란</summary></entry><entry><title type="html">github.io 블로그 시작하기</title><link href="http://localhost:4000/blog/firstpost/" rel="alternate" type="text/html" title="github.io 블로그 시작하기" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/blog/firstpost</id><content type="html" xml:base="http://localhost:4000/blog/firstpost/">&lt;h2 id=&quot;jekyll-블로그-시작&quot;&gt;jekyll 블로그 시작&lt;/h2&gt;
-
-&lt;p&gt;무료 Jekyll theme 중 가장 많이 사용되고 있는 “minimal-mistakes”를 사용해서 만들기&lt;/p&gt;
-
-&lt;p&gt;디자인도 깔끔하고 제작자가 꾸준히 업데이트를 하고있으며, 많이 사용되고 있는 만큼 참고할 자료도 많을 것으로 보인다.&lt;/p&gt;
-
-&lt;p&gt;이글의 제목은 github.io 블로그 시작하기 이고,
-오늘은 2021-12-03이다.
-앞으로 공부하면서 계속해서 정리해서 올려봐야겠다.&lt;/p&gt;</content><author><name>FE Developer</name></author><category term="Blog" /><category term="Jekyll" /><category term="theme" /><category term="Blog" /><summary type="html">GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.</summary></entry><entry><title type="html">GitHub 글 쓰기</title><link href="http://localhost:4000/blog/post/" rel="alternate" type="text/html" title="GitHub 글 쓰기" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/blog/post</id><content type="html" xml:base="http://localhost:4000/blog/post/">&lt;h2 id=&quot;github-블로그-글-등록하기&quot;&gt;GitHub 블로그 글 등록하기&lt;/h2&gt;
-
-&lt;p&gt;첫 글을 등록해보자.&lt;/p&gt;
-
-&lt;p&gt;지킬은 정해진 포맷에 맞춰 글을 등록해야 하는데, _posts폴더에 md확장자로 등록한다.&lt;/p&gt;
-
-&lt;p&gt;처음에는 _posts폴더가 없으므로 만들어야 한다.
-_posts폴더를 생성한후 파일명의 형식은 year-month-day-제목.md 로 파일을 생성한다.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--- 
-title: &quot;github.io 블로그 시작하기&quot; 
-excerpt: &quot;GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.&quot; 
+<p>개발자들이 어플리케이션 코드 작성을 표준화 해서 빠르고 간단히 프로세스 처리가 가능하다.<br />
+또한 개발자들간의 협업도 용이해진다.</p>
+
+<p>즉, api는 어떠한 응용프로그램에서 데이터를 주고받기 위한 방법이다.<br />
+특정 사이트에서 데이터를 공유할때 어떤 방식으로 요청해야 하는지, 어떤 데이터를 제공 받을수 있는지에 대한 규격들을 말한다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="api" /><summary type="html"><![CDATA[api란 무엇인가]]></summary></entry><entry><title type="html">call/apply/bind 함수의 차이점</title><link href="http://localhost:4000/javascript/javascript-function1/" rel="alternate" type="text/html" title="call/apply/bind 함수의 차이점" /><published>2021-12-06T00:00:00+09:00</published><updated>2021-12-06T00:00:00+09:00</updated><id>http://localhost:4000/javascript/javascript-function1</id><content type="html" xml:base="http://localhost:4000/javascript/javascript-function1/"><![CDATA[<h2 id="callapplybind-함수의-차이점은">call/apply/bind 함수의 차이점은?</h2>
+
+<p>예제를 보고 확인해보자.</p>
+
+<blockquote>
+  <p>예)</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="dl">'</span><span class="s1">maru</span><span class="dl">'</span><span class="p">};</span>
+    <span class="kd">const</span> <span class="nx">live</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">city</span><span class="p">){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Hi my name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">, I live in </span><span class="p">${</span><span class="nx">city</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">};</span>
+    <span class="nx">live</span><span class="p">(</span><span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Hi my name is , I live in korea</span>
+    <span class="nx">live</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Hi my name is maru, I live in korea</span>
+    <span class="nx">live</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="p">[</span><span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">]);</span> <span class="c1">// Hi my name is maru, I live in korea</span>
+</code></pre></div></div>
+
+<p>call과 apply는 함수를 호출하는 함수<br />
+첫번째 인자인 “obj”로 this를 변경하고 함수를 실행한다.<br />
+(apply는 파라미터를 배열로 넣어야 한다.)</p>
+
+<blockquote>
+  <p>예)</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="dl">'</span><span class="s1">maru</span><span class="dl">'</span><span class="p">};</span>
+    <span class="kd">const</span> <span class="nx">live</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">city</span><span class="p">){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Hi my name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">, I live in </span><span class="p">${</span><span class="nx">city</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">};</span>
+    <span class="kd">const</span> <span class="nx">bound</span> <span class="o">=</span> <span class="nx">live</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
+    <span class="nx">bound</span><span class="p">(</span><span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Hi my name is maru, I live in korea</span>
+</code></pre></div></div>
+
+<p>bind함수는 함수를 실행하지 않는다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="function" /><category term="call" /><category term="apply" /><category term="bind" /><summary type="html"><![CDATA[call()/apply()/bind()]]></summary></entry><entry><title type="html">DOM</title><link href="http://localhost:4000/javascript/frontend/javascript-dom/" rel="alternate" type="text/html" title="DOM" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>http://localhost:4000/javascript/frontend/javascript-dom</id><content type="html" xml:base="http://localhost:4000/javascript/frontend/javascript-dom/"><![CDATA[<h2 id="dom-소개">DOM 소개</h2>
+
+<p>javascript를 공부하면서 DOM을 빼놓고 이야기 할 수 없다.</p>
+
+<p>DOM이란 무엇인가? 그전에 BOM에 대해서 알아보자.</p>
+
+<blockquote>
+  <p>BOM이란 무엇인가?</p>
+</blockquote>
+
+<p>브라우저를 바탕으로 웹서비스가 실행이 되는데, 이와 관련된 객체들의 집합을 브라우저객체모델(Browser Object Model)이라고 한다.</p>
+
+<ul>
+  <li>웹브라우저와 관련된 객체의 집합</li>
+  <li>window객체가 최상위 객체</li>
+  <li>웹브라우저가 제공하는 기능</li>
+</ul>
+
+<blockquote>
+  <p>DOM의 정의(MDN참조)</p>
+</blockquote>
+
+<p>DOM은 Document Object Model의 약자이다.</p>
+<ul>
+  <li>HTML, XML 문서의 프로그래밍 인터페이스</li>
+  <li>문서의 구조화된 표현을 제공하고, 프로그래밍 언어가 DOM구조에 접근할 수 있는 방법을 제공해서 문서구조, 스타일, 내용등을 변경할 수 있게 한다.</li>
+  <li>웹페이지를 스크립트 또는 프로그래밍 언어들에서 사용되도록 연결해준다.</li>
+</ul>
+
+<p>DOM이 무엇인가…</p>
+<ul>
+  <li>내가 html에 쓴 파일이 DOM은 아니다. 그러나 브라우저에 의해서 파싱이 된다면 DOM이 된다.</li>
+  <li>view source에서 보이는것도 DOM이 아니다.</li>
+  <li>dev Tools(개발자 도구)에서 보여주는 것이 DOM이다.</li>
+</ul>
+
+<p>DOM은 웹페이지의 객체 지향 표현이고, 자바스크립트와 같은 스크립트 언어로 DOM을 수정할수 있다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="frontend" /><category term="javascript" /><category term="DOM" /><summary type="html"><![CDATA[DOM 소개]]></summary></entry><entry><title type="html">GitHub 글 쓰기</title><link href="http://localhost:4000/blog/post/" rel="alternate" type="text/html" title="GitHub 글 쓰기" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/blog/post</id><content type="html" xml:base="http://localhost:4000/blog/post/"><![CDATA[<h2 id="github-블로그-글-등록하기">GitHub 블로그 글 등록하기</h2>
+
+<p>첫 글을 등록해보자.</p>
+
+<p>지킬은 정해진 포맷에 맞춰 글을 등록해야 하는데, _posts폴더에 md확장자로 등록한다.</p>
+
+<p>처음에는 _posts폴더가 없으므로 만들어야 한다.
+_posts폴더를 생성한후 파일명의 형식은 year-month-day-제목.md 로 파일을 생성한다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--- 
+title: "github.io 블로그 시작하기" 
+excerpt: "GitHub Blog 서비스인 github.io 블로그 시작하기로 했다." 
 last_modified_at: 2021-12-03
 categories: 
     - Blog 
@@ -266,7 +287,7 @@ tags:
 --- 
 ## jekyll 블로그 시작 
 
-테마는 가장 많이 사용되고 있는 &quot;minimal-mistakes&quot;를 사용
+테마는 가장 많이 사용되고 있는 "minimal-mistakes"를 사용
 
 디자인도 깔끔하고 제작자가 꾸준히 업데이트를 하고있으며, 
 많이 사용되고 있는 만큼 참고할 자료도 많을 것으로 보인다.
@@ -274,8 +295,137 @@ tags:
 이글의 제목은 GitHub 글 쓰기 이고,
 오늘은 2021-12-03이다.
 앞으로 공부하면서 계속해서 정리해서 올려봐야겠다.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;p&gt;이런 형식으로 올리면 
-&lt;img src=&quot;https://user-images.githubusercontent.com/34855369/144614561-69bbe98a-3797-4e7d-8209-399fe73e4690.png&quot; alt=&quot;post등록하기&quot; /&gt;
-이렇게 등록이 된 것을 확인 할 수 있다.&lt;/p&gt;</content><author><name>FE Developer</name></author><category term="Blog" /><category term="Blog" /><category term="Post" /><summary type="html">post 등록하기</summary></entry></feed>
+<p>이런 형식으로 올리면 
+<img src="https://user-images.githubusercontent.com/34855369/144614561-69bbe98a-3797-4e7d-8209-399fe73e4690.png" alt="post등록하기" />
+이렇게 등록이 된 것을 확인 할 수 있다.</p>]]></content><author><name>FE Developer</name></author><category term="Blog" /><category term="Blog" /><category term="Post" /><summary type="html"><![CDATA[post 등록하기]]></summary></entry><entry><title type="html">마크다운 문법</title><link href="http://localhost:4000/blog/md/" rel="alternate" type="text/html" title="마크다운 문법" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/blog/md</id><content type="html" xml:base="http://localhost:4000/blog/md/"><![CDATA[<h2 id="마크다운-문법에-대하여">마크다운 문법에 대하여</h2>
+
+<p>제목을 쓸 때는 #을 이용</p>
+<blockquote>
+  <p>#h1<br />
+##h2<br />
+###h3<br />
+####h4<br />
+#####h5<br />
+######h6</p>
+</blockquote>
+
+<p>강조는 각각 &lt;em&gt;, &lt;strong&gt;, &lt;del&gt; 사용</p>
+
+<h3 id="html-태그표현">html 태그표현</h3>
+<p>예)</p>
+<blockquote>
+  <p>```html</p>
+
+  <p>&lt;div&gt;<br />
+ &lt;p&gt;Hello, JEKYLL!&lt;/p&gt;<br />
+&lt;/div&gt;  <br />
+```</p>
+</blockquote>
+
+<p>결과)</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>
+ <span class="nt">&lt;p&gt;</span>Hello, JEKYLL!<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h3 id="별표시">별표시</h3>
+<p>예)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\*별표이지, 강조가 아닙니다\*
+</code></pre></div></div>
+
+<p>결과)
+*별표이지, 강조가 아닙니다*</p>
+
+<hr />
+<blockquote>
+  <p>변수 입력은 `$var = “JEKYLL”;` 이렇게 합니다.</p>
+</blockquote>
+
+<p>변수 입력은 <code class="language-plaintext highlighter-rouge">$var = "JEKYLL";</code> 이렇게 합니다.</p>
+
+<hr />
+
+<h3 id="자바스크립트">자바스크립트</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">syntaxHighlight</span><span class="p">(</span><span class="nx">code</span><span class="p">,</span> <span class="nx">lang</span><span class="p">)</span> <span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">;</span>
+   <span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<hr />
+
+<h3 id="링크">링크</h3>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nv">GOOGLE</span><span class="p">](</span><span class="sx">https://google.com</span><span class="p">)</span>
+<span class="p">[</span><span class="nv">NAVER</span><span class="p">](</span><span class="sx">https://naver.com</span> <span class="nn">"title을 입력해주세요"</span><span class="p">)</span>
+
+문서안에서 [참조링크]를 그대로 사용 할 수 있습니다.
+<span class="p">[</span><span class="nv">네이버</span><span class="p">][</span><span class="ss">naver link</span><span class="p">]</span>
+<span class="p">[</span><span class="nv">GitHub</span><span class="p">][</span><span class="ss">github</span><span class="p">]</span>
+
+<span class="p">[</span><span class="ss">naver link</span><span class="p">]:</span> <span class="sx">https://naver.com</span>
+<span class="p">[</span><span class="ss">github</span><span class="p">]:</span> <span class="sx">https://github.com</span>
+<span class="p">[</span><span class="ss">참조링크</span><span class="p">]:</span> <span class="sx">https://google.com</span> <span class="nn">"google로 이동합니다"</span>
+
+문서 내 꺽쇠 괄호(<span class="nt">&lt;</span> <span class="nt">&gt;</span>)안의 URL은 자동으로 링크를 사용합니다.
+구글 홈페이지: https://google.com
+네이버 홈페이지: <span class="nv">&lt;https://naver.com&gt;</span>
+</code></pre></div></div>
+<p><a href="https://google.com">GOOGLE</a><br />
+<a href="https://naver.com" title="title을 입력해주세요">NAVER</a></p>
+
+<p>문서안에서 <a href="https://google.com" title="google로 이동합니다">참조링크</a>를 그대로 사용 할 수 있습니다.<br />
+<a href="https://naver.com">네이버</a><br />
+<a href="https://github.com">GitHub</a></p>
+
+<p>문서 내 꺽쇠 괄호(<code class="language-plaintext highlighter-rouge">&lt; &gt;</code>)안의 URL은 자동으로 링크를 사용합니다.</p>
+
+<p>네이버 홈페이지: <a href="https://naver.com">https://naver.com</a></p>
+
+<hr />
+
+<h3 id="이미지">이미지</h3>
+<p>링크와 비슷한데 앞에 <code class="language-plaintext highlighter-rouge">!</code>가 붙습니다.</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">logo</span><span class="p">](</span><span class="sx">/assets/images/logo2.png</span> <span class="nn">"logo 이미지"</span><span class="p">)</span>
+이미지에 링크 추가
+<span class="p">[</span><span class="nv">![naver_logo</span><span class="p">](</span><span class="sx">/assets/images/naver_logo.png</span><span class="p">)</span>](https://naver.com "naver로 이동")
+</code></pre></div></div>
+<p><img src="/assets/images/logo2.png" alt="logo" title="logo 이미지" /><br />
+이미지에 링크 추가<br />
+<a href="https://naver.com" title="naver로 이동"><img src="/assets/images/naver_logo.png" alt="naver_logo" /></a></p>
+
+<hr />
+
+<h3 id="코드-강조">코드 강조</h3>
+<p>숫자 1번키 옆에 `로 감싸주세요.</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sb">`code`</span>를 강조 할 수 있습니다.
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">code</code>를 강조 할 수 있습니다.</p>
+
+<hr />
+<h3 id="인용문">인용문</h3>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>인용문(blockQuote)
+<span class="gt">&gt; 남의 말이나 글에서 직접 또는 간접으로 따온 문장</span>
+<span class="gt">
+&gt; 인용문 작성</span>
+<span class="gt">&gt;&gt; 중첩된 인용문도 만들 수 있다.</span>
+<span class="gt">&gt;&gt;&gt; 중첩1</span>
+<span class="gt">&gt;&gt;&gt; 중첩2</span>
+<span class="gt">&gt;&gt;&gt; 중첩3</span>
+</code></pre></div></div>
+<p>인용문(blockQuote)</p>
+<blockquote>
+  <p>남의 말이나 글에서 직접 또는 간접으로 따온 문장</p>
+</blockquote>
+
+<blockquote>
+  <p>인용문 작성</p>
+  <blockquote>
+    <p>중첩된 인용문도 만들 수 있다.</p>
+    <blockquote>
+      <p>중첩1<br />
+중첩2<br />
+중첩3</p>
+    </blockquote>
+  </blockquote>
+</blockquote>]]></content><author><name>FE Developer</name></author><category term="Blog" /><category term="Blog" /><category term="Post" /><category term="Markdown" /><summary type="html"><![CDATA[md문법 알아보자]]></summary></entry></feed>

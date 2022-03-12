@@ -111,7 +111,9 @@ blockquote {
   padding-left: 1em;
   padding-right: 1em;
   font-style: italic;
-  border-left: 0.25em solid $primary-color;
+  // border-left: 0.25em solid $primary-color;
+  border-left: 0.25em solid #e96900;
+  background: #f8f8f8;
 
   cite {
     font-style: italic;
@@ -170,6 +172,7 @@ td > code {
   font-size: 0.8em;
   background: $code-background-color;
   border-radius: $border-radius;
+  color: #e96900;
 
   &:before,
   &:after {

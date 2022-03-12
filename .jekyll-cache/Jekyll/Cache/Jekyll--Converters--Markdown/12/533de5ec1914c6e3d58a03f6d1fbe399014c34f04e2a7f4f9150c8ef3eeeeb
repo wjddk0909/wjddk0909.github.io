@@ -1,0 +1,103 @@
+I"�<h2 id="마크다운-문법에-대하여">마크다운 문법에 대하여</h2>
+
+<p>제목을 쓸 때는 #을 이용</p>
+<blockquote>
+  <p>#h1<br />
+##h2<br />
+###h3<br />
+####h4<br />
+#####h5<br />
+######h6</p>
+</blockquote>
+
+<p>강조는 각각 &lt;em&gt;, &lt;strong&gt;, &lt;del&gt; 사용</p>
+
+<h3 id="html-태그표현">html 태그표현</h3>
+<p>예)</p>
+<blockquote>
+  <p>```html</p>
+
+  <p>&lt;div&gt;<br />
+ &lt;p&gt;Hello, JEKYLL!&lt;/p&gt;<br />
+&lt;/div&gt;  <br />
+```</p>
+</blockquote>
+
+<p>결과)</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>
+ <span class="nt">&lt;p&gt;</span>Hello, JEKYLL!<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h3 id="별표시">별표시</h3>
+<p>예)</p>
+<blockquote>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\*별표이지, 강조가 아닙니다\*
+</code></pre></div>  </div>
+</blockquote>
+
+<p>결과)
+*별표이지, 강조가 아닙니다*</p>
+
+<hr />
+<blockquote>
+  <p>변수 입력은 `$var = “JEKYLL”;` 이렇게 합니다.</p>
+</blockquote>
+
+<p>변수 입력은 <code class="language-plaintext highlighter-rouge">$var = "JEKYLL";</code> 이렇게 합니다.</p>
+
+<hr />
+
+<h3 id="자바스크립트">자바스크립트</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">syntaxHighlight</span><span class="p">(</span><span class="nx">code</span><span class="p">,</span> <span class="nx">lang</span><span class="p">)</span> <span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">;</span>
+   <span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<hr />
+
+<h3 id="링크">링크</h3>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nv">GOOGLE</span><span class="p">](</span><span class="sx">https://google.com</span><span class="p">)</span>
+<span class="p">[</span><span class="nv">NAVER</span><span class="p">](</span><span class="sx">https://naver.com</span> <span class="nn">"title을 입력해주세요"</span><span class="p">)</span>
+
+문서안에서 [참조링크]를 그대로 사용 할 수 있습니다.
+<span class="p">[</span><span class="nv">네이버</span><span class="p">][</span><span class="ss">naver link</span><span class="p">]</span>
+<span class="p">[</span><span class="nv">GitHub</span><span class="p">][</span><span class="ss">github</span><span class="p">]</span>
+
+<span class="p">[</span><span class="ss">naver link</span><span class="p">]:</span> <span class="sx">https://naver.com</span>
+<span class="p">[</span><span class="ss">github</span><span class="p">]:</span> <span class="sx">https://github.com</span>
+<span class="p">[</span><span class="ss">참조링크</span><span class="p">]:</span> <span class="sx">https://google.com</span> <span class="nn">"google로 이동합니다"</span>
+
+문서 내 꺽쇠 괄호(<span class="nt">&lt;</span> <span class="nt">&gt;</span>)안의 URL은 자동으로 링크를 사용합니다.
+구글 홈페이지: https://google.com
+네이버 홈페이지: <span class="nv">&lt;https://naver.com&gt;</span>
+</code></pre></div></div>
+<p><a href="https://google.com">GOOGLE</a><br />
+<a href="https://naver.com" title="title을 입력해주세요">NAVER</a></p>
+
+<p>문서안에서 <a href="https://google.com" title="google로 이동합니다">참조링크</a>를 그대로 사용 할 수 있습니다.<br />
+<a href="https://naver.com">네이버</a><br />
+<a href="https://github.com">GitHub</a></p>
+
+<p>문서 내 꺽쇠 괄호(<code class="language-plaintext highlighter-rouge">&lt; &gt;</code>)안의 URL은 자동으로 링크를 사용합니다.</p>
+
+<p>네이버 홈페이지: <a href="https://naver.com">https://naver.com</a></p>
+
+<hr />
+
+<h3 id="이미지">이미지</h3>
+<p>링크와 비슷한데 앞에 <code class="language-plaintext highlighter-rouge">!</code>가 붙습니다.</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">logo</span><span class="p">](</span><span class="sx">/assets/images/logo2.png</span> <span class="nn">"logo 이미지"</span><span class="p">)</span>
+이미지에 링크 추가
+<span class="p">[</span><span class="nv">![naver_logo</span><span class="p">](</span><span class="sx">/assets/images/naver_logo.png</span><span class="p">)</span>](https://naver.com "naver로 이동")
+</code></pre></div></div>
+<p><img src="/assets/images/logo2.png" alt="logo" title="logo 이미지" /><br />
+이미지에 링크 추가<br />
+<a href="https://naver.com" title="naver로 이동"><img src="/assets/images/naver_logo.png" alt="naver_logo" /></a></p>
+
+<hr />
+
+<h3 id="코드-강조">코드 강조</h3>
+<p>숫자 1번키 옆에 `로 감싸주세요.</p>
+
+:ET

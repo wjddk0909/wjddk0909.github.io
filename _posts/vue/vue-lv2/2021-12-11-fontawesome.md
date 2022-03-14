@@ -3,6 +3,7 @@ title: "Vue에서 Fontawesome 사용하기"
 excerpt: "Fontawesome 삽입하기"
 categories: 
     - vue
+    - vue-lv2
 tags: 
     - vue 
     - fontawesome

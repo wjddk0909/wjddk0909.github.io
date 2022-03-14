@@ -32,7 +32,7 @@ var store = [{
         "title": "call/apply/bind 함수의 차이점",
         "excerpt":"call/apply/bind 함수의 차이점은?   예제를 보고 확인해보자.      예)        const obj = {name:'maru'};     const live = function(city){         console.log(`Hi my name is ${this.name}, I live in ${city}`);     };     live('korea'); // Hi my name is , I live in korea     live.call(obj, 'korea'); // Hi my name is maru, I live in korea     live.apply(obj, ['korea']); // Hi my name is maru, I live in korea   call과 apply는 함수를 호출하는 함수  첫번째 인자인 “obj”로 this를 변경하고 함수를 실행한다.  (apply는 파라미터를 배열로 넣어야 한다.)      예)        const obj = {name:'maru'};     const live = function(city){         console.log(`Hi my name is ${this.name}, I live in ${city}`);     };     const bound = live.bind(obj)     bound('korea'); // Hi my name is maru, I live in korea   bind함수는 함수를 실행하지 않는다.   ","categories": ["javascript"],
         "tags": ["javascript","function","call","apply","bind"],
-        "url": "/javascript/function1/",
+        "url": "/javascript/call-apply-bind/",
         "teaser": null
       },{
         "title": "api",
@@ -54,9 +54,9 @@ var store = [{
         "teaser": null
       },{
         "title": "Vue에서 Fontawesome 사용하기",
-        "excerpt":"Vue에서 Fontawesome 사용하기   폰트어썸 업데이트하면서 부터인지 vue에서 사용하려면 메일로 무료키트 사용 링크를 받아야한다.  fontawsome.com/start로 접속 &gt; 이메일 입력 &gt; 확인, 설정 버튼 클릭 &gt; 폰트어썸 로그인 후 무료키트 링크 카피해서 index.html 헤드에 추가  ","categories": ["vue"],
+        "excerpt":"Vue에서 Fontawesome 사용하기   폰트어썸 업데이트하면서 부터인지 vue에서 사용하려면 메일로 무료키트 사용 링크를 받아야한다.  fontawsome.com/start로 접속 &gt; 이메일 입력 &gt; 확인, 설정 버튼 클릭 &gt; 폰트어썸 로그인 후 무료키트 링크 카피해서 index.html 헤드에 추가  ","categories": ["vue","vue-lv2"],
         "tags": ["vue","fontawesome"],
-        "url": "/vue/fontawesome/",
+        "url": "/vue/vue-lv2/fontawesome/",
         "teaser": null
       },{
         "title": "git branch",

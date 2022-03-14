@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-03-12T18:48:54+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">vuex</title><link href="http://localhost:4000/vue/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue/vuex</id><content type="html" xml:base="http://localhost:4000/vue/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-03-14T14:25:58+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">vuex</title><link href="http://localhost:4000/vue/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
 
 <ul>
   <li>복잡한 애플리케이션의 컴포넌트들을 효율적으로 관리하는 vuex 라이브러리</li>
@@ -75,7 +75,8 @@
 <ul>
   <li>State : 컴포넌트 간에 공유하는 데이터 <code class="language-plaintext highlighter-rouge">data()</code></li>
   <li>View : 데이터를 표시하는 화면 <code class="language-plaintext highlighter-rouge">template</code></li>
-  <li>Action : 사용자의 입력에 따라 데이터를 변경하는 <code class="language-plaintext highlighter-rouge">methods</code>
+  <li>Mutations: state값을 변경하는 이벤트 로직, 메서드 <code class="language-plaintext highlighter-rouge">methods</code></li>
+  <li>Action : 사용자의 입력에 따라 데이터를 변경하는 (비동기 처리 로직을 선언) <code class="language-plaintext highlighter-rouge">aysnc methods</code>
 <img src="/assets/images/vuex_flow.png" alt="vuex_flow" /><br />
 흐름 설명 : 화면(view)에서 버튼을 클릭 하면 버튼이 action을 발생시킴 &gt; action이 발동하면 데이터(state)를 변경</li>
 </ul>
@@ -86,18 +87,20 @@
 action : 비동기 로직<br />
 mutations : 동기 로직</p>
 
-<p><a href="https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-operation/">자바스크립트 비동기 처리와 콜백함수 참고 링크</a></p>]]></content><author><name>FE Developer</name></author><category term="vue" /><category term="vuex" /><category term="store" /><summary type="html"><![CDATA[vuex 설명]]></summary></entry><entry><title type="html">git branch</title><link href="http://localhost:4000/git/gitbranch/" rel="alternate" type="text/html" title="git branch" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/git/gitbranch</id><content type="html" xml:base="http://localhost:4000/git/gitbranch/"><![CDATA[<h2 id="git-branch-생성하고-사용하는-방법">git branch 생성하고 사용하는 방법</h2>
+<p><a href="https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-operation/">자바스크립트 비동기 처리와 콜백함수 참고 링크</a></p>]]></content><author><name>FE Developer</name></author><category term="vue" /><category term="vue-lv2" /><category term="vuex" /><category term="store" /><summary type="html"><![CDATA[vuex 설명]]></summary></entry><entry><title type="html">git branch</title><link href="http://localhost:4000/git/gitbranch/" rel="alternate" type="text/html" title="git branch" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/git/gitbranch</id><content type="html" xml:base="http://localhost:4000/git/gitbranch/"><![CDATA[<h2 id="git-branch-생성하고-사용하는-방법">git branch 생성하고 사용하는 방법</h2>
 
 <ul>
   <li>git init : git 저장소 생성(초기화)</li>
   <li>git remote add origin {link} : link에 생성한 레포지토리 url복사해서 넣기</li>
   <li>git branch : 깃 브랜치 확인</li>
   <li>git branch -v : 마지막 커밋메세지 확인</li>
-  <li>git branch 브랜치명 : 브랜치 생성</li>
-  <li>git checkout 브랜치명 : 선택한 브랜치로 이동</li>
+  <li>git branch ‘브랜치명’ : 브랜치 생성</li>
+  <li>git checkout ‘브랜치명’ : 선택한 브랜치로 이동</li>
+  <li>git branch -d ‘브랜치명’ : 브랜치 삭제하기</li>
+  <li>git merge ‘합칠 브랜치명’ : 현재위치한 브랜치에 합칠 브랜치에서 작업한 내용 가져와서 병합</li>
   <li>git add . : 변경한 파일을 저장</li>
   <li>git commit -m “커밋메세지” : 커밋메세지 입력</li>
-  <li>git push origin 브랜치명 : 원격저장소 브랜치에 push 하기</li>
+  <li>git push origin ‘브랜치명’ : 원격저장소 브랜치에 push 하기</li>
 </ul>]]></content><author><name>FE Developer</name></author><category term="git" /><category term="git" /><category term="branch" /><summary type="html"><![CDATA[branch 생성하고 사용하기]]></summary></entry><entry><title type="html">Vue에서 Fontawesome 사용하기</title><link href="http://localhost:4000/vue/fontawesome/" rel="alternate" type="text/html" title="Vue에서 Fontawesome 사용하기" /><published>2021-12-11T00:00:00+09:00</published><updated>2021-12-11T00:00:00+09:00</updated><id>http://localhost:4000/vue/fontawesome</id><content type="html" xml:base="http://localhost:4000/vue/fontawesome/"><![CDATA[<h2 id="vue에서-fontawesome-사용하기">Vue에서 Fontawesome 사용하기</h2>
 
 <p>폰트어썸 업데이트하면서 부터인지 vue에서 사용하려면 메일로 무료키트 사용 링크를 받아야한다.<br />
@@ -196,7 +199,7 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
 또한 개발자들간의 협업도 용이해진다.</p>
 
 <p>즉, api는 어떠한 응용프로그램에서 데이터를 주고받기 위한 방법이다.<br />
-특정 사이트에서 데이터를 공유할때 어떤 방식으로 요청해야 하는지, 어떤 데이터를 제공 받을수 있는지에 대한 규격들을 말한다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="api" /><summary type="html"><![CDATA[api란 무엇인가]]></summary></entry><entry><title type="html">call/apply/bind 함수의 차이점</title><link href="http://localhost:4000/javascript/javascript-function1/" rel="alternate" type="text/html" title="call/apply/bind 함수의 차이점" /><published>2021-12-06T00:00:00+09:00</published><updated>2021-12-06T00:00:00+09:00</updated><id>http://localhost:4000/javascript/javascript-function1</id><content type="html" xml:base="http://localhost:4000/javascript/javascript-function1/"><![CDATA[<h2 id="callapplybind-함수의-차이점은">call/apply/bind 함수의 차이점은?</h2>
+특정 사이트에서 데이터를 공유할때 어떤 방식으로 요청해야 하는지, 어떤 데이터를 제공 받을수 있는지에 대한 규격들을 말한다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="api" /><summary type="html"><![CDATA[api란 무엇인가]]></summary></entry><entry><title type="html">call/apply/bind 함수의 차이점</title><link href="http://localhost:4000/javascript/function1/" rel="alternate" type="text/html" title="call/apply/bind 함수의 차이점" /><published>2021-12-06T00:00:00+09:00</published><updated>2021-12-06T00:00:00+09:00</updated><id>http://localhost:4000/javascript/function1</id><content type="html" xml:base="http://localhost:4000/javascript/function1/"><![CDATA[<h2 id="callapplybind-함수의-차이점은">call/apply/bind 함수의 차이점은?</h2>
 
 <p>예제를 보고 확인해보자.</p>
 
@@ -229,7 +232,7 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
     <span class="nx">bound</span><span class="p">(</span><span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Hi my name is maru, I live in korea</span>
 </code></pre></div></div>
 
-<p>bind함수는 함수를 실행하지 않는다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="function" /><category term="call" /><category term="apply" /><category term="bind" /><summary type="html"><![CDATA[call()/apply()/bind()]]></summary></entry><entry><title type="html">DOM</title><link href="http://localhost:4000/javascript/frontend/javascript-dom/" rel="alternate" type="text/html" title="DOM" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>http://localhost:4000/javascript/frontend/javascript-dom</id><content type="html" xml:base="http://localhost:4000/javascript/frontend/javascript-dom/"><![CDATA[<h2 id="dom-소개">DOM 소개</h2>
+<p>bind함수는 함수를 실행하지 않는다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="function" /><category term="call" /><category term="apply" /><category term="bind" /><summary type="html"><![CDATA[call()/apply()/bind()]]></summary></entry><entry><title type="html">DOM</title><link href="http://localhost:4000/javascript/dom/" rel="alternate" type="text/html" title="DOM" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>http://localhost:4000/javascript/dom</id><content type="html" xml:base="http://localhost:4000/javascript/dom/"><![CDATA[<h2 id="dom-소개">DOM 소개</h2>
 
 <p>javascript를 공부하면서 DOM을 빼놓고 이야기 할 수 없다.</p>
 
@@ -265,7 +268,26 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
   <li>dev Tools(개발자 도구)에서 보여주는 것이 DOM이다.</li>
 </ul>
 
-<p>DOM은 웹페이지의 객체 지향 표현이고, 자바스크립트와 같은 스크립트 언어로 DOM을 수정할수 있다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="frontend" /><category term="javascript" /><category term="DOM" /><summary type="html"><![CDATA[DOM 소개]]></summary></entry><entry><title type="html">GitHub 글 쓰기</title><link href="http://localhost:4000/blog/post/" rel="alternate" type="text/html" title="GitHub 글 쓰기" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/blog/post</id><content type="html" xml:base="http://localhost:4000/blog/post/"><![CDATA[<h2 id="github-블로그-글-등록하기">GitHub 블로그 글 등록하기</h2>
+<p>DOM은 웹페이지의 객체 지향 표현이고, 자바스크립트와 같은 스크립트 언어로 DOM을 수정할수 있다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="DOM" /><summary type="html"><![CDATA[DOM 소개]]></summary></entry><entry><title type="html">인스턴스</title><link href="http://localhost:4000/javascript/instance/" rel="alternate" type="text/html" title="인스턴스" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/javascript/instance</id><content type="html" xml:base="http://localhost:4000/javascript/instance/"><![CDATA[<h2 id="인스턴스란">인스턴스란?</h2>
+
+<p>인스턴스는 클래스나 프로토타입을 사용해 만든다.
+즉, 프로퍼티와 메소드를 상속 받는다.</p>
+
+<p>원래의 객체가 가지고 있던 것을 동일하게 사용하면서, 거기에 확장시켜 추가된 개별속성을 가질 수 있다.</p>
+
+<p>예를 들어, “모자”라는 객체의 인스턴스로 “모자1”을 생성했을때 “모자1”은 “파란 모자”가 될 수 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">cap</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">color</span><span class="p">){</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="kd">let</span> <span class="nx">cap1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cap</span><span class="p">(</span><span class="nx">blue</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">cap2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cap</span><span class="p">(</span><span class="nx">black</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>✅ 추가 설명
+떡볶이 레시피를 가지고 떡볶이를 먹으려면 “떡볶이”를 만들어야 한다. 
+어제 “떡볶이”를 만들고, 오늘 또 “떡볶이”를 만들었다고 가정 했을때 만들어진 “떡볶이”는 [인스턴스]가 된다.
+여기서 두개의 떡볶이는 같은 레시피를 보고 만들었지만 동일한 대상은 아니다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="instance" /><category term="primitive" /><summary type="html"><![CDATA[인스턴스란]]></summary></entry><entry><title type="html">GitHub 글 쓰기</title><link href="http://localhost:4000/blog/post/" rel="alternate" type="text/html" title="GitHub 글 쓰기" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/blog/post</id><content type="html" xml:base="http://localhost:4000/blog/post/"><![CDATA[<h2 id="github-블로그-글-등록하기">GitHub 블로그 글 등록하기</h2>
 
 <p>첫 글을 등록해보자.</p>
 
@@ -299,133 +321,4 @@ tags:
 
 <p>이런 형식으로 올리면 
 <img src="https://user-images.githubusercontent.com/34855369/144614561-69bbe98a-3797-4e7d-8209-399fe73e4690.png" alt="post등록하기" />
-이렇게 등록이 된 것을 확인 할 수 있다.</p>]]></content><author><name>FE Developer</name></author><category term="Blog" /><category term="Blog" /><category term="Post" /><summary type="html"><![CDATA[post 등록하기]]></summary></entry><entry><title type="html">마크다운 문법</title><link href="http://localhost:4000/blog/md/" rel="alternate" type="text/html" title="마크다운 문법" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/blog/md</id><content type="html" xml:base="http://localhost:4000/blog/md/"><![CDATA[<h2 id="마크다운-문법에-대하여">마크다운 문법에 대하여</h2>
-
-<p>제목을 쓸 때는 #을 이용</p>
-<blockquote>
-  <p>#h1<br />
-##h2<br />
-###h3<br />
-####h4<br />
-#####h5<br />
-######h6</p>
-</blockquote>
-
-<p>강조는 각각 &lt;em&gt;, &lt;strong&gt;, &lt;del&gt; 사용</p>
-
-<h3 id="html-태그표현">html 태그표현</h3>
-<p>예)</p>
-<blockquote>
-  <p>```html</p>
-
-  <p>&lt;div&gt;<br />
- &lt;p&gt;Hello, JEKYLL!&lt;/p&gt;<br />
-&lt;/div&gt;  <br />
-```</p>
-</blockquote>
-
-<p>결과)</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>
- <span class="nt">&lt;p&gt;</span>Hello, JEKYLL!<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</code></pre></div></div>
-
-<h3 id="별표시">별표시</h3>
-<p>예)</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\*별표이지, 강조가 아닙니다\*
-</code></pre></div></div>
-
-<p>결과)
-*별표이지, 강조가 아닙니다*</p>
-
-<hr />
-<blockquote>
-  <p>변수 입력은 `$var = “JEKYLL”;` 이렇게 합니다.</p>
-</blockquote>
-
-<p>변수 입력은 <code class="language-plaintext highlighter-rouge">$var = "JEKYLL";</code> 이렇게 합니다.</p>
-
-<hr />
-
-<h3 id="자바스크립트">자바스크립트</h3>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">syntaxHighlight</span><span class="p">(</span><span class="nx">code</span><span class="p">,</span> <span class="nx">lang</span><span class="p">)</span> <span class="p">{</span>
-   <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">;</span>
-   <span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<hr />
-
-<h3 id="링크">링크</h3>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nv">GOOGLE</span><span class="p">](</span><span class="sx">https://google.com</span><span class="p">)</span>
-<span class="p">[</span><span class="nv">NAVER</span><span class="p">](</span><span class="sx">https://naver.com</span> <span class="nn">"title을 입력해주세요"</span><span class="p">)</span>
-
-문서안에서 [참조링크]를 그대로 사용 할 수 있습니다.
-<span class="p">[</span><span class="nv">네이버</span><span class="p">][</span><span class="ss">naver link</span><span class="p">]</span>
-<span class="p">[</span><span class="nv">GitHub</span><span class="p">][</span><span class="ss">github</span><span class="p">]</span>
-
-<span class="p">[</span><span class="ss">naver link</span><span class="p">]:</span> <span class="sx">https://naver.com</span>
-<span class="p">[</span><span class="ss">github</span><span class="p">]:</span> <span class="sx">https://github.com</span>
-<span class="p">[</span><span class="ss">참조링크</span><span class="p">]:</span> <span class="sx">https://google.com</span> <span class="nn">"google로 이동합니다"</span>
-
-문서 내 꺽쇠 괄호(<span class="nt">&lt;</span> <span class="nt">&gt;</span>)안의 URL은 자동으로 링크를 사용합니다.
-구글 홈페이지: https://google.com
-네이버 홈페이지: <span class="nv">&lt;https://naver.com&gt;</span>
-</code></pre></div></div>
-<p><a href="https://google.com">GOOGLE</a><br />
-<a href="https://naver.com" title="title을 입력해주세요">NAVER</a></p>
-
-<p>문서안에서 <a href="https://google.com" title="google로 이동합니다">참조링크</a>를 그대로 사용 할 수 있습니다.<br />
-<a href="https://naver.com">네이버</a><br />
-<a href="https://github.com">GitHub</a></p>
-
-<p>문서 내 꺽쇠 괄호(<code class="language-plaintext highlighter-rouge">&lt; &gt;</code>)안의 URL은 자동으로 링크를 사용합니다.</p>
-
-<p>네이버 홈페이지: <a href="https://naver.com">https://naver.com</a></p>
-
-<hr />
-
-<h3 id="이미지">이미지</h3>
-<p>링크와 비슷한데 앞에 <code class="language-plaintext highlighter-rouge">!</code>가 붙습니다.</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">logo</span><span class="p">](</span><span class="sx">/assets/images/logo2.png</span> <span class="nn">"logo 이미지"</span><span class="p">)</span>
-이미지에 링크 추가
-<span class="p">[</span><span class="nv">![naver_logo</span><span class="p">](</span><span class="sx">/assets/images/naver_logo.png</span><span class="p">)</span>](https://naver.com "naver로 이동")
-</code></pre></div></div>
-<p><img src="/assets/images/logo2.png" alt="logo" title="logo 이미지" /><br />
-이미지에 링크 추가<br />
-<a href="https://naver.com" title="naver로 이동"><img src="/assets/images/naver_logo.png" alt="naver_logo" /></a></p>
-
-<hr />
-
-<h3 id="코드-강조">코드 강조</h3>
-<p>숫자 1번키 옆에 `로 감싸주세요.</p>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sb">`code`</span>를 강조 할 수 있습니다.
-</code></pre></div></div>
-<p><code class="language-plaintext highlighter-rouge">code</code>를 강조 할 수 있습니다.</p>
-
-<hr />
-<h3 id="인용문">인용문</h3>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>인용문(blockQuote)
-<span class="gt">&gt; 남의 말이나 글에서 직접 또는 간접으로 따온 문장</span>
-<span class="gt">
-&gt; 인용문 작성</span>
-<span class="gt">&gt;&gt; 중첩된 인용문도 만들 수 있다.</span>
-<span class="gt">&gt;&gt;&gt; 중첩1</span>
-<span class="gt">&gt;&gt;&gt; 중첩2</span>
-<span class="gt">&gt;&gt;&gt; 중첩3</span>
-</code></pre></div></div>
-<p>인용문(blockQuote)</p>
-<blockquote>
-  <p>남의 말이나 글에서 직접 또는 간접으로 따온 문장</p>
-</blockquote>
-
-<blockquote>
-  <p>인용문 작성</p>
-  <blockquote>
-    <p>중첩된 인용문도 만들 수 있다.</p>
-    <blockquote>
-      <p>중첩1<br />
-중첩2<br />
-중첩3</p>
-    </blockquote>
-  </blockquote>
-</blockquote>]]></content><author><name>FE Developer</name></author><category term="Blog" /><category term="Blog" /><category term="Post" /><category term="Markdown" /><summary type="html"><![CDATA[md문법 알아보자]]></summary></entry></feed>
+이렇게 등록이 된 것을 확인 할 수 있다.</p>]]></content><author><name>FE Developer</name></author><category term="blog" /><category term="blog" /><category term="post" /><summary type="html"><![CDATA[post 등록하기]]></summary></entry></feed>

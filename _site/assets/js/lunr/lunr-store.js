@@ -1,38 +1,38 @@
 var store = [{
         "title": "github.io 블로그 시작하기",
-        "excerpt":"jekyll 블로그 시작   무료 Jekyll theme 중 가장 많이 사용되고 있는 “minimal-mistakes”를 사용해서 만들기   디자인도 깔끔하고 제작자가 꾸준히 업데이트를 하고있으며, 많이 사용되고 있는 만큼 참고할 자료도 많을 것으로 보인다.   이글의 제목은 github.io 블로그 시작하기 이고, 오늘은 2021-12-03이다. 앞으로 공부하면서 계속해서 정리해서 올려봐야겠다.   ","categories": ["Blog"],
-        "tags": ["Jekyll","theme","Blog"],
+        "excerpt":"jekyll 블로그 시작   무료 Jekyll theme 중 가장 많이 사용되고 있는 “minimal-mistakes”를 사용해서 만들기   디자인도 깔끔하고 제작자가 꾸준히 업데이트를 하고있으며, 많이 사용되고 있는 만큼 참고할 자료도 많을 것으로 보인다.   이글의 제목은 github.io 블로그 시작하기 이고, 오늘은 2021-12-03이다. 앞으로 공부하면서 계속해서 정리해서 올려봐야겠다.   ","categories": ["blog"],
+        "tags": ["Jekyll","theme","blog"],
         "url": "/blog/firstpost/",
+        "teaser": null
+      },{
+        "title": "마크다운 문법",
+        "excerpt":"마크다운 문법에 대하여   제목을 쓸 때는 #을 이용     #h1  ##h2  ###h3  ####h4  #####h5  ######h6    강조는 각각 &lt;em&gt;, &lt;strong&gt;, &lt;del&gt; 사용   html 태그표현  예)     ```html     &lt;div&gt;   &lt;p&gt;Hello, JEKYLL!&lt;/p&gt;  &lt;/div&gt;    ```    결과)          &lt;div&gt;  &lt;p&gt;Hello, JEKYLL!&lt;/p&gt; &lt;/div&gt;   별표시  예)  \\*별표이지, 강조가 아닙니다\\*   결과) *별표이지, 강조가 아닙니다*       변수 입력은 `$var = “JEKYLL”;` 이렇게 합니다.    변수 입력은 $var = \"JEKYLL\"; 이렇게 합니다.     자바스크립트          function syntaxHighlight(code, lang) {    var foo = 'hi';    var bar = 1234; }    링크  [GOOGLE](https://google.com) [NAVER](https://naver.com \"title을 입력해주세요\")  문서안에서 [참조링크]를 그대로 사용 할 수 있습니다. [네이버][naver link] [GitHub][github]  [naver link]: https://naver.com [github]: https://github.com [참조링크]: https://google.com \"google로 이동합니다\"  문서 내 꺽쇠 괄호(&lt; &gt;)안의 URL은 자동으로 링크를 사용합니다. 구글 홈페이지: https://google.com 네이버 홈페이지: &lt;https://naver.com&gt;  GOOGLE  NAVER   문서안에서 참조링크를 그대로 사용 할 수 있습니다.  네이버  GitHub   문서 내 꺽쇠 괄호(&lt; &gt;)안의 URL은 자동으로 링크를 사용합니다.   네이버 홈페이지: https://naver.com     이미지  링크와 비슷한데 앞에 !가 붙습니다.  ![logo](/assets/images/logo2.png \"logo 이미지\") 이미지에 링크 추가 [![naver_logo](/assets/images/naver_logo.png)](https://naver.com \"naver로 이동\")    이미지에 링크 추가       코드 강조  숫자 1번키 옆에 `로 감싸주세요.  `code`를 강조 할 수 있습니다.  code를 강조 할 수 있습니다.    인용문  인용문(blockQuote) &gt; 남의 말이나 글에서 직접 또는 간접으로 따온 문장  &gt; 인용문 작성 &gt;&gt; 중첩된 인용문도 만들 수 있다. &gt;&gt;&gt; 중첩1 &gt;&gt;&gt; 중첩2 &gt;&gt;&gt; 중첩3  인용문(blockQuote)     남의 말이나 글에서 직접 또는 간접으로 따온 문장       인용문 작성         중첩된 인용문도 만들 수 있다.             중첩1  중첩2  중첩3            ","categories": ["blog"],
+        "tags": ["blog","Post","Markdown"],
+        "url": "/blog/md/",
+        "teaser": null
+      },{
+        "title": "GitHub 글 쓰기",
+        "excerpt":"GitHub 블로그 글 등록하기   첫 글을 등록해보자.   지킬은 정해진 포맷에 맞춰 글을 등록해야 하는데, _posts폴더에 md확장자로 등록한다.   처음에는 _posts폴더가 없으므로 만들어야 한다. _posts폴더를 생성한후 파일명의 형식은 year-month-day-제목.md 로 파일을 생성한다.   ---  title: \"github.io 블로그 시작하기\"  excerpt: \"GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.\"  last_modified_at: 2021-12-03 categories:      - Blog  tags:      - Jekyll     - theme      - Blog  ---  ## jekyll 블로그 시작   테마는 가장 많이 사용되고 있는 \"minimal-mistakes\"를 사용  디자인도 깔끔하고 제작자가 꾸준히 업데이트를 하고있으며,  많이 사용되고 있는 만큼 참고할 자료도 많을 것으로 보인다.  이글의 제목은 GitHub 글 쓰기 이고, 오늘은 2021-12-03이다. 앞으로 공부하면서 계속해서 정리해서 올려봐야겠다.   이런 형식으로 올리면   이렇게 등록이 된 것을 확인 할 수 있다.   ","categories": ["blog"],
+        "tags": ["blog","post"],
+        "url": "/blog/post/",
         "teaser": null
       },{
         "title": "인스턴스",
         "excerpt":"인스턴스란?   인스턴스는 클래스나 프로토타입을 사용해 만든다. 즉, 프로퍼티와 메소드를 상속 받는다.   원래의 객체가 가지고 있던 것을 동일하게 사용하면서, 거기에 확장시켜 추가된 개별속성을 가질 수 있다.   예를 들어, “모자”라는 객체의 인스턴스로 “모자1”을 생성했을때 “모자1”은 “파란 모자”가 될 수 있다.       cap = function(color){         this.color = color;     };     let cap1 = new cap(blue);     let cap2 = new cap(black);   ✅ 추가 설명 떡볶이 레시피를 가지고 떡볶이를 먹으려면 “떡볶이”를 만들어야 한다.  어제 “떡볶이”를 만들고, 오늘 또 “떡볶이”를 만들었다고 가정 했을때 만들어진 “떡볶이”는 [인스턴스]가 된다. 여기서 두개의 떡볶이는 같은 레시피를 보고 만들었지만 동일한 대상은 아니다.   ","categories": ["javascript"],
         "tags": ["javascript","instance","primitive"],
-        "url": "/javascript/javascript-instance/",
-        "teaser": null
-      },{
-        "title": "마크다운 문법",
-        "excerpt":"마크다운 문법에 대하여   제목을 쓸 때는 #을 이용     #h1  ##h2  ###h3  ####h4  #####h5  ######h6    강조는 각각 &lt;em&gt;, &lt;strong&gt;, &lt;del&gt; 사용   html 태그표현  예)     ```html     &lt;div&gt;   &lt;p&gt;Hello, JEKYLL!&lt;/p&gt;  &lt;/div&gt;    ```    결과)  &lt;div&gt;  &lt;p&gt;Hello, JEKYLL!&lt;/p&gt; &lt;/div&gt;   별표시  예)  \\*별표이지, 강조가 아닙니다\\*   결과) *별표이지, 강조가 아닙니다*       변수 입력은 `$var = “JEKYLL”;` 이렇게 합니다.    변수 입력은 $var = \"JEKYLL\"; 이렇게 합니다.     자바스크립트  function syntaxHighlight(code, lang) {    var foo = 'hi';    var bar = 1234; }    링크  [GOOGLE](https://google.com) [NAVER](https://naver.com \"title을 입력해주세요\")  문서안에서 [참조링크]를 그대로 사용 할 수 있습니다. [네이버][naver link] [GitHub][github]  [naver link]: https://naver.com [github]: https://github.com [참조링크]: https://google.com \"google로 이동합니다\"  문서 내 꺽쇠 괄호(&lt; &gt;)안의 URL은 자동으로 링크를 사용합니다. 구글 홈페이지: https://google.com 네이버 홈페이지: &lt;https://naver.com&gt;  GOOGLE  NAVER   문서안에서 참조링크를 그대로 사용 할 수 있습니다.  네이버  GitHub   문서 내 꺽쇠 괄호(&lt; &gt;)안의 URL은 자동으로 링크를 사용합니다.   네이버 홈페이지: https://naver.com     이미지  링크와 비슷한데 앞에 !가 붙습니다.  ![logo](/assets/images/logo2.png \"logo 이미지\") 이미지에 링크 추가 [![naver_logo](/assets/images/naver_logo.png)](https://naver.com \"naver로 이동\")    이미지에 링크 추가       코드 강조  숫자 1번키 옆에 `로 감싸주세요.  `code`를 강조 할 수 있습니다.  code를 강조 할 수 있습니다.    인용문  인용문(blockQuote) &gt; 남의 말이나 글에서 직접 또는 간접으로 따온 문장  &gt; 인용문 작성 &gt;&gt; 중첩된 인용문도 만들 수 있다. &gt;&gt;&gt; 중첩1 &gt;&gt;&gt; 중첩2 &gt;&gt;&gt; 중첩3  인용문(blockQuote)     남의 말이나 글에서 직접 또는 간접으로 따온 문장       인용문 작성         중첩된 인용문도 만들 수 있다.             중첩1  중첩2  중첩3            ","categories": ["Blog"],
-        "tags": ["Blog","Post","Markdown"],
-        "url": "/blog/md/",
-        "teaser": null
-      },{
-        "title": "GitHub 글 쓰기",
-        "excerpt":"GitHub 블로그 글 등록하기   첫 글을 등록해보자.   지킬은 정해진 포맷에 맞춰 글을 등록해야 하는데, _posts폴더에 md확장자로 등록한다.   처음에는 _posts폴더가 없으므로 만들어야 한다. _posts폴더를 생성한후 파일명의 형식은 year-month-day-제목.md 로 파일을 생성한다.   ---  title: \"github.io 블로그 시작하기\"  excerpt: \"GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.\"  last_modified_at: 2021-12-03 categories:      - Blog  tags:      - Jekyll     - theme      - Blog  ---  ## jekyll 블로그 시작   테마는 가장 많이 사용되고 있는 \"minimal-mistakes\"를 사용  디자인도 깔끔하고 제작자가 꾸준히 업데이트를 하고있으며,  많이 사용되고 있는 만큼 참고할 자료도 많을 것으로 보인다.  이글의 제목은 GitHub 글 쓰기 이고, 오늘은 2021-12-03이다. 앞으로 공부하면서 계속해서 정리해서 올려봐야겠다.   이런 형식으로 올리면   이렇게 등록이 된 것을 확인 할 수 있다.   ","categories": ["Blog"],
-        "tags": ["Blog","Post"],
-        "url": "/blog/post/",
+        "url": "/javascript/instance/",
         "teaser": null
       },{
         "title": "DOM",
-        "excerpt":"DOM 소개   javascript를 공부하면서 DOM을 빼놓고 이야기 할 수 없다.   DOM이란 무엇인가? 그전에 BOM에 대해서 알아보자.      BOM이란 무엇인가?    브라우저를 바탕으로 웹서비스가 실행이 되는데, 이와 관련된 객체들의 집합을 브라우저객체모델(Browser Object Model)이라고 한다.      웹브라우저와 관련된 객체의 집합   window객체가 최상위 객체   웹브라우저가 제공하는 기능      DOM의 정의(MDN참조)    DOM은 Document Object Model의 약자이다.     HTML, XML 문서의 프로그래밍 인터페이스   문서의 구조화된 표현을 제공하고, 프로그래밍 언어가 DOM구조에 접근할 수 있는 방법을 제공해서 문서구조, 스타일, 내용등을 변경할 수 있게 한다.   웹페이지를 스크립트 또는 프로그래밍 언어들에서 사용되도록 연결해준다.   DOM이 무엇인가…     내가 html에 쓴 파일이 DOM은 아니다. 그러나 브라우저에 의해서 파싱이 된다면 DOM이 된다.   view source에서 보이는것도 DOM이 아니다.   dev Tools(개발자 도구)에서 보여주는 것이 DOM이다.   DOM은 웹페이지의 객체 지향 표현이고, 자바스크립트와 같은 스크립트 언어로 DOM을 수정할수 있다.   ","categories": ["javascript","frontend"],
+        "excerpt":"DOM 소개   javascript를 공부하면서 DOM을 빼놓고 이야기 할 수 없다.   DOM이란 무엇인가? 그전에 BOM에 대해서 알아보자.      BOM이란 무엇인가?    브라우저를 바탕으로 웹서비스가 실행이 되는데, 이와 관련된 객체들의 집합을 브라우저객체모델(Browser Object Model)이라고 한다.      웹브라우저와 관련된 객체의 집합   window객체가 최상위 객체   웹브라우저가 제공하는 기능      DOM의 정의(MDN참조)    DOM은 Document Object Model의 약자이다.     HTML, XML 문서의 프로그래밍 인터페이스   문서의 구조화된 표현을 제공하고, 프로그래밍 언어가 DOM구조에 접근할 수 있는 방법을 제공해서 문서구조, 스타일, 내용등을 변경할 수 있게 한다.   웹페이지를 스크립트 또는 프로그래밍 언어들에서 사용되도록 연결해준다.   DOM이 무엇인가…     내가 html에 쓴 파일이 DOM은 아니다. 그러나 브라우저에 의해서 파싱이 된다면 DOM이 된다.   view source에서 보이는것도 DOM이 아니다.   dev Tools(개발자 도구)에서 보여주는 것이 DOM이다.   DOM은 웹페이지의 객체 지향 표현이고, 자바스크립트와 같은 스크립트 언어로 DOM을 수정할수 있다.   ","categories": ["javascript"],
         "tags": ["javascript","DOM"],
-        "url": "/javascript/frontend/javascript-dom/",
+        "url": "/javascript/dom/",
         "teaser": null
       },{
         "title": "call/apply/bind 함수의 차이점",
         "excerpt":"call/apply/bind 함수의 차이점은?   예제를 보고 확인해보자.      예)        const obj = {name:'maru'};     const live = function(city){         console.log(`Hi my name is ${this.name}, I live in ${city}`);     };     live('korea'); // Hi my name is , I live in korea     live.call(obj, 'korea'); // Hi my name is maru, I live in korea     live.apply(obj, ['korea']); // Hi my name is maru, I live in korea   call과 apply는 함수를 호출하는 함수  첫번째 인자인 “obj”로 this를 변경하고 함수를 실행한다.  (apply는 파라미터를 배열로 넣어야 한다.)      예)        const obj = {name:'maru'};     const live = function(city){         console.log(`Hi my name is ${this.name}, I live in ${city}`);     };     const bound = live.bind(obj)     bound('korea'); // Hi my name is maru, I live in korea   bind함수는 함수를 실행하지 않는다.   ","categories": ["javascript"],
         "tags": ["javascript","function","call","apply","bind"],
-        "url": "/javascript/javascript-function1/",
+        "url": "/javascript/function1/",
         "teaser": null
       },{
         "title": "api",
@@ -60,14 +60,14 @@ var store = [{
         "teaser": null
       },{
         "title": "git branch",
-        "excerpt":"git branch 생성하고 사용하는 방법      git init : git 저장소 생성(초기화)   git remote add origin {link} : link에 생성한 레포지토리 url복사해서 넣기   git branch : 깃 브랜치 확인   git branch -v : 마지막 커밋메세지 확인   git branch 브랜치명 : 브랜치 생성   git checkout 브랜치명 : 선택한 브랜치로 이동   git add . : 변경한 파일을 저장   git commit -m “커밋메세지” : 커밋메세지 입력   git push origin 브랜치명 : 원격저장소 브랜치에 push 하기  ","categories": ["git"],
+        "excerpt":"git branch 생성하고 사용하는 방법      git init : git 저장소 생성(초기화)   git remote add origin {link} : link에 생성한 레포지토리 url복사해서 넣기   git branch : 깃 브랜치 확인   git branch -v : 마지막 커밋메세지 확인   git branch ‘브랜치명’ : 브랜치 생성   git checkout ‘브랜치명’ : 선택한 브랜치로 이동   git branch -d ‘브랜치명’ : 브랜치 삭제하기   git merge ‘합칠 브랜치명’ : 현재위치한 브랜치에 합칠 브랜치에서 작업한 내용 가져와서 병합   git add . : 변경한 파일을 저장   git commit -m “커밋메세지” : 커밋메세지 입력   git push origin ‘브랜치명’ : 원격저장소 브랜치에 push 하기  ","categories": ["git"],
         "tags": ["git","branch"],
         "url": "/git/gitbranch/",
         "teaser": null
       },{
         "title": "vuex",
-        "excerpt":"vuex 소개      복잡한 애플리케이션의 컴포넌트들을 효율적으로 관리하는 vuex 라이브러리   React의 Flux패턴에서 기인함   vue.js 중고급 개발자로 성장하기 위한 필수 관문   Flux란?      MVC 패턴의 복잡한 데이터 흐름 문제를 해결하는 개발 패턴            action : 화면에서 발생하는 이벤트 또는 사용자의 입력       dispatcher : 데이터를 변경하는 방법, 메서드       model : 화면에 표시할 데이터       view : 사용자에게 비춰지는 화면           MVC패턴과 Flux패턴 비교              view : 보고있는 화면       model : 데이터       controller : model과 view 제어                    Flux패턴은 action에서 view까지 단방향으로 일어남 반면 MVC패턴은 model과 view가 서로 데이터를 주고받아서 양방향으로 일어남                            MVC패턴의 문제점              기능 추가 및 변경에 따라 생기는 문제점을 예측할 수 없음.       앱이 복잡해지면서 생기는 업데이트 루프           Flux패턴의 단방향 흐름              데이터의 흐름이 여러 갈래로 나뉘지 않고 단방향으로만 처리           vuex가 왜 필요할까?   복잡한 애플리케이션에서 컴포넌트의 개수가 많아지면 컴포넌트간에 데이터 전달이 어려워진다.      vuex로 해결할 수 있는 문제            MVC 패턴에서 발생하는 구조적 오류       컴포넌트 간 데이터 전달 명시       여러 개의 컴포넌트에서 같은 데이터를 업데이트 할 때 동기화 문제           이벤트 버스로 해결?  어디서 이벤트를 보냈는지 혹은 어디서 이벤트를 받았는지 알기 어려움  // Login.vue eventBus.$emit('fetch', loginInfo);  // List.vue eventBus.$on('display', data =&gt; this.displayOnScreen(data));  // Chart.vue eventBus.$emit('refreshData', chartData);  컴포넌트 간 데이터 전달이 명시적이지 않음   vuex 컨셉     State : 컴포넌트 간에 공유하는 데이터 data()   View : 데이터를 표시하는 화면 template   Action : 사용자의 입력에 따라 데이터를 변경하는 methods   흐름 설명 : 화면(view)에서 버튼을 클릭 하면 버튼이 action을 발생시킴 &gt; action이 발동하면 데이터(state)를 변경   vuex 구조  컴포넌트 -&gt; 비동기 로직 -&gt; 동기 로직 -&gt; 상태   action : 비동기 로직  mutations : 동기 로직   자바스크립트 비동기 처리와 콜백함수 참고 링크  ","categories": ["vue"],
+        "excerpt":"vuex 소개      복잡한 애플리케이션의 컴포넌트들을 효율적으로 관리하는 vuex 라이브러리   React의 Flux패턴에서 기인함   vue.js 중고급 개발자로 성장하기 위한 필수 관문   Flux란?      MVC 패턴의 복잡한 데이터 흐름 문제를 해결하는 개발 패턴            action : 화면에서 발생하는 이벤트 또는 사용자의 입력       dispatcher : 데이터를 변경하는 방법, 메서드       model : 화면에 표시할 데이터       view : 사용자에게 비춰지는 화면           MVC패턴과 Flux패턴 비교              view : 보고있는 화면       model : 데이터       controller : model과 view 제어                    Flux패턴은 action에서 view까지 단방향으로 일어남 반면 MVC패턴은 model과 view가 서로 데이터를 주고받아서 양방향으로 일어남                            MVC패턴의 문제점              기능 추가 및 변경에 따라 생기는 문제점을 예측할 수 없음.       앱이 복잡해지면서 생기는 업데이트 루프           Flux패턴의 단방향 흐름              데이터의 흐름이 여러 갈래로 나뉘지 않고 단방향으로만 처리           vuex가 왜 필요할까?   복잡한 애플리케이션에서 컴포넌트의 개수가 많아지면 컴포넌트간에 데이터 전달이 어려워진다.      vuex로 해결할 수 있는 문제            MVC 패턴에서 발생하는 구조적 오류       컴포넌트 간 데이터 전달 명시       여러 개의 컴포넌트에서 같은 데이터를 업데이트 할 때 동기화 문제           이벤트 버스로 해결?  어디서 이벤트를 보냈는지 혹은 어디서 이벤트를 받았는지 알기 어려움  // Login.vue eventBus.$emit('fetch', loginInfo);  // List.vue eventBus.$on('display', data =&gt; this.displayOnScreen(data));  // Chart.vue eventBus.$emit('refreshData', chartData);  컴포넌트 간 데이터 전달이 명시적이지 않음   vuex 컨셉     State : 컴포넌트 간에 공유하는 데이터 data()   View : 데이터를 표시하는 화면 template   Mutations: state값을 변경하는 이벤트 로직, 메서드 methods   Action : 사용자의 입력에 따라 데이터를 변경하는 (비동기 처리 로직을 선언) aysnc methods   흐름 설명 : 화면(view)에서 버튼을 클릭 하면 버튼이 action을 발생시킴 &gt; action이 발동하면 데이터(state)를 변경   vuex 구조  컴포넌트 -&gt; 비동기 로직 -&gt; 동기 로직 -&gt; 상태   action : 비동기 로직  mutations : 동기 로직   자바스크립트 비동기 처리와 콜백함수 참고 링크  ","categories": ["vue","vue-lv2"],
         "tags": ["vuex","store"],
-        "url": "/vue/vuex/",
+        "url": "/vue/vue-lv2/vuex/",
         "teaser": null
       }]

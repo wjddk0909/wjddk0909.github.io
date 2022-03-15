@@ -4,7 +4,6 @@ excerpt: "branch 생성하고 사용하기"
 categories: 
     - git
 tags: 
-    - git 
     - branch
 --- 
 ## git branch 생성하고 사용하는 방법

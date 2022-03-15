@@ -1,0 +1,53 @@
+I"�<h2 id="11-vue-개발환경-설정">1.1 vue 개발환경 설정</h2>
+
+<ol>
+  <li>chrome 설치</li>
+  <li>vs code 설치</li>
+  <li>node.js LTS 버전 설치</li>
+  <li>크롬 확장 프로그램 Vue.js devetools 설치</li>
+</ol>
+
+<p>참고 링크<br />
+<a href="https://www.google.com/intl/ko/chrome/">Chrome</a>
+<a href="https://code.visualstudio.com/">vs code</a>
+<a href="https://nodejs.org/ko/">node.js</a>
+<a href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd">Vue.js devtools</a></p>
+
+<h2 id="12-수업-소스-코드-안내">1.2 수업 소스 코드 안내</h2>
+
+<p>깃 업로드 후 추가 예정</p>
+
+<h2 id="13-vs-code-플러그인-설치">1.3 vs code 플러그인 설치</h2>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner1_1.png" alt="확장버튼" /><br />
+확장버튼 클릭</p>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner1_2.png" alt="vetur" /></p>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner1_3.png" alt="material icon" /></p>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner1_4.png" alt="live server" /></p>
+
+<ul>
+  <li>Vetur</li>
+  <li>Night Owl</li>
+  <li>Material Icon Theme</li>
+  <li>Live Server</li>
+  <li>ESLint</li>
+  <li>Prettier</li>
+  <li>Auto Close Tag<br />
+이미지로 첨부한 것 이외에도 추가하면 좋을 확장프로그램 리스트입니다.</li>
+</ul>
+
+<p>Material Icon Theme 적용하는 방법<br />
+<img src="/assets/images/vue/vue-lv1/beginner1_5.png" alt="material icon" /></p>
+<ol>
+  <li>code &gt; 기본 설정(Preferences) &gt; 파일 아이콘테마(File Icon Theme) 클릭</li>
+</ol>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner1_5.png" alt="material icon" /></p>
+<ol>
+  <li>Material Icon Theme 선택</li>
+</ol>
+
+:ET

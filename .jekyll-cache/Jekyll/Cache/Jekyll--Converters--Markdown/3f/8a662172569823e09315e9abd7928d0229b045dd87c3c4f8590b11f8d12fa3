@@ -1,4 +1,4 @@
-I"�<h2 id="callapplybind-함수의-차이점은">call/apply/bind 함수의 차이점은?</h2>
+I"�<h2 id="callapplybind-함수의-차이점은">call/apply/bind 함수의 차이점은?</h2>
 
 <p>예제를 보고 확인해보자.</p>
 
@@ -6,14 +6,21 @@
   <p>예)</p>
 </blockquote>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="dl">'</span><span class="s1">maru</span><span class="dl">'</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>    <span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="dl">'</span><span class="s1">maru</span><span class="dl">'</span><span class="p">};</span>
     <span class="kd">const</span> <span class="nx">live</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">city</span><span class="p">){</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Hi my name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">, I live in </span><span class="p">${</span><span class="nx">city</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
     <span class="p">};</span>
     <span class="nx">live</span><span class="p">(</span><span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Hi my name is , I live in korea</span>
     <span class="nx">live</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Hi my name is maru, I live in korea</span>
     <span class="nx">live</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="p">[</span><span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">]);</span> <span class="c1">// Hi my name is maru, I live in korea</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>call과 apply는 함수를 호출하는 함수<br />
 첫번째 인자인 “obj”로 this를 변경하고 함수를 실행한다.<br />
@@ -23,13 +30,19 @@
   <p>예)</p>
 </blockquote>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="dl">'</span><span class="s1">maru</span><span class="dl">'</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>    <span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="dl">'</span><span class="s1">maru</span><span class="dl">'</span><span class="p">};</span>
     <span class="kd">const</span> <span class="nx">live</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">city</span><span class="p">){</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Hi my name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">, I live in </span><span class="p">${</span><span class="nx">city</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
     <span class="p">};</span>
     <span class="kd">const</span> <span class="nx">bound</span> <span class="o">=</span> <span class="nx">live</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
     <span class="nx">bound</span><span class="p">(</span><span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Hi my name is maru, I live in korea</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>bind함수는 함수를 실행하지 않는다.</p>
 

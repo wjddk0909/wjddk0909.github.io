@@ -330,12 +330,17 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
   <p>예)</p>
 </blockquote>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`스포츠: </span><span class="p">${</span><span class="nx">sports</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// 스포츠: undefined</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`스포츠: </span><span class="p">${</span><span class="nx">sports</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// 스포츠: undefined</span>
     <span class="kd">var</span> <span class="nx">sports</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">축구</span><span class="dl">'</span><span class="p">;</span>
 
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`스포츠: </span><span class="p">${</span><span class="nx">sports</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// ReferenceError: sports is not defined</span>
     <span class="kd">let</span> <span class="nx">sports</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">축구</span><span class="dl">'</span><span class="p">;</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
         
       </section>
@@ -352,9 +357,7 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#hoisting" class="page__taxonomy-item p-category" rel="tag">hoisting</a><span class="sep">, </span>
-    
-      <a href="/tags/#javascript" class="page__taxonomy-item p-category" rel="tag">javascript</a>
+      <a href="/tags/#hoisting" class="page__taxonomy-item p-category" rel="tag">hoisting</a>
     
     </span>
   </p>

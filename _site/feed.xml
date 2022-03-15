@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-03-14T14:30:36+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">vuex</title><link href="http://localhost:4000/vue/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-03-15T01:45:05+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">vuex</title><link href="http://localhost:4000/vue/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
 
 <ul>
   <li>복잡한 애플리케이션의 컴포넌트들을 효율적으로 관리하는 vuex 라이브러리</li>
@@ -58,9 +58,17 @@
   </li>
 </ul>
 
-<h4 id="이벤트-버스로-해결">이벤트 버스로 해결?</h4>
+<h3 id="이벤트-버스로-해결">이벤트 버스로 해결?</h3>
 <p>어디서 이벤트를 보냈는지 혹은 어디서 이벤트를 받았는지 알기 어려움</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Login.vue</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c1">// Login.vue</span>
 <span class="nx">eventBus</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">fetch</span><span class="dl">'</span><span class="p">,</span> <span class="nx">loginInfo</span><span class="p">);</span>
 
 <span class="c1">// List.vue</span>
@@ -68,10 +76,11 @@
 
 <span class="c1">// Chart.vue</span>
 <span class="nx">eventBus</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">refreshData</span><span class="dl">'</span><span class="p">,</span> <span class="nx">chartData</span><span class="p">);</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 <p>컴포넌트 간 데이터 전달이 명시적이지 않음</p>
 
 <h2 id="vuex-컨셉">vuex 컨셉</h2>
+
 <ul>
   <li>State : 컴포넌트 간에 공유하는 데이터 <code class="language-plaintext highlighter-rouge">data()</code></li>
   <li>View : 데이터를 표시하는 화면 <code class="language-plaintext highlighter-rouge">template</code></li>
@@ -82,6 +91,7 @@
 </ul>
 
 <h2 id="vuex-구조">vuex 구조</h2>
+
 <p>컴포넌트 -&gt; 비동기 로직 -&gt; 동기 로직 -&gt; 상태
 <img src="/assets/images/vuex_construction.png" alt="vuex_construction" /><br />
 action : 비동기 로직<br />
@@ -101,10 +111,10 @@ mutations : 동기 로직</p>
   <li>git add . : 변경한 파일을 저장</li>
   <li>git commit -m “커밋메세지” : 커밋메세지 입력</li>
   <li>git push origin ‘브랜치명’ : 원격저장소 브랜치에 push 하기</li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="git" /><category term="git" /><category term="branch" /><summary type="html"><![CDATA[branch 생성하고 사용하기]]></summary></entry><entry><title type="html">Vue에서 Fontawesome 사용하기</title><link href="http://localhost:4000/vue/vue-lv2/fontawesome/" rel="alternate" type="text/html" title="Vue에서 Fontawesome 사용하기" /><published>2021-12-11T00:00:00+09:00</published><updated>2021-12-11T00:00:00+09:00</updated><id>http://localhost:4000/vue/vue-lv2/fontawesome</id><content type="html" xml:base="http://localhost:4000/vue/vue-lv2/fontawesome/"><![CDATA[<h2 id="vue에서-fontawesome-사용하기">Vue에서 Fontawesome 사용하기</h2>
+</ul>]]></content><author><name>FE Developer</name></author><category term="git" /><category term="branch" /><summary type="html"><![CDATA[branch 생성하고 사용하기]]></summary></entry><entry><title type="html">Vue에서 Fontawesome 사용하기</title><link href="http://localhost:4000/vue/vue-lv2/fontawesome/" rel="alternate" type="text/html" title="Vue에서 Fontawesome 사용하기" /><published>2021-12-11T00:00:00+09:00</published><updated>2021-12-11T00:00:00+09:00</updated><id>http://localhost:4000/vue/vue-lv2/fontawesome</id><content type="html" xml:base="http://localhost:4000/vue/vue-lv2/fontawesome/"><![CDATA[<h2 id="vue에서-fontawesome-사용하기">Vue에서 Fontawesome 사용하기</h2>
 
 <p>폰트어썸 업데이트하면서 부터인지 vue에서 사용하려면 메일로 무료키트 사용 링크를 받아야한다.<br />
-fontawsome.com/start로 접속 &gt; 이메일 입력 &gt; 확인, 설정 버튼 클릭 &gt; 폰트어썸 로그인 후 무료키트 링크 카피해서 index.html 헤드에 추가</p>]]></content><author><name>FE Developer</name></author><category term="vue" /><category term="vue-lv2" /><category term="vue" /><category term="fontawesome" /><summary type="html"><![CDATA[Fontawesome 삽입하기]]></summary></entry><entry><title type="html">REST</title><link href="http://localhost:4000/javascript/rest/" rel="alternate" type="text/html" title="REST" /><published>2021-12-09T00:00:00+09:00</published><updated>2021-12-09T00:00:00+09:00</updated><id>http://localhost:4000/javascript/rest</id><content type="html" xml:base="http://localhost:4000/javascript/rest/"><![CDATA[<h2 id="rest에-대해-알아보자">REST에 대해 알아보자</h2>
+fontawsome.com/start로 접속 &gt; 이메일 입력 &gt; 확인, 설정 버튼 클릭 &gt; 폰트어썸 로그인 후 무료키트 링크 카피해서 index.html 헤드에 추가</p>]]></content><author><name>FE Developer</name></author><category term="vue" /><category term="vue-lv2" /><category term="fontawesome" /><summary type="html"><![CDATA[Fontawesome 삽입하기]]></summary></entry><entry><title type="html">REST</title><link href="http://localhost:4000/javascript/rest/" rel="alternate" type="text/html" title="REST" /><published>2021-12-09T00:00:00+09:00</published><updated>2021-12-09T00:00:00+09:00</updated><id>http://localhost:4000/javascript/rest</id><content type="html" xml:base="http://localhost:4000/javascript/rest/"><![CDATA[<h2 id="rest에-대해-알아보자">REST에 대해 알아보자</h2>
 
 <p>REST에 대해 알아보기전에 api에 대해 다시 한번 확인해보자.<br />
 api에 대한 포스팅이 따로 있지만 여기에서는 비유를 통해 간단히 설명한다.</p>
@@ -147,7 +157,7 @@ api에 대한 포스팅이 따로 있지만 여기에서는 비유를 통해 간
 <h2 id="restful-이란">RESTful 이란?</h2>
 
 <p>RESTful이란 REST API의 설계 가이드를 올바르게 지킨 시스템을 RESTful 하다고 말할 수 있다.
-RESTful하게 만들면 그자체로 API의 목적이 무엇인지 명확하게 알 수 있다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="api" /><category term="REST" /><category term="RESTful" /><summary type="html"><![CDATA[REST API, RESTful 이란]]></summary></entry><entry><title type="html">호이스팅(Hoisting)</title><link href="http://localhost:4000/javascript/hoisting/" rel="alternate" type="text/html" title="호이스팅(Hoisting)" /><published>2021-12-08T00:00:00+09:00</published><updated>2021-12-08T00:00:00+09:00</updated><id>http://localhost:4000/javascript/hoisting</id><content type="html" xml:base="http://localhost:4000/javascript/hoisting/"><![CDATA[<h2 id="hoisting에-대해-알아보자">hoisting에 대해 알아보자</h2>
+RESTful하게 만들면 그자체로 API의 목적이 무엇인지 명확하게 알 수 있다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="api" /><category term="REST" /><summary type="html"><![CDATA[REST API, RESTful 이란]]></summary></entry><entry><title type="html">호이스팅(Hoisting)</title><link href="http://localhost:4000/javascript/hoisting/" rel="alternate" type="text/html" title="호이스팅(Hoisting)" /><published>2021-12-08T00:00:00+09:00</published><updated>2021-12-08T00:00:00+09:00</updated><id>http://localhost:4000/javascript/hoisting</id><content type="html" xml:base="http://localhost:4000/javascript/hoisting/"><![CDATA[<h2 id="hoisting에-대해-알아보자">hoisting에 대해 알아보자</h2>
 
 <blockquote>
   <p>자바스크립트에서 호이스팅(Hoisting)이란, 인터프리터가 변수와 함수의 공간을 선언전에 미리 할당 하는 것을 의미한다.</p>
@@ -177,12 +187,17 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
   <p>예)</p>
 </blockquote>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`스포츠: </span><span class="p">${</span><span class="nx">sports</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// 스포츠: undefined</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`스포츠: </span><span class="p">${</span><span class="nx">sports</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// 스포츠: undefined</span>
     <span class="kd">var</span> <span class="nx">sports</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">축구</span><span class="dl">'</span><span class="p">;</span>
 
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`스포츠: </span><span class="p">${</span><span class="nx">sports</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// ReferenceError: sports is not defined</span>
     <span class="kd">let</span> <span class="nx">sports</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">축구</span><span class="dl">'</span><span class="p">;</span>
-</code></pre></div></div>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="hoisting" /><summary type="html"><![CDATA[javascript에서 호이스팅이란?]]></summary></entry><entry><title type="html">api</title><link href="http://localhost:4000/javascript/api/" rel="alternate" type="text/html" title="api" /><published>2021-12-07T00:00:00+09:00</published><updated>2021-12-07T00:00:00+09:00</updated><id>http://localhost:4000/javascript/api</id><content type="html" xml:base="http://localhost:4000/javascript/api/"><![CDATA[<h2 id="api에-대해-알아보자">api에 대해 알아보자</h2>
+</pre></td></tr></tbody></table></code></pre></div></div>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="hoisting" /><summary type="html"><![CDATA[javascript에서 호이스팅이란?]]></summary></entry><entry><title type="html">api</title><link href="http://localhost:4000/javascript/api/" rel="alternate" type="text/html" title="api" /><published>2021-12-07T00:00:00+09:00</published><updated>2021-12-07T00:00:00+09:00</updated><id>http://localhost:4000/javascript/api</id><content type="html" xml:base="http://localhost:4000/javascript/api/"><![CDATA[<h2 id="api에-대해-알아보자">api에 대해 알아보자</h2>
 
 <p>“API(Application Progtamming Interface, 응용프로그램 프로그래밍 인터페이스)는 응용 프로그램에서 사용할 수 있도록, 운영체제나 프로그래밍 언어가 제공하는 기능을 제어할 수 있게 만든 인터페이스를 뜻한다.” -위키백과</p>
 
@@ -199,7 +214,7 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
 또한 개발자들간의 협업도 용이해진다.</p>
 
 <p>즉, api는 어떠한 응용프로그램에서 데이터를 주고받기 위한 방법이다.<br />
-특정 사이트에서 데이터를 공유할때 어떤 방식으로 요청해야 하는지, 어떤 데이터를 제공 받을수 있는지에 대한 규격들을 말한다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="api" /><summary type="html"><![CDATA[api란 무엇인가]]></summary></entry><entry><title type="html">call/apply/bind 함수의 차이점</title><link href="http://localhost:4000/javascript/call-apply-bind/" rel="alternate" type="text/html" title="call/apply/bind 함수의 차이점" /><published>2021-12-06T00:00:00+09:00</published><updated>2021-12-06T00:00:00+09:00</updated><id>http://localhost:4000/javascript/call-apply-bind</id><content type="html" xml:base="http://localhost:4000/javascript/call-apply-bind/"><![CDATA[<h2 id="callapplybind-함수의-차이점은">call/apply/bind 함수의 차이점은?</h2>
+특정 사이트에서 데이터를 공유할때 어떤 방식으로 요청해야 하는지, 어떤 데이터를 제공 받을수 있는지에 대한 규격들을 말한다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="api" /><summary type="html"><![CDATA[api란 무엇인가]]></summary></entry><entry><title type="html">call/apply/bind 함수의 차이점</title><link href="http://localhost:4000/javascript/call-apply-bind/" rel="alternate" type="text/html" title="call/apply/bind 함수의 차이점" /><published>2021-12-06T00:00:00+09:00</published><updated>2021-12-06T00:00:00+09:00</updated><id>http://localhost:4000/javascript/call-apply-bind</id><content type="html" xml:base="http://localhost:4000/javascript/call-apply-bind/"><![CDATA[<h2 id="callapplybind-함수의-차이점은">call/apply/bind 함수의 차이점은?</h2>
 
 <p>예제를 보고 확인해보자.</p>
 
@@ -207,14 +222,21 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
   <p>예)</p>
 </blockquote>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="dl">'</span><span class="s1">maru</span><span class="dl">'</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>    <span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="dl">'</span><span class="s1">maru</span><span class="dl">'</span><span class="p">};</span>
     <span class="kd">const</span> <span class="nx">live</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">city</span><span class="p">){</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Hi my name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">, I live in </span><span class="p">${</span><span class="nx">city</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
     <span class="p">};</span>
     <span class="nx">live</span><span class="p">(</span><span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Hi my name is , I live in korea</span>
     <span class="nx">live</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Hi my name is maru, I live in korea</span>
     <span class="nx">live</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="p">[</span><span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">]);</span> <span class="c1">// Hi my name is maru, I live in korea</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>call과 apply는 함수를 호출하는 함수<br />
 첫번째 인자인 “obj”로 this를 변경하고 함수를 실행한다.<br />
@@ -224,15 +246,21 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
   <p>예)</p>
 </blockquote>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="dl">'</span><span class="s1">maru</span><span class="dl">'</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>    <span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="dl">'</span><span class="s1">maru</span><span class="dl">'</span><span class="p">};</span>
     <span class="kd">const</span> <span class="nx">live</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">city</span><span class="p">){</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Hi my name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">, I live in </span><span class="p">${</span><span class="nx">city</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
     <span class="p">};</span>
     <span class="kd">const</span> <span class="nx">bound</span> <span class="o">=</span> <span class="nx">live</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
     <span class="nx">bound</span><span class="p">(</span><span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Hi my name is maru, I live in korea</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>bind함수는 함수를 실행하지 않는다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="function" /><category term="call" /><category term="apply" /><category term="bind" /><summary type="html"><![CDATA[call()/apply()/bind()]]></summary></entry><entry><title type="html">DOM</title><link href="http://localhost:4000/javascript/dom/" rel="alternate" type="text/html" title="DOM" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>http://localhost:4000/javascript/dom</id><content type="html" xml:base="http://localhost:4000/javascript/dom/"><![CDATA[<h2 id="dom-소개">DOM 소개</h2>
+<p>bind함수는 함수를 실행하지 않는다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="function" /><category term="call" /><category term="apply" /><category term="bind" /><summary type="html"><![CDATA[call()/apply()/bind()]]></summary></entry><entry><title type="html">DOM</title><link href="http://localhost:4000/javascript/dom/" rel="alternate" type="text/html" title="DOM" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>http://localhost:4000/javascript/dom</id><content type="html" xml:base="http://localhost:4000/javascript/dom/"><![CDATA[<h2 id="dom-소개">DOM 소개</h2>
 
 <p>javascript를 공부하면서 DOM을 빼놓고 이야기 할 수 없다.</p>
 
@@ -268,7 +296,24 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
   <li>dev Tools(개발자 도구)에서 보여주는 것이 DOM이다.</li>
 </ul>
 
-<p>DOM은 웹페이지의 객체 지향 표현이고, 자바스크립트와 같은 스크립트 언어로 DOM을 수정할수 있다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="DOM" /><summary type="html"><![CDATA[DOM 소개]]></summary></entry><entry><title type="html">인스턴스</title><link href="http://localhost:4000/javascript/instance/" rel="alternate" type="text/html" title="인스턴스" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/javascript/instance</id><content type="html" xml:base="http://localhost:4000/javascript/instance/"><![CDATA[<h2 id="인스턴스란">인스턴스란?</h2>
+<p>DOM은 웹페이지의 객체 지향 표현이고, 자바스크립트와 같은 스크립트 언어로 DOM을 수정할수 있다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="DOM" /><summary type="html"><![CDATA[DOM 소개]]></summary></entry><entry><title type="html">github jekyll blog codeblock에 line number 추가하기</title><link href="http://localhost:4000/blog/codeblock-line-number/" rel="alternate" type="text/html" title="github jekyll blog codeblock에 line number 추가하기" /><published>2021-12-04T00:00:00+09:00</published><updated>2021-12-04T00:00:00+09:00</updated><id>http://localhost:4000/blog/codeblock-line-number</id><content type="html" xml:base="http://localhost:4000/blog/codeblock-line-number/"><![CDATA[<h2 id="코드블럭에-line-number-추가를-해봅시다">코드블럭에 line number 추가를 해봅시다.</h2>
+
+<p>마크다운에서 코드블럭을 삽입하려면 <code class="language-plaintext highlighter-rouge">역따옴표</code>를 세번 넣어서 사용합니다.<br />
+코드블럭으로 코드를 삽입하고 좀 더 보기 쉽게 line number를 추가 하고 싶을때 어떻게 할까?</p>
+
+<p>_config.yml 파일을 열고 kramdown을 검색합니다.</p>
+
+<p>kramdown: 
+    highlighter: rouge<br />
+    syntax_highlighter_opts:<br />
+        block:<br />
+            line_numbers: true</p>
+
+<p>위 코드를 추가 합니다.</p>
+
+<ul>
+  <li>_config.yml 파일은 수정후 자동 반영이 안되므로 서버를 내렸다가 다시 동작하여야 반영이 됩니다.</li>
+</ul>]]></content><author><name>FE Developer</name></author><category term="blog" /><category term="codeblock" /><category term="custom" /><summary type="html"><![CDATA[codeblock line number]]></summary></entry><entry><title type="html">인스턴스</title><link href="http://localhost:4000/javascript/instance/" rel="alternate" type="text/html" title="인스턴스" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/javascript/instance</id><content type="html" xml:base="http://localhost:4000/javascript/instance/"><![CDATA[<h2 id="인스턴스란">인스턴스란?</h2>
 
 <p>인스턴스는 클래스나 프로토타입을 사용해 만든다.
 즉, 프로퍼티와 메소드를 상속 받는다.</p>
@@ -277,48 +322,19 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
 
 <p>예를 들어, “모자”라는 객체의 인스턴스로 “모자1”을 생성했을때 “모자1”은 “파란 모자”가 될 수 있다.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">cap</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">color</span><span class="p">){</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>    <span class="nx">cap</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">color</span><span class="p">){</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
     <span class="p">};</span>
     <span class="kd">let</span> <span class="nx">cap1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cap</span><span class="p">(</span><span class="nx">blue</span><span class="p">);</span>
     <span class="kd">let</span> <span class="nx">cap2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cap</span><span class="p">(</span><span class="nx">black</span><span class="p">);</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>✅ 추가 설명
 떡볶이 레시피를 가지고 떡볶이를 먹으려면 “떡볶이”를 만들어야 한다. 
 어제 “떡볶이”를 만들고, 오늘 또 “떡볶이”를 만들었다고 가정 했을때 만들어진 “떡볶이”는 [인스턴스]가 된다.
-여기서 두개의 떡볶이는 같은 레시피를 보고 만들었지만 동일한 대상은 아니다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="javascript" /><category term="instance" /><category term="primitive" /><summary type="html"><![CDATA[인스턴스란]]></summary></entry><entry><title type="html">GitHub 글 쓰기</title><link href="http://localhost:4000/blog/post/" rel="alternate" type="text/html" title="GitHub 글 쓰기" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/blog/post</id><content type="html" xml:base="http://localhost:4000/blog/post/"><![CDATA[<h2 id="github-블로그-글-등록하기">GitHub 블로그 글 등록하기</h2>
-
-<p>첫 글을 등록해보자.</p>
-
-<p>지킬은 정해진 포맷에 맞춰 글을 등록해야 하는데, _posts폴더에 md확장자로 등록한다.</p>
-
-<p>처음에는 _posts폴더가 없으므로 만들어야 한다.
-_posts폴더를 생성한후 파일명의 형식은 year-month-day-제목.md 로 파일을 생성한다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--- 
-title: "github.io 블로그 시작하기" 
-excerpt: "GitHub Blog 서비스인 github.io 블로그 시작하기로 했다." 
-last_modified_at: 2021-12-03
-categories: 
-    - Blog 
-tags: 
-    - Jekyll
-    - theme 
-    - Blog 
---- 
-## jekyll 블로그 시작 
-
-테마는 가장 많이 사용되고 있는 "minimal-mistakes"를 사용
-
-디자인도 깔끔하고 제작자가 꾸준히 업데이트를 하고있으며, 
-많이 사용되고 있는 만큼 참고할 자료도 많을 것으로 보인다.
-
-이글의 제목은 GitHub 글 쓰기 이고,
-오늘은 2021-12-03이다.
-앞으로 공부하면서 계속해서 정리해서 올려봐야겠다.
-</code></pre></div></div>
-
-<p>이런 형식으로 올리면 
-<img src="https://user-images.githubusercontent.com/34855369/144614561-69bbe98a-3797-4e7d-8209-399fe73e4690.png" alt="post등록하기" />
-이렇게 등록이 된 것을 확인 할 수 있다.</p>]]></content><author><name>FE Developer</name></author><category term="blog" /><category term="blog" /><category term="post" /><summary type="html"><![CDATA[post 등록하기]]></summary></entry></feed>
+여기서 두개의 떡볶이는 같은 레시피를 보고 만들었지만 동일한 대상은 아니다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="instance" /><category term="primitive" /><summary type="html"><![CDATA[인스턴스란]]></summary></entry></feed>

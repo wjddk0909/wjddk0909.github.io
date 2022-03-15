@@ -1,0 +1,20 @@
+I"%<h2 id="코드블럭에-line-number-추가를-해봅시다">코드블럭에 line number 추가를 해봅시다.</h2>
+
+<p>마크다운에서 코드블럭을 삽입하려면 <code class="language-plaintext highlighter-rouge">역따옴표</code>를 세번 넣어서 사용합니다.<br />
+코드블럭으로 코드를 삽입하고 좀 더 보기 쉽게 line number를 추가 하고 싶을때 어떻게 할까?</p>
+
+<p>_config.yml 파일을 열고 kramdown을 검색합니다.</p>
+
+<p>kramdown: 
+    highlighter: rouge<br />
+    syntax_highlighter_opts:<br />
+        block:<br />
+            line_numbers: true</p>
+
+<p>위 코드를 추가 합니다.</p>
+
+<ul>
+  <li>_config.yml 파일은 수정후 자동 반영이 안되므로 서버를 내렸다가 다시 동작하여야 반영이 됩니다.</li>
+</ul>
+
+:ET

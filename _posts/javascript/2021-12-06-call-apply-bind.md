@@ -4,7 +4,6 @@ excerpt: "call()/apply()/bind()"
 categories: 
     - javascript
 tags: 
-    - javascript 
     - function
     - call
     - apply

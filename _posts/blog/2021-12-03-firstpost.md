@@ -7,7 +7,6 @@ categories:
 tags: 
     - Jekyll
     - theme 
-    - blog 
 --- 
 ## jekyll 블로그 시작 
 

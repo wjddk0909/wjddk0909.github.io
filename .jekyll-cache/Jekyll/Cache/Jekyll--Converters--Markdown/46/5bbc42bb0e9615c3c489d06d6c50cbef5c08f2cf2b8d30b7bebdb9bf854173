@@ -1,4 +1,4 @@
-I"_<h2 id="vuex-소개">vuex 소개</h2>
+I"<h2 id="vuex-소개">vuex 소개</h2>
 
 <ul>
   <li>복잡한 애플리케이션의 컴포넌트들을 효율적으로 관리하는 vuex 라이브러리</li>
@@ -58,9 +58,17 @@
   </li>
 </ul>
 
-<h4 id="이벤트-버스로-해결">이벤트 버스로 해결?</h4>
+<h3 id="이벤트-버스로-해결">이벤트 버스로 해결?</h3>
 <p>어디서 이벤트를 보냈는지 혹은 어디서 이벤트를 받았는지 알기 어려움</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Login.vue</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c1">// Login.vue</span>
 <span class="nx">eventBus</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">fetch</span><span class="dl">'</span><span class="p">,</span> <span class="nx">loginInfo</span><span class="p">);</span>
 
 <span class="c1">// List.vue</span>
@@ -68,10 +76,11 @@
 
 <span class="c1">// Chart.vue</span>
 <span class="nx">eventBus</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">refreshData</span><span class="dl">'</span><span class="p">,</span> <span class="nx">chartData</span><span class="p">);</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 <p>컴포넌트 간 데이터 전달이 명시적이지 않음</p>
 
 <h2 id="vuex-컨셉">vuex 컨셉</h2>
+
 <ul>
   <li>State : 컴포넌트 간에 공유하는 데이터 <code class="language-plaintext highlighter-rouge">data()</code></li>
   <li>View : 데이터를 표시하는 화면 <code class="language-plaintext highlighter-rouge">template</code></li>
@@ -82,6 +91,7 @@
 </ul>
 
 <h2 id="vuex-구조">vuex 구조</h2>
+
 <p>컴포넌트 -&gt; 비동기 로직 -&gt; 동기 로직 -&gt; 상태
 <img src="/assets/images/vuex_construction.png" alt="vuex_construction" /><br />
 action : 비동기 로직<br />

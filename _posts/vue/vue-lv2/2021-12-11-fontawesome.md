@@ -5,7 +5,6 @@ categories:
     - vue
     - vue-lv2
 tags: 
-    - vue 
     - fontawesome
 --- 
 ## Vue에서 Fontawesome 사용하기

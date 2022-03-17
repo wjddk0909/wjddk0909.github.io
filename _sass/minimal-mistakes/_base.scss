@@ -188,11 +188,11 @@ a {
   }
 
   &:visited {
-    color: $link-color-visited;
+    color: $keybase-color;
   }
 
   &:hover {
-    color: $link-color-hover;
+    color: $keybase-color;
     outline: 0;
   }
 }

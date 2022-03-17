@@ -1,14 +1,13 @@
 --- 
-title: "vue 개발환경 - 1" 
-excerpt: "개발환경 설정"
+title: "1 - vue 개발 환경 설정" 
+excerpt: "개발 환경 설정 하기"
 categories: 
-    - vue
     - vue-lv1
 tags: 
-    - 개발환경
+    - setting
 toc: true
 --- 
-## 1.1 vue 개발환경 설정
+## 1.1 vue 개발 환경 설정
 
 1. chrome 설치
 2. vs code 설치
@@ -16,10 +15,10 @@ toc: true
 4. 크롬 확장 프로그램 Vue.js devetools 설치
 
 참고 링크  
-[Chrome](https://www.google.com/intl/ko/chrome/)
-[vs code](https://code.visualstudio.com/)
-[node.js](https://nodejs.org/ko/)
-[Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
+- [Chrome](https://www.google.com/intl/ko/chrome/)  
+- [vs code](https://code.visualstudio.com/)  
+- [node.js](https://nodejs.org/ko/)  
+- [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
 
 ## 1.2 수업 소스 코드 안내
 

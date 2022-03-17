@@ -225,6 +225,7 @@ defaults:
       related: true
       toc_ads: true
       toc_sticky: true
+      sidebar_main: true
 
   # _pages
   - scope:

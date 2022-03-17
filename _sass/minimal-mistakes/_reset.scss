@@ -75,7 +75,8 @@ audio:not([controls]) {
 }
 
 a {
-  color: $link-color;
+  color: $rss-color;
+  text-decoration: none;
 }
 
 /* Apply focus state */

@@ -4,6 +4,7 @@ excerpt: "vue 컴포넌트"
 categories: 
     - vue-lv1
 tags: 
+    - vue
 toc: true
 --- 
 ## 4.1 컴포넌트 소개

@@ -4,6 +4,7 @@ excerpt: "vue.js 소개"
 categories: 
     - vue-lv1
 tags: 
+    - vue
 toc: true
 --- 
 ## 2.1 vue는 무엇인가?

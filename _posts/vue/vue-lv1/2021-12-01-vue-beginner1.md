@@ -4,6 +4,7 @@ excerpt: "개발 환경 설정 하기"
 categories: 
     - vue-lv1
 tags: 
+    - vue
     - setting
 toc: true
 --- 

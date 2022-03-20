@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-03-18T00:31:14+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">vuex</title><link href="http://localhost:4000/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-03-20T17:10:31+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">vuex</title><link href="http://localhost:4000/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
 
 <ul>
   <li>복잡한 애플리케이션의 컴포넌트들을 효율적으로 관리하는 vuex 라이브러리</li>
@@ -313,28 +313,12 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
 
 <ul>
   <li>_config.yml 파일은 수정후 자동 반영이 안되므로 서버를 내렸다가 다시 동작하여야 반영이 됩니다.</li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="blog" /><category term="codeblock" /><category term="custom" /><summary type="html"><![CDATA[codeblock line number]]></summary></entry><entry><title type="html">인스턴스</title><link href="http://localhost:4000/javascript/instance/" rel="alternate" type="text/html" title="인스턴스" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/javascript/instance</id><content type="html" xml:base="http://localhost:4000/javascript/instance/"><![CDATA[<h2 id="인스턴스란">인스턴스란?</h2>
+</ul>]]></content><author><name>FE Developer</name></author><category term="blog" /><category term="codeblock" /><category term="custom" /><summary type="html"><![CDATA[codeblock line number]]></summary></entry><entry><title type="html">github.io 블로그 시작하기</title><link href="http://localhost:4000/blog/firstpost/" rel="alternate" type="text/html" title="github.io 블로그 시작하기" /><published>2021-12-03T00:00:00+09:00</published><updated>2021-12-03T00:00:00+09:00</updated><id>http://localhost:4000/blog/firstpost</id><content type="html" xml:base="http://localhost:4000/blog/firstpost/"><![CDATA[<h2 id="jekyll-블로그-시작">jekyll 블로그 시작</h2>
 
-<p>인스턴스는 클래스나 프로토타입을 사용해 만든다.
-즉, 프로퍼티와 메소드를 상속 받는다.</p>
+<p>무료 Jekyll theme 중 가장 많이 사용되고 있는 “minimal-mistakes”를 사용해서 만들기</p>
 
-<p>원래의 객체가 가지고 있던 것을 동일하게 사용하면서, 거기에 확장시켜 추가된 개별속성을 가질 수 있다.</p>
+<p>디자인도 깔끔하고 제작자가 꾸준히 업데이트를 하고있으며, 많이 사용되고 있는 만큼 참고할 자료도 많을 것으로 보인다.</p>
 
-<p>예를 들어, “모자”라는 객체의 인스턴스로 “모자1”을 생성했을때 “모자1”은 “파란 모자”가 될 수 있다.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre>    <span class="nx">cap</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">color</span><span class="p">){</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
-    <span class="p">};</span>
-    <span class="kd">let</span> <span class="nx">cap1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cap</span><span class="p">(</span><span class="nx">blue</span><span class="p">);</span>
-    <span class="kd">let</span> <span class="nx">cap2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cap</span><span class="p">(</span><span class="nx">black</span><span class="p">);</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>✅ 추가 설명
-떡볶이 레시피를 가지고 떡볶이를 먹으려면 “떡볶이”를 만들어야 한다. 
-어제 “떡볶이”를 만들고, 오늘 또 “떡볶이”를 만들었다고 가정 했을때 만들어진 “떡볶이”는 [인스턴스]가 된다.
-여기서 두개의 떡볶이는 같은 레시피를 보고 만들었지만 동일한 대상은 아니다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="instance" /><category term="primitive" /><summary type="html"><![CDATA[인스턴스란]]></summary></entry></feed>
+<p>이글의 제목은 github.io 블로그 시작하기 이고,
+오늘은 2021-12-03이다.
+앞으로 공부하면서 계속해서 정리해서 올려봐야겠다.</p>]]></content><author><name>FE Developer</name></author><category term="blog" /><category term="Jekyll" /><category term="theme" /><summary type="html"><![CDATA[GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.]]></summary></entry></feed>

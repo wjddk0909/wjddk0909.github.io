@@ -4,6 +4,7 @@ excerpt: "vue 인스턴스"
 categories: 
     - vue-lv1
 tags: 
+    - vue
 toc: true
 --- 
 ## 3.1 인스턴스 소개

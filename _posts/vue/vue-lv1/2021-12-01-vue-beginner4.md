@@ -5,6 +5,7 @@ categories:
     - vue-lv1
 tags: 
     - vue
+    - component
 toc: true
 --- 
 ## 4.1 컴포넌트 소개

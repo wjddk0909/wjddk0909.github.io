@@ -1,0 +1,50 @@
+I"�<h2 id="상단-컨텐츠의-높이값이-유동적으로-바뀌고-하단-박스만-overflow-scroll-하는-법">상단 컨텐츠의 높이값이 유동적으로 바뀌고 하단 박스만 overflow scroll 하는 법</h2>
+
+<p>스크롤시 상단 컨텐츠는 고정, 하단 컨텐츠만 overflow-y: auto 시켜야 하는 레이아웃 구현하기</p>
+
+<레이아웃 상세="">
+상단 컨텐츠 : 상단 컨텐츠는 내용에 따라서 `height`값 유동적
+하단 컨텐츠 : 리스트를 보여주며 디바이스에서 상단 컨텐츠 `height`를 뺀 만큼 보이고 `overflow` 되는 부분은 `scroll` 
+
+예시로 간단하게 만들어 보기
+
+``` html
+<div id="app"></div>
+
+<script>
+    var div = document.querySelector('#app');
+    var viewModel = {};
+
+    // Object.defineProperty(대상객체, 객체의 속성, {
+         
+    // });
+
+    Object.defineProperty(viewModel, 'str', {
+        // 속성의 접근했을 때의 동작을 정의
+        get: function() {
+            console.log('접근');
+        },
+        // 속성에 값을 할당했을 때의 동작을 정의
+        set: function(newValue) {
+            console.log('할당', newValue);
+        }
+    });
+</script>
+```
+
+1. topBox와 bottomBox를 전체 container박스로 묶는다.
+2. bottomBox안에 리스트 박스를 넣는다.
+3. 스타일 적용
+    - 전체 박스에 display: flex; flex-direction: column; min-height: 100vh;
+    - topBox에 flex: 0;
+    - bottomBox에 position: relative; flex: 1;
+    - 리스트 박스에 position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow-y: auto;
+
+적용 예시)  
+![overflow scroll](/assets/images/html_css/flex_box01.gif)  
+
+
+
+
+</레이아웃>
+:ET

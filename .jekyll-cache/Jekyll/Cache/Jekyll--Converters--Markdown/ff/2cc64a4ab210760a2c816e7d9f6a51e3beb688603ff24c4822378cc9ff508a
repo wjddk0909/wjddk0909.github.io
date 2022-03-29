@@ -1,0 +1,154 @@
+I"�&<h2 id="61-같은-컴포넌트-레벨-간의-통신-방법">6.1 같은 컴포넌트 레벨 간의 통신 방법</h2>
+
+<p>같은 레벨의 컴포넌트 간의 통신 방법에 대해서 알아 보겠습니다.<br />
+Root(인스턴스)에서 appHeader와 appContent라는 컴포넌트를 등록했을때 컨텐트에서 헤더로 10이라는 데이터를 전달해 보겠습니다.</p>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner6_1.png" alt="컴포넌트" /></p>
+
+<h2 id="62-같은-컴포넌트-레벨-간의-통신-방법-구현">6.2 같은 컴포넌트 레벨 간의 통신 방법 구현</h2>
+
+<p>new Vue로 인스턴스를 생성하고 el로 #app에 붙이면 인스턴스가 div태그안에서 유효하게 됩니다.<br />
+components라는 속성으로 appHeader와 appContent 컴포넌트를 만들어줍니다.<br />
+구조도 처럼 컨텐트에서 헤더로 10을 넘기겠습니다.<br />
+content에서 버튼을 넣고 이 버튼을 누르면 신호를 발생 시킬겁니다.<br />
+그러면 methods를 정의하고 버튼을 클릭했을때 passNum이라는 이벤트를 발생시키고 함수를 이어줍니다.<br />
+this.$emit으로 pass라는 이벤트와 10을 넘겨주고 화면에서 확인하면 뷰 개발자 도구 이벤트탭에서 pass 이벤트가 발생하면서 10이 넘어옵니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;app-header&gt;&lt;/app-header&gt;</span>
+    <span class="nt">&lt;app-content&gt;&lt;/app-content&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+    <span class="kd">var</span> <span class="nx">appHeader</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">template</span><span class="p">:</span> <span class="dl">'</span><span class="s1">&lt;div&gt;header&lt;/div&gt;</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="kd">var</span> <span class="nx">appContent</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">template</span><span class="p">:</span> <span class="dl">'</span><span class="s1">&lt;div&gt;content&lt;button v-on:click="passNum"&gt;pass&lt;/button&gt;&lt;/div&gt;</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">passNum</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">pass</span><span class="dl">'</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="na">el</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">components</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">'</span><span class="s1">app-header</span><span class="dl">'</span><span class="p">:</span> <span class="nx">appHeader</span><span class="p">,</span>
+            <span class="dl">'</span><span class="s1">app-content</span><span class="dl">'</span><span class="p">:</span> <span class="nx">appContent</span>
+        <span class="p">},</span>
+    <span class="p">})</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner6_2.png" alt="컴포넌트" /></p>
+
+<p>content에서 바로 header로 이벤트를 보낼 수 없기 때문에 content에서 root로 <code class="language-plaintext highlighter-rouge">event</code>를 통해서 10을 보내고 root에서 header로 <code class="language-plaintext highlighter-rouge">props</code>로 10을 다시 내려야 합니다.</p>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner6_3.png" alt="컴포넌트" /></p>
+
+<p>root에서 props를 내리려면 데이터를 선언하여야 합니다.<br />
+content에서 passNum이라는 메소드가 실행되면서 this.$emit으로 pass이벤트가 올라왔는데 v-on으로 pass 이벤트를 받을 수 있습니다.<br />
+하위 컴포넌트 이벤트를 v-on으로 받아서 상위 컴포넌트 인스턴스에 메서드로 추가한 deliverNum를 연결해 줍니다.
+pass로 넘어오면서 인자 10도 같이 넘어옵니다. 이 인자 10은 받는 쪽에서 deliverNum(value)로 넣어줍니다.<br />
+넘어온 value를 this.num = value로 넣어줄 수 있습니다.<br />
+pass 버튼을 눌러서 이벤트가 발생하면 Root의 num이 10으로 바뀝니다.<br />
+이렇게 넘어온 데이터를 appHeader로 전달해 주면 됩니다.<br />
+v-bind로 props속성을 넣어줍니다. <br />
+화면에서 content의 porpsdata가 0이었다 버튼을 클릭하면 10으로 바뀌는 것을 확인 할 수 있습니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;app-header</span> <span class="na">v-bind:propsdata=</span><span class="s">"num"</span><span class="nt">&gt;&lt;/app-header&gt;</span>
+        <span class="nt">&lt;app-content</span> <span class="na">v-on:pass=</span><span class="s">"deliverNum"</span><span class="nt">&gt;&lt;/app-content&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+        <span class="kd">var</span> <span class="nx">appHeader</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="na">template</span><span class="p">:</span> <span class="dl">'</span><span class="s1">&lt;div&gt;header&lt;/div&gt;</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">props</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">propsdata</span><span class="dl">'</span><span class="p">]</span>
+        <span class="p">}</span>
+        <span class="kd">var</span> <span class="nx">appContent</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="na">template</span><span class="p">:</span> <span class="dl">'</span><span class="s1">&lt;div&gt;content&lt;button v-on:click="passNum"&gt;pass&lt;/button&gt;&lt;/div&gt;</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">passNum</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                    <span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">pass</span><span class="dl">'</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+            <span class="na">el</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">components</span><span class="p">:</span> <span class="p">{</span>
+                <span class="dl">'</span><span class="s1">app-header</span><span class="dl">'</span><span class="p">:</span> <span class="nx">appHeader</span><span class="p">,</span>
+                <span class="dl">'</span><span class="s1">app-content</span><span class="dl">'</span><span class="p">:</span> <span class="nx">appContent</span>
+            <span class="p">},</span>
+            <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">num</span><span class="p">:</span> <span class="mi">0</span>
+            <span class="p">},</span>
+            <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">deliverNum</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">this</span><span class="p">.</span><span class="nx">num</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+    <span class="nt">&lt;/script&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+:ET

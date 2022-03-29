@@ -1,6 +1,6 @@
 --- 
-title: "5 - vue 컴포넌트 통신 방법 - 기본" 
-excerpt: "vue 컴포넌트 통신 방법 - 기본"
+title: "5 - 컴포넌트 통신 방법) 기본" 
+excerpt: "vue 컴포넌트 통신 방법) 기본"
 categories: 
     - vue-lv1
 tags: 
@@ -226,3 +226,7 @@ var obj = {
 이것을 펼쳐서 보면 data안에 정의했던 num: 10이 바깥레벨로 나와서 바로 보입니다.  
 따라서 this.num은 data의 num속성을 가리킵니다.
 
+<hr>
+
+[this 관련글 1](https://www.w3schools.com/js/js_this.asp)  
+[this 관련글 2](https://betterprogramming.pub/understanding-the-this-keyword-in-javascript-cb76d4c7c5e8)

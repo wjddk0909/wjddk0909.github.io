@@ -1,5 +1,5 @@
 --- 
-title: "4 - vue 컴포넌트" 
+title: "4 - 컴포넌트" 
 excerpt: "vue 컴포넌트"
 categories: 
     - vue-lv1

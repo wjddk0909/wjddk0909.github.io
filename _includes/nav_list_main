@@ -38,6 +38,14 @@
                 {% endif %}
             {% endfor %}
         </ul>
+        <span class="nav__sub-title">HTML/CSS</span>
+        <ul>
+            {% for category in site.categories %}
+                {% if category[0] == "css" %}
+                    <li><a href="/categories/css" class="">css 정리 ({{category[1].size}})</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
       </li>
   </ul>
 </nav>

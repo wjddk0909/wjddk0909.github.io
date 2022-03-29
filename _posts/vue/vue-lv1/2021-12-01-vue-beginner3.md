@@ -1,5 +1,5 @@
 --- 
-title: "3 - vue 인스턴스" 
+title: "3 - 인스턴스" 
 excerpt: "vue 인스턴스"
 categories: 
     - vue-lv1

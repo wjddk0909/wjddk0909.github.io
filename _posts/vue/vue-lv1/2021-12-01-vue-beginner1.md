@@ -1,6 +1,6 @@
 --- 
-title: "1 - vue 개발 환경 설정" 
-excerpt: "개발 환경 설정 하기"
+title: "1 - 개발 환경 설정" 
+excerpt: "vue 개발 환경 설정 하기"
 categories: 
     - vue-lv1
 tags: 

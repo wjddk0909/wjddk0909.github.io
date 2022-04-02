@@ -1,4 +1,32 @@
-I"
+I"�
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv1/vue-beginner8/">8 - HTTP 통신 라이브러리 axios</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.02
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv1" class="page__taxonomy-item-category" rel="tag">vue-lv1</a>
+                    
+                    
+                    <a href="/tags/#axios" class="page__taxonomy-item-tag" rel="tag">axios</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#vue" class="page__taxonomy-item-tag" rel="tag">vue</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
 <div class="list__item">
     <article class="archive-item">
         <div>

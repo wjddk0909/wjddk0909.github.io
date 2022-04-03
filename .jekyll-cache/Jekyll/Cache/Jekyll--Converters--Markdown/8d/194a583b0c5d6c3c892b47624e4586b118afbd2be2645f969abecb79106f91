@@ -1,0 +1,276 @@
+I"�9<h2 id="91-템플릿-문법-소개">9.1 템플릿 문법 소개</h2>
+
+<p>뷰의 템플릿 문법이란 뷰로 화면을 조작하는 방법을 의미합니다. 데이터 바인딩과 디렉티브로 나뉩니다.</p>
+
+<h3 id="데이터-바인딩">데이터 바인딩</h3>
+
+<p>데이터 바인딩은 뷰 인스턴스에서 정의한 속성들을 화면에 표시하는 방법.<br />
+가장 기본적인 방법으로 콧수염 괄호 <code class="language-plaintext highlighter-rouge">Mustache Tag</code> 입니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;div&gt;&lt;/div&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+    <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Hello Vue.js</span><span class="dl">'</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>div태그에 콧수염 괄호를 이용해 뷰 인스턴스의 <code class="language-plaintext highlighter-rouge">message</code> 속성을 연결했습니다. 코드를 실행하면 화면에 Hello Vue.js가 출력 됩니다.</p>
+
+<h3 id="디렉티브">디렉티브</h3>
+
+<p>뷰로 화면의 요소를 더 쉽게 조작하기 위한 문법입니다.<br />
+화면의 조작에서 자주 사용되는 방식들을 모아 디렉티브 형태로 제공하고있습니다. 예를 들어 아래와 같이 특정 속성 값에 때라 화면의 영역을 표시하거나 표시하지 않을 수 있습니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;div&gt;</span>
+    Hello <span class="nt">&lt;span</span> <span class="na">v-if=</span><span class="s">"show"</span><span class="nt">&gt;</span>Vue.js<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+    <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">show</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>위의 코드는 show가 false이기 때문에 Vus.js가 보이지 않습니다.</p>
+
+<h2 id="92-데이터-바인딩과-computed-속성">9.2 데이터 바인딩과 computed 속성</h2>
+
+<p>데이터 바인딩에 대해 알아보겠습니다.</p>
+
+<p>html파일을 만들고 기본 코드를 작성하고 인스턴스를 생성하여 el: ‘#app’으로 연결해 줍니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;</span>
+    
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+    <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="na">el</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">str</span><span class="p">:</span> <span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>브라우저에서 확인해 봅시다.</p>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner9_1.png" alt="데이터바인딩" /></p>
+
+<p>hi가 찍히는것을 볼 수 있고 data의 str값을 바꾸면 화면에도 바로 반영 되는 것을 확인 할 수 있습니다.</p>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner9_2.png" alt="데이터바인딩" /></p>
+
+<p>이 값이 연결 되는 구간이 데이터 바인딩이라고 보면 됩니다.</p>
+
+<p>이번에는 num을 넣어서 만들어 보겠습니다.<br />
+p태그에 num을 넣고 두번째로 doubleNum을 넣습니다.<br />
+num을 정의하고 그 값에 두배를 곱해서 doubleNum을 만들수도 있지만 데이터의 값에 따라서 바뀌는 값을 정의할때 <code class="language-plaintext highlighter-rouge">computed</code>를 이용할 수 있습니다.<br />
+<code class="language-plaintext highlighter-rouge">computed</code>에 doubleNum을 정의하고 this.num(data에 선언했던 num) * 2 를 return합니다.<br />
+화면상에 나타나는 doubleNum은 computed속성이고 num이 바뀌었을때 같이 바뀌게 됩니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+    <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="na">el</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">num</span><span class="p">:</span> <span class="mi">10</span>
+        <span class="p">},</span>
+        <span class="na">computed</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">doubleNum</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">num</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>화면에서 확인해보면 num에 10, doubleNum에 20이 들어가 있습니다.</p>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner9_3.png" alt="데이터바인딩" /></p>
+
+<p>이상태에서 num의 값을 바꾸면 doubleNum의 값도 같이 계산되어서 바뀝니다.</p>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner9_4.png" alt="데이터바인딩" /></p>
+
+<h2 id="93-뷰-디렉티브와-v-bind">9.3 뷰 디렉티브와 v-bind</h2>
+
+<p>뷰 디렉티브에 대해서 보겠습니다. 뷰 디렉티브는 v-가 붙는 특수한 속성들을 말합니다.<br />
+첫번째 p태그에 아이디를 id=”abc1234”로 부여하고 데이터로 관리하고 싶을때 인스턴스에 uuid: ‘abc1234’로 정의하고 v-bind로 태그에 연결 할 수 있습니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">v-bind:id=</span><span class="s">"uuid"</span> <span class="na">v-bind:class=</span><span class="s">"name"</span><span class="nt">&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+    <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="na">el</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">num</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="na">uuid</span><span class="p">:</span> <span class="dl">'</span><span class="s1">abc1234</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">text-blue</span><span class="dl">'</span>
+        <span class="p">},</span>
+        <span class="na">computed</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">doubleNum</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">num</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner9_5.png" alt="디렉티브" /> 
+<img src="/assets/images/vue/vue-lv1/beginner9_6.png" alt="디렉티브" /></p>
+
+<p>Root에 uuid가 정의 되어있고 p태그에 id가 부여된것을 볼 수 있습니다.</p>
+
+<h2 id="94-클래스-바인딩-v-if-v-show">9.4 클래스 바인딩, v-if, v-show</h2>
+
+<p>동일한 방법으로 class도 연결할 수 있습니다.</p>
+
+<p>또 유용한 디렉티브들을 확인해 보겠습니다.<br />
+v-if를 이용해 로그인 여부에 따라 보이는 태그를 만들어 봅시다.</p>
+
+<p>처음에는 loading이 true라서 Loading…태그가 보이고 loading의 체크박스를 해제해서 false로 만들면 v-else의 태그가 보이게 됩니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">v-bind:id=</span><span class="s">"uuid"</span> <span class="na">v-bind:class=</span><span class="s">"name"</span><span class="nt">&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">v-if=</span><span class="s">"loading"</span><span class="nt">&gt;</span>
+        Loading...
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">v-else</span><span class="nt">&gt;</span>
+        test user has been logged in
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+    <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="na">el</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">num</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="na">uuid</span><span class="p">:</span> <span class="dl">'</span><span class="s1">abc1234</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">text-blue</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">loading</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="na">computed</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">doubleNum</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">num</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner9_7.png" alt="디렉티브" /> 
+<img src="/assets/images/vue/vue-lv1/beginner9_8.png" alt="디렉티브" /></p>
+:ET

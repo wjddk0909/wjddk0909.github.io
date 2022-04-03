@@ -1,0 +1,895 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>10 - 템플릿 문법 : 실전 - FE개발자를 꿈꾸다</title>
+<meta name="description" content="템플릿 문법">
+
+
+  <meta name="author" content="FE Developer">
+  
+  <meta property="article:author" content="FE Developer">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="FE개발자를 꿈꾸다">
+<meta property="og:title" content="10 - 템플릿 문법 : 실전">
+<meta property="og:url" content="http://localhost:4000/vue-lv1/vue-beginner10/">
+
+
+  <meta property="og:description" content="템플릿 문법">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo2.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2021-12-02T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/vue-lv1/vue-beginner10/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "꿈꾸는 개발자",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="FE개발자를 꿈꾸다 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          FE개발자를 꿈꾸다
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/logo2.png" alt="FE Developer" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">FE Developer</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>꿈꾸는 개발자</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:wjddk0909@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="10 - 템플릿 문법 : 실전">
+    <meta itemprop="description" content="템플릿 문법">
+    <meta itemprop="datePublished" content="2021-12-02T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">10 - 템플릿 문법 : 실전
+</h1>
+          
+<!--
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 분 소요
+</p>
+            devinlife comments :
+                싱글 페이지(포스트)에 제목 밑에 Updated 시간 표기
+                기존에는 read_time이 표기. read_time -> date 변경
+-->
+            <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2021-12-02T00:00:00+09:00">December 02, 2021</time></p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              
+                <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+                <ul class="toc__menu"><li><a href="#101-watch-속성">10.1 watch 속성</a></li><li><a href="#102-watch-속성-vs-computed-속성">10.2 watch 속성 vs computed 속성</a><ul><li><a href="#computed">computed</a></li><li><a href="#watch">watch</a></li><li><a href="#공식문서-결론">공식문서 결론</a></li></ul></li><li><a href="#103-computed-속성을-이용한-클래스-코드-작성-방법">10.3 computed 속성을 이용한 클래스 코드 작성 방법</a></li></ul>
+
+              
+            </nav>
+            <!-- devinlife comment : right-sidebar ads -->
+            <nav class="toc-custom">
+              
+            </nav>
+          </aside>
+        
+        <h2 id="101-watch-속성">10.1 watch 속성</h2>
+
+<p>인스턴스를 생성하고 num속성을 추가합니다.<br />
+이 num을 button을 클릭했을때 1씩 증가 시켜보겠습니다.</p>
+
+<p>메소드에 <code class="language-plaintext highlighter-rouge">addNum</code>을 정의하고 버튼에 <code class="language-plaintext highlighter-rouge">v-on:click</code>으로 연결해줍니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;</span>
+    
+    <span class="nt">&lt;button</span> <span class="na">v-on:click=</span><span class="s">"addNum"</span><span class="nt">&gt;</span>increase<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+    <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="na">el</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">num</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">addNum</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">num</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>화면에서 버튼을 누르면 누를때마다 숫자가 증가합니다.<br />
+여기에 추가로 증가할때마다 콘솔을 찍어보겠습니다.<br />
+그러면 data의 변화에 따라서 특정 로직을 실행하는 watch를 이용해보겠습니다.<br />
+메소드에 logText를 추가해주고 이것을 watch에 num이 변화했을때 logText를 실행하도록 연결해줍니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;</span>
+    
+    <span class="nt">&lt;button</span> <span class="na">v-on:click=</span><span class="s">"addNum"</span><span class="nt">&gt;</span>increase<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+    <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="na">el</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">num</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="na">watch</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">num</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">logText</span><span class="p">();</span>   
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">addNum</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">num</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="p">},</span>
+            <span class="na">logText</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">changed</span><span class="dl">'</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>화면에서 확인해보면 버튼을 누를때마다 콘솔창이 찍힙니다.</p>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner10_1.png" alt="watch" /></p>
+
+<h2 id="102-watch-속성-vs-computed-속성">10.2 watch 속성 vs computed 속성</h2>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;</span>
+    
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+    <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="na">el</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">num</span><span class="p">:</span> <span class="mi">10</span>
+        <span class="p">},</span>
+        <span class="na">computed</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">doubleNum</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">num</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="na">watch</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">num</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">fetchUserByNumber</span><span class="p">(</span><span class="nx">newValue</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">fetchUserByNumber</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ol>
+  <li>data의 num에 10이라는 값이 할당되어 있습니다.</li>
+  <li>computed에는 <code class="language-plaintext highlighter-rouge">doubleNum</code>이라는 함수가 정의되어 있고, 이 함수는 data의 num이라는 속성에 두배의 값을 return합니다.  자연스럽게 vue 내부적으로 계속 계산을 하는 속성이라고 생각하면 됩니다.  기본적으로 data의 의존성(위 doubleNum로직이 실행될 때, 기준이 되는 값이 data의 num값)을 가지고 이 값이 변할 때 마다 computed의 doubleNum이 실행되고 계산됩니다.</li>
+  <li>watch는 computed와 굉장히 비슷한 느낌인데 watch의 경우도 data의 num이 바뀌었을 때 특정 로직을 실행하기 때문에 computed와 차이가 없어 보입니다.</li>
+</ol>
+
+<h3 id="computed">computed</h3>
+<p>computed같은 경우는 단순한 값에 대한 계산, 특히 <code class="language-plaintext highlighter-rouge">validation vue라이브러리</code>가 있는데 그 내부적으로 구현되어 있는 것들이 computed 속성으로 되어있습니다.<br />
+단순한 텍스트 입력을 받아서 거기에 대한 값을 계산하는 것은 computed를 많이 사용합니다.</p>
+
+<h3 id="watch">watch</h3>
+<p>watch같은 경우는 실제로 무거운 로직들, 매번 실행되기엔 부담스러운 로직입니다.<br />
+예를 들어서 data의 num값이 수정되었을 때 <code class="language-plaintext highlighter-rouge">this.fetchUserByNumber()</code>가 실행되도록 했는데 브라우저에서 num 값을 증가 시키면 콘솔창에 11이 찍힙니다.</p>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner10_2.png" alt="watch" /></p>
+
+<p>이 부분이 watch에 설정한 함수입니다.</p>
+
+<p>watch의 함수들은 기본적으로 두가지 인자를 받습니다.</p>
+<ul>
+  <li>첫번째 newValue : 갱신된 값</li>
+  <li>두번째 oldValue : 이전값</li>
+</ul>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner10_3.png" alt="watch" /></p>
+
+<p>watch는 계속 값의 변화를 추적하고 있기 때문에 이전값과 갱신된 값을 인자로 받습니다.</p>
+
+<p>그래서 새로 갱신된 값을 <code class="language-plaintext highlighter-rouge">fetchUserByNumber</code>의 인자로 넘기고 이 함수에서 인자값을 받아서 콘솔에 찍은겁니다.</p>
+
+<h3 id="공식문서-결론">공식문서 결론</h3>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner10_4.png" alt="watch" /></p>
+
+<p>공식문서에서도 웬만하면 computed를 사용하고 watch보다는 computed가 대부분의 케이스에 적합하다고 되어있습니다.<br />
+실제로 서비스를 구현할때도 computed로 충분히 가능한데 watch를 사용하면 코드가 지저분해지고 computed가 이미 캐싱이나 이런 내부적인 튜닝이 많이 되어있기때문에 computed를 통해서 값들을 계산하는 것을 추천드립니다.</p>
+
+<h2 id="103-computed-속성을-이용한-클래스-코드-작성-방법">10.3 computed 속성을 이용한 클래스 코드 작성 방법</h2>
+
+<p>computed를 이용한 직관적인 코드 작성과 클래스 바인딩에 대해 알아보겠습니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+</pre></td><td class="rouge-code"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"IE=edge"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nc">.warning</span> <span class="p">{</span>
+            <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">v-bind:class=</span><span class="s">"errorTextColor"</span><span class="nt">&gt;</span>Hello<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+        <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+            <span class="na">el</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+                <span class="c1">// cname: 'blue-text',</span>
+                <span class="na">isError</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="p">},</span>
+            <span class="na">computed</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">errorTextColor</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">isError</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">warning</span><span class="dl">'</span> <span class="p">:</span> <span class="kc">null</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이렇게 코드를 작성하면 템플릿상에서 <code class="language-plaintext highlighter-rouge">{ warning: isError }</code>를 넣을 필요 없이 인스턴스안에 깔끔하게 정리 할 수 있습니다.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#template-syntax" class="page__taxonomy-item p-category" rel="tag">template syntax</a><span class="sep">, </span>
+    
+      <a href="/tags/#vue" class="page__taxonomy-item p-category" rel="tag">vue</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#vue-lv1" class="page__taxonomy-item" rel="tag">vue-lv1</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-12-02T00:00:00+09:00">December 2, 2021</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=10+-+%ED%85%9C%ED%94%8C%EB%A6%BF+%EB%AC%B8%EB%B2%95+%3A+%EC%8B%A4%EC%A0%84%20http%3A%2F%2Flocalhost%3A4000%2Fvue-lv1%2Fvue-beginner10%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fvue-lv1%2Fvue-beginner10%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fvue-lv1%2Fvue-beginner10%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/vue-lv1/vue-beginner5/" class="pagination--pager" title="5 - 컴포넌트 통신 방법) 기본
+">이전</a>
+    
+    
+      <a href="/vue-lv1/vue-beginner6/" class="pagination--pager" title="6 - 컴포넌트 통신 방법) 응용
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv2/vuex/" rel="permalink">vuex
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> March 12 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">vuex 설명
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/css/flexbox_scroll/" rel="permalink">상단 박스 height 유동적일때 하단 박스 oveflow scroll 시키기(feat. flex)
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 12 2021</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">flex-direction: column
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/git/gitbranch/" rel="permalink">git branch
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 12 2021</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">branch 생성하고 사용하기
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv2/fontawesome/" rel="permalink">Vue에서 Fontawesome 사용하기
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 11 2021</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Fontawesome 삽입하기
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 꿈꾸는 개발자. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="/assets/js/codeCopy.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

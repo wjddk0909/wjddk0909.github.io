@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-03T18:52:12+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">vuex</title><link href="http://localhost:4000/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-03T18:57:00+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">vuex</title><link href="http://localhost:4000/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
 
 <ul>
   <li>복잡한 애플리케이션의 컴포넌트들을 효율적으로 관리하는 vuex 라이브러리</li>
@@ -97,21 +97,7 @@
 action : 비동기 로직<br />
 mutations : 동기 로직</p>
 
-<p><a href="https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-operation/">자바스크립트 비동기 처리와 콜백함수 참고 링크</a></p>]]></content><author><name>FE Developer</name></author><category term="vue-lv2" /><category term="vuex" /><category term="store" /><summary type="html"><![CDATA[vuex 설명]]></summary></entry><entry><title type="html">git branch</title><link href="http://localhost:4000/git/gitbranch/" rel="alternate" type="text/html" title="git branch" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/git/gitbranch</id><content type="html" xml:base="http://localhost:4000/git/gitbranch/"><![CDATA[<h2 id="git-branch-생성하고-사용하는-방법">git branch 생성하고 사용하는 방법</h2>
-
-<ul>
-  <li>git init : git 저장소 생성(초기화)</li>
-  <li>git remote add origin {link} : link에 생성한 레포지토리 url복사해서 넣기</li>
-  <li>git branch : 깃 브랜치 확인</li>
-  <li>git branch -v : 마지막 커밋메세지 확인</li>
-  <li>git branch ‘브랜치명’ : 브랜치 생성</li>
-  <li>git checkout ‘브랜치명’ : 선택한 브랜치로 이동</li>
-  <li>git branch -d ‘브랜치명’ : 브랜치 삭제하기</li>
-  <li>git merge ‘합칠 브랜치명’ : 현재위치한 브랜치에 합칠 브랜치에서 작업한 내용 가져와서 병합</li>
-  <li>git add . : 변경한 파일을 저장</li>
-  <li>git commit -m “커밋메세지” : 커밋메세지 입력</li>
-  <li>git push origin ‘브랜치명’ : 원격저장소 브랜치에 push 하기</li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="git" /><category term="branch" /><summary type="html"><![CDATA[branch 생성하고 사용하기]]></summary></entry><entry><title type="html">상단 박스 height 유동적일때 하단 박스 oveflow scroll 시키기(feat. flex)</title><link href="http://localhost:4000/css/flexbox_scroll/" rel="alternate" type="text/html" title="상단 박스 height 유동적일때 하단 박스 oveflow scroll 시키기(feat. flex)" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/css/flexbox_scroll</id><content type="html" xml:base="http://localhost:4000/css/flexbox_scroll/"><![CDATA[<h2 id="상단-컨텐츠의-높이값이-유동적으로-바뀌고-하단-박스만-overflow-scroll-하는-법">상단 컨텐츠의 높이값이 유동적으로 바뀌고 하단 박스만 overflow scroll 하는 법</h2>
+<p><a href="https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-operation/">자바스크립트 비동기 처리와 콜백함수 참고 링크</a></p>]]></content><author><name>FE Developer</name></author><category term="vue-lv2" /><category term="vuex" /><category term="store" /><summary type="html"><![CDATA[vuex 설명]]></summary></entry><entry><title type="html">상단 박스 height 유동적일때 하단 박스 oveflow scroll 시키기(feat. flex)</title><link href="http://localhost:4000/css/flexbox_scroll/" rel="alternate" type="text/html" title="상단 박스 height 유동적일때 하단 박스 oveflow scroll 시키기(feat. flex)" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/css/flexbox_scroll</id><content type="html" xml:base="http://localhost:4000/css/flexbox_scroll/"><![CDATA[<h2 id="상단-컨텐츠의-높이값이-유동적으로-바뀌고-하단-박스만-overflow-scroll-하는-법">상단 컨텐츠의 높이값이 유동적으로 바뀌고 하단 박스만 overflow scroll 하는 법</h2>
 
 <p>스크롤시 상단 컨텐츠는 고정, 하단 컨텐츠만 overflow-y: auto 시켜야 하는 레이아웃 구현하기</p>
 
@@ -281,7 +267,21 @@ mutations : 동기 로직</p>
 
 <ul>
   <li><a href="https://dirask.com/posts/CSS-scrolling-for-flexbox-with-overflowing-content-j8VrdD">참고 링크</a></li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="css" /><category term="css" /><category term="flex" /><category term="overflow" /><category term="scroll" /><summary type="html"><![CDATA[flex-direction: column]]></summary></entry><entry><title type="html">Vue에서 Fontawesome 사용하기</title><link href="http://localhost:4000/vue-lv2/fontawesome/" rel="alternate" type="text/html" title="Vue에서 Fontawesome 사용하기" /><published>2021-12-11T00:00:00+09:00</published><updated>2021-12-11T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/fontawesome</id><content type="html" xml:base="http://localhost:4000/vue-lv2/fontawesome/"><![CDATA[<h2 id="vue에서-fontawesome-사용하기">Vue에서 Fontawesome 사용하기</h2>
+</ul>]]></content><author><name>FE Developer</name></author><category term="css" /><category term="css" /><category term="flex" /><category term="overflow" /><category term="scroll" /><summary type="html"><![CDATA[flex-direction: column]]></summary></entry><entry><title type="html">git branch</title><link href="http://localhost:4000/git/gitbranch/" rel="alternate" type="text/html" title="git branch" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/git/gitbranch</id><content type="html" xml:base="http://localhost:4000/git/gitbranch/"><![CDATA[<h2 id="git-branch-생성하고-사용하는-방법">git branch 생성하고 사용하는 방법</h2>
+
+<ul>
+  <li>git init : git 저장소 생성(초기화)</li>
+  <li>git remote add origin {link} : link에 생성한 레포지토리 url복사해서 넣기</li>
+  <li>git branch : 깃 브랜치 확인</li>
+  <li>git branch -v : 마지막 커밋메세지 확인</li>
+  <li>git branch ‘브랜치명’ : 브랜치 생성</li>
+  <li>git checkout ‘브랜치명’ : 선택한 브랜치로 이동</li>
+  <li>git branch -d ‘브랜치명’ : 브랜치 삭제하기</li>
+  <li>git merge ‘합칠 브랜치명’ : 현재위치한 브랜치에 합칠 브랜치에서 작업한 내용 가져와서 병합</li>
+  <li>git add . : 변경한 파일을 저장</li>
+  <li>git commit -m “커밋메세지” : 커밋메세지 입력</li>
+  <li>git push origin ‘브랜치명’ : 원격저장소 브랜치에 push 하기</li>
+</ul>]]></content><author><name>FE Developer</name></author><category term="git" /><category term="branch" /><summary type="html"><![CDATA[branch 생성하고 사용하기]]></summary></entry><entry><title type="html">Vue에서 Fontawesome 사용하기</title><link href="http://localhost:4000/vue-lv2/fontawesome/" rel="alternate" type="text/html" title="Vue에서 Fontawesome 사용하기" /><published>2021-12-11T00:00:00+09:00</published><updated>2021-12-11T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/fontawesome</id><content type="html" xml:base="http://localhost:4000/vue-lv2/fontawesome/"><![CDATA[<h2 id="vue에서-fontawesome-사용하기">Vue에서 Fontawesome 사용하기</h2>
 
 <p>폰트어썸 업데이트하면서 부터인지 vue에서 사용하려면 메일로 무료키트 사용 링크를 받아야한다.<br />
 fontawsome.com/start로 접속 &gt; 이메일 입력 &gt; 확인, 설정 버튼 클릭 &gt; 폰트어썸 로그인 후 무료키트 링크 카피해서 index.html 헤드에 추가</p>]]></content><author><name>FE Developer</name></author><category term="vue-lv2" /><category term="fontawesome" /><summary type="html"><![CDATA[Fontawesome 삽입하기]]></summary></entry><entry><title type="html">REST</title><link href="http://localhost:4000/javascript/rest/" rel="alternate" type="text/html" title="REST" /><published>2021-12-09T00:00:00+09:00</published><updated>2021-12-09T00:00:00+09:00</updated><id>http://localhost:4000/javascript/rest</id><content type="html" xml:base="http://localhost:4000/javascript/rest/"><![CDATA[<h2 id="rest에-대해-알아보자">REST에 대해 알아보자</h2>

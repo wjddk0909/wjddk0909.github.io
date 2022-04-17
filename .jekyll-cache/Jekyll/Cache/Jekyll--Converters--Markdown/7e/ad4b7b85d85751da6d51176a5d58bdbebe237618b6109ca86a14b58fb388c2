@@ -1,0 +1,307 @@
+I"LH<h2 id="111-최신-vue-cli-소개">11.1 최신 Vue CLI 소개</h2>
+
+<p>구글에서 vue cli를 검색하면 공식사이트로 들어갈 수 있습니다.</p>
+
+<p><a href="https://cli.vuejs.org/">Vue CLI 공식 사이트 링크</a></p>
+
+<p>CLI란 명령어를 통한 특정 액션을 실행하는 도구입니다.</p>
+
+<p>Get Started를 누르고
+<img src="/assets/images/vue/vue-lv1/beginner11_1.png" alt="cli" /></p>
+
+<p>Installation을 클릭하고 조금만 내리면 실행 명령어가 보입니다.
+이 실행명령어를 이용해서 설치를 진행 할 것입니다.<br />
+<img src="/assets/images/vue/vue-lv1/beginner11_2.png" alt="cli" /></p>
+
+<p>그 전에 확인 해야 할 것이, 지금까지 vscode에서 live server를 통해서 코드를 브라우저에서 확인했는데 앞으로는 터미널을 이용하겠습니다.</p>
+
+<p>우선 vscode에서 터미널 창을 켜고
+<img src="/assets/images/vue/vue-lv1/beginner11_3.png" alt="cli" /></p>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner11_4.png" alt="cli" /> 
+node -v 명령어로 노드버전을 확인합니다. 10.대 이상 LTS버전으로 설치해주세요.
+두번째로 npm -v 로 npm 버전도 확인하세요. 6.대 버전 이상이면 됩니다.</p>
+
+<p>Vue CLI 공식 사이트에서 확인한 <code class="language-plaintext highlighter-rouge">npm install -g @vue/cli</code> 명령어로 Vue CLI를 설치합니다.<br />
+(강의에서는 3.x 버전을 설치 하였는데 현재는 5.x 버전)</p>
+
+<h2 id="112-vue-cli-도구-설치할-때-문제점-해결-방법">11.2 Vue CLI 도구 설치할 때 문제점 해결 방법</h2>
+
+<p>npm 명령어로 CLI를 설치 중에 에러가 발생하는 경우가 있을것입니다.
+이 에러 케이스에 대해서 얘기해보면, 대부분 permision 에러가 뜰것입니다.<br />
+이 에러는 npm install로 설치할때 라이브러리가 위치하는 폴더에 쓰기 권한이 없어서 그렇습니다.<br />
+이럴때는 sudo를 앞에 붙여서 <code class="language-plaintext highlighter-rouge">sudo npm install -g @vue/cli</code>로 설치해주시면 됩니다.</p>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner11_5.png" alt="cli" /></p>
+
+<p>mac과 window의 설치 루트는 위와 같습니다.</p>
+
+<h2 id="113-cli-2x와-3x의-차이점--프로젝트-생성-및-서버-실행">11.3 CLI 2.x와 3.x의 차이점 / 프로젝트 생성 및 서버 실행</h2>
+
+<p>CLI의 버전 차이에 대해서 알아보겠습니다.</p>
+
+<p>프로젝트를 생성할때<br />
+[Vue CLI 2.x]의 경우<br />
+vue init ‘프로젝트 템플릿 유형’ ‘프로젝트 폴더 위치’<br />
+vue init webpack-simple ‘프로젝트 폴더 위치’</p>
+
+<p>[Vue CLI 3.x]의 경우<br />
+vue create ‘프로젝트 폴더 위치’</p>
+
+<p>이런 명령어의 차이가 있습니다.</p>
+
+<p>프로젝트를 생성 해보겠습니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">vue creat vue-cli</code>로 생성 해봅시다.</p>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner11_6.png" alt="cli" /></p>
+
+<p>여기에서 Vue 2를 선택해주세요.</p>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner11_7.png" alt="cli" /></p>
+
+<p>use yarn / use npm 선택이 나오는데 편한 명령어를 선택하시면 됩니다.
+생성이 완료 되면 <code class="language-plaintext highlighter-rouge">cd vue-cli</code>로 폴더 이동해서 <code class="language-plaintext highlighter-rouge">yarn serve</code> (또는 <code class="language-plaintext highlighter-rouge">npm run serve</code>)로 서버를 실행합니다.</p>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner11_8.png" alt="cli" /></p>
+
+<p>실행하면 포트번호 8080으로 로컬서버로 접근 할 수 있게 됩니다.</p>
+
+<p>url로 이동해서 브라우저에서 화면을 확인해 보면 아래와 같은 화면을 확인 할 수 있습니다.</p>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner11_9.png" alt="cli" /></p>
+
+<h2 id="114-cli로-생성한-프로젝트-폴더-구조-확인-및-mainjs-파일-설명">11.4 CLI로 생성한 프로젝트 폴더 구조 확인 및 main.js 파일 설명</h2>
+
+<p><code class="language-plaintext highlighter-rouge">vue create</code>명령어로 생성된 vue-cli폴더를 들어가봅시다. 
+<code class="language-plaintext highlighter-rouge">npm run serve</code> 또는 <code class="language-plaintext highlighter-rouge">yarn serve</code>는 package.json 파일의 serve에 정의된 명령어를 실행 합니다.</p>
+
+<h3 id="indexhtml">index.html</h3>
+<p>이때 실행되는 파일은 public 폴더의 index.html를 살펴봅시다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">""</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"IE=edge"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width,initial-scale=1.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"icon"</span> <span class="na">href=</span><span class="s">"&lt;%= BASE_URL %&gt;favicon.ico"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;&lt;</span><span class="err">%=</span> <span class="na">htmlWebpackPlugin.options.title</span> <span class="err">%</span><span class="nt">&gt;&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;noscript&gt;</span>
+      <span class="nt">&lt;strong&gt;</span>We're sorry but <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">htmlWebpackPlugin.options.title</span> <span class="err">%</span><span class="nt">&gt;</span> doesn't work properly without JavaScript enabled. Please enable it to continue.<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;/noscript&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="c">&lt;!-- built files will be auto injected --&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이 파일 안에는 <code class="language-plaintext highlighter-rouge">app</code>이라는 id를 가진 태그가 있는데, 그 아래의 주석은 <code class="language-plaintext highlighter-rouge">빌드된 파일들이 자동으로 추가된다</code>라는 의미입니다.</p>
+
+<p><img src="/assets/images/vue/vue-lv1/beginner11_10.png" alt="cli" /></p>
+
+<p>src폴더 밑에 정의해 놓은 <code class="language-plaintext highlighter-rouge">main.js</code>, <code class="language-plaintext highlighter-rouge">App.vue</code>등 여러 파일들을 합쳐서 최소한의 파일로 변환해서 추가해 주는 것입니다.(이것을 webpack이 해줌)</p>
+
+<h3 id="mainjs">main.js</h3>
+
+<p>main.js 파일을 살펴봅시다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">App</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./App.vue</span><span class="dl">'</span>
+
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">productionTip</span> <span class="o">=</span> <span class="kc">false</span>
+
+<span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">render</span><span class="p">:</span> <span class="nx">h</span> <span class="o">=&gt;</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">),</span>
+<span class="p">}).</span><span class="nx">$mount</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>여기에서 <code class="language-plaintext highlighter-rouge">new Vue({...}).$mount('#app')</code>를 다시 써보면<br />
+기존에 하던 인스턴스 생성 코드와 동일합니다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+<span class="p">}).</span><span class="nx">$mount</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+	<span class="na">el</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>여기에서 다시 작성 해보겠습니다.<br />
+기존의 코드에서 render만 추가된 형태입니다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">App</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./App.vue</span><span class="dl">'</span>
+
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">productionTip</span> <span class="o">=</span> <span class="kc">false</span>
+
+<span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">render</span><span class="p">:</span> <span class="nx">h</span> <span class="o">=&gt;</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">),</span>
+<span class="p">}).</span><span class="nx">$mount</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+    <span class="na">el</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">render</span><span class="p">:</span> <span class="nx">h</span><span class="o">=&gt;</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">),</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>render의 역할은 App이라는 컴포넌트, 즉 위의 import한 파일을 불러와서 집어넣고 랜더링 했다고 이해하시면 될 것 같습니다.</p>
+
+<p>App이라는 컴포넌트를 살펴보겠습니다.<br />
+<code class="language-plaintext highlighter-rouge">import App from './App.vue</code> 코드 대신에 아래와 같이 작성 해 봅시다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span>
+<span class="c1">// import App from './App.vue'</span>
+
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">productionTip</span> <span class="o">=</span> <span class="kc">false</span>
+
+<span class="kd">var</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">template</span><span class="p">:</span> <span class="dl">'</span><span class="s1">&lt;div&gt;app&lt;/div&gt;</span><span class="dl">'</span>
+<span class="p">}</span>
+
+<span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">render</span><span class="p">:</span> <span class="nx">h</span> <span class="o">=&gt;</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">),</span>
+  <span class="na">components</span><span class="p">:</span> <span class="p">{</span> <span class="c1">// components의 역할과 render 역할이 동일</span>
+      <span class="dl">'</span><span class="s1">app</span><span class="dl">'</span><span class="p">:</span> <span class="nx">App</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">$mount</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>위 코드는 지금까지 기초 공부를 하면서 많이 봤던 코드입니다.<br />
+변수 App을 정의하고 인스턴스에 <code class="language-plaintext highlighter-rouge">components</code>속성에 정의 했었습니다.<br />
+<code class="language-plaintext highlighter-rouge">components</code>와 <code class="language-plaintext highlighter-rouge">render</code>의 역할이 동일합니다.</p>
+
+<h2 id="115-싱글-파일-컴포넌트-소개-및-여태까지-배운-내용-적용하는-방법">11.5 싱글 파일 컴포넌트 소개 및 여태까지 배운 내용 적용하는 방법</h2>
+
+<p>.vue로 파일을 생성해봅니다.<br />
+vue파일에서 vue를 입력하고 엔터를 치면 싱글 파일 컴포넌트 코드가 자동완성 됩니다.</p>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+<span class="c">&lt;!-- html --&gt;</span>
+<span class="nt">&lt;/</span><span class="k">template</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">script</span><span class="nt">&gt;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+<span class="c1">// javascript</span>
+<span class="p">}</span>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">style</span><span class="nt">&gt;</span>
+<span class="c">/* css */</span>
+<span class="nt">&lt;/</span><span class="k">style</span><span class="nt">&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이전에 배웠던 방식으로 코드를 보면</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">appHeader</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">template</span><span class="p">:</span> <span class="dl">'</span><span class="s1">&lt;div&gt;header&lt;/div&gt;</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">addNum</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>여기에서 template의 <code class="language-plaintext highlighter-rouge">&lt;div&gt;headet&lt;/div&gt;</code>가 <code class="language-plaintext highlighter-rouge">&lt;template&gt;</code>안에 들어가게 되고,<br />
+<code class="language-plaintext highlighter-rouge">methods</code>는 <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code>안에 위치하게 됩니다.  인스턴스 옵션이 들어가는 겁니다.</p>
+
+<h2 id="116-appvue와-helloworldvue-설명">11.6 App.vue와 HelloWorld.vue 설명</h2>
+
+<p>App.vue를 살펴보면 <code class="language-plaintext highlighter-rouge">&lt;HelloWordl&gt;</code>로 컴포넌트를 등록했습니다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="nx">components</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">HelloWorld</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">hello-world</span><span class="dl">'</span><span class="p">:</span> <span class="nx">HelloWorld</span><span class="p">,</span>  
+    <span class="c1">// 위 두개는 같은 의미입니다.</span>
+    <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>컴포넌트 내용을 들고와서 <code class="language-plaintext highlighter-rouge">components</code>에 등록해서 사용하는 것을 확인 할 수 있습니다.</p>
+
+:ET

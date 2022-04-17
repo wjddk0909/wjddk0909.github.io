@@ -1,0 +1,91 @@
+I"�<h2 id="사이드바-카테고리-만들기">사이드바 카테고리 만들기</h2>
+
+<p>왼쪽 사이드바 카테고리 만드는 방법</p>
+
+<ol>
+  <li>pages폴더안에 categories폴더 생성후 category-css, category-javascript 등 카테고리 별로 파일을 생성해서 구분합니다.</li>
+</ol>
+
+<h2 id="pre">&lt;pre&gt;</h2>
+<p>title: “CSS 정리”
+layout: archive
+permalink: categories/css
+author_profile: true
+sidebar_main: true
+—</p>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/css/flexbox_scroll/">상단 박스 height 유동적일때 하단 박스 oveflow scroll 시키기(feat. flex)</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.12
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#css" class="page__taxonomy-item-category" rel="tag">css</a>
+                    
+                    
+                    <a href="/tags/#css" class="page__taxonomy-item-tag" rel="tag">css</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#flex" class="page__taxonomy-item-tag" rel="tag">flex</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#overflow" class="page__taxonomy-item-tag" rel="tag">overflow</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#scroll" class="page__taxonomy-item-tag" rel="tag">scroll</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/css/flex/">flex에 대해서</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.12
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#css" class="page__taxonomy-item-category" rel="tag">css</a>
+                    
+                    
+                    <a href="/tags/#css" class="page__taxonomy-item-tag" rel="tag">css</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#flex" class="page__taxonomy-item-tag" rel="tag">flex</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#grow" class="page__taxonomy-item-tag" rel="tag">grow</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#shirink" class="page__taxonomy-item-tag" rel="tag">shirink</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<p>&lt;/pre&gt;</p>
+
+:ET

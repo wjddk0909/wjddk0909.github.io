@@ -1,0 +1,189 @@
+I"K<h2 id="사이드바-카테고리-만들기">사이드바 카테고리 만들기</h2>
+
+<p>왼쪽 사이드바 카테고리 만드는 방법</p>
+
+<ol>
+  <li>pages폴더안에 categories폴더 생성후 category-css, category-javascript 등 카테고리 별로 파일을 생성해서 구분합니다.</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+</pre></td><td class="rouge-code"><pre>---
+title: "CSS 정리"
+layout: archive
+permalink: categories/css
+author_profile: true
+sidebar_main: true
+---
+
+
+```
+``` 
+
+
+
+&lt;div class="list__item"&gt;
+    &lt;article class="archive-item"&gt;
+        &lt;div&gt;
+            &lt;span&gt;
+              &lt;a href="/css/flexbox_scroll/"&gt;상단 박스 height 유동적일때 하단 박스 oveflow scroll 시키기(feat. flex)&lt;/a&gt;
+            &lt;/span&gt;
+            &lt;small&gt; 
+              &lt;i class="fas fa-fw fa-calendar-alt" aria-hidden="true"&gt; &lt;/i&gt; 2021.12.12
+              &lt;!--Archive page 용-: (post -&gt; page)--&gt;
+&lt;!--page__taxonomy.html에서 가져 옴--&gt;
+        
+        &lt;span class="page__taxonomy"&gt;
+            &lt;span itemprop="keywords"&gt;&lt;a href="/categories/#css" class="page__taxonomy-item-category" rel="tag"&gt;css&lt;/a&gt;
+                    
+                    
+                    &lt;a href="/tags/#css" class="page__taxonomy-item-tag" rel="tag"&gt;css&lt;/a&gt;&lt;span class="sep"&gt; &lt;/span&gt;
+                
+                    
+                    
+                    &lt;a href="/tags/#flex" class="page__taxonomy-item-tag" rel="tag"&gt;flex&lt;/a&gt;&lt;span class="sep"&gt; &lt;/span&gt;
+                
+                    
+                    
+                    &lt;a href="/tags/#overflow" class="page__taxonomy-item-tag" rel="tag"&gt;overflow&lt;/a&gt;&lt;span class="sep"&gt; &lt;/span&gt;
+                
+                    
+                    
+                    &lt;a href="/tags/#scroll" class="page__taxonomy-item-tag" rel="tag"&gt;scroll&lt;/a&gt;
+                
+            &lt;/span&gt;
+        &lt;/span&gt;
+            &lt;/small&gt;
+        &lt;/div&gt;
+      &lt;/article&gt;
+&lt;/div&gt;
+  
+
+
+
+&lt;div class="list__item"&gt;
+    &lt;article class="archive-item"&gt;
+        &lt;div&gt;
+            &lt;span&gt;
+              &lt;a href="/css/flex/"&gt;flex에 대해서&lt;/a&gt;
+            &lt;/span&gt;
+            &lt;small&gt; 
+              &lt;i class="fas fa-fw fa-calendar-alt" aria-hidden="true"&gt; &lt;/i&gt; 2021.12.12
+              &lt;!--Archive page 용-: (post -&gt; page)--&gt;
+&lt;!--page__taxonomy.html에서 가져 옴--&gt;
+        
+        &lt;span class="page__taxonomy"&gt;
+            &lt;span itemprop="keywords"&gt;&lt;a href="/categories/#css" class="page__taxonomy-item-category" rel="tag"&gt;css&lt;/a&gt;
+                    
+                    
+                    &lt;a href="/tags/#css" class="page__taxonomy-item-tag" rel="tag"&gt;css&lt;/a&gt;&lt;span class="sep"&gt; &lt;/span&gt;
+                
+                    
+                    
+                    &lt;a href="/tags/#flex" class="page__taxonomy-item-tag" rel="tag"&gt;flex&lt;/a&gt;&lt;span class="sep"&gt; &lt;/span&gt;
+                
+                    
+                    
+                    &lt;a href="/tags/#grow" class="page__taxonomy-item-tag" rel="tag"&gt;grow&lt;/a&gt;&lt;span class="sep"&gt; &lt;/span&gt;
+                
+                    
+                    
+                    &lt;a href="/tags/#shirink" class="page__taxonomy-item-tag" rel="tag"&gt;shirink&lt;/a&gt;
+                
+            &lt;/span&gt;
+        &lt;/span&gt;
+            &lt;/small&gt;
+        &lt;/div&gt;
+      &lt;/article&gt;
+&lt;/div&gt;
+ 
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+:ET

@@ -190,4 +190,53 @@ new Vue({
 변수 App을 정의하고 인스턴스에 `components`속성에 정의 했었습니다.  
 `components`와 `render`의 역할이 동일합니다.  
 
+## 11.5 싱글 파일 컴포넌트 소개 및 여태까지 배운 내용 적용하는 방법
+
+.vue로 파일을 생성해봅니다.  
+vue파일에서 vue를 입력하고 엔터를 치면 싱글 파일 컴포넌트 코드가 자동완성 됩니다.  
+
+```vue
+<template>
+<!-- html -->
+</template>
+
+<script>
+export default {
+// javascript
+}
+</script>
+
+<style>
+/* css */
+</style>
+```
+
+이전에 배웠던 방식으로 코드를 보면  
+```javascript
+var appHeader = {
+  template: '<div>header</div>',
+  methods: {
+    addNum: function() {
+
+    }
+  }
+}
+```
+
+여기에서 template의 `<div>headet</div>`가 `<template>`안에 들어가게 되고,  
+`methods`는 `<script>`안에 위치하게 됩니다.  인스턴스 옵션이 들어가는 겁니다.  
+
+## 11.6 App.vue와 HelloWorld.vue 설명
+
+App.vue를 살펴보면 `<HelloWordl>`로 컴포넌트를 등록했습니다.  
+```javascript
+components: {
+    HelloWorld,
+    'hello-world': HelloWorld,  
+    // 위 두개는 같은 의미입니다.
+    }
+```
+
+컴포넌트 내용을 들고와서 `components`에 등록해서 사용하는 것을 확인 할 수 있습니다.  
+
 

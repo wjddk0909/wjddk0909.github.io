@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-17T17:48:26+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">vuex</title><link href="http://localhost:4000/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-20T08:12:26+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">vuex</title><link href="http://localhost:4000/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
 
 <ul>
   <li>복잡한 애플리케이션의 컴포넌트들을 효율적으로 관리하는 vuex 라이브러리</li>
@@ -111,7 +111,7 @@ mutations : 동기 로직</p>
   <li>git add . : 변경한 파일을 저장</li>
   <li>git commit -m “커밋메세지” : 커밋메세지 입력</li>
   <li>git push origin ‘브랜치명’ : 원격저장소 브랜치에 push 하기</li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="git" /><category term="branch" /><summary type="html"><![CDATA[branch 생성하고 사용하기]]></summary></entry><entry><title type="html">상단 박스 height 유동적일때 하단 박스 oveflow scroll 시키기(feat. flex)</title><link href="http://localhost:4000/css/flexbox_scroll/" rel="alternate" type="text/html" title="상단 박스 height 유동적일때 하단 박스 oveflow scroll 시키기(feat. flex)" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/css/flexbox_scroll</id><content type="html" xml:base="http://localhost:4000/css/flexbox_scroll/"><![CDATA[<h2 id="상단-컨텐츠의-높이값이-유동적으로-바뀌고-하단-박스만-overflow-scroll-하는-법">상단 컨텐츠의 높이값이 유동적으로 바뀌고 하단 박스만 overflow scroll 하는 법</h2>
+</ul>]]></content><author><name>FE Developer</name></author><category term="git" /><category term="branch" /><summary type="html"><![CDATA[branch 생성하고 사용하기]]></summary></entry><entry><title type="html">flex에 대해서</title><link href="http://localhost:4000/css/flex/" rel="alternate" type="text/html" title="flex에 대해서" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/css/flex</id><content type="html" xml:base="http://localhost:4000/css/flex/"><![CDATA[<h2 id="flex에-대한-정리">flex에 대한 정리</h2>]]></content><author><name>FE Developer</name></author><category term="css" /><category term="css" /><category term="flex" /><category term="grow" /><category term="shirink" /><summary type="html"><![CDATA[flex grow shirink]]></summary></entry><entry><title type="html">상단 박스 height 유동적일때 하단 박스 oveflow scroll 시키기(feat. flex)</title><link href="http://localhost:4000/css/flexbox_scroll/" rel="alternate" type="text/html" title="상단 박스 height 유동적일때 하단 박스 oveflow scroll 시키기(feat. flex)" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/css/flexbox_scroll</id><content type="html" xml:base="http://localhost:4000/css/flexbox_scroll/"><![CDATA[<h2 id="상단-컨텐츠의-높이값이-유동적으로-바뀌고-하단-박스만-overflow-scroll-하는-법">상단 컨텐츠의 높이값이 유동적으로 바뀌고 하단 박스만 overflow scroll 하는 법</h2>
 
 <p>스크롤시 상단 컨텐츠는 고정, 하단 컨텐츠만 overflow-y: auto 시켜야 하는 레이아웃 구현하기</p>
 
@@ -281,7 +281,7 @@ mutations : 동기 로직</p>
 
 <ul>
   <li><a href="https://dirask.com/posts/CSS-scrolling-for-flexbox-with-overflowing-content-j8VrdD">참고 링크</a></li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="css" /><category term="css" /><category term="flex" /><category term="overflow" /><category term="scroll" /><summary type="html"><![CDATA[flex-direction: column]]></summary></entry><entry><title type="html">flex에 대해서</title><link href="http://localhost:4000/css/flex/" rel="alternate" type="text/html" title="flex에 대해서" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/css/flex</id><content type="html" xml:base="http://localhost:4000/css/flex/"><![CDATA[<h2 id="flex에-대한-정리">flex에 대한 정리</h2>]]></content><author><name>FE Developer</name></author><category term="css" /><category term="css" /><category term="flex" /><category term="grow" /><category term="shirink" /><summary type="html"><![CDATA[flex grow shirink]]></summary></entry><entry><title type="html">Vue에서 Fontawesome 사용하기</title><link href="http://localhost:4000/vue-lv2/fontawesome/" rel="alternate" type="text/html" title="Vue에서 Fontawesome 사용하기" /><published>2021-12-11T00:00:00+09:00</published><updated>2021-12-11T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/fontawesome</id><content type="html" xml:base="http://localhost:4000/vue-lv2/fontawesome/"><![CDATA[<h2 id="vue에서-fontawesome-사용하기">Vue에서 Fontawesome 사용하기</h2>
+</ul>]]></content><author><name>FE Developer</name></author><category term="css" /><category term="css" /><category term="flex" /><category term="overflow" /><category term="scroll" /><summary type="html"><![CDATA[flex-direction: column]]></summary></entry><entry><title type="html">Vue에서 Fontawesome 사용하기</title><link href="http://localhost:4000/vue-lv2/fontawesome/" rel="alternate" type="text/html" title="Vue에서 Fontawesome 사용하기" /><published>2021-12-11T00:00:00+09:00</published><updated>2021-12-11T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/fontawesome</id><content type="html" xml:base="http://localhost:4000/vue-lv2/fontawesome/"><![CDATA[<h2 id="vue에서-fontawesome-사용하기">Vue에서 Fontawesome 사용하기</h2>
 
 <p>폰트어썸 업데이트하면서 부터인지 vue에서 사용하려면 메일로 무료키트 사용 링크를 받아야한다.<br />
 fontawsome.com/start로 접속 &gt; 이메일 입력 &gt; 확인, 설정 버튼 클릭 &gt; 폰트어썸 로그인 후 무료키트 링크 카피해서 index.html 헤드에 추가</p>]]></content><author><name>FE Developer</name></author><category term="vue-lv2" /><category term="fontawesome" /><summary type="html"><![CDATA[Fontawesome 삽입하기]]></summary></entry><entry><title type="html">REST</title><link href="http://localhost:4000/javascript/rest/" rel="alternate" type="text/html" title="REST" /><published>2021-12-09T00:00:00+09:00</published><updated>2021-12-09T00:00:00+09:00</updated><id>http://localhost:4000/javascript/rest</id><content type="html" xml:base="http://localhost:4000/javascript/rest/"><![CDATA[<h2 id="rest에-대해-알아보자">REST에 대해 알아보자</h2>
@@ -430,40 +430,47 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
     <span class="nx">bound</span><span class="p">(</span><span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Hi my name is maru, I live in korea</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>bind함수는 함수를 실행하지 않는다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="function" /><category term="call" /><category term="apply" /><category term="bind" /><summary type="html"><![CDATA[call()/apply()/bind()]]></summary></entry><entry><title type="html">DOM</title><link href="http://localhost:4000/javascript/dom/" rel="alternate" type="text/html" title="DOM" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>http://localhost:4000/javascript/dom</id><content type="html" xml:base="http://localhost:4000/javascript/dom/"><![CDATA[<h2 id="dom-소개">DOM 소개</h2>
-
-<p>javascript를 공부하면서 DOM을 빼놓고 이야기 할 수 없다.</p>
-
-<p>DOM이란 무엇인가? 그전에 BOM에 대해서 알아보자.</p>
-
-<blockquote>
-  <p>BOM이란 무엇인가?</p>
-</blockquote>
-
-<p>브라우저를 바탕으로 웹서비스가 실행이 되는데, 이와 관련된 객체들의 집합을 브라우저객체모델(Browser Object Model)이라고 한다.</p>
+<p>bind함수는 함수를 실행하지 않는다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="function" /><category term="call" /><category term="apply" /><category term="bind" /><summary type="html"><![CDATA[call()/apply()/bind()]]></summary></entry><entry><title type="html">1 - Todo App - 프로젝트 소개 및 구성</title><link href="http://localhost:4000/vue-lv2/vue-intermediate1/" rel="alternate" type="text/html" title="1 - Todo App - 프로젝트 소개 및 구성" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vue-intermediate1</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vue-intermediate1/"><![CDATA[<h2 id="개발환경-설정-및-깃헙-리포지토리-클론">개발환경 설정 및 깃헙 리포지토리 클론</h2>
 
 <ul>
-  <li>웹브라우저와 관련된 객체의 집합</li>
-  <li>window객체가 최상위 객체</li>
-  <li>웹브라우저가 제공하는 기능</li>
+  <li>vscode 설치
+<img src="/assets/images/vue/vue-lv2/intermediate1_1.png" alt="todo" /></li>
+  <li>플러그인 설치
+<code class="language-plaintext highlighter-rouge">vetur</code>, <code class="language-plaintext highlighter-rouge">'tslint</code>(문법오류나 api쫓아가기 유용함)</li>
+  <li><a href="https://nodejs.org/en/">node.js</a></li>
+  <li><a href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd">Vue.js devtools</a></li>
+  <li><a href="https://git-scm.com/downloads">git</a></li>
 </ul>
 
-<blockquote>
-  <p>DOM의 정의(MDN참조)</p>
-</blockquote>
+<h2 id="11-뷰-cli로-프로젝트-생성하기">1.1 뷰 CLI로 프로젝트 생성하기</h2>
 
-<p>DOM은 Document Object Model의 약자이다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>npm i <span class="nt">-g</span> @vue/cli
+<span class="c"># or</span>
+yarn global add @vue/cli
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>cli를 설치하고 <code class="language-plaintext highlighter-rouge">vue create 프로젝트이름</code> 명령어를 사용한다.<br />
+vue2를 선택하고 세팅하도록 하겠다.</p>
+
+<p><img src="/assets/images/vue/vue-lv2/intermediate1_2.png" alt="todo" /></p>
+
+<p>프로젝트가 생성되고 나면 생성한 폴더 안으로 <code class="language-plaintext highlighter-rouge">cd 폴더명</code>으로 이동해서 <code class="language-plaintext highlighter-rouge">npm run serve or yarn serve</code>로 로컬서버로 실행해서 브라우저에서 확인할 수 있습니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">App.vue</code> 파일을 살펴보면 <code class="language-plaintext highlighter-rouge">HelloWorld</code>라는 컴포넌트를 <code class="language-plaintext highlighter-rouge">import</code>를 통해서 가져오는 것을 볼 수 있습니다.</p>
+
+<h2 id="12-프로젝트-소-및-컴포넌트-설계-방법">1.2 프로젝트 소 및 컴포넌트 설계 방법</h2>
+
+<p>Todo App을 만들어 볼 계획입니다.</p>
+
+<p>구성은 Root 밑에 4개의 컴포넌트로 구성 되어있습니다.</p>
+
 <ul>
-  <li>HTML, XML 문서의 프로그래밍 인터페이스</li>
-  <li>문서의 구조화된 표현을 제공하고, 프로그래밍 언어가 DOM구조에 접근할 수 있는 방법을 제공해서 문서구조, 스타일, 내용등을 변경할 수 있게 한다.</li>
-  <li>웹페이지를 스크립트 또는 프로그래밍 언어들에서 사용되도록 연결해준다.</li>
+  <li>TodoHeader : 앱의 타이틀이 들어간 컴포넌트</li>
+  <li>TodoInput : 할 일을 입력하는 입력창이 있는 컴포넌트</li>
+  <li>TodoList : 입력한 내용을 리스트로 뿌려주고 각 리스트를 삭제하고, 체크 기능이 들어간 컴포넌트</li>
+  <li>TodoFooter : 전체 리스트를 다 없애주는 버튼이 들어가있는 컴포넌트</li>
 </ul>
 
-<p>DOM이 무엇인가…</p>
-<ul>
-  <li>내가 html에 쓴 파일이 DOM은 아니다. 그러나 브라우저에 의해서 파싱이 된다면 DOM이 된다.</li>
-  <li>view source에서 보이는것도 DOM이 아니다.</li>
-  <li>dev Tools(개발자 도구)에서 보여주는 것이 DOM이다.</li>
-</ul>
-
-<p>DOM은 웹페이지의 객체 지향 표현이고, 자바스크립트와 같은 스크립트 언어로 DOM을 수정할수 있다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="DOM" /><summary type="html"><![CDATA[DOM 소개]]></summary></entry></feed>
+<p>간단한 예제이지만 event올리기, props 내리기 같은 데이터 통신에 대해 다루고 있기 때문에 공부하기 좋은 예제입니다.</p>]]></content><author><name>FE Developer</name></author><category term="vue-lv2" /><category term="vue" /><summary type="html"><![CDATA[Todo App]]></summary></entry></feed>

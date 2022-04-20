@@ -1,0 +1,54 @@
+I"H<h2 id="맥북-키보드-설정-팁">맥북 키보드 설정 팁</h2>
+
+<p><img src="/assets/images/tip/keybinding.png" alt="key" /></p>
+
+<p>맥북에서 한글 입력상태에서 백쿼트를 사용하려면 <code class="language-plaintext highlighter-rouge">option + ₩(백쿼트)</code> 키를 눌러야한다.<br />
+매번 이렇게 입력하려니 불편해서 설정해 두는 방법을 찾아보았다.</p>
+
+<h2 id="맥북에서-터미널-창을-열어준다">맥북에서 터미널 창을 열어준다.</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre>// Library에 KeyBindings 폴더 생성
+<span class="nb">cd</span> ~/Library
+<span class="nb">mkdir </span>KeyBindings
+
+// KeyBindings로 들어가서 DefaultkeyBinding.dict 파일 생성
+<span class="nb">cd </span>KeyBindings
+<span class="nb">touch </span>DefaultkeyBinding.dict
+
+// Vim<span class="o">(</span>Text Editor<span class="o">)</span>로 파일 열고 i<span class="o">(</span>입력<span class="o">)</span> 전환
+vi DefaultkeyBinding
+i
+
+// 아래의 <span class="o">{</span> ~ <span class="o">}</span>코드를 복사해서
+<span class="o">{</span>
+    <span class="s2">"₩"</span> <span class="o">=</span> <span class="o">(</span><span class="s2">"insertText:"</span>, <span class="s2">"</span><span class="sb">`</span><span class="s2">");
+}
+
+// esc + :wq
+:wq
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이렇게 입력하고 재부팅해주면 한글 입력상태에서 백쿼트 사용이 된다.</p>
+
+<p>*** 원래의 상태로 돌아가려면
+<code class="language-plaintext highlighter-rouge">rm DefaultkeyBinding.dict</code></p>
+:ET

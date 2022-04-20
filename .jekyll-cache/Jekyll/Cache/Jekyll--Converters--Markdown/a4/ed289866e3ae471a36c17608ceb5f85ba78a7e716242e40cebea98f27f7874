@@ -1,0 +1,17 @@
+I"�<h2 id="공부해야-할-것들">공부해야 할 것들</h2>
+
+<ul>
+  <li>vue2</li>
+  <li>vue3</li>
+  <li>webpack</li>
+  <li>vite</li>
+  <li>javascript</li>
+  <li>typescript</li>
+  <li>functional programming</li>
+  <li>jest (or mocha) test code</li>
+</ul>
+
+<p>vite: 웹팩을 대체하는 속도 빠른 번들링툴 (요즘 뜨는 툴)</p>
+
+<p>제스트: 태스트 코드 작성할때 사용하는 라이브러리</p>
+:ET

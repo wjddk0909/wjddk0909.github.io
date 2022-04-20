@@ -1,0 +1,663 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>1 - Todo App - 프로젝트 소개 및 구성 - FE개발자를 꿈꾸다</title>
+<meta name="description" content="Todo App">
+
+
+  <meta name="author" content="FE Developer">
+  
+  <meta property="article:author" content="FE Developer">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="FE개발자를 꿈꾸다">
+<meta property="og:title" content="1 - Todo App - 프로젝트 소개 및 구성">
+<meta property="og:url" content="http://localhost:4000/vue-lv2/vue-intermediate1/">
+
+
+  <meta property="og:description" content="Todo App">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo2.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2021-12-05T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/vue-lv2/vue-intermediate1/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "꿈꾸는 개발자",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="FE개발자를 꿈꾸다 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          FE개발자를 꿈꾸다
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/logo2.png" alt="FE Developer" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">FE Developer</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>꿈꾸는 개발자</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:wjddk0909@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="1 - Todo App - 프로젝트 소개 및 구성">
+    <meta itemprop="description" content="Todo App">
+    <meta itemprop="datePublished" content="2021-12-05T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">1 - Todo App - 프로젝트 소개 및 구성
+</h1>
+          
+<!--
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+            devinlife comments :
+                싱글 페이지(포스트)에 제목 밑에 Updated 시간 표기
+                기존에는 read_time이 표기. read_time -> date 변경
+-->
+            <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2021-12-05T00:00:00+09:00">December 05, 2021</time></p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              
+                <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+                <ul class="toc__menu"><li><a href="#개발환경-설정-및-깃헙-리포지토리-클론">개발환경 설정 및 깃헙 리포지토리 클론</a></li><li><a href="#11-뷰-cli로-프로젝트-생성하기">1.1 뷰 CLI로 프로젝트 생성하기</a></li><li><a href="#12-프로젝트-소-및-컴포넌트-설계-방법">1.2 프로젝트 소 및 컴포넌트 설계 방법</a></li></ul>
+
+              
+            </nav>
+            <!-- devinlife comment : right-sidebar ads -->
+            <nav class="toc-custom">
+              
+            </nav>
+          </aside>
+        
+        <h2 id="개발환경-설정-및-깃헙-리포지토리-클론">개발환경 설정 및 깃헙 리포지토리 클론</h2>
+
+<ul>
+  <li>vscode 설치
+<img src="/assets/images/vue/vue-lv2/intermediate1_1.png" alt="todo" /></li>
+  <li>플러그인 설치
+<code class="language-plaintext highlighter-rouge">vetur</code>, <code class="language-plaintext highlighter-rouge">'tslint</code>(문법오류나 api쫓아가기 유용함)</li>
+  <li><a href="https://nodejs.org/en/">node.js</a></li>
+  <li><a href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd">Vue.js devtools</a></li>
+  <li><a href="https://git-scm.com/downloads">git</a></li>
+</ul>
+
+<h2 id="11-뷰-cli로-프로젝트-생성하기">1.1 뷰 CLI로 프로젝트 생성하기</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>npm i <span class="nt">-g</span> @vue/cli
+<span class="c"># or</span>
+yarn global add @vue/cli
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>cli를 설치하고 <code class="language-plaintext highlighter-rouge">vue create 프로젝트이름</code> 명령어를 사용한다.<br />
+vue2를 선택하고 세팅하도록 하겠다.</p>
+
+<p><img src="/assets/images/vue/vue-lv2/intermediate1_2.png" alt="todo" /></p>
+
+<p>프로젝트가 생성되고 나면 생성한 폴더 안으로 <code class="language-plaintext highlighter-rouge">cd 폴더명</code>으로 이동해서 <code class="language-plaintext highlighter-rouge">npm run serve or yarn serve</code>로 로컬서버로 실행해서 브라우저에서 확인할 수 있습니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">App.vue</code> 파일을 살펴보면 <code class="language-plaintext highlighter-rouge">HelloWorld</code>라는 컴포넌트를 <code class="language-plaintext highlighter-rouge">import</code>를 통해서 가져오는 것을 볼 수 있습니다.</p>
+
+<h2 id="12-프로젝트-소-및-컴포넌트-설계-방법">1.2 프로젝트 소 및 컴포넌트 설계 방법</h2>
+
+<p>Todo App을 만들어 볼 계획입니다.</p>
+
+<p>구성은 Root 밑에 4개의 컴포넌트로 구성 되어있습니다.</p>
+
+<ul>
+  <li>TodoHeader : 앱의 타이틀이 들어간 컴포넌트</li>
+  <li>TodoInput : 할 일을 입력하는 입력창이 있는 컴포넌트</li>
+  <li>TodoList : 입력한 내용을 리스트로 뿌려주고 각 리스트를 삭제하고, 체크 기능이 들어간 컴포넌트</li>
+  <li>TodoFooter : 전체 리스트를 다 없애주는 버튼이 들어가있는 컴포넌트</li>
+</ul>
+
+<p>간단한 예제이지만 event올리기, props 내리기 같은 데이터 통신에 대해 다루고 있기 때문에 공부하기 좋은 예제입니다.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#vue" class="page__taxonomy-item p-category" rel="tag">vue</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#vue-lv2" class="page__taxonomy-item" rel="tag">vue-lv2</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-12-05T00:00:00+09:00">December 5, 2021</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=1+-+Todo+App+-+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EC%86%8C%EA%B0%9C+%EB%B0%8F+%EA%B5%AC%EC%84%B1%20http%3A%2F%2Flocalhost%3A4000%2Fvue-lv2%2Fvue-intermediate1%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fvue-lv2%2Fvue-intermediate1%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fvue-lv2%2Fvue-intermediate1%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/javascript/dom/" class="pagination--pager" title="DOM
+">이전</a>
+    
+    
+      <a href="/vue-lv2/vue-intermediate2/" class="pagination--pager" title="2 - Todo App - 프로젝트 구현
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv2/vuex/" rel="permalink">vuex
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> March 12 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">vuex 설명
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/css/flexbox_scroll/" rel="permalink">상단 박스 height 유동적일때 하단 박스 oveflow scroll 시키기(feat. flex)
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 12 2021</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">flex-direction: column
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/css/flex/" rel="permalink">flex에 대해서
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 12 2021</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">flex grow shirink
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/git/gitbranch/" rel="permalink">git branch
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 12 2021</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">branch 생성하고 사용하기
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 꿈꾸는 개발자. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="/assets/js/codeCopy.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

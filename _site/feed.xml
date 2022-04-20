@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-20T08:12:26+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">vuex</title><link href="http://localhost:4000/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-20T22:04:16+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">vuex</title><link href="http://localhost:4000/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
 
 <ul>
   <li>복잡한 애플리케이션의 컴포넌트들을 효율적으로 관리하는 vuex 라이브러리</li>
@@ -97,7 +97,50 @@
 action : 비동기 로직<br />
 mutations : 동기 로직</p>
 
-<p><a href="https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-operation/">자바스크립트 비동기 처리와 콜백함수 참고 링크</a></p>]]></content><author><name>FE Developer</name></author><category term="vue-lv2" /><category term="vuex" /><category term="store" /><summary type="html"><![CDATA[vuex 설명]]></summary></entry><entry><title type="html">git branch</title><link href="http://localhost:4000/git/gitbranch/" rel="alternate" type="text/html" title="git branch" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/git/gitbranch</id><content type="html" xml:base="http://localhost:4000/git/gitbranch/"><![CDATA[<h2 id="git-branch-생성하고-사용하는-방법">git branch 생성하고 사용하는 방법</h2>
+<p><a href="https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-operation/">자바스크립트 비동기 처리와 콜백함수 참고 링크</a></p>]]></content><author><name>FE Developer</name></author><category term="vue-lv2" /><category term="vuex" /><category term="store" /><summary type="html"><![CDATA[vuex 설명]]></summary></entry><entry><title type="html">git commit 메세지 수정</title><link href="http://localhost:4000/git/git-commit-edit/" rel="alternate" type="text/html" title="git commit 메세지 수정" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/git/git-commit-edit</id><content type="html" xml:base="http://localhost:4000/git/git-commit-edit/"><![CDATA[<h2 id="마지막-commit-메세지-수정하기">마지막 commit 메세지 수정하기</h2>
+
+<blockquote>
+  <p>git commit –amend -m “바꿀 메세지”<br />
+or<br />
+git commit –amend<br />
+까지 입력후 vi 에서 i(수정모드)로 변경하고 수정 후 esc 누르고 :wq로 저장</p>
+</blockquote>
+
+<h2 id="이전-commit-메세지-수정하기">이전 commit 메세지 수정하기</h2>
+
+<p><code class="language-plaintext highlighter-rouge">rebase</code> 명령어를 사용<br />
+<code class="language-plaintext highlighter-rouge">rebase</code> 명령어는 branch의 base를 다시 설정하여 master브랜치와 merge commit생성을 방지하여 깔끔한 커밋을 남길 수 있도록 도와주는 명령어</p>
+
+<blockquote>
+  <p>git rebase -i HEAD~3</p>
+</blockquote>
+
+<p>rebase에서 -i 옵션을 주면 rebase명령을  대화형으로 수행하여 여러 커밋들의 순서를 바꾸거나 커밋 히스토리를 변경 또는 삭제할 때 사용<br />
+HEAD~3 은 최근 커밋 메시지중 3개만 불러온다는 뜻</p>
+
+<p>입혁하면 최근 커밋 메시지 3개를 불러오는데</p>
+
+<blockquote>
+  <p>pick 커밋번호 커밋메시지</p>
+</blockquote>
+
+<p>형식으로 출력</p>
+
+<p>이때 수정하고 싶은 commit 내역의 <code class="language-plaintext highlighter-rouge">pick</code>을 <code class="language-plaintext highlighter-rouge">reword</code>로 바꾸고 :wq로 저장 종료<br />
+종료가 되면 선택한 commit 메시지에 대한 화면이 다시 터미널에 호출<br />
+위와 동일하게 vi 에서 i(수정모드)로 변경하고 수정 후 esc 누르고 :wq로 저장</p>
+
+<h2 id="원격에-이미-push-했을-때">원격에 이미 Push 했을 때</h2>
+
+<p>commit이 이미 원격에 push 되었다면 커밋 메시지를 수정하고</p>
+
+<blockquote>
+  <p>git push origin master(혹은 브랜치명) -f</p>
+</blockquote>
+
+<p>로 강제 덮어씌우기</p>
+
+<p>*** 개인 레포지토리나 개인 브랜치가 아닌 협업 마스터 브랜치에는 위험할 수 있음</p>]]></content><author><name>FE Developer</name></author><category term="git" /><category term="commit" /><summary type="html"><![CDATA[commit 오타 수정]]></summary></entry><entry><title type="html">git branch</title><link href="http://localhost:4000/git/gitbranch/" rel="alternate" type="text/html" title="git branch" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/git/gitbranch</id><content type="html" xml:base="http://localhost:4000/git/gitbranch/"><![CDATA[<h2 id="git-branch-생성하고-사용하는-방법">git branch 생성하고 사용하는 방법</h2>
 
 <ul>
   <li>git init : git 저장소 생성(초기화)</li>
@@ -430,47 +473,4 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
     <span class="nx">bound</span><span class="p">(</span><span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Hi my name is maru, I live in korea</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>bind함수는 함수를 실행하지 않는다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="function" /><category term="call" /><category term="apply" /><category term="bind" /><summary type="html"><![CDATA[call()/apply()/bind()]]></summary></entry><entry><title type="html">1 - Todo App - 프로젝트 소개 및 구성</title><link href="http://localhost:4000/vue-lv2/vue-intermediate1/" rel="alternate" type="text/html" title="1 - Todo App - 프로젝트 소개 및 구성" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vue-intermediate1</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vue-intermediate1/"><![CDATA[<h2 id="개발환경-설정-및-깃헙-리포지토리-클론">개발환경 설정 및 깃헙 리포지토리 클론</h2>
-
-<ul>
-  <li>vscode 설치
-<img src="/assets/images/vue/vue-lv2/intermediate1_1.png" alt="todo" /></li>
-  <li>플러그인 설치
-<code class="language-plaintext highlighter-rouge">vetur</code>, <code class="language-plaintext highlighter-rouge">'tslint</code>(문법오류나 api쫓아가기 유용함)</li>
-  <li><a href="https://nodejs.org/en/">node.js</a></li>
-  <li><a href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd">Vue.js devtools</a></li>
-  <li><a href="https://git-scm.com/downloads">git</a></li>
-</ul>
-
-<h2 id="11-뷰-cli로-프로젝트-생성하기">1.1 뷰 CLI로 프로젝트 생성하기</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre>npm i <span class="nt">-g</span> @vue/cli
-<span class="c"># or</span>
-yarn global add @vue/cli
-</pre></td></tr></tbody></table></code></pre></div></div>
-<p>cli를 설치하고 <code class="language-plaintext highlighter-rouge">vue create 프로젝트이름</code> 명령어를 사용한다.<br />
-vue2를 선택하고 세팅하도록 하겠다.</p>
-
-<p><img src="/assets/images/vue/vue-lv2/intermediate1_2.png" alt="todo" /></p>
-
-<p>프로젝트가 생성되고 나면 생성한 폴더 안으로 <code class="language-plaintext highlighter-rouge">cd 폴더명</code>으로 이동해서 <code class="language-plaintext highlighter-rouge">npm run serve or yarn serve</code>로 로컬서버로 실행해서 브라우저에서 확인할 수 있습니다.</p>
-
-<p><code class="language-plaintext highlighter-rouge">App.vue</code> 파일을 살펴보면 <code class="language-plaintext highlighter-rouge">HelloWorld</code>라는 컴포넌트를 <code class="language-plaintext highlighter-rouge">import</code>를 통해서 가져오는 것을 볼 수 있습니다.</p>
-
-<h2 id="12-프로젝트-소-및-컴포넌트-설계-방법">1.2 프로젝트 소 및 컴포넌트 설계 방법</h2>
-
-<p>Todo App을 만들어 볼 계획입니다.</p>
-
-<p>구성은 Root 밑에 4개의 컴포넌트로 구성 되어있습니다.</p>
-
-<ul>
-  <li>TodoHeader : 앱의 타이틀이 들어간 컴포넌트</li>
-  <li>TodoInput : 할 일을 입력하는 입력창이 있는 컴포넌트</li>
-  <li>TodoList : 입력한 내용을 리스트로 뿌려주고 각 리스트를 삭제하고, 체크 기능이 들어간 컴포넌트</li>
-  <li>TodoFooter : 전체 리스트를 다 없애주는 버튼이 들어가있는 컴포넌트</li>
-</ul>
-
-<p>간단한 예제이지만 event올리기, props 내리기 같은 데이터 통신에 대해 다루고 있기 때문에 공부하기 좋은 예제입니다.</p>]]></content><author><name>FE Developer</name></author><category term="vue-lv2" /><category term="vue" /><summary type="html"><![CDATA[Todo App]]></summary></entry></feed>
+<p>bind함수는 함수를 실행하지 않는다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="function" /><category term="call" /><category term="apply" /><category term="bind" /><summary type="html"><![CDATA[call()/apply()/bind()]]></summary></entry></feed>

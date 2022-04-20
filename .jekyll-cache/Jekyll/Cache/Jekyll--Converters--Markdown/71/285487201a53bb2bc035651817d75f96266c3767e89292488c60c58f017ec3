@@ -1,0 +1,45 @@
+I"<h2 id="마지막-commit-메세지-수정하기">마지막 commit 메세지 수정하기</h2>
+
+<blockquote>
+  <p>git commit –amend -m “바꿀 메세지”<br />
+or<br />
+git commit –amend<br />
+까지 입력후 vi 에서 i(수정모드)로 변경하고 수정 후 esc 누르고 :wq로 저장</p>
+</blockquote>
+
+<h2 id="이전-commit-메세지-수정하기">이전 commit 메세지 수정하기</h2>
+
+<p><code class="language-plaintext highlighter-rouge">rebase</code> 명령어를 사용<br />
+<code class="language-plaintext highlighter-rouge">rebase</code> 명령어는 branch의 base를 다시 설정하여 master브랜치와 merge commit생성을 방지하여 깔끔한 커밋을 남길 수 있도록 도와주는 명령어</p>
+
+<blockquote>
+  <p>git rebase -i HEAD~3</p>
+</blockquote>
+
+<p>rebase에서 -i 옵션을 주면 rebase명령을  대화형으로 수행하여 여러 커밋들의 순서를 바꾸거나 커밋 히스토리를 변경 또는 삭제할 때 사용<br />
+HEAD~3 은 최근 커밋 메시지중 3개만 불러온다는 뜻</p>
+
+<p>입혁하면 최근 커밋 메시지 3개를 불러오는데</p>
+
+<blockquote>
+  <p>pick 커밋번호 커밋메시지</p>
+</blockquote>
+
+<p>형식으로 출력</p>
+
+<p>이때 수정하고 싶은 commit 내역의 <code class="language-plaintext highlighter-rouge">pick</code>을 <code class="language-plaintext highlighter-rouge">reword</code>로 바꾸고 :wq로 저장 종료<br />
+종료가 되면 선택한 commit 메시지에 대한 화면이 다시 터미널에 호출<br />
+위와 동일하게 vi 에서 i(수정모드)로 변경하고 수정 후 esc 누르고 :wq로 저장</p>
+
+<h2 id="원격에-이미-push-했을-때">원격에 이미 Push 했을 때</h2>
+
+<p>commit이 이미 원격에 push 되었다면 커밋 메시지를 수정하고</p>
+
+<blockquote>
+  <p>git push origin master(혹은 브랜치명) -f</p>
+</blockquote>
+
+<p>로 강제 덮어씌우기</p>
+
+<p>*** 개인 레포지토리나 개인 브랜치가 아닌 협업 마스터 브랜치에는 위험할 수 있음</p>
+:ET

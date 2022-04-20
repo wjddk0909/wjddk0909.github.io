@@ -288,7 +288,7 @@
 
 
 
-  2 분 소요
+  3 분 소요
 </p>
             devinlife comments :
                 싱글 페이지(포스트)에 제목 밑에 Updated 시간 표기
@@ -305,7 +305,7 @@
             <nav class="toc">
               
                 <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
-                <ul class="toc__menu"><li><a href="#21-컴포넌트-생성-및-등록하기">2.1 컴포넌트 생성 및 등록하기</a></li><li><a href="#22-파비콘-아이콘-폰트-반응형-태그-설정하기">2.2 파비콘, 아이콘, 폰트, 반응형 태그 설정하기</a></li><li><a href="#23-todoheader-컴포넌트-구현">2.3 TodoHeader 컴포넌트 구현</a></li><li><a href="#24-todoinput-컴포넌트의-할-일-저장-기능-구현">2.4 TodoInput 컴포넌트의 할 일 저장 기능 구현</a></li></ul>
+                <ul class="toc__menu"><li><a href="#21-컴포넌트-생성-및-등록하기">2.1 컴포넌트 생성 및 등록하기</a></li><li><a href="#22-파비콘-아이콘-폰트-반응형-태그-설정하기">2.2 파비콘, 아이콘, 폰트, 반응형 태그 설정하기</a></li><li><a href="#23-todoheader-컴포넌트-구현">2.3 TodoHeader 컴포넌트 구현</a></li><li><a href="#24-todoinput-컴포넌트의-할-일-저장-기능-구현">2.4 TodoInput 컴포넌트의 할 일 저장 기능 구현</a></li><li><a href="#25-todoinput-컴포넌트-코드-정리-및-ui스타일링">2.5 TodoInput 컴포넌트 코드 정리 및 UI스타일링</a></li><li><a href="#26-todoinput-컴포넌트의-할-일-목록-표시-기능-구현">2.6 TodoInput 컴포넌트의 할 일 목록 표시 기능 구현</a></li><li><a href="#27-todolist-컴포넌트-할-일-삭제-기능-구현">2.7 TodoList 컴포넌트 할 일 삭제 기능 구현</a></li><li><a href="#28-todolist-컴포넌트의-할-일-완료-기능-구현">2.8 TodoList 컴포넌트의 할 일 완료 기능 구현</a></li><li><a href="#29-todofooter-컴포넌트-구현">2.9 TodoFooter 컴포넌트 구현</a></li></ul>
 
               
             </nav>
@@ -622,6 +622,71 @@ v-mode을 사용하는 방법은 data에 newTodoItem이라고 이름 지어주�
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<ul>
+  <li>addTodo메소드 저장하는 로직 추가</li>
+  <li>localStorage.setItem(‘key’, ‘value’)로 추가
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-lv2/commit/aca3e46cf1484af60d07be41f7eaeb97b76089e2">diff check</a></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="25-todoinput-컴포넌트-코드-정리-및-ui스타일링">2.5 TodoInput 컴포넌트 코드 정리 및 UI스타일링</h2>
+
+<ul>
+  <li>this.clearInput(); // 같은 인스턴스안에 있는 메소드라서 this로 접근 가능
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-lv2/commit/f84b65206413e99147969d25b76fb061836c6561">diff check</a></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="26-todoinput-컴포넌트의-할-일-목록-표시-기능-구현">2.6 TodoInput 컴포넌트의 할 일 목록 표시 기능 구현</h2>
+
+<ul>
+  <li>created(인스턴스가 생성되자마자 호출되는 라이프사이클 훅), mounted, update, destroy</li>
+  <li>for문으로 localStorage를 가져옴
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-lv2/commit/457d1676c14629f5b08221f43edcc3a78de864e3">diff check</a></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="27-todolist-컴포넌트-할-일-삭제-기능-구현">2.7 TodoList 컴포넌트 할 일 삭제 기능 구현</h2>
+
+<ul>
+  <li>localStorage.removeItem(todoItem); // key랑 value를 똑같이 넣어놔서 todoItem으로 지우면 됨</li>
+  <li>this.todoItems.splice(index, 1); // localStorage를 지우고 배열도 지워줘야 브라우저에 반영됨 splice -&gt; index번째에서 1개 지움
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-lv2/commit/dddb312835111669738ab2cfb1d8e278b0dd3d43">diff check</a></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="28-todolist-컴포넌트의-할-일-완료-기능-구현">2.8 TodoList 컴포넌트의 할 일 완료 기능 구현</h2>
+
+<ul>
+  <li>var obj = {completed: false, item: this.newTodoItem}; // item : text값, completed : boolean값을 넣어서 객체에 저장</li>
+  <li>obj를 stringify 않고 넣으면 할일을 추가했을때 localStorage에서 확인하면 key에는 잘 들어가는데 value에 [object Object]로 들어가서 객체 안에 어떤값이 들어있는지 확인 불가능</li>
+  <li>stringify : 객체를 string으로 변환해서 넣기때문에 객체 안에 어떤값이 있는지 확인 가능</li>
+  <li>v-bind:class=”{checkBtnCompleted: todoItem.completed}” -&gt; v-bind로 엮어서 class값을 동적으로 바꿔줌</li>
+  <li>todoList에 뿌릴떄는 TodoInput에서 stringify로 변환해서 넣은 값을 다시 객체로 변환(JSON.parse)해서 가져옴
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-lv2/commit/df9fa8994244e37a91c3af86ed4b3b64d3d5da04">diff check</a></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="29-todofooter-컴포넌트-구현">2.9 TodoFooter 컴포넌트 구현</h2>
+
+<ul>
+  <li>localStorage.clear(); // localStorage 지우는 api
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-lv2/commit/5aa431ec1e47681053aee04050d9031896f71b74">diff check</a></p>
+    </blockquote>
+  </li>
+</ul>
+
         
       </section>
 
@@ -689,7 +754,7 @@ v-mode을 사용하는 방법은 data에 newTodoItem이라고 이름 지어주�
 ">이전</a>
     
     
-      <a href="/javascript/call-apply-bind/" class="pagination--pager" title="call/apply/bind 함수의 차이점
+      <a href="/vue-lv2/vue-intermediate3/" class="pagination--pager" title="3 - Todo App - 애플리케이션 구조 개선하기
 ">다음</a>
     
   </nav>

@@ -1,0 +1,372 @@
+I"�M<h2 id="21-컴포넌트-생성-및-등록하기">2.1 컴포넌트 생성 및 등록하기</h2>
+
+<p>컴포넌트를 설계에 맞게 생성하겠습니다.</p>
+
+<p>components 폴더 안에 TodoHeader.vue, TodoInput.vue, TodoList.vue, TodoFooter.vue 파일을 만들고 자동완성으로 기본태그 입력하고 각 파일 template의 div태그 안에 구분해줄 단어들을 아래 예시처럼 입력해서 저장합니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;template&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        Header
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+...
+<span class="nt">&lt;template&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        Input
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>App.vue 파일을 열고 필요없는 내용을 다 지워서 정리해줍니다.<br />
+그리고 생성한 컴포넌트들을 import로 가져와서 연결하고 template에 넣어줍니다.</p>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;TodoHeader&gt;&lt;/TodoHeader&gt;</span>
+    <span class="nt">&lt;TodoInput&gt;&lt;/TodoInput&gt;</span>
+    <span class="nt">&lt;TodoList&gt;&lt;/TodoList&gt;</span>
+    <span class="nt">&lt;TodoFooter&gt;&lt;/TodoFooter&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/</span><span class="k">template</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">script</span><span class="nt">&gt;</span>
+<span class="k">import</span> <span class="nx">TodoHeader</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./components/TodoHeader.vue</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">TodoInput</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./components/TodoInput.vue</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">TodoList</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./components/TodoList.vue</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">TodoFooter</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./components/TodoFooter.vue</span><span class="dl">'</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="na">components</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">TodoHeader</span><span class="dl">'</span><span class="p">:</span> <span class="nx">TodoHeader</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">TodoInput</span><span class="dl">'</span><span class="p">:</span> <span class="nx">TodoInput</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">TodoList</span><span class="dl">'</span><span class="p">:</span> <span class="nx">TodoList</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">TodoFooter</span><span class="dl">'</span><span class="p">:</span> <span class="nx">TodoFooter</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><img src="/assets/images/vue/vue-lv2/intermediate2_1.png" alt="todo" /></p>
+
+<h2 id="22-파비콘-아이콘-폰트-반응형-태그-설정하기">2.2 파비콘, 아이콘, 폰트, 반응형 태그 설정하기</h2>
+
+<p>모바일 웹에서도 잘 보이도록 반응형 태그를 추가하고 아이콘이나 파비콘을 추가하겠습니다.</p>
+
+<p>크롬창에서 meta viewport를 검색해서 복사해서 public 폴더안에 index.html meta태그 영역에 붙여넣습니다. 
+다음으로 파비콘도 추가합니다. 크롬에서 <code class="language-plaintext highlighter-rouge">favicon generator</code> 사이트에서 원하는 이미지로 파비콘을 생성하면 링크도 같이 생성 되니 그걸 복붙하면 됩니다.<br />
+(cli로 생성시 자동으로 들어가있어서 따로 추가 할 필요 없는듯)</p>
+
+<p>마지막으로 awesome아이콘을 추가합니다.</p>
+
+<p>폰트어썸 업데이트하면서 부터인지 vue에서 사용하려면 메일로 무료키트 사용 링크를 받아야한다.<br />
+fontawsome.com/start로 접속 &gt; 이메일 입력 &gt; 확인, 설정 버튼 클릭 &gt; 폰트어썸 로그인 후 무료키트 링크 카피해서 index.html 헤드에 추가</p>
+
+<p><img src="/assets/images/vue/vue-lv2/intermediate2_2.png" alt="todo" /></p>
+
+<p>구글 폰트도 미리 설정하겠습니다.</p>
+
+<p>크롬에서 google font를 검색해서 접속한 후 ubuntu를 검색합니다.<br />
+원하는 weight를 선택해서 생성된 링크를 index.html에 추가합니다.</p>
+
+<p><img src="/assets/images/vue/vue-lv2/intermediate2_3.png" alt="todo" /></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre> <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"IE=edge"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width,initial-scale=1.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"icon"</span> <span class="na">href=</span><span class="s">"&lt;%= BASE_URL %&gt;favicon.ico"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"https://fonts.googleapis.com/css2?family=Ubuntu&amp;display=swap"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>To do App<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="23-todoheader-컴포넌트-구현">2.3 TodoHeader 컴포넌트 구현</h2>
+
+<p>header는 header태그 안에 h1태그를 이용해서 정체성을 나타내겠습니다.</p>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;header&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>To Do it!<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;/header&gt;</span>
+<span class="nt">&lt;/</span><span class="k">template</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">script</span><span class="nt">&gt;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+<span class="p">};</span>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">style</span> <span class="na">scoped</span><span class="nt">&gt;</span>
+<span class="nt">h1</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="m">#2f3b52</span><span class="p">;</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="m">900</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">2.5rem</span> <span class="m">0</span> <span class="m">1.5rem</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">&lt;/</span><span class="k">style</span><span class="nt">&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>App.vue에도 스타일을 넣어줍니다.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="m">#F6F6F8</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">input</span> <span class="p">{</span>
+  <span class="nl">border-style</span><span class="p">:</span> <span class="nb">groove</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">button</span> <span class="p">{</span>
+  <span class="nl">border-style</span><span class="p">:</span> <span class="nb">groove</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.shadow</span> <span class="p">{</span>
+  <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">5px</span> <span class="m">10px</span> <span class="m">10px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.03</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="24-todoinput-컴포넌트의-할-일-저장-기능-구현">2.4 TodoInput 컴포넌트의 할 일 저장 기능 구현</h2>
+
+<p>두번째 컴포넌트를 작성하겠습니다.</p>
+
+<p>인풋박스를 만들어서 텍스트를 입력하면 그 값을 로컬스토리지에 저장합니다.<br />
+우선 인풋박스를 만들어 줍시다. 여기에 입력된 값을 스크립트에서 인식하려면 v-model이라는 디렉티브를 사용합니다.<br />
+v-model의 역할을 인풋에 입력된 텍스트 값을 동적으로 바로 뷰 인스턴스 안에 매핑을 합니다.<br />
+v-mode을 사용하는 방법은 data에 newTodoItem이라고 이름 지어주고 v-model에 연결해줍니다.</p>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">v-model=</span><span class="s">"newTodoItem"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/</span><span class="k">template</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">script</span><span class="nt">&gt;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+    <span class="na">data</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="na">newTodoItem</span><span class="p">:</span> <span class="dl">""</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이렇게 연결하고 화면에서 어떻게 반영되는지 보면, TodoInput컴포넌트 data쪽에 newTodoItem이 생기고 인풋박스에 텍스트를 입력하면 newTodoItem의 내용도 바뀌는 것을 볼 수 있습니다.
+<img src="/assets/images/vue/vue-lv2/intermediate2_4.png" alt="todo" /></p>
+
+<p>이어서 v-model에 있는 값을 들고와야합니다.<br />
+아래에 버튼을 만들고 v-on:click으로 클릭했을때 동작할 메소드명을 넣어주고 script에 메소드를 정의해줍니다.</p>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">v-model=</span><span class="s">"newTodoItem"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">v-on:click=</span><span class="s">"addTodo"</span><span class="nt">&gt;</span>add<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/</span><span class="k">template</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">script</span><span class="nt">&gt;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+    <span class="na">data</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="na">newTodoItem</span><span class="p">:</span> <span class="dl">""</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">addTodo</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>여기서 this는 TodoInput컴포넌트를 가리키고 그 안의 newTodoItem을 가져옵니다.<br />
+화면에서 인풋에 텍스트를 입력하고 add버튼을 눌러보면, 콘솔창에 입력값을 가져와서 출력하는 것을 볼 수 있습니다.</p>
+
+<p><img src="/assets/images/vue/vue-lv2/intermediate2_5.png" alt="todo" /></p>
+
+<p>여기서 한가지 기능을 추가해서 버튼을 클릭하면 인풋박스를 비우도록 해봅시다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="nx">addTodo</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>addTodo메소드 저장하는 로직 추가</li>
+  <li>localStorage.setItem(‘key’, ‘value’)로 추가
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-lv2/commit/aca3e46cf1484af60d07be41f7eaeb97b76089e2">diff check</a></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="25-todoinput-컴포넌트-코드-정리-및-ui스타일링">2.5 TodoInput 컴포넌트 코드 정리 및 UI스타일링</h2>
+
+<ul>
+  <li>this.clearInput(); // 같은 인스턴스안에 있는 메소드라서 this로 접근 가능
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-lv2/commit/f84b65206413e99147969d25b76fb061836c6561">diff check</a></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="26-todoinput-컴포넌트의-할-일-목록-표시-기능-구현">2.6 TodoInput 컴포넌트의 할 일 목록 표시 기능 구현</h2>
+
+<ul>
+  <li>created(인스턴스가 생성되자마자 호출되는 라이프사이클 훅), mounted, update, destroy</li>
+  <li>for문으로 localStorage를 가져옴
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-lv2/commit/457d1676c14629f5b08221f43edcc3a78de864e3">diff check</a></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="27-todolist-컴포넌트-할-일-삭제-기능-구현">2.7 TodoList 컴포넌트 할 일 삭제 기능 구현</h2>
+
+<ul>
+  <li>localStorage.removeItem(todoItem); // key랑 value를 똑같이 넣어놔서 todoItem으로 지우면 됨</li>
+  <li>this.todoItems.splice(index, 1); // localStorage를 지우고 배열도 지워줘야 브라우저에 반영됨 splice -&gt; index번째에서 1개 지움
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-lv2/commit/dddb312835111669738ab2cfb1d8e278b0dd3d43">diff check</a></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="28-todolist-컴포넌트의-할-일-완료-기능-구현">2.8 TodoList 컴포넌트의 할 일 완료 기능 구현</h2>
+
+<ul>
+  <li>var obj = {completed: false, item: this.newTodoItem}; // item : text값, completed : boolean값을 넣어서 객체에 저장</li>
+  <li>obj를 stringify 않고 넣으면 할일을 추가했을때 localStorage에서 확인하면 key에는 잘 들어가는데 value에 [object Object]로 들어가서 객체 안에 어떤값이 들어있는지 확인 불가능</li>
+  <li>stringify : 객체를 string으로 변환해서 넣기때문에 객체 안에 어떤값이 있는지 확인 가능</li>
+  <li>v-bind:class=”{checkBtnCompleted: todoItem.completed}” -&gt; v-bind로 엮어서 class값을 동적으로 바꿔줌</li>
+  <li>todoList에 뿌릴떄는 TodoInput에서 stringify로 변환해서 넣은 값을 다시 객체로 변환(JSON.parse)해서 가져옴
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-lv2/commit/df9fa8994244e37a91c3af86ed4b3b64d3d5da04">diff check</a></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="29-todofooter-컴포넌트-구현">2.9 TodoFooter 컴포넌트 구현</h2>
+
+<ul>
+  <li>localStorage.clear(); // localStorage 지우는 api
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-lv2/commit/5aa431ec1e47681053aee04050d9031896f71b74">diff check</a></p>
+    </blockquote>
+  </li>
+</ul>
+:ET

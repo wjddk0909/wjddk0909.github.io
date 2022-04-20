@@ -207,3 +207,38 @@ addTodo: function() {
     this.newTodoItem = '';
 }
 ```
+
+- addTodo메소드 저장하는 로직 추가
+- localStorage.setItem('key', 'value')로 추가  
+>[diff check](https://github.com/wjddk0909/vue-lv2/commit/aca3e46cf1484af60d07be41f7eaeb97b76089e2)
+
+## 2.5 TodoInput 컴포넌트 코드 정리 및 UI스타일링
+
+- this.clearInput(); // 같은 인스턴스안에 있는 메소드라서 this로 접근 가능  
+>[diff check](https://github.com/wjddk0909/vue-lv2/commit/f84b65206413e99147969d25b76fb061836c6561)
+
+## 2.6 TodoInput 컴포넌트의 할 일 목록 표시 기능 구현
+
+- created(인스턴스가 생성되자마자 호출되는 라이프사이클 훅), mounted, update, destroy  
+- for문으로 localStorage를 가져옴
+>[diff check](https://github.com/wjddk0909/vue-lv2/commit/457d1676c14629f5b08221f43edcc3a78de864e3)
+
+## 2.7 TodoList 컴포넌트 할 일 삭제 기능 구현
+
+- localStorage.removeItem(todoItem); // key랑 value를 똑같이 넣어놔서 todoItem으로 지우면 됨
+- this.todoItems.splice(index, 1); // localStorage를 지우고 배열도 지워줘야 브라우저에 반영됨 splice -> index번째에서 1개 지움
+>[diff check](https://github.com/wjddk0909/vue-lv2/commit/dddb312835111669738ab2cfb1d8e278b0dd3d43)
+
+## 2.8 TodoList 컴포넌트의 할 일 완료 기능 구현
+
+- var obj = {completed: false, item: this.newTodoItem}; // item : text값, completed : boolean값을 넣어서 객체에 저장
+- obj를 stringify 않고 넣으면 할일을 추가했을때 localStorage에서 확인하면 key에는 잘 들어가는데 value에 [object Object]로 들어가서 객체 안에 어떤값이 들어있는지 확인 불가능
+- stringify : 객체를 string으로 변환해서 넣기때문에 객체 안에 어떤값이 있는지 확인 가능
+- v-bind:class="{checkBtnCompleted: todoItem.completed}" -> v-bind로 엮어서 class값을 동적으로 바꿔줌
+- todoList에 뿌릴떄는 TodoInput에서 stringify로 변환해서 넣은 값을 다시 객체로 변환(JSON.parse)해서 가져옴
+>[diff check](https://github.com/wjddk0909/vue-lv2/commit/df9fa8994244e37a91c3af86ed4b3b64d3d5da04)
+
+## 2.9 TodoFooter 컴포넌트 구현
+
+- localStorage.clear(); // localStorage 지우는 api
+>[diff check](https://github.com/wjddk0909/vue-lv2/commit/5aa431ec1e47681053aee04050d9031896f71b74)

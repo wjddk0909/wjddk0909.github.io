@@ -8,9 +8,9 @@ tags:
 --- 
 ## 마지막 commit 메세지 수정하기
 
->git commit --amend -m "바꿀 메세지"
->or
->git commit --amend
+>git commit --amend -m "바꿀 메세지"  
+>or  
+>git commit --amend  
 >까지 입력후 vi 에서 i(수정모드)로 변경하고 수정 후 esc 누르고 :wq로 저장
 
 ## 이전 commit 메세지 수정하기

@@ -1,0 +1,72 @@
+I"�<h2 id="91-vuex-소개">9.1 Vuex 소개</h2>
+
+<p>Vuex - 상태 관리 라이브러리</p>
+
+<ul>
+  <li>복잡한 애플리케이션의 컴포넌트들을 효율적으로 관리하는 Vuex라이브러리 소개</li>
+  <li>Vuex 라이브러리의 등장 배경인 <code class="language-plaintext highlighter-rouge">Flux 패턴</code> 소개</li>
+  <li>Vuex 라입러리의 주요 속성인 <code class="language-plaintext highlighter-rouge">state</code>, <code class="language-plaintext highlighter-rouge">getters</code>, <code class="language-plaintext highlighter-rouge">mutations</code>, <code class="language-plaintext highlighter-rouge">actions</code> 학습</li>
+  <li>Vuex를 더 쉽게 코딩할 수 있는 방법인 <code class="language-plaintext highlighter-rouge">Helper</code> 기능 소개</li>
+  <li>Vuex로 프로젝트를 구조화하는 방법과 모듈 구조화 방법 소개</li>
+</ul>
+
+<p>React에서는 <code class="language-plaintext highlighter-rouge">Flux 패턴</code>으로 복잡한 앱에서 야기되는 관리 문제점을 해결 하고 있어서 Vuex에 도입했다.</p>
+
+<h2 id="92-flux와-mvc-패턴-소개-및-flux-등장-배경">9.2 Flux와 MVC 패턴 소개 및 Flux 등장 배경</h2>
+
+<p>Vuex란?</p>
+<ul>
+  <li>복잡하고 많은 컴포넌트의 데이터를 관리하기 위한 상태 관리 패턴이자 라이브러리</li>
+  <li>React의 Flux패턴에서 기인</li>
+</ul>
+
+<p>Flux란?</p>
+<ul>
+  <li>MVC패턴의 복잡한 데이터 흐름 문제(페이스북같이 복잡한 컴포넌트에서 하나의 데이터가 바뀌었을때 다른 컴포넌트에서 추적하기가 어려움)를 해결하는 개발 패턴</li>
+</ul>
+
+<p>Action -&gt; Dispatcher -&gt; Model -&gt; View<br />
+Action에서 View까지 항상 한방향으로 흐름(unidirectional data flow)</p>
+
+<ol>
+  <li>action : 화면에서 발생하는 이벤트 또는 사용자의 입력</li>
+  <li>dispatcher : 데이터를 표시하는 방법, 메서드(모델(data)을 바꾸기 위한 역할)</li>
+  <li>model : 화면에 표시할 데이터</li>
+  <li>view : 사용자에게 비춰지는 화면(action을 호출해서 계속해서 단방향으로 이동)</li>
+</ol>
+
+<p>사용자가 화면에서 클릭같은 조작(action)을 하면 메서드가 발생해서 데이터를 변경(dispatcher) 하면 store(model)가 변경이 되고 그것이 화면(view)에 반영이 되고 다시 화면에서 action을 호출함</p>
+
+<p>프롭스가 내려갈것이고 하위에서 올릴때는 이벤트로 올린다 등의 예측이 가능함</p>
+
+<p>+MVC패턴 : Controller -&gt; Model &lt;-&gt; View (양방향)<br />
+ㄴ view : 화면 / Model : 데이터 / Controller : view와 model을 제어</p>
+
+<h2 id="93-vuex가-필요한-이유-vuex-컨셉-vuex-구조">9.3 Vuex가 필요한 이유, Vuex 컨셉, Vuex 구조</h2>
+
+<ul>
+  <li>복잡한 애플리케이션에서 컴포넌트의 개수가 많아지면 컴포넌트 간에 데이터 전달이 어려워진다.</li>
+  <li>하위에서 루트로 보낼때 이밴트버스로 해결할 수 있지만 어디서 이벤트를 보냈는지 알기 어려움(컴포넌트 간 데이터 전달이 명시적이지 않음)</li>
+</ul>
+
+<p>Vuex로 해결할 수 있는 문제</p>
+<ul>
+  <li>MVC패턴에서 발생하는 구조적 오류</li>
+  <li>컴포넌트 간 데이터 전달 명시</li>
+  <li>여러 개의 컴포넌트에서 같은 데이터를 업데이트 할 때 동기화 문제</li>
+</ul>
+
+<p>Vuex 컨셉</p>
+<ul>
+  <li>State : 컴포넌트 간에 공유하는 데이터 <code class="language-plaintext highlighter-rouge">data()</code> - 데이터프로퍼티라고 보면 됨</li>
+  <li>View : 데이터를 표시하는 화면 <code class="language-plaintext highlighter-rouge">template</code> - template속성</li>
+  <li>Action : 사용자의 입력에 따라 데이터를 변경하는 <code class="language-plaintext highlighter-rouge">methods</code> - 메서드</li>
+</ul>
+
+<p>화면(<code class="language-plaintext highlighter-rouge">template</code>)에서 버튼을 클릭하면 버튼은 v-on:click=”addTodo”를 발생시키는데 이게 <code class="language-plaintext highlighter-rouge">action</code>, action이 data를 변경하는데 이 data가 <code class="language-plaintext highlighter-rouge">state</code></p>
+
+<p>Vuex 구조<br />
+컴포넌트 -&gt; 비동기 로직 -&gt; 동기 로직 -&gt; 상태</p>
+
+<p>컴포넌트에서 비동기로직(actions)에서 처리하고(setTimeout, apiCall등) 데이터는 바꾸지 않고 데이터를 바꿀 수 있는 mutations를 콜하고 mutations(동기 로직)만 state를 바꿈</p>
+:ET

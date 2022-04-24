@@ -1,0 +1,112 @@
+I"Q<h2 id="121-스토어-속성-모듈화-방법">12.1 스토어 속성 모듈화 방법</h2>
+
+<p>프로젝트 구조화와 모듈화 방법1</p>
+
+<p>아래와 같은 store 구조를 어떻게 모듈화 할 수 있을까?</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="c1">// store.js</span>
+<span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">Vuex</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vuex</span><span class="p">.</span><span class="nx">Store</span><span class="p">({</span>
+    <span class="na">state</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="na">getters</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="na">mutations</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="na">actions</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>힌트! <code class="language-plaintext highlighter-rouge">Vuex.Store({})</code>의 속성을 모듈로 연결
+모듈이라고 하면 각각의 속성의 내용들을 별도의 파일로 분리해서 파일들을 불러와서 담아주기</p>
+
+<ul>
+  <li>ES6의 Import &amp; Export를 이용하며 속성별로 모듈화</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">Vuex</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+<span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">getters</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">store/getters.js</span><span class="dl">'</span>
+<span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">mutations</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">store/mutations.js</span><span class="dl">'</span>
+<span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">actions</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">store/actions.js</span><span class="dl">'</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vuex</span><span class="p">.</span><span class="nx">Store</span><span class="p">({</span>
+    <span class="na">state</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="na">getters</span><span class="p">:</span> <span class="nx">getters</span><span class="p">,</span>
+    <span class="na">mutations</span><span class="p">:</span> <span class="nx">mutations</span><span class="p">,</span>
+    <span class="na">actions</span><span class="p">:</span> <span class="nx">actions</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-lv2/commit/6e8b61ae4187899ea00a6571efd5d03800de72c5">diff check</a></p>
+</blockquote>
+
+<h2 id="122-스토어-모듈화-방법">12.2 스토어 모듈화 방법</h2>
+
+<p>프로젝트 구조화와 모듈화 방법2</p>
+<ul>
+  <li>앱이 비대해져서 1개의 store로는 관리가 힘들 때 <code class="language-plaintext highlighter-rouge">modules</code> 속성 사용</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="c1">// store.js</span>
+<span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">Vuex</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">todo</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">models/todo.js</span><span class="dl">'</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vuex</span><span class="p">.</span><span class="nx">Store</span><span class="p">({</span>
+    <span class="na">modules</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">moduleA</span><span class="p">:</span> <span class="nx">todo</span><span class="p">,</span> <span class="c1">// 모듈 명칭 : 모듈 파일명</span>
+        <span class="nx">todo</span> <span class="c1">// todo: todo</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// todo.js</span>
+<span class="kd">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="kd">const</span> <span class="nx">getters</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="kd">const</span> <span class="nx">mutations</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="kd">const</span> <span class="nx">actions</span> <span class="o">=</span> <span class="p">{}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-lv2/commit/695723a3749eebc8cf15c132ef862742653f8fc1">diff check</a></p>
+</blockquote>
+:ET

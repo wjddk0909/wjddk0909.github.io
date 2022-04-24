@@ -1,4 +1,4 @@
-I"�<h2 id="31-현재-앱-구조의-문제점-진단-및-개선된-앱-구조-소개">3.1 현재 앱 구조의 문제점 진단 및 개선된 앱 구조 소개</h2>
+I"�<h2 id="31-현재-앱-구조의-문제점-진단-및-개선된-앱-구조-소개">3.1 현재 앱 구조의 문제점 진단 및 개선된 앱 구조 소개</h2>
 
 <ul>
   <li>localStorage.clear();
@@ -41,10 +41,10 @@
 <ul>
   <li>하위에서 올린 이벤트버스 받기
     <ul>
-      <li>v-on:하위 컴포넌트에서 발생시킨 이벤트 이름=”현재 컴포넌트의 메소드 명”</li>
+      <li>v-on:하위 컴포넌트에서 발생시킨 이벤트 이름=”현재 컴포넌트의 메서드 명”</li>
     </ul>
   </li>
-  <li>하위 TodoInput에서 추가 버튼 addTodo메소드가 실행되면 $emit으로 App.vue로 addTodoItem을 올려 주고 인자로 this.newTodoItem을 보낸다. 그러면 App.vue에서는 addTodoItem에 연결된 현재 컴포넌트의 메소드 addOneItem을 실행한다.</li>
+  <li>하위 TodoInput에서 추가 버튼 addTodo메서드가 실행되면 $emit으로 App.vue로 addTodoItem을 올려 주고 인자로 this.newTodoItem을 보낸다. 그러면 App.vue에서는 addTodoItem에 연결된 현재 컴포넌트의 메서드 addOneItem을 실행한다.</li>
   <li>TodoInput에서 newTodoItem을 인자로 받아왔으니 여기에도 todoItem으로 인자를 넣어줌</li>
 </ul>
 

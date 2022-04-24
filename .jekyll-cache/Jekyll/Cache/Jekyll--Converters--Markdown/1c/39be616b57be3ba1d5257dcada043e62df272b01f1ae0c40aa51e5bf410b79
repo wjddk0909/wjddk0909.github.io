@@ -1,0 +1,132 @@
+I"�<h2 id="111-헬퍼-함수-및-es6-spread-연산자-소개">11.1 헬퍼 함수 및 ES6 Spread 연산자 소개</h2>
+
+<p>각 속성들을 더 쉽게 사용하는 방법 - Helper</p>
+
+<p>store에 있는 아래 4가지 속성들을 간편하게 코딩하는 방법</p>
+<ul>
+  <li>state -&gt; mapState</li>
+  <li>getters -&gt; mapGetters</li>
+  <li>mutations -&gt; mapMutations</li>
+  <li>actions -&gt; mapActions</li>
+</ul>
+
+<p>헬퍼의 사용법</p>
+<ul>
+  <li>헬퍼를 사용하고자 하는 vue 파일에서 해당 헬퍼를 로딩</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="c1">// App.vue</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">mapState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">mapGetters</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">mapMutations</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">mapActions</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+    <span class="nx">computed</span><span class="p">()</span> <span class="p">{</span> <span class="p">...</span><span class="nx">mapState</span><span class="p">([</span><span class="dl">'</span><span class="s1">num</span><span class="dl">'</span><span class="p">]),</span> <span class="p">...</span><span class="nx">mapGetters</span><span class="p">([</span><span class="dl">'</span><span class="s1">countedNum</span><span class="dl">'</span><span class="p">])</span> <span class="p">},</span>
+    <span class="na">methods</span><span class="p">:</span> <span class="p">{</span> <span class="p">...</span><span class="nx">mapMutations</span><span class="p">([</span><span class="dl">'</span><span class="s1">clickBtn</span><span class="dl">'</span><span class="p">]),</span> <span class="p">...</span><span class="nx">mapActions</span><span class="p">([</span><span class="dl">'</span><span class="s1">asyncClickBtn</span><span class="dl">'</span><span class="p">])</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="112-mapstate-mapgetters-소개-및-es6-spread-연산자-쓰는-이유">11.2 mapState, mapGetters 소개 및 ES6 Spread 연산자 쓰는 이유</h2>
+
+<p>mapState</p>
+<ul>
+  <li>Vuex에 선언한 state 속성을 뷰 컴포넌트에 더 쉽게 연결해주는 헬퍼</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="c1">// App.vue</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">mapState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+
+<span class="nx">computed</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">...</span><span class="nx">mapState</span><span class="p">([</span><span class="dl">'</span><span class="s1">num</span><span class="dl">'</span><span class="p">])</span>
+    <span class="c1">// num() { return this.$store.state.num; }</span>
+<span class="p">}</span>
+
+<span class="c1">// store.js</span>
+<span class="nl">state</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">num</span><span class="p">:</span> <span class="mi">10</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="c">&lt;!-- &lt;p&gt;{{ this.$store.state.num }}&lt;/p&gt; --&gt;</span>
+<span class="nt">&lt;p&gt;</span>{{ this.num }}<span class="nt">&lt;/p&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>mapGetters</p>
+<ul>
+  <li>Vuex에 선언한 getters 속성을 뷰 컴포넌트에 더 쉽게 연결해주는 헬퍼</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="c1">// App.vue</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">mapGetters</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+
+<span class="nx">computed</span><span class="p">()</span> <span class="p">{</span> 
+    <span class="p">...</span><span class="nx">mapGetters</span><span class="p">([</span><span class="dl">'</span><span class="s1">reverseMessgae</span><span class="dl">'</span><span class="p">])</span> 
+<span class="p">}</span>
+
+<span class="c1">// store.js</span>
+<span class="nl">getters</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">reversMessage</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">state</span><span class="p">.</span><span class="nx">msg</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="c">&lt;!-- &lt;p&gt;{{ this.$store.getters.reversMessage }}&lt;/p&gt; --&gt;</span>
+<span class="nt">&lt;p&gt;</span>{{ this.reversMessage }}<span class="nt">&lt;/p&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="113-리팩토링-getters와-mapgetters-적용하기">11.3 [리팩토링] getters와 mapGetters 적용하기</h2>
+
+<p>store.js</p>
+<ul>
+  <li>getters에 <code class="language-plaintext highlighter-rouge">storedTodoItems</code>변수 지정하고 state의 todoItmes에 접근</li>
+</ul>
+
+<p>TodoList.vue</p>
+<ul>
+  <li>computed에 todoItmes() 메서드에 <code class="language-plaintext highlighter-rouge">this.$store.getters.storedTodoItems;</code> 리턴 시켜주기</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-lv2/commit/b306678eb054ec395e200caedf70324b720a7636">diff check</a></p>
+</blockquote>
+
+:ET

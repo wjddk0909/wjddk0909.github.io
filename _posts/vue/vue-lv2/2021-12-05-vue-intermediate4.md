@@ -1,0 +1,43 @@
+--- 
+title: "4 - Todo App - 사용자 경험 개선" 
+excerpt: "Todo App"
+categories: 
+    - vue-lv2
+tags: 
+    - vue
+toc: true
+--- 
+
+## 4.1 모달 컴포넌트 등록
+
+TodoInput.vue
+- vuejs.org 공식 사이트 Learn > examples에서 Modal Component 참고
+- components: ModalBox: ModalBox
+
+>[diff check](https://github.com/wjddk0909/vue-lv2/commit/5a829c4cd9e7b6d3bbf29128ec2ace8ef003c411)
+
+## 4.2 모달 컴포넌트의 slot 소개
+
+TodoInput.vue
+- slot : 특정 컴포넌트의 일부 ui들을 재사용 할 수 있음
+- ModalBox.vue에서 default로 넣어둔 부분을 여기에서 커스텀 할 수 있음
+
+>[diff check](https://github.com/wjddk0909/vue-lv2/commit/0fbcada409cab6b7ce77951823ba6603d7eff931)
+
+## 4.3 slot 및 모달 컴포넌트 기능 구현
+
+TodoInput.vue
+- v-on:click="" -> 축약형 @click=""
+
+>[diff check](https://github.com/wjddk0909/vue-lv2/commit/752551235a0512f30cf5fbcd331666aa69d39d78)
+
+## 4.4 트랜지션 소개 및 구현
+
+- vuejs.org 공식문서 사이트엣 Transition Animation > List Transition 참고
+- v-enter : 처음 active가 시작됐을때
+- v-enter-to : 시작되고 끝날때 상태
+- v-leave : 이펙트가 나오기 직전
+- v-leave-to : 이펙트가 끝난 시점
+- 일반적으로 v-enter-to와 v-leave 같이 쓰고, v-enter와 v-leave-to 같이 씀
+
+>[diff check](https://github.com/wjddk0909/vue-lv2/commit/cc0567823a0142562198643b1d9fe8a7b0ce377a)

@@ -1,0 +1,884 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>11 - Vuex - 헬퍼 함수 - FE개발자를 꿈꾸다</title>
+<meta name="description" content="Todo App">
+
+
+  <meta name="author" content="FE Developer">
+  
+  <meta property="article:author" content="FE Developer">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="FE개발자를 꿈꾸다">
+<meta property="og:title" content="11 - Vuex - 헬퍼 함수">
+<meta property="og:url" content="http://localhost:4000/vue-lv2/vue-intermediate11/">
+
+
+  <meta property="og:description" content="Todo App">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo2.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2021-12-06T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/vue-lv2/vue-intermediate11/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "꿈꾸는 개발자",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="FE개발자를 꿈꾸다 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          FE개발자를 꿈꾸다
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/logo2.png" alt="FE Developer" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">FE Developer</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>꿈꾸는 개발자</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:wjddk0909@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="11 - Vuex - 헬퍼 함수">
+    <meta itemprop="description" content="Todo App">
+    <meta itemprop="datePublished" content="2021-12-06T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">11 - Vuex - 헬퍼 함수
+</h1>
+          
+<!--
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 분 소요
+</p>
+            devinlife comments :
+                싱글 페이지(포스트)에 제목 밑에 Updated 시간 표기
+                기존에는 read_time이 표기. read_time -> date 변경
+-->
+            <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2021-12-06T00:00:00+09:00">December 06, 2021</time></p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              
+                <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+                <ul class="toc__menu"><li><a href="#111-헬퍼-함수-및-es6-spread-연산자-소개">11.1 헬퍼 함수 및 ES6 Spread 연산자 소개</a></li><li><a href="#112-mapstate-mapgetters-소개-및-es6-spread-연산자-쓰는-이유">11.2 mapState, mapGetters 소개 및 ES6 Spread 연산자 쓰는 이유</a></li><li><a href="#113-리팩토링-getters와-mapgetters-적용하기">11.3 [리팩토링] getters와 mapGetters 적용하기</a></li><li><a href="#114-mapmutations-mapactions-소개-및-헬퍼의-유연한-문법">11.4 mapMutations, mapActions 소개 및 헬퍼의 유연한 문법</a></li><li><a href="#115-리팩토링--퀴즈-mapmutations-적용-및-퀴즈">11.5 [리팩토링 &amp; 퀴즈] mapMutations 적용 및 퀴즈</a></li><li><a href="#116-리팩토링--퀴즈-mapmutations-퀴즈-풀이">11.6 [리팩토링 &amp; 퀴즈] mapMutations 퀴즈 풀이</a></li><li><a href="#117-헬퍼-함수가-주는-간편함">11.7 헬퍼 함수가 주는 간편함</a></li></ul>
+
+              
+            </nav>
+            <!-- devinlife comment : right-sidebar ads -->
+            <nav class="toc-custom">
+              
+            </nav>
+          </aside>
+        
+        <h2 id="111-헬퍼-함수-및-es6-spread-연산자-소개">11.1 헬퍼 함수 및 ES6 Spread 연산자 소개</h2>
+
+<p>각 속성들을 더 쉽게 사용하는 방법 - Helper</p>
+
+<p>store에 있는 아래 4가지 속성들을 간편하게 코딩하는 방법</p>
+<ul>
+  <li>state -&gt; mapState</li>
+  <li>getters -&gt; mapGetters</li>
+  <li>mutations -&gt; mapMutations</li>
+  <li>actions -&gt; mapActions</li>
+</ul>
+
+<p>헬퍼의 사용법</p>
+<ul>
+  <li>헬퍼를 사용하고자 하는 vue 파일에서 해당 헬퍼를 로딩</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="c1">// App.vue</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">mapState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">mapGetters</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">mapMutations</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">mapActions</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+    <span class="nx">computed</span><span class="p">()</span> <span class="p">{</span> <span class="p">...</span><span class="nx">mapState</span><span class="p">([</span><span class="dl">'</span><span class="s1">num</span><span class="dl">'</span><span class="p">]),</span> <span class="p">...</span><span class="nx">mapGetters</span><span class="p">([</span><span class="dl">'</span><span class="s1">countedNum</span><span class="dl">'</span><span class="p">])</span> <span class="p">},</span>
+    <span class="na">methods</span><span class="p">:</span> <span class="p">{</span> <span class="p">...</span><span class="nx">mapMutations</span><span class="p">([</span><span class="dl">'</span><span class="s1">clickBtn</span><span class="dl">'</span><span class="p">]),</span> <span class="p">...</span><span class="nx">mapActions</span><span class="p">([</span><span class="dl">'</span><span class="s1">asyncClickBtn</span><span class="dl">'</span><span class="p">])</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="112-mapstate-mapgetters-소개-및-es6-spread-연산자-쓰는-이유">11.2 mapState, mapGetters 소개 및 ES6 Spread 연산자 쓰는 이유</h2>
+
+<p>mapState</p>
+<ul>
+  <li>Vuex에 선언한 state 속성을 뷰 컴포넌트에 더 쉽게 연결해주는 헬퍼</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="c1">// App.vue</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">mapState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+
+<span class="nx">computed</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">...</span><span class="nx">mapState</span><span class="p">([</span><span class="dl">'</span><span class="s1">num</span><span class="dl">'</span><span class="p">])</span>
+    <span class="c1">// num() { return this.$store.state.num; }</span>
+<span class="p">}</span>
+
+<span class="c1">// store.js</span>
+<span class="nl">state</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">num</span><span class="p">:</span> <span class="mi">10</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="c">&lt;!-- &lt;p&gt;{{ this.$store.state.num }}&lt;/p&gt; --&gt;</span>
+<span class="nt">&lt;p&gt;</span>{{ this.num }}<span class="nt">&lt;/p&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>mapGetters</p>
+<ul>
+  <li>Vuex에 선언한 getters 속성을 뷰 컴포넌트에 더 쉽게 연결해주는 헬퍼</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="c1">// App.vue</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">mapGetters</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+
+<span class="nx">computed</span><span class="p">()</span> <span class="p">{</span> 
+    <span class="p">...</span><span class="nx">mapGetters</span><span class="p">([</span><span class="dl">'</span><span class="s1">reverseMessgae</span><span class="dl">'</span><span class="p">])</span> 
+<span class="p">}</span>
+
+<span class="c1">// store.js</span>
+<span class="nl">getters</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">reversMessage</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">state</span><span class="p">.</span><span class="nx">msg</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="c">&lt;!-- &lt;p&gt;{{ this.$store.getters.reversMessage }}&lt;/p&gt; --&gt;</span>
+<span class="nt">&lt;p&gt;</span>{{ this.reversMessage }}<span class="nt">&lt;/p&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="113-리팩토링-getters와-mapgetters-적용하기">11.3 [리팩토링] getters와 mapGetters 적용하기</h2>
+
+<p>store.js</p>
+<ul>
+  <li>getters에 <code class="language-plaintext highlighter-rouge">storedTodoItems</code>변수 지정하고 state의 todoItmes에 접근</li>
+</ul>
+
+<p>TodoList.vue</p>
+<ul>
+  <li>computed에 todoItmes() 메서드에 <code class="language-plaintext highlighter-rouge">this.$store.getters.storedTodoItems;</code> 리턴 시켜주기</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-lv2/commit/b306678eb054ec395e200caedf70324b720a7636">diff check</a></p>
+</blockquote>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-lv2/commit/1d049794f72638cdf7d682668120b16394eaa573">diff check</a></p>
+</blockquote>
+
+<h2 id="114-mapmutations-mapactions-소개-및-헬퍼의-유연한-문법">11.4 mapMutations, mapActions 소개 및 헬퍼의 유연한 문법</h2>
+
+<p>mapMutations</p>
+<ul>
+  <li>Vuex에 선언한 mutations 속성을 뷰 컴포넌트에 더 쉽게 연결해주는 헬퍼</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="c1">// App.vue</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">mapMutations</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+
+<span class="nx">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">...</span><span class="nx">mapMutations</span><span class="p">([</span><span class="dl">'</span><span class="s1">clickBtn</span><span class="dl">'</span><span class="p">]),</span>
+    <span class="nx">authLogin</span><span class="p">()</span> <span class="p">{},</span>
+    <span class="nx">displayTable</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="c1">// store.js</span>
+<span class="nl">mutations</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">clickBtn</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;button</span> <span class="err">@</span><span class="na">click=</span><span class="s">"clickBtn"</span><span class="nt">&gt;</span>popup message<span class="nt">&lt;/button&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>mapActions</p>
+<ul>
+  <li>Vuex에 선언한 actions 속성을 뷰 컴포넌트에 더 쉽게 연결해주는 헬퍼</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="c1">// App.vue</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">mapActions</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+
+<span class="nx">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">...</span><span class="nx">mapActions</span><span class="p">([</span><span class="dl">'</span><span class="s1">delayClickBtn</span><span class="dl">'</span><span class="p">]),</span>
+<span class="p">}</span>
+
+<span class="c1">// store.js</span>
+<span class="nl">actions</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">delayClickBtn</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">context</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="dl">'</span><span class="s1">clickBtn</span><span class="dl">'</span><span class="p">),</span> <span class="mi">2000</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;button</span> <span class="err">@</span><span class="na">click=</span><span class="s">"delayClickBtn"</span><span class="nt">&gt;</span>delay popup message<span class="nt">&lt;/button&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>헬퍼의 유연한 문법</p>
+<ul>
+  <li>Vuex에 선언한 속성을 그대로 컴포넌트에 연결하는 문법
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="c1">// 배열 리터럴</span>
+<span class="p">...</span><span class="nx">mapMutations</span><span class="p">([</span>
+  <span class="dl">'</span><span class="s1">clickBtn</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// 'clickBtn': clickBtn</span>
+  <span class="dl">'</span><span class="s1">addNumber</span><span class="dl">'</span> <span class="c1">// addNumber(인자)</span>
+<span class="p">])</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>Vuex에 선언한 속성을 컴포넌트의 특정 메서드에다가 연결하는 문법
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="p">...</span><span class="nx">mapMutations</span><span class="p">({</span>
+  <span class="na">popupMsg</span><span class="p">:</span> <span class="dl">'</span><span class="s1">clickBtn</span><span class="dl">'</span> <span class="c1">// 컴포넌트 메서드 명: Store의 뮤테이션 명</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="115-리팩토링--퀴즈-mapmutations-적용-및-퀴즈">11.5 [리팩토링 &amp; 퀴즈] mapMutations 적용 및 퀴즈</h2>
+
+<ul>
+  <li>헬퍼 함수들은 인자를 선언하지 않아도 함수를 호출하는 시점에 인자를 넘기면 그대로 가져온다.</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-lv2/commit/7dae61fdccda7ab92d149e33facdad54e4e3dd68">diff check</a></p>
+</blockquote>
+
+<h2 id="116-리팩토링--퀴즈-mapmutations-퀴즈-풀이">11.6 [리팩토링 &amp; 퀴즈] mapMutations 퀴즈 풀이</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-lv2/commit/67784bbc9618685935ff2da326c65ffd7b042338">diff check</a></p>
+</blockquote>
+
+<h2 id="117-헬퍼-함수가-주는-간편함">11.7 헬퍼 함수가 주는 간편함</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-lv2/commit/930c25c6e7529f517740a12a9f00915411ec0b6b">diff check</a></p>
+</blockquote>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#helper" class="page__taxonomy-item p-category" rel="tag">helper</a><span class="sep">, </span>
+    
+      <a href="/tags/#store" class="page__taxonomy-item p-category" rel="tag">store</a><span class="sep">, </span>
+    
+      <a href="/tags/#vue" class="page__taxonomy-item p-category" rel="tag">vue</a><span class="sep">, </span>
+    
+      <a href="/tags/#vuex" class="page__taxonomy-item p-category" rel="tag">vuex</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#vue-lv2" class="page__taxonomy-item" rel="tag">vue-lv2</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-12-06T00:00:00+09:00">December 6, 2021</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=11+-+Vuex+-+%ED%97%AC%ED%8D%BC+%ED%95%A8%EC%88%98%20http%3A%2F%2Flocalhost%3A4000%2Fvue-lv2%2Fvue-intermediate11%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fvue-lv2%2Fvue-intermediate11%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fvue-lv2%2Fvue-intermediate11%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/vue-lv2/vue-intermediate10/" class="pagination--pager" title="10 - Vuex - 주요 기술 요소
+">이전</a>
+    
+    
+      <a href="/vue-lv2/vue-intermediate12/" class="pagination--pager" title="12 - Vuex - 프로젝트 구조화 및 모듈화
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv2/vuex/" rel="permalink">vuex
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> March 12 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">vuex 설명
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/css/flexbox_scroll/" rel="permalink">상단 박스 height 유동적일때 하단 박스 oveflow scroll 시키기(feat. flex)
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 12 2021</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">flex-direction: column
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/css/flex/" rel="permalink">flex에 대해서
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 12 2021</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">flex grow shirink
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/git/gitbranch/" rel="permalink">git branch
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> December 12 2021</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">branch 생성하고 사용하기
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 꿈꾸는 개발자. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="/assets/js/codeCopy.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

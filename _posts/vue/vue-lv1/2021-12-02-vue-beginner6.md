@@ -60,7 +60,7 @@ content에서 바로 header로 이벤트를 보낼 수 없기 때문에 content�
 ![컴포넌트](/assets/images/vue/vue-lv1/beginner6_3.png) 
 
 root에서 props를 내리려면 데이터를 선언하여야 합니다.  
-content에서 passNum이라는 메소드가 실행되면서 this.$emit으로 pass이벤트가 올라왔는데 v-on으로 pass 이벤트를 받을 수 있습니다.  
+content에서 passNum이라는 메서드가 실행되면서 this.$emit으로 pass이벤트가 올라왔는데 v-on으로 pass 이벤트를 받을 수 있습니다.  
 하위 컴포넌트 이벤트를 v-on으로 받아서 상위 컴포넌트 인스턴스에 메서드로 추가한 deliverNum를 연결해 줍니다.
 pass로 넘어오면서 인자 10도 같이 넘어옵니다. 이 인자 10은 받는 쪽에서 deliverNum(value)로 넣어줍니다.  
 넘어온 value를 this.num = value로 넣어줄 수 있습니다.  

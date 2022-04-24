@@ -414,7 +414,7 @@
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>axios는 CDN으로 연결하였습니다.(github 페이지에서 하단에 installing에 cdn 확인 가능)<br />
-여기서 제일 중요한것은 버튼을 클릭했을때 getData라는 메서드를 호출하는 것입니다. 메소드의 axios.get에서 참고하는 url로 이동해보면 사용자정보가 담긴 배열을 볼 수 있습니다.</p>
+여기서 제일 중요한것은 버튼을 클릭했을때 getData라는 메서드를 호출하는 것입니다. 메서드의 axios.get에서 참고하는 url로 이동해보면 사용자정보가 담긴 배열을 볼 수 있습니다.</p>
 
 <p><img src="/assets/images/vue/vue-lv1/beginner8_2.png" alt="axios" /></p>
 
@@ -569,7 +569,7 @@ get user 버튼을 클릭하면 데이터를 받아옵니다. 서버로 요청�
     <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>즉, <code class="language-plaintext highlighter-rouge">getData()</code> 에서 바로 호출된 1번 <code class="language-plaintext highlighter-rouge">this</code>와 <code class="language-plaintext highlighter-rouge">axios.get()</code>이 호출된 후 <code class="language-plaintext highlighter-rouge">then</code> 메소드에 의해 비동기적으로 실행된 <code class="language-plaintext highlighter-rouge">this</code>는 서로 다른것을 가리킵니다.</p>
+<p>즉, <code class="language-plaintext highlighter-rouge">getData()</code> 에서 바로 호출된 1번 <code class="language-plaintext highlighter-rouge">this</code>와 <code class="language-plaintext highlighter-rouge">axios.get()</code>이 호출된 후 <code class="language-plaintext highlighter-rouge">then</code> 메서드에 의해 비동기적으로 실행된 <code class="language-plaintext highlighter-rouge">this</code>는 서로 다른것을 가리킵니다.</p>
 
 <p><code class="language-plaintext highlighter-rouge">getData()</code>의 1번 <code class="language-plaintext highlighter-rouge">this</code>는 <code class="language-plaintext highlighter-rouge">new Vue()</code>로 생성된 인스턴스 Root컴포넌트를 바라보고, <code class="language-plaintext highlighter-rouge">axios.get()</code>으로 호출된 <code class="language-plaintext highlighter-rouge">callback function</code>안에서의 2번 this는 비동기적으로 실행되면서 실행컨텍스트가 바뀌어 this가 가리키는 대상도 바뀝니다.</p>
 

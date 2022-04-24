@@ -1,0 +1,406 @@
+I"�`<h2 id="101-vuex-설치-및-등록">10.1 Vuex 설치 및 등록</h2>
+
+<p>Vuex 설치하기
+<a href="https://vuex.vuejs.org/installation.html#direct-download-cdn">vuejs 공식 문서</a></p>
+
+<p>NPM</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>// npm <span class="nb">install </span>vuex@next <span class="nt">--save</span> // 공식문서에 써있는 걸로 설치하면 Vue3를 기준으로 설치 되므로 코어 라이브러리는 버전을 명시해줘야함
+npm i vuex@3.4.0
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Yarn</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>// yarn add vuex@next <span class="nt">--save</span>
+yarn add vuex@3.4.0 // yarn을 사용하면 yarn으로 설치해야 함
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>components 폴더랑 같은 레벨에 stor 폴더 만들기</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-lv2/commit/5bc72b82f63929c142affcd6997be802284b70d6">diff check</a></p>
+</blockquote>
+
+<h2 id="102-state와-getters-소개">10.2 state와 getters 소개</h2>
+
+<p>Vuexa 기술 요소</p>
+<ul>
+  <li>state : 여러 컴포넌트에 공유되는 데이터 <code class="language-plaintext highlighter-rouge">data</code></li>
+  <li>getters : 연산된 state 값을 접근하는 속성 <code class="language-plaintext highlighter-rouge">computed</code></li>
+  <li>mutations : state 값을 변경하는 이벤트 로직, 메서드 <code class="language-plaintext highlighter-rouge">methods</code></li>
+  <li>actions : 비동기 처리 로직을 선언하는 메서드 <code class="language-plaintext highlighter-rouge">async methods</code></li>
+</ul>
+
+<p>State란?</p>
+<ul>
+  <li>여러 컴포넌트 간에 공유할 데이터 - <code class="language-plaintext highlighter-rouge">상태</code></li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="c1">// vue</span>
+<span class="nx">data</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Hello Vue.js</span><span class="dl">'</span>
+<span class="p">}</span>
+
+<span class="c1">// vuex</span>
+<span class="nl">state</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Hello vue.js
+}
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>
+<span class="c">&lt;!-- Vue --&gt;</span>
+<span class="nt">&lt;p&gt;</span>{{ message }}<span class="nt">&lt;/p&gt;</span>
+
+
+<span class="c">&lt;!-- Vuex --&gt;</span>
+<span class="nt">&lt;p&gt;</span>{{ this.$store.state.message }}<span class="nt">&lt;/p&gt;</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>getters란?</p>
+<ul>
+  <li>state 값을 접근하는 속성이자 <code class="language-plaintext highlighter-rouge">computed()</code> 처럼 미리 연산된 값을 접근하는 속성</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="c1">// store.js</span>
+<span class="nx">state</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">num</span><span class="p">:</span> <span class="mi">10</span>
+<span class="p">},</span>
+<span class="nx">getters</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">getNumber</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">state</span><span class="p">.</span><span class="nx">num</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">doubleNumber</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">state</span><span class="p">.</span><span class="nx">num</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>
+<span class="nt">&lt;p&gt;</span>{{ this.$store.getters.getNumber }}<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>{{ this.$store.getters.doubleNumber }}<span class="nt">&lt;/p&gt;</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="103-리팩토링-state-속성-적용">10.3 [리팩토링] state 속성 적용</h2>
+
+<p>store.js</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">const storage</code> 변수를 설정하고 <code class="language-plaintext highlighter-rouge">fetch()</code> 함수에 기존 App.vue에서 <code class="language-plaintext highlighter-rouge">created</code>로 가져오던 <code class="language-plaintext highlighter-rouge">localStorage</code>에 담긴 배열을 뿌려주는 로직을 옮기기</li>
+  <li><code class="language-plaintext highlighter-rouge">state</code>에서 <code class="language-plaintext highlighter-rouge">todoItems: storage.fetch()</code>로 todoItems에 storage변수의 fetch() 함수 연결</li>
+</ul>
+
+<p>TodoList.vue
+<code class="language-plaintext highlighter-rouge">v-for="(todoItem, index) in propsdata"</code> propsdata에서 반복문을 돌리던 것을 <code class="language-plaintext highlighter-rouge">v-for="(todoItem, index) in this.$store.state.todoItems</code>로 수정</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-lv2/commit/91e220b6598930eedb86ccb238517108b1c43578">diff check</a></p>
+</blockquote>
+
+<h2 id="104-mutations와-commit-형식-소개">10.4 mutations와 commit() 형식 소개</h2>
+
+<p>mutations란?</p>
+<ul>
+  <li>state의 값을 변경할 수 있는 유일한 방법이자 메서드</li>
+  <li>뮤테이션은 <code class="language-plaintext highlighter-rouge">commit()</code> 으로 동작시킨다.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="c1">// store.js</span>
+<span class="nx">state</span><span class="p">:</span> <span class="p">{</span> <span class="nl">num</span><span class="p">:</span> <span class="mi">10</span> <span class="p">},</span>
+<span class="nx">mutations</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">printNumbers</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">state</span><span class="p">.</span><span class="nx">num</span>
+    <span class="p">},</span>
+    <span class="nx">sumNumbers</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">anotherNum</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">state</span><span class="p">.</span><span class="nx">num</span> <span class="o">+</span> <span class="nx">anotherNum</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="dl">'</span><span class="s1">printNumbers</span><span class="dl">'</span><span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="dl">'</span><span class="s1">sumNumbers</span><span class="dl">'</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>mutations의 commit() 형식</p>
+<ul>
+  <li>state를 변경하기 위해 mutations를 동작시킬 때 인자(payload)를 전달할 수 있음</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c1">// store.js</span>
+<span class="nx">state</span><span class="p">:</span> <span class="p">{</span> <span class="nl">storeNum</span><span class="p">:</span> <span class="mi">10</span> <span class="p">},</span>
+<span class="nx">mutations</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">modifyState</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">payload</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">payload</span><span class="p">.</span><span class="nx">str</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nx">state</span><span class="p">.</span><span class="nx">storeNum</span> <span class="o">+=</span> <span class="nx">payload</span><span class="p">.</span><span class="nx">num</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="dl">'</span><span class="s1">modifyState</span><span class="dl">'</span> <span class="p">{</span>
+    <span class="nl">str</span><span class="p">:</span> <span class="dl">'</span><span class="s1">passed from payload</span><span class="dl">'</span><span class="p">,</span>
+    <span class="nx">num</span><span class="p">:</span> <span class="mi">20</span>
+<span class="p">});</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>두번째 인자로 값을 넘길 수 있음, 여러개를 보낼때는 객체형태로 보내면 된다.</p>
+
+<h2 id="105-리팩토링퀴즈-mutations-적용-및-퀴즈-안내">10.5 [리팩토링&amp;퀴즈] mutations 적용 및 퀴즈 안내</h2>
+
+<p>Store.js</p>
+<ul>
+  <li>App.vue의 <code class="language-plaintext highlighter-rouge">methods</code>에 있던 addOneItem을 store.js의 <code class="language-plaintext highlighter-rouge">mutations</code>로 옮기기</li>
+  <li>addOneItem의 첫번째 인자로 state에 접근하기 위해서 <code class="language-plaintext highlighter-rouge">state</code> 넣기</li>
+  <li>TodoInput.vue에서 입력된 값을 this.newTodoItem에 넣어서 보내는데 이것을 받기 위해서 두번째 인자에 <code class="language-plaintext highlighter-rouge">todoItem</code> 넣기</li>
+</ul>
+
+<p>TodoInput.vue</p>
+<ul>
+  <li>기존에 $emit으로 넘기던 이벤트를 <code class="language-plaintext highlighter-rouge">this.$store.commit('addOneItem', this.newTodoItem);</code>로 store의 mutations 동작시킴</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-lv2/commit/0a647a9889964d27a75c6ac23bc42305b2df9719">diff check</a></p>
+</blockquote>
+
+<h2 id="106-리팩토링퀴즈-mutations-퀴즈-풀이-및-할-일-지우기-기능-구현">10.6 [리팩토링&amp;퀴즈] mutations 퀴즈 풀이 및 할 일 지우기 기능 구현</h2>
+
+<ul>
+  <li>removeOneItem은 두번째 인자를 여러개를 받아야해서 객체 형태로 보내기</li>
+  <li>TodoList.vue에 <code class="language-plaintext highlighter-rouge">const obj = {todoItem, index}</code>로 변수에 객체로 넣어주고 store.js에서 두번째 인자로 payload를 넣어주고 안에서 <code class="language-plaintext highlighter-rouge">payload.todoItem</code> 으로 접근</li>
+  <li>매번 객체를 변수에 담아주기가 번거로우니 바로 commit()의 두번째 인자에 <code class="language-plaintext highlighter-rouge">this.$store.commit('removeOneItem', {todoItem, index});</code> 객체를 넣어줌</li>
+</ul>
+
+<h2 id="107-리팩토링-mutations로-할-일-추가-완료-모두-삭제-구현">10.7 [리팩토링] mutations로 할 일 추가, 완료, 모두 삭제 구현</h2>
+
+<ul>
+  <li>App.vue 필요없는 부분 정리</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-lv2/commit/fb5fcfa49dc1a75a48b9bfdeb7de8da2157c801c">diff check</a></p>
+</blockquote>
+
+<h2 id="108-왜-mutations로-상태를-변경해야-하는가">10.8 왜 mutations로 상태를 변경해야 하는가?</h2>
+
+<ul>
+  <li>여러 개의 컴포넌트에서 아래와 같이 state 값을 변경하는 경우 <code class="language-plaintext highlighter-rouge">어느 컴포넌트에서 해당 state를 변경했는지 추적하기 어렵다.</code></li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nx">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">increaseCounter</span><span class="p">()</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">counter</span><span class="o">++</span><span class="p">;}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>특정 시점에 어떤 컴포넌트가 state를 접근하여 변경한 건지 확인하기 어렵기 때문</li>
+  <li>따라서, 뷰의 반응성을 거스르지 않게 명시적으로 상태 변화를 수행. 반응성, 디버깅, 테스팅 혜택</li>
+  <li>state는 여러개의 컴포넌트에서 공유하고 있기 때문에 특정 컴포넌트에서 변경했을때 추적을 해야한다. 10개의 컴포넌트에서 변경한다고 했을때 어느시점에 어느 컴포넌트에서 변경했는지 알기가 어려움, mutations를 거쳐야 뷰 개발자 도구에서 추적이 가능하다.(어떻게…?)</li>
+</ul>
+
+<h2 id="109-actions-소개-및-예제">10.9 actions 소개 및 예제</h2>
+
+<p>actions란?</p>
+<ul>
+  <li>비동기 처리 로직을 선언하는 메서드, 비동기 로직을 담당하는 mutations</li>
+  <li>데이터 요청, Promise, ES6 async와 같은 비동기 처리는 모두 actions에 선언</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://joshua1988.github.io/web-development/javascript/promise-for-beginners/">Promise 이해하기</a>
+<a href="https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-operation/">자바스크립트 비동기 처리 이해하기</a></p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="c1">// store.js</span>
+<span class="nx">state</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">num</span><span class="p">:</span> <span class="mi">10</span>
+<span class="p">},</span>
+<span class="nx">mutations</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">doubleNumber</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">state</span><span class="p">.</span><span class="nx">num</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">},</span>
+<span class="nx">actions</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">delayDoubleNumber</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// context로 store의 메서드와 속성 접근</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="dl">'</span><span class="s1">doubleNumber</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="c1">// App.vue</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="dl">'</span><span class="s1">delayDoubleNumber</span><span class="dl">'</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>actions 비동기 코드 예제1</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="c1">// store.js</span>
+<span class="nx">mutations</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">addCounter</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">state</span><span class="p">.</span><span class="nx">counter</span><span class="o">++</span>
+    <span class="p">},</span>
+<span class="p">},</span>
+<span class="nx">actions</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">delayedAddCounter</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">context</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="dl">'</span><span class="s1">addCounter</span><span class="dl">'</span><span class="p">),</span> <span class="mi">2000</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c1">// App.vue</span>
+<span class="nx">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">incrementCounter</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="dl">'</span><span class="s1">delayedAddCounter</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>mutations는 commit이라는 api로 호출하고 actions는 dispatch라는 api로 호출</li>
+</ul>
+
+<p>actions 비동기 코드 예제2</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="c1">// store.js</span>
+<span class="nx">mutations</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">setData</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">fetchedData</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">state</span><span class="p">.</span><span class="nx">product</span> <span class="o">=</span> <span class="nx">fetchedData</span>
+    <span class="p">},</span>
+<span class="p">},</span>
+<span class="nx">actions</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">fetchProductData</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">axios</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://domain.com/products/1</span><span class="dl">'</span><span class="p">)</span>
+                    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">context</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="dl">'</span><span class="s1">setData</span><span class="dl">'</span><span class="p">,</span> <span class="nx">response</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c1">// App,vue</span>
+<span class="nx">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">getProduct</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="dl">'</span><span class="s1">fetchProductData</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>getProduct()메서드를 실행하면 actions의 fetchProductData를 실행</li>
+  <li>axios가 get이라는 http 요청을 서버에 보낸다.</li>
+  <li>받아오면 then이라는 Promise 콜백으로 응답을 받아서 응답을 setData() mutations를 실행해서 응답을 인자로 넘긴다.</li>
+  <li>mutations에서 state의 product에 접근해 서버에서 받아온 응답값(response)을 fetchedData에 넣어준다.</li>
+</ul>
+
+<h2 id="1010-왜-actions에-비동기-로직을-선언해야-하는가">10.10 왜 actions에 비동기 로직을 선언해야 하는가?</h2>
+
+<ul>
+  <li>언제 어느 컴포넌트에서 해당 state를 호출하고, 변경했는지 확인하기가 어려움
+    <ul>
+      <li>여러개의 컴포넌트에서 mutations로 시간차를 두고 state를 변경하면 값의 변화를 추적하기 어렵기 때문에 mutations 속성에는 동기 처리 로직만 넣어야 한다.</li>
+    </ul>
+  </li>
+</ul>
+:ET

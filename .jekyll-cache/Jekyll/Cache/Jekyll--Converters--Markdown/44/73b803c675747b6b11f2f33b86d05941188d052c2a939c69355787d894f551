@@ -1,0 +1,106 @@
+I"�<h2 id="es6-배경과-babel-소개">ES6 배경과 Babel 소개</h2>
+
+<p>es6(ECMAScript 2015)</p>
+<ul>
+  <li>2015년은 ES5(2009년)이래로 진행한 첫 메이저 업데이트가 승인된 해</li>
+  <li>최신 Front-End Framework인 React, Angular, Vue에서 권고하는 언어 형식</li>
+  <li>ES5에 비해 문법이 간결해져서 익숙해지면 코딩을 훨씬 편하게 할 수 있음</li>
+</ul>
+
+<p>Babel</p>
+<ul>
+  <li>구 버전 브라우저 중에서는 ES6의 기능을 지원하지 않는 브라우저가 있으므로 tranpiling이 필요</li>
+  <li>ES6의 문법을 각 브라우저의 호환 가능한 ES5로 변환하는 컴파일러</li>
+</ul>
+
+<h2 id="51-const--let-소개">5.1 const &amp; let 소개</h2>
+
+<ul>
+  <li>블록 단위 <code class="language-plaintext highlighter-rouge">{}</code> 로 변수의 범위 제한</li>
+  <li><code class="language-plaintext highlighter-rouge">const</code> : 한번 선언한 값에 대해서 변경 불가능(상수개념)</li>
+  <li><code class="language-plaintext highlighter-rouge">let</code> : 한번 선언한 값에 대해서 다시 선언할 수 없음</li>
+</ul>
+
+<h2 id="52-es5의-주요-특징변수-스코프와-호이스팅">5.2 [ES5의 주요 특징]변수 스코프와 호이스팅</h2>
+
+<p>변수의 Scope</p>
+<ul>
+  <li>기존의 ES5는 <code class="language-plaintext highlighter-rouge">{}</code>에 상관없이 스코프가 설정됨</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">sum</span> <span class="o">=</span> <span class="nx">sum</span> <span class="o">+</span> <span class="nx">i</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span> <span class="c1">// 15</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="c1">// 6</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>for문을 벗어나도 i에 접근이 가능</p>
+
+<p>Hoisting</p>
+<ul>
+  <li>함수나 변수를 해석기가 가장 상단으로 끌어올림</li>
+  <li>js 해석기는 코드의 라인 순서와 관계 없이 함수선언식과 변수를 위한 메모리 공간을 먼저 확보한다.</li>
+  <li>함수표현문과 const, let 은 호이스팅이 일어나지 않는다.</li>
+</ul>
+
+<h2 id="53-const와-let-추가-설명-및-정리">5.3 const와 let 추가 설명 및 정리</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">{}</code>단위로 변수의 범위가 제한</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">sum</span> <span class="o">=</span> <span class="nx">sum</span> <span class="o">+</span> <span class="nx">i</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span> <span class="c1">// 15</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="c1">// Uncaught ReferenceError: i is not defined</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>for문이 끝나면 i에 접근 불가</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">const</code>로 지정한 값 변경 불가능</li>
+  <li>객체나 배열의 내부는 변경할 수 있다.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">num</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// {num:10}</span>
+
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// [20]</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="54-리팩토링-const와-let">5.4 [리팩토링] const와 let</h2>
+
+<ul>
+  <li>var -&gt; const, let으로 변환</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-lv2/commit/85137b3439c6920ac23efdafad8b97e9f05f30cf">diff check</a></p>
+</blockquote>
+:ET

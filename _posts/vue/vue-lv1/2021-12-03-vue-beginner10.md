@@ -14,7 +14,7 @@ toc: true
 인스턴스를 생성하고 num속성을 추가합니다.  
 이 num을 button을 클릭했을때 1씩 증가 시켜보겠습니다.  
 
-메소드에 `addNum`을 정의하고 버튼에 `v-on:click`으로 연결해줍니다.  
+메서드에 `addNum`을 정의하고 버튼에 `v-on:click`으로 연결해줍니다.  
 
 ```html
 <div id="app">
@@ -39,7 +39,7 @@ toc: true
 화면에서 버튼을 누르면 누를때마다 숫자가 증가합니다.  
 여기에 추가로 증가할때마다 콘솔을 찍어보겠습니다.  
 그러면 data의 변화에 따라서 특정 로직을 실행하는 watch를 이용해보겠습니다.  
-메소드에 logText를 추가해주고 이것을 watch에 num이 변화했을때 logText를 실행하도록 연결해줍니다.  
+메서드에 logText를 추가해주고 이것을 watch에 num이 변화했을때 logText를 실행하도록 연결해줍니다.  
 
 
 ```html

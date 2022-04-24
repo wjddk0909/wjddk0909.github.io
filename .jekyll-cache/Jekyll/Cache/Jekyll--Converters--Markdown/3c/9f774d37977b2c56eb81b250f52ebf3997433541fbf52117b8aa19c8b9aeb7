@@ -1,0 +1,61 @@
+I"	<h2 id="71-속성-메서드의-축약-특징-설명">7.1 속성 메서드의 축약 특징 설명</h2>
+
+<p>향상된 객체 리터럴</p>
+<ul>
+  <li>객체의 속성을 메서드로 사용할 때 <code class="language-plaintext highlighter-rouge">function</code> 예약어를 생략 가능</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">dictionary</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">words</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="c1">// ES5</span>
+    <span class="na">lookup</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">find words</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="c1">// ES6</span>
+    <span class="nx">lookup</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">finde words</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="72-리팩토링-속성-메서드의-축약-특징-리팩토링">7.2 [리팩토링] 속성 메서드의 축약 특징 리팩토링</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-lv2/commit/28a66b22d7aaf3a1a95ad3c8dff0abd23f47a790">diff check</a></p>
+</blockquote>
+
+<h2 id="73-속성명의-축약-특징-설명">7.3 속성명의 축약 특징 설명</h2>
+
+<ul>
+  <li>객체의 속성명과 값 명이 동일할 떄 아래와 같이 축약 가능</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">figures</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">dictionary</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">// figures: figures,</span>
+    <span class="nx">figures</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="74-리팩토링-속성명의-축약-특징-리팩토링">7.4 [리팩토링] 속성명의 축약 특징 리팩토링</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-lv2/commit/d6802d1dc37fe0ffad9cecb0d7f2583b102fd58d">diff check</a></p>
+</blockquote>
+:ET

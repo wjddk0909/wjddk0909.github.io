@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-20T22:04:16+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">vuex</title><link href="http://localhost:4000/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-25T00:07:57+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">vuex</title><link href="http://localhost:4000/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
 
 <ul>
   <li>복잡한 애플리케이션의 컴포넌트들을 효율적으로 관리하는 vuex 라이브러리</li>
@@ -97,7 +97,21 @@
 action : 비동기 로직<br />
 mutations : 동기 로직</p>
 
-<p><a href="https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-operation/">자바스크립트 비동기 처리와 콜백함수 참고 링크</a></p>]]></content><author><name>FE Developer</name></author><category term="vue-lv2" /><category term="vuex" /><category term="store" /><summary type="html"><![CDATA[vuex 설명]]></summary></entry><entry><title type="html">git commit 메세지 수정</title><link href="http://localhost:4000/git/git-commit-edit/" rel="alternate" type="text/html" title="git commit 메세지 수정" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/git/git-commit-edit</id><content type="html" xml:base="http://localhost:4000/git/git-commit-edit/"><![CDATA[<h2 id="마지막-commit-메세지-수정하기">마지막 commit 메세지 수정하기</h2>
+<p><a href="https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-operation/">자바스크립트 비동기 처리와 콜백함수 참고 링크</a></p>]]></content><author><name>FE Developer</name></author><category term="vue-lv2" /><category term="vuex" /><category term="store" /><summary type="html"><![CDATA[vuex 설명]]></summary></entry><entry><title type="html">flex에 대해서</title><link href="http://localhost:4000/css/flex/" rel="alternate" type="text/html" title="flex에 대해서" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/css/flex</id><content type="html" xml:base="http://localhost:4000/css/flex/"><![CDATA[<h2 id="flex에-대한-정리">flex에 대한 정리</h2>]]></content><author><name>FE Developer</name></author><category term="css" /><category term="css" /><category term="flex" /><category term="grow" /><category term="shirink" /><summary type="html"><![CDATA[flex grow shirink]]></summary></entry><entry><title type="html">git branch</title><link href="http://localhost:4000/git/gitbranch/" rel="alternate" type="text/html" title="git branch" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/git/gitbranch</id><content type="html" xml:base="http://localhost:4000/git/gitbranch/"><![CDATA[<h2 id="git-branch-생성하고-사용하는-방법">git branch 생성하고 사용하는 방법</h2>
+
+<ul>
+  <li>git init : git 저장소 생성(초기화)</li>
+  <li>git remote add origin {link} : link에 생성한 레포지토리 url복사해서 넣기</li>
+  <li>git branch : 깃 브랜치 확인</li>
+  <li>git branch -v : 마지막 커밋메세지 확인</li>
+  <li>git branch ‘브랜치명’ : 브랜치 생성</li>
+  <li>git checkout ‘브랜치명’ : 선택한 브랜치로 이동</li>
+  <li>git branch -d ‘브랜치명’ : 브랜치 삭제하기</li>
+  <li>git merge ‘합칠 브랜치명’ : 현재위치한 브랜치에 합칠 브랜치에서 작업한 내용 가져와서 병합</li>
+  <li>git add . : 변경한 파일을 저장</li>
+  <li>git commit -m “커밋메세지” : 커밋메세지 입력</li>
+  <li>git push origin ‘브랜치명’ : 원격저장소 브랜치에 push 하기</li>
+</ul>]]></content><author><name>FE Developer</name></author><category term="git" /><category term="branch" /><summary type="html"><![CDATA[branch 생성하고 사용하기]]></summary></entry><entry><title type="html">git commit 메세지 수정</title><link href="http://localhost:4000/git/git-commit-edit/" rel="alternate" type="text/html" title="git commit 메세지 수정" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/git/git-commit-edit</id><content type="html" xml:base="http://localhost:4000/git/git-commit-edit/"><![CDATA[<h2 id="마지막-commit-메세지-수정하기">마지막 commit 메세지 수정하기</h2>
 
 <blockquote>
   <p>git commit –amend -m “바꿀 메세지”<br />
@@ -140,21 +154,7 @@ HEAD~3 은 최근 커밋 메시지중 3개만 불러온다는 뜻</p>
 
 <p>로 강제 덮어씌우기</p>
 
-<p>*** 개인 레포지토리나 개인 브랜치가 아닌 협업 마스터 브랜치에는 위험할 수 있음</p>]]></content><author><name>FE Developer</name></author><category term="git" /><category term="commit" /><summary type="html"><![CDATA[commit 오타 수정]]></summary></entry><entry><title type="html">git branch</title><link href="http://localhost:4000/git/gitbranch/" rel="alternate" type="text/html" title="git branch" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/git/gitbranch</id><content type="html" xml:base="http://localhost:4000/git/gitbranch/"><![CDATA[<h2 id="git-branch-생성하고-사용하는-방법">git branch 생성하고 사용하는 방법</h2>
-
-<ul>
-  <li>git init : git 저장소 생성(초기화)</li>
-  <li>git remote add origin {link} : link에 생성한 레포지토리 url복사해서 넣기</li>
-  <li>git branch : 깃 브랜치 확인</li>
-  <li>git branch -v : 마지막 커밋메세지 확인</li>
-  <li>git branch ‘브랜치명’ : 브랜치 생성</li>
-  <li>git checkout ‘브랜치명’ : 선택한 브랜치로 이동</li>
-  <li>git branch -d ‘브랜치명’ : 브랜치 삭제하기</li>
-  <li>git merge ‘합칠 브랜치명’ : 현재위치한 브랜치에 합칠 브랜치에서 작업한 내용 가져와서 병합</li>
-  <li>git add . : 변경한 파일을 저장</li>
-  <li>git commit -m “커밋메세지” : 커밋메세지 입력</li>
-  <li>git push origin ‘브랜치명’ : 원격저장소 브랜치에 push 하기</li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="git" /><category term="branch" /><summary type="html"><![CDATA[branch 생성하고 사용하기]]></summary></entry><entry><title type="html">flex에 대해서</title><link href="http://localhost:4000/css/flex/" rel="alternate" type="text/html" title="flex에 대해서" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/css/flex</id><content type="html" xml:base="http://localhost:4000/css/flex/"><![CDATA[<h2 id="flex에-대한-정리">flex에 대한 정리</h2>]]></content><author><name>FE Developer</name></author><category term="css" /><category term="css" /><category term="flex" /><category term="grow" /><category term="shirink" /><summary type="html"><![CDATA[flex grow shirink]]></summary></entry><entry><title type="html">상단 박스 height 유동적일때 하단 박스 oveflow scroll 시키기(feat. flex)</title><link href="http://localhost:4000/css/flexbox_scroll/" rel="alternate" type="text/html" title="상단 박스 height 유동적일때 하단 박스 oveflow scroll 시키기(feat. flex)" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/css/flexbox_scroll</id><content type="html" xml:base="http://localhost:4000/css/flexbox_scroll/"><![CDATA[<h2 id="상단-컨텐츠의-높이값이-유동적으로-바뀌고-하단-박스만-overflow-scroll-하는-법">상단 컨텐츠의 높이값이 유동적으로 바뀌고 하단 박스만 overflow scroll 하는 법</h2>
+<p>*** 개인 레포지토리나 개인 브랜치가 아닌 협업 마스터 브랜치에는 위험할 수 있음</p>]]></content><author><name>FE Developer</name></author><category term="git" /><category term="commit" /><summary type="html"><![CDATA[commit 오타 수정]]></summary></entry><entry><title type="html">상단 박스 height 유동적일때 하단 박스 oveflow scroll 시키기(feat. flex)</title><link href="http://localhost:4000/css/flexbox_scroll/" rel="alternate" type="text/html" title="상단 박스 height 유동적일때 하단 박스 oveflow scroll 시키기(feat. flex)" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/css/flexbox_scroll</id><content type="html" xml:base="http://localhost:4000/css/flexbox_scroll/"><![CDATA[<h2 id="상단-컨텐츠의-높이값이-유동적으로-바뀌고-하단-박스만-overflow-scroll-하는-법">상단 컨텐츠의 높이값이 유동적으로 바뀌고 하단 박스만 overflow scroll 하는 법</h2>
 
 <p>스크롤시 상단 컨텐츠는 고정, 하단 컨텐츠만 overflow-y: auto 시켜야 하는 레이아웃 구현하기</p>
 
@@ -427,13 +427,11 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
 또한 개발자들간의 협업도 용이해진다.</p>
 
 <p>즉, api는 어떠한 응용프로그램에서 데이터를 주고받기 위한 방법이다.<br />
-특정 사이트에서 데이터를 공유할때 어떤 방식으로 요청해야 하는지, 어떤 데이터를 제공 받을수 있는지에 대한 규격들을 말한다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="api" /><summary type="html"><![CDATA[api란 무엇인가]]></summary></entry><entry><title type="html">call/apply/bind 함수의 차이점</title><link href="http://localhost:4000/javascript/call-apply-bind/" rel="alternate" type="text/html" title="call/apply/bind 함수의 차이점" /><published>2021-12-06T00:00:00+09:00</published><updated>2021-12-06T00:00:00+09:00</updated><id>http://localhost:4000/javascript/call-apply-bind</id><content type="html" xml:base="http://localhost:4000/javascript/call-apply-bind/"><![CDATA[<h2 id="callapplybind-함수의-차이점은">call/apply/bind 함수의 차이점은?</h2>
+특정 사이트에서 데이터를 공유할때 어떤 방식으로 요청해야 하는지, 어떤 데이터를 제공 받을수 있는지에 대한 규격들을 말한다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="api" /><summary type="html"><![CDATA[api란 무엇인가]]></summary></entry><entry><title type="html">12 - Vuex - 프로젝트 구조화 및 모듈화</title><link href="http://localhost:4000/vue-lv2/vue-intermediate12/" rel="alternate" type="text/html" title="12 - Vuex - 프로젝트 구조화 및 모듈화" /><published>2021-12-06T00:00:00+09:00</published><updated>2021-12-06T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vue-intermediate12</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vue-intermediate12/"><![CDATA[<h2 id="121-스토어-속성-모듈화-방법">12.1 스토어 속성 모듈화 방법</h2>
 
-<p>예제를 보고 확인해보자.</p>
+<p>프로젝트 구조화와 모듈화 방법1</p>
 
-<blockquote>
-  <p>예)</p>
-</blockquote>
+<p>아래와 같은 store 구조를 어떻게 모듈화 할 수 있을까?</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -442,22 +440,27 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
 5
 6
 7
-</pre></td><td class="rouge-code"><pre>    <span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="dl">'</span><span class="s1">maru</span><span class="dl">'</span><span class="p">};</span>
-    <span class="kd">const</span> <span class="nx">live</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">city</span><span class="p">){</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Hi my name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">, I live in </span><span class="p">${</span><span class="nx">city</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-    <span class="p">};</span>
-    <span class="nx">live</span><span class="p">(</span><span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Hi my name is , I live in korea</span>
-    <span class="nx">live</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Hi my name is maru, I live in korea</span>
-    <span class="nx">live</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="p">[</span><span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">]);</span> <span class="c1">// Hi my name is maru, I live in korea</span>
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="c1">// store.js</span>
+<span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">Vuex</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vuex</span><span class="p">.</span><span class="nx">Store</span><span class="p">({</span>
+    <span class="na">state</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="na">getters</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="na">mutations</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="na">actions</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">})</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>call과 apply는 함수를 호출하는 함수<br />
-첫번째 인자인 “obj”로 this를 변경하고 함수를 실행한다.<br />
-(apply는 파라미터를 배열로 넣어야 한다.)</p>
+<p>힌트! <code class="language-plaintext highlighter-rouge">Vuex.Store({})</code>의 속성을 모듈로 연결
+모듈이라고 하면 각각의 속성의 내용들을 별도의 파일로 분리해서 파일들을 불러와서 담아주기</p>
 
-<blockquote>
-  <p>예)</p>
-</blockquote>
+<ul>
+  <li>ES6의 Import &amp; Export를 이용하며 속성별로 모듈화</li>
+</ul>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -465,12 +468,73 @@ TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간�
 4
 5
 6
-</pre></td><td class="rouge-code"><pre>    <span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="dl">'</span><span class="s1">maru</span><span class="dl">'</span><span class="p">};</span>
-    <span class="kd">const</span> <span class="nx">live</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">city</span><span class="p">){</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Hi my name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">, I live in </span><span class="p">${</span><span class="nx">city</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-    <span class="p">};</span>
-    <span class="kd">const</span> <span class="nx">bound</span> <span class="o">=</span> <span class="nx">live</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
-    <span class="nx">bound</span><span class="p">(</span><span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Hi my name is maru, I live in korea</span>
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">Vuex</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+<span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">getters</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">store/getters.js</span><span class="dl">'</span>
+<span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">mutations</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">store/mutations.js</span><span class="dl">'</span>
+<span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">actions</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">store/actions.js</span><span class="dl">'</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vuex</span><span class="p">.</span><span class="nx">Store</span><span class="p">({</span>
+    <span class="na">state</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="na">getters</span><span class="p">:</span> <span class="nx">getters</span><span class="p">,</span>
+    <span class="na">mutations</span><span class="p">:</span> <span class="nx">mutations</span><span class="p">,</span>
+    <span class="na">actions</span><span class="p">:</span> <span class="nx">actions</span>
+<span class="p">})</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>bind함수는 함수를 실행하지 않는다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="function" /><category term="call" /><category term="apply" /><category term="bind" /><summary type="html"><![CDATA[call()/apply()/bind()]]></summary></entry></feed>
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-lv2/commit/6e8b61ae4187899ea00a6571efd5d03800de72c5">diff check</a></p>
+</blockquote>
+
+<h2 id="122-스토어-모듈화-방법">12.2 스토어 모듈화 방법</h2>
+
+<p>프로젝트 구조화와 모듈화 방법2</p>
+<ul>
+  <li>앱이 비대해져서 1개의 store로는 관리가 힘들 때 <code class="language-plaintext highlighter-rouge">modules</code> 속성 사용</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="c1">// store.js</span>
+<span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">Vuex</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">todo</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">models/todo.js</span><span class="dl">'</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vuex</span><span class="p">.</span><span class="nx">Store</span><span class="p">({</span>
+    <span class="na">modules</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">moduleA</span><span class="p">:</span> <span class="nx">todo</span><span class="p">,</span> <span class="c1">// 모듈 명칭 : 모듈 파일명</span>
+        <span class="nx">todo</span> <span class="c1">// todo: todo</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// todo.js</span>
+<span class="kd">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="kd">const</span> <span class="nx">getters</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="kd">const</span> <span class="nx">mutations</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="kd">const</span> <span class="nx">actions</span> <span class="o">=</span> <span class="p">{}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-lv2/commit/695723a3749eebc8cf15c132ef862742653f8fc1">diff check</a></p>
+</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv2" /><category term="vue" /><category term="vuex" /><category term="store" /><category term="module" /><summary type="html"><![CDATA[Todo App]]></summary></entry></feed>

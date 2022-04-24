@@ -85,7 +85,7 @@ axios를 샘플로 돌려보고 어떤식으로 네트워크요청에 대해서 
 ```
 
 axios는 CDN으로 연결하였습니다.(github 페이지에서 하단에 installing에 cdn 확인 가능)  
-여기서 제일 중요한것은 버튼을 클릭했을때 getData라는 메서드를 호출하는 것입니다. 메소드의 axios.get에서 참고하는 url로 이동해보면 사용자정보가 담긴 배열을 볼 수 있습니다.  
+여기서 제일 중요한것은 버튼을 클릭했을때 getData라는 메서드를 호출하는 것입니다. 메서드의 axios.get에서 참고하는 url로 이동해보면 사용자정보가 담긴 배열을 볼 수 있습니다.  
 
 ![axios](/assets/images/vue/vue-lv1/beginner8_2.png)  
 
@@ -185,7 +185,7 @@ this.users의 this는 axios.get()을 호출하기 전의 this와 다릅니다.
     }
 ```
 
-즉, `getData()` 에서 바로 호출된 1번 `this`와 `axios.get()`이 호출된 후 `then` 메소드에 의해 비동기적으로 실행된 `this`는 서로 다른것을 가리킵니다.  
+즉, `getData()` 에서 바로 호출된 1번 `this`와 `axios.get()`이 호출된 후 `then` 메서드에 의해 비동기적으로 실행된 `this`는 서로 다른것을 가리킵니다.  
 
 `getData()`의 1번 `this`는 `new Vue()`로 생성된 인스턴스 Root컴포넌트를 바라보고, `axios.get()`으로 호출된 `callback function`안에서의 2번 this는 비동기적으로 실행되면서 실행컨텍스트가 바뀌어 this가 가리키는 대상도 바뀝니다.  
 

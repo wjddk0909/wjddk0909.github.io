@@ -168,7 +168,7 @@ export default {
 ![todo](/assets/images/vue/vue-lv2/intermediate2_4.png)  
 
 이어서 v-model에 있는 값을 들고와야합니다.  
-아래에 버튼을 만들고 v-on:click으로 클릭했을때 동작할 메소드명을 넣어주고 script에 메소드를 정의해줍니다.
+아래에 버튼을 만들고 v-on:click으로 클릭했을때 동작할 메서드명을 넣어주고 script에 메서드를 정의해줍니다.
 
 ```vue
 <template>
@@ -208,13 +208,13 @@ addTodo: function() {
 }
 ```
 
-- addTodo메소드 저장하는 로직 추가
+- addTodo메서드 저장하는 로직 추가
 - localStorage.setItem('key', 'value')로 추가  
 >[diff check](https://github.com/wjddk0909/vue-lv2/commit/aca3e46cf1484af60d07be41f7eaeb97b76089e2)
 
 ## 2.5 TodoInput 컴포넌트 코드 정리 및 UI스타일링
 
-- this.clearInput(); // 같은 인스턴스안에 있는 메소드라서 this로 접근 가능  
+- this.clearInput(); // 같은 인스턴스안에 있는 메서드라서 this로 접근 가능  
 >[diff check](https://github.com/wjddk0909/vue-lv2/commit/f84b65206413e99147969d25b76fb061836c6561)
 
 ## 2.6 TodoInput 컴포넌트의 할 일 목록 표시 기능 구현

@@ -1,0 +1,107 @@
+I"<h2 id="interceptordebouncethrottle">Interceptor/Debounce/throttle</h2>
+
+<p>인터셉터는 사용자의 요청을 가로채는 역할(서버에 권한이 있는지 확인하는등)
+사용자의 요청이 컨트롤러에 가기 전에 가로채고, 서버의 응답이 사용자에게 가기 전에 가로챈다.</p>
+
+<p>Debounce, throttle
+자주 사용 되는 이벤트나 함수 들의 실행되는 빈도를 줄여서, 성능 상의 유리함을 가져오기 위한 개념이다.</p>
+
+<p>debounce(입력주기가 끝나면 출력) : scroll, resize event 이런 이벤트가 끝났을때 한번만 실행되게 하고싶을때
+throttle : 일정시간동안 한번만 실행</p>
+
+<p>code)</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"search"</span> <span class="na">type=</span><span class="s">"search"</span> <span class="na">name=</span><span class="s">"search"</span> <span class="na">value=</span><span class="s">""</span> <span class="nt">/&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">debounce</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">throttle</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">keyUpFn</span><span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// normal</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">normal</span><span class="dl">'</span><span class="p">,</span> <span class="nx">el</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">());</span>
+  <span class="c1">// debounce</span>
+  <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">debounce</span><span class="p">);</span>
+  <span class="nx">debounce</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+      <span class="dl">'</span><span class="s1">debounce</span><span class="dl">'</span><span class="p">,</span>
+      <span class="nx">el</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">());</span>
+  <span class="p">},</span> <span class="mi">500</span><span class="p">);</span>
+  <span class="c1">// throttle</span>
+  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">throttle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">throttle</span><span class="dl">'</span><span class="p">,</span> <span class="nx">throttle</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">());</span>
+      <span class="nx">throttle</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">},</span> <span class="mi">500</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">throttle</span> <span class="o">=</span> <span class="nx">el</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">search</span><span class="dl">"</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">keyup</span><span class="dl">'</span><span class="p">,</span> <span class="nx">keyUpFn</span><span class="p">);</span>
+<span class="c1">// normal h         1583658583270</span>
+<span class="c1">// normal he        1583658583582</span>
+<span class="c1">// normal hel       1583658583878</span>
+<span class="c1">// normal hell      1583658584182</span>
+<span class="c1">// throttle hell    1583658584271</span>
+<span class="c1">// 입력이 끝남</span>
+<span class="c1">// normal hello     1583658584534</span>
+<span class="c1">// debounce hello   1583658585036</span>
+<span class="c1">// throttle hello   1583658585536</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ol>
+  <li>Input Search Element 에 Keyup Event Listener 를 등록한다.</li>
+  <li>normal 에서는, 키보드입력 발생하면, 그 즉시 value 를 출력한다.</li>
+  <li>throttle 에서는 키보드입력 발생하면, 500ms 후에, 가장 최신 value 를 출력하고, 초기화 하여, 키보드 입력이 끝날때까지 반복한다.</li>
+  <li>debounce 에서는 키보드 입력이 발생하면, 500ms 동안 기다리다, 그 안에 키보드 입력이 발생하면, 시간을 초기화 하고 다시 기다리다, 가장 최신 value 를 출력한다.</li>
+</ol>
+
+<p>Throttle<br />
+여러번 발생하는 이벤트를 일정 시간 동안, 한번만 실행 되도록 만드는 개념이다.<br />
+위 예제에서 500ms 동안 이벤트 실행을 막고, 한번만 실행 때문에, 잦은 이벤트 발생을 막아 성능상의 유리함을 가져 올 수 있다.<br />
+Debounce 와 다른점은 이벤트 발생 시간 이후에 일정 시간 동안 만을 기다리고, 이벤트를 실행 후 재차 기다린 다는 점이다.</p>
+
+<p>Debounce<br />
+가장 마지막 이벤트 만을 실행 되도록 만드는 개념이다.<br />
+입력이 끝날때, 가장 마지막 이벤트만을 실행하여, 성능성 유리함을 가져올 수 있다.<br />
+Throttle 와 다른점은, 마지막 이벤트에서 일정 시간동안 이벤트가 발생한다면, 또 일정 시간을 기다린다는 점이다.</p>
+
+<p>Throttle 와 Debounce 차이점<br />
+Throttle 와 Debounce 의 차이점은 이벤트를 언제 발생 시킬지의 시점 차이이다.<br />
+Debounce 는 입력이 끝날때까지 무한적으로 기다리지만, Throttle 는 입력이 시작되면, 일정 주기로 계속 실행한다.<br />
+Debounce 의 시간을 짧게 가져간다면, Throttle 와 비슷한 효과가 날 수 있지만, 그럼에도 시점에서 차이가 날 수 있다.</p>
+
+<p>대표적인 예로 자동완성 만들 경우,<br />
+일정 주기로 자동으로 완성되는 리스트를 보여주는 것에는<br />
+사용자 측면에서 Throttle (검색 되는 경험) 가 유리할 수 있지만,<br />
+성능상에서는 Debounce (1번만 호출) 가 훨씬 유리할 수 있다.</p>
+
+:ET

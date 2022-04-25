@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://localhost:4000/fe-study/fe-interceptor/</loc>
+<lastmod>2021-12-01T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/vue-lv1/vue-beginner1/</loc>
 <lastmod>2021-12-01T00:00:00+09:00</lastmod>
 </url>
@@ -18,10 +22,6 @@
 </url>
 <url>
 <loc>http://localhost:4000/vue-lv1/vue-beginner5/</loc>
-<lastmod>2021-12-01T00:00:00+09:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/vue-study/vue-study1/</loc>
 <lastmod>2021-12-01T00:00:00+09:00</lastmod>
 </url>
 <url>
@@ -192,6 +192,9 @@
 <loc>http://localhost:4000/categories/etc</loc>
 </url>
 <url>
+<loc>http://localhost:4000/categories/fe-study</loc>
+</url>
+<url>
 <loc>http://localhost:4000/categories/git</loc>
 </url>
 <url>
@@ -205,9 +208,6 @@
 </url>
 <url>
 <loc>http://localhost:4000/categories/vue-lv2</loc>
-</url>
-<url>
-<loc>http://localhost:4000/categories/vue-study</loc>
 </url>
 <url>
 <loc>http://localhost:4000/</loc>

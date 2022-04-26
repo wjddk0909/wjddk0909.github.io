@@ -86,19 +86,7 @@ var store = [{
         "title": "공부할 것 들",
         "excerpt":"공부해야 할 것들      vue2   vue3   webpack   vite   javascript   typescript   functional programming   jest (or mocha) test code   vite: 웹팩을 대체하는 속도 빠른 번들링툴 (요즘 뜨는 툴)   제스트: 태스트 코드 작성할때 사용하는 라이브러리  ","categories": ["etc"],
         "tags": ["study","skill"],
-        "url": "/etc/instance/",
-        "teaser": null
-      },{
-        "title": "인스턴스",
-        "excerpt":"인스턴스란?   인스턴스는 클래스나 프로토타입을 사용해 만든다. 즉, 프로퍼티와 메서드를 상속 받는다.   원래의 객체가 가지고 있던 것을 동일하게 사용하면서, 거기에 확장시켜 추가된 개별속성을 가질 수 있다.   예를 들어, “모자”라는 객체의 인스턴스로 “모자1”을 생성했을때 “모자1”은 “파란 모자”가 될 수 있다.   1 2 3 4 5     cap = function(color){         this.color = color;     };     let cap1 = new cap(blue);     let cap2 = new cap(black);   ✅ 추가 설명 떡볶이 레시피를 가지고 떡볶이를 먹으려면 “떡볶이”를 만들어야 한다.  어제 “떡볶이”를 만들고, 오늘 또 “떡볶이”를 만들었다고 가정 했을때 만들어진 “떡볶이”는 [인스턴스]가 된다. 여기서 두개의 떡볶이는 같은 레시피를 보고 만들었지만 동일한 대상은 아니다.   ","categories": ["javascript"],
-        "tags": ["instance","primitive"],
-        "url": "/javascript/instance/",
-        "teaser": null
-      },{
-        "title": "맥북 키보드에서 원화 표시 기호(₩) 대신 백쿼트(`) 표시되게 하기",
-        "excerpt":"맥북 키보드 설정 팁      맥북에서 한글 입력상태에서 백쿼트를 사용하려면 option + ₩(백쿼트) 키를 눌러야한다.  매번 이렇게 입력하려니 불편해서 설정해 두는 방법을 찾아보았다.   맥북에서 터미널 창을 열어준다.   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 // Library에 KeyBindings 폴더 생성 cd ~/Library mkdir KeyBindings  // KeyBindings로 들어가서 DefaultkeyBinding.dict 파일 생성 cd KeyBindings touch DefaultkeyBinding.dict  // Vim(Text Editor)로 파일 열고 i(입력) 전환 vi DefaultkeyBinding i  // 아래의 { ~ }코드를 복사해서 {     \"₩\" = (\"insertText:\", \"`\"); }  // esc + :wq :wq   이렇게 입력하고 재부팅해주면 한글 입력상태에서 백쿼트 사용이 된다.   *** 원래의 상태로 돌아가려면 rm DefaultkeyBinding.dict  ","categories": ["tips"],
-        "tags": ["mac","keyboard"],
-        "url": "/tips/mac-keybinding/",
+        "url": "/etc/study/",
         "teaser": null
       },{
         "title": "10 - 템플릿 문법 : 실전",
@@ -119,16 +107,22 @@ var store = [{
         "url": "/vue-lv1/vue-beginner12/",
         "teaser": null
       },{
+        "title": "인스턴스",
+        "excerpt":"인스턴스란?   인스턴스는 클래스나 프로토타입을 사용해 만든다. 즉, 프로퍼티와 메서드를 상속 받는다.   원래의 객체가 가지고 있던 것을 동일하게 사용하면서, 거기에 확장시켜 추가된 개별속성을 가질 수 있다.   예를 들어, “모자”라는 객체의 인스턴스로 “모자1”을 생성했을때 “모자1”은 “파란 모자”가 될 수 있다.   1 2 3 4 5     cap = function(color){         this.color = color;     };     let cap1 = new cap(blue);     let cap2 = new cap(black);   ✅ 추가 설명 떡볶이 레시피를 가지고 떡볶이를 먹으려면 “떡볶이”를 만들어야 한다.  어제 “떡볶이”를 만들고, 오늘 또 “떡볶이”를 만들었다고 가정 했을때 만들어진 “떡볶이”는 [인스턴스]가 된다. 여기서 두개의 떡볶이는 같은 레시피를 보고 만들었지만 동일한 대상은 아니다.   ","categories": ["javascript"],
+        "tags": ["instance","primitive"],
+        "url": "/javascript/instance/",
+        "teaser": null
+      },{
+        "title": "맥북 키보드에서 원화 표시 기호(₩) 대신 백쿼트(`) 표시되게 하기",
+        "excerpt":"맥북 키보드 설정 팁      맥북에서 한글 입력상태에서 백쿼트를 사용하려면 option + ₩(백쿼트) 키를 눌러야한다.  매번 이렇게 입력하려니 불편해서 설정해 두는 방법을 찾아보았다.   맥북에서 터미널 창을 열어준다.   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 // Library에 KeyBindings 폴더 생성 cd ~/Library mkdir KeyBindings  // KeyBindings로 들어가서 DefaultkeyBinding.dict 파일 생성 cd KeyBindings touch DefaultkeyBinding.dict  // Vim(Text Editor)로 파일 열고 i(입력) 전환 vi DefaultkeyBinding i  // 아래의 { ~ }코드를 복사해서 {     \"₩\" = (\"insertText:\", \"`\"); }  // esc + :wq :wq   이렇게 입력하고 재부팅해주면 한글 입력상태에서 백쿼트 사용이 된다.   *** 원래의 상태로 돌아가려면 rm DefaultkeyBinding.dict  ","categories": ["tips"],
+        "tags": ["mac","keyboard"],
+        "url": "/tips/mac-keybinding/",
+        "teaser": null
+      },{
         "title": "github jekyll blog codeblock에 line number 추가하기",
         "excerpt":"코드블럭에 line number 추가를 해봅시다.   마크다운에서 코드블럭을 삽입하려면 역따옴표를 세번 넣어서 사용합니다.  코드블럭으로 코드를 삽입하고 좀 더 보기 쉽게 line number를 추가 하고 싶을때 어떻게 할까?   _config.yml 파일을 열고 kramdown을 검색합니다.   kramdown:      highlighter: rouge      syntax_highlighter_opts:          block:              line_numbers: true   위 코드를 추가 합니다.      _config.yml 파일은 수정후 자동 반영이 안되므로 서버를 내렸다가 다시 동작하여야 반영이 됩니다.   ","categories": ["blog"],
         "tags": ["codeblock","custom"],
         "url": "/blog/codeblock-line-number/",
-        "teaser": null
-      },{
-        "title": "DOM",
-        "excerpt":"DOM 소개   javascript를 공부하면서 DOM을 빼놓고 이야기 할 수 없다.   DOM이란 무엇인가? 그전에 BOM에 대해서 알아보자.      BOM이란 무엇인가?    브라우저를 바탕으로 웹서비스가 실행이 되는데, 이와 관련된 객체들의 집합을 브라우저객체모델(Browser Object Model)이라고 한다.      웹브라우저와 관련된 객체의 집합   window객체가 최상위 객체   웹브라우저가 제공하는 기능      DOM의 정의(MDN참조)    DOM은 Document Object Model의 약자이다.     HTML, XML 문서의 프로그래밍 인터페이스   문서의 구조화된 표현을 제공하고, 프로그래밍 언어가 DOM구조에 접근할 수 있는 방법을 제공해서 문서구조, 스타일, 내용등을 변경할 수 있게 한다.   웹페이지를 스크립트 또는 프로그래밍 언어들에서 사용되도록 연결해준다.   DOM이 무엇인가…     내가 html에 쓴 파일이 DOM은 아니다. 그러나 브라우저에 의해서 파싱이 된다면 DOM이 된다.   view source에서 보이는것도 DOM이 아니다.   dev Tools(개발자 도구)에서 보여주는 것이 DOM이다.   DOM은 웹페이지의 객체 지향 표현이고, 자바스크립트와 같은 스크립트 언어로 DOM을 수정할수 있다.   ","categories": ["javascript"],
-        "tags": ["DOM"],
-        "url": "/javascript/dom/",
         "teaser": null
       },{
         "title": "1 - Todo App - 프로젝트 소개 및 구성",
@@ -185,10 +179,10 @@ var store = [{
         "url": "/vue-lv2/vue-intermediate9/",
         "teaser": null
       },{
-        "title": "call/apply/bind 함수의 차이점",
-        "excerpt":"call/apply/bind 함수의 차이점은?   예제를 보고 확인해보자.      예)    1 2 3 4 5 6 7     const obj = {name:'maru'};     const live = function(city){         console.log(`Hi my name is ${this.name}, I live in ${city}`);     };     live('korea'); // Hi my name is , I live in korea     live.call(obj, 'korea'); // Hi my name is maru, I live in korea     live.apply(obj, ['korea']); // Hi my name is maru, I live in korea   call과 apply는 함수를 호출하는 함수  첫번째 인자인 “obj”로 this를 변경하고 함수를 실행한다.  (apply는 파라미터를 배열로 넣어야 한다.)      예)    1 2 3 4 5 6     const obj = {name:'maru'};     const live = function(city){         console.log(`Hi my name is ${this.name}, I live in ${city}`);     };     const bound = live.bind(obj)     bound('korea'); // Hi my name is maru, I live in korea   bind함수는 함수를 실행하지 않는다.   ","categories": ["javascript"],
-        "tags": ["function","call","apply","bind"],
-        "url": "/javascript/call-apply-bind/",
+        "title": "DOM",
+        "excerpt":"DOM 소개   javascript를 공부하면서 DOM을 빼놓고 이야기 할 수 없다.   DOM이란 무엇인가? 그전에 BOM에 대해서 알아보자.      BOM이란 무엇인가?    브라우저를 바탕으로 웹서비스가 실행이 되는데, 이와 관련된 객체들의 집합을 브라우저객체모델(Browser Object Model)이라고 한다.      웹브라우저와 관련된 객체의 집합   window객체가 최상위 객체   웹브라우저가 제공하는 기능      DOM의 정의(MDN참조)    DOM은 Document Object Model의 약자이다.     HTML, XML 문서의 프로그래밍 인터페이스   문서의 구조화된 표현을 제공하고, 프로그래밍 언어가 DOM구조에 접근할 수 있는 방법을 제공해서 문서구조, 스타일, 내용등을 변경할 수 있게 한다.   웹페이지를 스크립트 또는 프로그래밍 언어들에서 사용되도록 연결해준다.   DOM이 무엇인가…     내가 html에 쓴 파일이 DOM은 아니다. 그러나 브라우저에 의해서 파싱이 된다면 DOM이 된다.   view source에서 보이는것도 DOM이 아니다.   dev Tools(개발자 도구)에서 보여주는 것이 DOM이다.   DOM은 웹페이지의 객체 지향 표현이고, 자바스크립트와 같은 스크립트 언어로 DOM을 수정할수 있다.   ","categories": ["javascript"],
+        "tags": ["DOM"],
+        "url": "/javascript/dom/",
         "teaser": null
       },{
         "title": "10 - Vuex - 주요 기술 요소",
@@ -207,6 +201,12 @@ var store = [{
         "excerpt":"12.1 스토어 속성 모듈화 방법   프로젝트 구조화와 모듈화 방법1   아래와 같은 store 구조를 어떻게 모듈화 할 수 있을까?   1 2 3 4 5 6 7 8 9 10 // store.js import Vue from 'vue' import Vuex from 'vuex'  export const store = new Vuex.Store({     state: {},     getters: {},     mutations: {},     actions: {} })   힌트! Vuex.Store({})의 속성을 모듈로 연결 모듈이라고 하면 각각의 속성의 내용들을 별도의 파일로 분리해서 파일들을 불러와서 담아주기      ES6의 Import &amp; Export를 이용하며 속성별로 모듈화   1 2 3 4 5 6 7 8 9 10 11 12 import Vue from 'vue' import Vuex from 'vuex' import * as getters from 'store/getters.js' import * as mutations from 'store/mutations.js' import * as actions from 'store/actions.js'  export const store = new Vuex.Store({     state: {},     getters: getters,     mutations: mutations,     actions: actions })      diff check    12.2 스토어 모듈화 방법   프로젝트 구조화와 모듈화 방법2     앱이 비대해져서 1개의 store로는 관리가 힘들 때 modules 속성 사용   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 // store.js import Vue from 'vue' import Vuex from 'vuex' import todo from 'models/todo.js'  export const store = new Vuex.Store({     modules: {         moduleA: todo, // 모듈 명칭 : 모듈 파일명         todo // todo: todo     } });  // todo.js const state = {} const getters = {} const mutations = {} const actions = {}      diff check   ","categories": ["vue-lv2"],
         "tags": ["vue","vuex","store","module"],
         "url": "/vue-lv2/vue-intermediate12/",
+        "teaser": null
+      },{
+        "title": "call/apply/bind 함수의 차이점",
+        "excerpt":"call/apply/bind 함수의 차이점은?   예제를 보고 확인해보자.      예)    1 2 3 4 5 6 7     const obj = {name:'maru'};     const live = function(city){         console.log(`Hi my name is ${this.name}, I live in ${city}`);     };     live('korea'); // Hi my name is , I live in korea     live.call(obj, 'korea'); // Hi my name is maru, I live in korea     live.apply(obj, ['korea']); // Hi my name is maru, I live in korea   call과 apply는 함수를 호출하는 함수  첫번째 인자인 “obj”로 this를 변경하고 함수를 실행한다.  (apply는 파라미터를 배열로 넣어야 한다.)      예)    1 2 3 4 5 6     const obj = {name:'maru'};     const live = function(city){         console.log(`Hi my name is ${this.name}, I live in ${city}`);     };     const bound = live.bind(obj)     bound('korea'); // Hi my name is maru, I live in korea   bind함수는 함수를 실행하지 않는다.   ","categories": ["javascript"],
+        "tags": ["function","call","apply","bind"],
+        "url": "/javascript/call-apply-bind/",
         "teaser": null
       },{
         "title": "api",
@@ -261,5 +261,17 @@ var store = [{
         "excerpt":"vuex 소개      복잡한 애플리케이션의 컴포넌트들을 효율적으로 관리하는 vuex 라이브러리   React의 Flux패턴에서 기인함   vue.js 중고급 개발자로 성장하기 위한 필수 관문   Flux란?      MVC 패턴의 복잡한 데이터 흐름 문제를 해결하는 개발 패턴            action : 화면에서 발생하는 이벤트 또는 사용자의 입력       dispatcher : 데이터를 변경하는 방법, 메서드       model : 화면에 표시할 데이터       view : 사용자에게 비춰지는 화면           MVC패턴과 Flux패턴 비교              view : 보고있는 화면       model : 데이터       controller : model과 view 제어                    Flux패턴은 action에서 view까지 단방향으로 일어남 반면 MVC패턴은 model과 view가 서로 데이터를 주고받아서 양방향으로 일어남                            MVC패턴의 문제점              기능 추가 및 변경에 따라 생기는 문제점을 예측할 수 없음.       앱이 복잡해지면서 생기는 업데이트 루프           Flux패턴의 단방향 흐름              데이터의 흐름이 여러 갈래로 나뉘지 않고 단방향으로만 처리           vuex가 왜 필요할까?   복잡한 애플리케이션에서 컴포넌트의 개수가 많아지면 컴포넌트간에 데이터 전달이 어려워진다.      vuex로 해결할 수 있는 문제            MVC 패턴에서 발생하는 구조적 오류       컴포넌트 간 데이터 전달 명시       여러 개의 컴포넌트에서 같은 데이터를 업데이트 할 때 동기화 문제           이벤트 버스로 해결?  어디서 이벤트를 보냈는지 혹은 어디서 이벤트를 받았는지 알기 어려움  1 2 3 4 5 6 7 8 // Login.vue eventBus.$emit('fetch', loginInfo);  // List.vue eventBus.$on('display', data =&gt; this.displayOnScreen(data));  // Chart.vue eventBus.$emit('refreshData', chartData);  컴포넌트 간 데이터 전달이 명시적이지 않음   vuex 컨셉      State : 컴포넌트 간에 공유하는 데이터 data()   View : 데이터를 표시하는 화면 template   Mutations: state값을 변경하는 이벤트 로직, 메서드 methods   Action : 사용자의 입력에 따라 데이터를 변경하는 (비동기 처리 로직을 선언) aysnc methods   흐름 설명 : 화면(view)에서 버튼을 클릭 하면 버튼이 action을 발생시킴 &gt; action이 발동하면 데이터(state)를 변경   vuex 구조   컴포넌트 -&gt; 비동기 로직 -&gt; 동기 로직 -&gt; 상태   action : 비동기 로직  mutations : 동기 로직   자바스크립트 비동기 처리와 콜백함수 참고 링크  ","categories": ["vue-lv2"],
         "tags": ["vuex","store"],
         "url": "/vue-lv2/vuex/",
+        "teaser": null
+      },{
+        "title": "1 - 소개 및 설계",
+        "excerpt":"1.1 소개 및 설계   해커뉴스 사이트 제작  해커뉴스 공식사이트   API를 호출해서 화면에 표시하고 링크 연결하거나 정보등 페이지로 넘어가게 제작 해커뉴스 API 문서   1.2 애플리케이션 라우터 설계   사이트 설계 : 기획서를 토대로 컴포넌트 기반으로 설계를 해야함 news, ask, jobs 라는 리스트를 표시하는 페이지 3개를 라우터로 설계  각 페이지에서 리스트를 클릭했을때 넘어가는 뷰 페이지와 사용자 정보를 보여주는 페이지까지 총 다섯개   1.3 비공개 리포지토리 소개 및 뷰 cli 설명   vue create 프로젝트폴더이름   1.4 Vue CLI 2.x vs Vue CLI 3.x   vue CLI 사이트 webpack-simple 템플릿 깃헙 주소   명령어     2.x : vue init ‘프로젝트 템플릿 이름’ ‘파일위치’ vue init webpack-simple new-project   3.x : vue create ‘프로젝트 이름’ vue create new-project   웹팩 설정 파일     2.x : 노출 O   3.x : 노출 X 웹팩이 복잡하기 때문에 그 설정 파일을 사용자들에게 노출시키지않고 라이브러리 내부에서 알아서 처리하겠다 라는 것.  2점대에서 웹팩에 대한 이해도가 높으면 어떤걸 설정해야될 때, webpack.config.js에 바로 옵션들을 추가하는식으로 했지만,  3점대 이상에서는 웹팩 설정을 추가해야될 때, 별도의 내용들을 추가해야됨. 그 내용들을 vue cli 사이트 가서 webpack을 검색해보면 추가 설정 관련 설명이 나옴     1 2 3 4 5 6 7 8 // vue.config.js module.exports = { configureWebpack: {   plugins: [     new MyAwesomeWebpackPlugin()   ] } }          위와 같이 configureWebpack이라는 설정들을 추가해서 plugins라던지 기타 설정들을 추가할 수 있다.       프로젝트 구성     2.x : 깃헙의 템플릿 다운로드            vuejs-templates       vuejs-templates/webpack-simple 템플릿 다운로드를 통해 정해진 템플릿을 사용한다.           3.x : 플러그인 기반으로 기능 추가 vue plugin이라는 강력한 기능을 사용  이 기능을 이용해서 원하는 기능들 (라우터, Vuex …) 플러그인 형식으로 추가할 수 있도록 뷰에서 제공.   ES6 이해도     2.x : 필요 X   3.x : 필요 O   ","categories": ["vue-lv3"],
+        "tags": ["vue"],
+        "url": "/vue-lv3/vue-advanced1/",
+        "teaser": null
+      },{
+        "title": "2 - 프로젝트 셋업",
+        "excerpt":"2.1 Vue CLI로 프로젝트 생성 및 ESLint 로그 확인  ","categories": ["vue-lv3"],
+        "tags": ["vue"],
+        "url": "/vue-lv3/vue-advanced2/",
         "teaser": null
       }]

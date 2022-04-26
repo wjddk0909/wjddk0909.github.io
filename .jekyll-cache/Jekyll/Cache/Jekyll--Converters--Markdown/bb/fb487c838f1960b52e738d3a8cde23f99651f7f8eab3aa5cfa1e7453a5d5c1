@@ -1,0 +1,406 @@
+I"�8
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv2/vuex/">vuex</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.03.12
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv2" class="page__taxonomy-item-category" rel="tag">vue-lv2</a>
+                    
+                    
+                    <a href="/tags/#store" class="page__taxonomy-item-tag" rel="tag">store</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#vuex" class="page__taxonomy-item-tag" rel="tag">vuex</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv2/fontawesome/">Vue에서 Fontawesome 사용하기</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.11
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv2" class="page__taxonomy-item-category" rel="tag">vue-lv2</a>
+                    
+                    
+                    <a href="/tags/#fontawesome" class="page__taxonomy-item-tag" rel="tag">fontawesome</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv2/vue-intermediate12/">12 - Vuex - 프로젝트 구조화 및 모듈화</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.06
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv2" class="page__taxonomy-item-category" rel="tag">vue-lv2</a>
+                    
+                    
+                    <a href="/tags/#module" class="page__taxonomy-item-tag" rel="tag">module</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#store" class="page__taxonomy-item-tag" rel="tag">store</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#vuex" class="page__taxonomy-item-tag" rel="tag">vuex</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#vue" class="page__taxonomy-item-tag" rel="tag">vue</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv2/vue-intermediate11/">11 - Vuex - 헬퍼 함수</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.06
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv2" class="page__taxonomy-item-category" rel="tag">vue-lv2</a>
+                    
+                    
+                    <a href="/tags/#helper" class="page__taxonomy-item-tag" rel="tag">helper</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#store" class="page__taxonomy-item-tag" rel="tag">store</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#vuex" class="page__taxonomy-item-tag" rel="tag">vuex</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#vue" class="page__taxonomy-item-tag" rel="tag">vue</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv2/vue-intermediate10/">10 - Vuex - 주요 기술 요소</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.06
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv2" class="page__taxonomy-item-category" rel="tag">vue-lv2</a>
+                    
+                    
+                    <a href="/tags/#store" class="page__taxonomy-item-tag" rel="tag">store</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#vuex" class="page__taxonomy-item-tag" rel="tag">vuex</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#vue" class="page__taxonomy-item-tag" rel="tag">vue</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv2/vue-intermediate9/">9 - Vuex - 소개</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.05
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv2" class="page__taxonomy-item-category" rel="tag">vue-lv2</a>
+                    
+                    
+                    <a href="/tags/#store" class="page__taxonomy-item-tag" rel="tag">store</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#vuex" class="page__taxonomy-item-tag" rel="tag">vuex</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#vue" class="page__taxonomy-item-tag" rel="tag">vue</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv2/vue-intermediate8/">8 - ES6 for Vue.js - Modules</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.05
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv2" class="page__taxonomy-item-category" rel="tag">vue-lv2</a>
+                    
+                    
+                    <a href="/tags/#vue" class="page__taxonomy-item-tag" rel="tag">vue</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv2/vue-intermediate7/">7 - ES6 for Vue.js - Enhanced Object Literals</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.05
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv2" class="page__taxonomy-item-category" rel="tag">vue-lv2</a>
+                    
+                    
+                    <a href="/tags/#vue" class="page__taxonomy-item-tag" rel="tag">vue</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv2/vue-intermediate6/">6 - ES6 for Vue.js - 화살표 함수</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.05
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv2" class="page__taxonomy-item-category" rel="tag">vue-lv2</a>
+                    
+                    
+                    <a href="/tags/#vue" class="page__taxonomy-item-tag" rel="tag">vue</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv2/vue-intermediate5/">5 - ES6 for Vue.js - const &amp; let</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.05
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv2" class="page__taxonomy-item-category" rel="tag">vue-lv2</a>
+                    
+                    
+                    <a href="/tags/#vue" class="page__taxonomy-item-tag" rel="tag">vue</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv2/vue-intermediate4/">4 - Todo App - 사용자 경험 개선</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.05
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv2" class="page__taxonomy-item-category" rel="tag">vue-lv2</a>
+                    
+                    
+                    <a href="/tags/#vue" class="page__taxonomy-item-tag" rel="tag">vue</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv2/vue-intermediate3/">3 - Todo App - 애플리케이션 구조 개선하기</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.05
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv2" class="page__taxonomy-item-category" rel="tag">vue-lv2</a>
+                    
+                    
+                    <a href="/tags/#vue" class="page__taxonomy-item-tag" rel="tag">vue</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv2/vue-intermediate2/">2 - Todo App - 프로젝트 구현</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.05
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv2" class="page__taxonomy-item-category" rel="tag">vue-lv2</a>
+                    
+                    
+                    <a href="/tags/#vue" class="page__taxonomy-item-tag" rel="tag">vue</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv2/vue-intermediate1/">1 - Todo App - 프로젝트 소개 및 구성</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.05
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv2" class="page__taxonomy-item-category" rel="tag">vue-lv2</a>
+                    
+                    
+                    <a href="/tags/#vue" class="page__taxonomy-item-tag" rel="tag">vue</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv2/vue-intermediate1-copy/">1 - Todo App - 프로젝트 소개 및 구성</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.05
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv2" class="page__taxonomy-item-category" rel="tag">vue-lv2</a>
+                    
+                    
+                    <a href="/tags/#vue" class="page__taxonomy-item-tag" rel="tag">vue</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+:ET

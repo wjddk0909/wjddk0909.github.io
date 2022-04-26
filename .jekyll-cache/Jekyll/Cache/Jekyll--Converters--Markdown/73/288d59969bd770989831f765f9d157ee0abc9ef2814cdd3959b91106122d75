@@ -1,0 +1,8 @@
+I"�<h2 id="소개-및-설계">소개 및 설계</h2>
+
+<p>해커뉴스 사이트 제작<br />
+<a href="https://news.ycombinator.com/">해커뉴스 공식사이트</a></p>
+
+<p>API를 호출해서 화면에 표시하고 링크 연결하거나 정보등 페이지로 넘어가게 제작
+<a href="https://github.com/tastejs/hacker-news-pwas/blob/master/docs/api.md">해커뉴스 API 문서</a></p>
+:ET

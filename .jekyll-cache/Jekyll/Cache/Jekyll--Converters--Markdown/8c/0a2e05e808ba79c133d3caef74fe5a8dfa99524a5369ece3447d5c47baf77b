@@ -1,0 +1,50 @@
+I"f
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv3/vue-advanced1/">1 - 소개 및 설계</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.04.26
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv3" class="page__taxonomy-item-category" rel="tag">vue-lv3</a>
+                    
+                    
+                    <a href="/tags/#vue" class="page__taxonomy-item-tag" rel="tag">vue</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv3/vue-advanced1-copy/">1 - 소개 및 설계</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.04.26
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv3" class="page__taxonomy-item-category" rel="tag">vue-lv3</a>
+                    
+                    
+                    <a href="/tags/#vue" class="page__taxonomy-item-tag" rel="tag">vue</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+:ET

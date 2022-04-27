@@ -1,4 +1,10 @@
 var store = [{
+        "title": "code splitting",
+        "excerpt":"Code Splitting   웹사이트를 만들었는데 첫 로드에 시간이 걸린다면 왜 그럴까?  이유는 햔 페이지만 로드하면 되는 첫 시작 페이지에서 필요하지 않은 여러 페이지(프레임워크를 사용하는 경우 import한 컴포넌트 파일)을 로딩하기 때문   webpack은 이러한 문제점에 대한 해결팩으로 코드 스플리팅을 제공한다.   코드 스플리팅은 웹 사이트를 더 빠르게 운영하는데 도움이 되는 주제이다.  페이지에 필요한 컴포넌트만 로드되고, 원한다면 다른 컴포넌트도 함께 로드할 수 있다. 많은 컴포넌트를 작성하고 여러 경로를 설정(라우팅)해 줘야 하는 대형 프로젝트에서 코드 스플리팅을 사용하면 로드 시간을 단축할 수 있다.   경로 설정에 코드 스플리팅 기능을 적용할 것이기 때문에 라우터가 필요하다.   코드를 분할 하는 방법은 세가지가 있다.     Entry Points : entry 설정을 사용하여 코드를 수동으로 분할   Prevent Duplication : Entry dependencies 또는 SplitChunksPlugin을 사용하여 중복 청크를 제거하고 청크를 분할   Dynamic Imports : 모듈 내에서 인라인 함수 호출을 통해 코드 분할   Dynamic Imports 방법(작성중…)   샘플 코드 만들기   npm install –save-dev @babel/plugin-syntax-dynamic-import  ","categories": ["fe-study"],
+        "tags": ["splitting"],
+        "url": "/fe-study/fe-code-splitting/",
+        "teaser": null
+      },{
         "title": "Interceptor/Debounce/throttle",
         "excerpt":"Interceptor/Debounce/throttle   인터셉터는 사용자의 요청을 가로채는 역할(서버에 권한이 있는지 확인하는등) 사용자의 요청이 컨트롤러에 가기 전에 가로채고, 서버의 응답이 사용자에게 가기 전에 가로챈다.   Debounce, throttle 자주 사용 되는 이벤트나 함수 들의 실행되는 빈도를 줄여서, 성능 상의 유리함을 가져오기 위한 개념이다.   debounce(입력주기가 끝나면 출력) : scroll, resize event 이런 이벤트가 끝났을때 한번만 실행되게 하고싶을때 throttle : 일정시간동안 한번만 실행   code)  1 &lt;input id=\"search\" type=\"search\" name=\"search\" value=\"\" /&gt;  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 var debounce = null; var throttle = null; function keyUpFn(el) {   // normal   console.log('normal', el.target.value, new Date().getTime());   // debounce   clearTimeout(debounce);   debounce = setTimeout(() =&gt; {     console.log(       'debounce',       el.target.value, new Date().getTime());   }, 500);   // throttle   if(!throttle) {     setTimeout(() =&gt; {       console.log('throttle', throttle, new Date().getTime());       throttle = null;     }, 500);   }   throttle = el.target.value; } document.getElementById(\"search\").addEventListener('keyup', keyUpFn); // normal h         1583658583270 // normal he        1583658583582 // normal hel       1583658583878 // normal hell      1583658584182 // throttle hell    1583658584271 // 입력이 끝남 // normal hello     1583658584534 // debounce hello   1583658585036 // throttle hello   1583658585536      Input Search Element 에 Keyup Event Listener 를 등록한다.   normal 에서는, 키보드입력 발생하면, 그 즉시 value 를 출력한다.   throttle 에서는 키보드입력 발생하면, 500ms 후에, 가장 최신 value 를 출력하고, 초기화 하여, 키보드 입력이 끝날때까지 반복한다.   debounce 에서는 키보드 입력이 발생하면, 500ms 동안 기다리다, 그 안에 키보드 입력이 발생하면, 시간을 초기화 하고 다시 기다리다, 가장 최신 value 를 출력한다.   Throttle  여러번 발생하는 이벤트를 일정 시간 동안, 한번만 실행 되도록 만드는 개념이다.  위 예제에서 500ms 동안 이벤트 실행을 막고, 한번만 실행 때문에, 잦은 이벤트 발생을 막아 성능상의 유리함을 가져 올 수 있다.  Debounce 와 다른점은 이벤트 발생 시간 이후에 일정 시간 동안 만을 기다리고, 이벤트를 실행 후 재차 기다린 다는 점이다.   Debounce  가장 마지막 이벤트 만을 실행 되도록 만드는 개념이다.  입력이 끝날때, 가장 마지막 이벤트만을 실행하여, 성능성 유리함을 가져올 수 있다.  Throttle 와 다른점은, 마지막 이벤트에서 일정 시간동안 이벤트가 발생한다면, 또 일정 시간을 기다린다는 점이다.   Throttle 와 Debounce 차이점  Throttle 와 Debounce 의 차이점은 이벤트를 언제 발생 시킬지의 시점 차이이다.  Debounce 는 입력이 끝날때까지 무한적으로 기다리지만, Throttle 는 입력이 시작되면, 일정 주기로 계속 실행한다.  Debounce 의 시간을 짧게 가져간다면, Throttle 와 비슷한 효과가 날 수 있지만, 그럼에도 시점에서 차이가 날 수 있다.   대표적인 예로 자동완성 만들 경우,  일정 주기로 자동으로 완성되는 리스트를 보여주는 것에는  사용자 측면에서 Throttle (검색 되는 경험) 가 유리할 수 있지만,  성능상에서는 Debounce (1번만 호출) 가 훨씬 유리할 수 있다.   ","categories": ["fe-study"],
         "tags": ["interceptor"],
@@ -270,7 +276,7 @@ var store = [{
         "teaser": null
       },{
         "title": "2 - 프로젝트 셋업",
-        "excerpt":"2.1 Vue CLI로 프로젝트 생성 및 ESLint 로그 확인  ","categories": ["vue-lv3"],
+        "excerpt":"2.1 Vue CLI로 프로젝트 생성 및 ESLint 로그 확인   vue create vue-news로 프로젝트 생성   Vue 2선택하기   ","categories": ["vue-lv3"],
         "tags": ["vue"],
         "url": "/vue-lv3/vue-advanced2/",
         "teaser": null

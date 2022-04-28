@@ -1,0 +1,30 @@
+I"F<h2 id="21-vue-cli로-프로젝트-생성-및-eslint-로그-확인">2.1 Vue CLI로 프로젝트 생성 및 ESLint 로그 확인</h2>
+
+<p><code class="language-plaintext highlighter-rouge">vue create vue-news</code>로 프로젝트 생성</p>
+
+<p><code class="language-plaintext highlighter-rouge">Vue 2</code>선택후 완료 되면 폴더 경로 들어가서 서버 실행하기</p>
+
+<h2 id="22-eslint-도구-소개와-사용해야-하는-이유">2.2 ESLint 도구 소개와 사용해야 하는 이유?</h2>
+
+<p>ESLint : javascript 문법 검사기(보조도구)
+javascript에서 ;(세미콜론)을 찍지 않더라도 자바스크립트 해석기에서는 마지막에 세미콜론을 넣어줌<br />
+여기서 ESLint는 세미콜론을 찍게 유도함<br />
+예를들어서</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="c1">// 이런식이면 문제 없지만</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="mi">10</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">a는 10</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// 자바스크립트 해석기가 어디서 세미콜론을 찍어야 할지 모를때</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="mi">10</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">a는 10</span><span class="dl">'</span><span class="p">)</span> <span class="nx">b</span><span class="p">()</span> <span class="nx">c</span><span class="p">()</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+:ET

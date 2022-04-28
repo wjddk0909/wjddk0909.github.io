@@ -1,8 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-27T14:44:23+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">2 - 프로젝트 셋업</title><link href="http://localhost:4000/vue-lv3/vue-advanced2/" rel="alternate" type="text/html" title="2 - 프로젝트 셋업" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced2</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced2/"><![CDATA[<h2 id="21-vue-cli로-프로젝트-생성-및-eslint-로그-확인">2.1 Vue CLI로 프로젝트 생성 및 ESLint 로그 확인</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-29T00:19:41+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">3 - 라우터 기본</title><link href="http://localhost:4000/vue-lv3/vue-advanced3/" rel="alternate" type="text/html" title="3 - 라우터 기본" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced3</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced3/"><![CDATA[<h2 id="31-라우터-설치-및-라우터-구현">3.1 라우터 설치 및 라우터 구현</h2>
 
-<p><code class="language-plaintext highlighter-rouge">vue create vue-news</code>로 프로젝트 생성</p>
+<p><code class="language-plaintext highlighter-rouge">yarn add vue-router@3.2.0</code>로 설치하기(vue2는 vue-router3 버전사용, vue3는 vue-router4 버전사용)</p>
 
-<p><code class="language-plaintext highlighter-rouge">Vue 2</code>선택하기</p>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><summary type="html"><![CDATA[Todo App]]></summary></entry><entry><title type="html">1 - 소개 및 설계</title><link href="http://localhost:4000/vue-lv3/vue-advanced1/" rel="alternate" type="text/html" title="1 - 소개 및 설계" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced1</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced1/"><![CDATA[<h2 id="11-소개-및-설계">1.1 소개 및 설계</h2>
+<p>package.json의 dependencies에 추가됨(배포할때도 포함 되어야 하는 라이브러리들)</p>
+
+<p>라우터 설정을 main.js에 할 수도 있지만, main.js는 기본적으로 애플리케이션의 설정들(플러그인, 라이브러리, 구조들을 파악)의 청사진으로 보면 됨<br />
+그래서 라우터는 따로 폴더를 빼줌</p>
+
+<h2 id="32-router-view를-이용한-라우팅-컴포넌트-표시">3.2 router-view를 이용한 라우팅 컴포넌트 표시</h2>
+
+<p>App.vue에 <code class="language-plaintext highlighter-rouge">&lt;router-view&gt;&lt;/router-view&gt;</code>로 라우터 컴포넌트 보여줌</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/7e9afa13197fa14cfbffc011aa9efd13429f1053">diff check</a></p>
+</blockquote>
+
+<h2 id="33-redirect-속성과-router-link">3.3 redirect 속성과 router-link</h2>
+
+<p>첫 화면에서 빈화면이 나오는데 redirect속성으로 원하는 라우터로 연결 가능<br />
+라우터 이동 링크 버튼도 추가</p>
+
+<p>컴포넌트 등록할때는 스크립트단에서는 단어마다 첫글자 대문자로 연결<br />
+컴포넌트를 태그에서 등록할때는 단어사이에 하이픈으로 연결</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/d0de793092e5dae58d78f1027b9885d3b5ca22a6">diff check</a></p>
+</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="router" /><summary type="html"><![CDATA[Todo App]]></summary></entry><entry><title type="html">1 - 소개 및 설계</title><link href="http://localhost:4000/vue-lv3/vue-advanced1/" rel="alternate" type="text/html" title="1 - 소개 및 설계" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced1</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced1/"><![CDATA[<h2 id="11-소개-및-설계">1.1 소개 및 설계</h2>
 
 <p>해커뉴스 사이트 제작<br />
 <a href="https://news.ycombinator.com/">해커뉴스 공식사이트</a></p>
@@ -78,7 +101,34 @@ vue plugin이라는 강력한 기능을 사용<br />
 <ul>
   <li>2.x : 필요 X</li>
   <li>3.x : 필요 O</li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><summary type="html"><![CDATA[Todo App]]></summary></entry><entry><title type="html">vuex</title><link href="http://localhost:4000/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
+</ul>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><summary type="html"><![CDATA[Todo App]]></summary></entry><entry><title type="html">2 - 프로젝트 셋업</title><link href="http://localhost:4000/vue-lv3/vue-advanced2/" rel="alternate" type="text/html" title="2 - 프로젝트 셋업" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced2</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced2/"><![CDATA[<h2 id="21-vue-cli로-프로젝트-생성-및-eslint-로그-확인">2.1 Vue CLI로 프로젝트 생성 및 ESLint 로그 확인</h2>
+
+<p><code class="language-plaintext highlighter-rouge">vue create vue-news</code>로 프로젝트 생성</p>
+
+<p><code class="language-plaintext highlighter-rouge">Vue 2</code>선택후 완료 되면 폴더 경로 들어가서 서버 실행하기</p>
+
+<h2 id="22-eslint-도구-소개와-사용해야-하는-이유">2.2 ESLint 도구 소개와 사용해야 하는 이유?</h2>
+
+<p>ESLint : javascript 문법 검사기(보조도구)
+javascript에서 ;(세미콜론)을 찍지 않더라도 자바스크립트 해석기에서는 마지막에 세미콜론을 넣어줌<br />
+여기서 ESLint는 세미콜론을 찍게 유도함<br />
+예를들어서</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="c1">// 이런식이면 문제 없지만</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="mi">10</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">a는 10</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// 자바스크립트 해석기가 어디서 세미콜론을 찍어야 할지 모를때</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="mi">10</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">a는 10</span><span class="dl">'</span><span class="p">)</span> <span class="nx">b</span><span class="p">()</span> <span class="nx">c</span><span class="p">()</span>
+</pre></td></tr></tbody></table></code></pre></div></div>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><summary type="html"><![CDATA[Todo App]]></summary></entry><entry><title type="html">vuex</title><link href="http://localhost:4000/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
 
 <ul>
   <li>복잡한 애플리케이션의 컴포넌트들을 효율적으로 관리하는 vuex 라이브러리</li>
@@ -450,44 +500,4 @@ api에 대한 포스팅이 따로 있지만 여기에서는 비유를 통해 간
 <h2 id="restful-이란">RESTful 이란?</h2>
 
 <p>RESTful이란 REST API의 설계 가이드를 올바르게 지킨 시스템을 RESTful 하다고 말할 수 있다.
-RESTful하게 만들면 그자체로 API의 목적이 무엇인지 명확하게 알 수 있다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="api" /><category term="REST" /><summary type="html"><![CDATA[REST API, RESTful 이란]]></summary></entry><entry><title type="html">호이스팅(Hoisting)</title><link href="http://localhost:4000/javascript/hoisting/" rel="alternate" type="text/html" title="호이스팅(Hoisting)" /><published>2021-12-08T00:00:00+09:00</published><updated>2021-12-08T00:00:00+09:00</updated><id>http://localhost:4000/javascript/hoisting</id><content type="html" xml:base="http://localhost:4000/javascript/hoisting/"><![CDATA[<h2 id="hoisting에-대해-알아보자">hoisting에 대해 알아보자</h2>
-
-<blockquote>
-  <p>자바스크립트에서 호이스팅(Hoisting)이란, 인터프리터가 변수와 함수의 공간을 선언전에 미리 할당 하는 것을 의미한다.</p>
-</blockquote>
-
-<p>실행컨텍스트의 처리 순서를 살펴보면,</p>
-<ol>
-  <li>선언 단계(Declaration phase) : 변수, 함수선언문 설정</li>
-  <li>초기화 단계(Initialization phase) : 변수 이름 바인딩 (값은 undefined로 초기화)</li>
-  <li>할당 단계(Assignment phase)</li>
-</ol>
-
-<p>위 순서로 처리가 된다.</p>
-
-<p>이때, let변수는 호이스팅 되지 않는다.(사실상 호이스팅은 되지만 안되는것과 비슷하다.)
-var 변수는 선언단계와 초기화단계가 동시에 진행되어 변수이름을 바인딩하면서 값이 undefined로 초기화되는 반면,<br />
-let 변수는 선언단계와 초기화단계가 따로 진행된다.<br />
-그래서 실행컨텍스트에 변수가 등록이 되었지만 메모리가 할당이 되어있지 않기 때문에 ReferenceError가 발생한다.</p>
-
-<p>여기서 TDZ가 무엇인지 알고 가자.<br />
-TDZ란 “temporal dead zone” 일시적인 사각지대 라고 직역할 수 있다.<br />
-TDZ는 스코프의 시작지점 부터 초기화 단계 직전까지의 구간이다.</p>
-
-<p>즉, let변수는 TDZ구간에 의해 메모리가 할당이 되지 않기 때문에 참조에러(ReferenceError)가 발생한다.</p>
-
-<blockquote>
-  <p>예)</p>
-</blockquote>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`스포츠: </span><span class="p">${</span><span class="nx">sports</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// 스포츠: undefined</span>
-    <span class="kd">var</span> <span class="nx">sports</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">축구</span><span class="dl">'</span><span class="p">;</span>
-
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`스포츠: </span><span class="p">${</span><span class="nx">sports</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// ReferenceError: sports is not defined</span>
-    <span class="kd">let</span> <span class="nx">sports</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">축구</span><span class="dl">'</span><span class="p">;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="hoisting" /><summary type="html"><![CDATA[javascript에서 호이스팅이란?]]></summary></entry></feed>
+RESTful하게 만들면 그자체로 API의 목적이 무엇인지 명확하게 알 수 있다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="api" /><category term="REST" /><summary type="html"><![CDATA[REST API, RESTful 이란]]></summary></entry></feed>

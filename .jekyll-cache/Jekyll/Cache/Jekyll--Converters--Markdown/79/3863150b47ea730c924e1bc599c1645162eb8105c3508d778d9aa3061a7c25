@@ -1,0 +1,75 @@
+I"<h2 id="vue에서-scss-사용-기본-설정">vue에서 scss 사용 기본 설정</h2>
+
+<p>scss 패키지 설치<br />
+node-sass와 sass-loader 설치</p>
+
+<p><code class="language-plaintext highlighter-rouge">npm install --save-dev node-sass sass-loader</code></p>
+
+<p>사용법<br />
+간단한 설치만으로도 vue-loader에서 기본으로 설정되어있는 webpack 설정 때문에 패키지 설치 후 컴포넌트 내에서 lang속성을 지정해주면 자동으로 Loader를 사용 할 수 있음</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>// 컴포넌트 내에 lang속성으로 scss 명시
+// 스타일 내부 scss 파일 import하는 방법
+// 경로에서 @의 경우 /src와 같은 의미
+<span class="nt">&lt;style </span><span class="na">lang=</span><span class="s">"scss"</span><span class="nt">&gt;</span>
+    <span class="k">@import</span> <span class="s1">"@/asstes/scss/파일명"</span><span class="p">;</span>
+<span class="nt">&lt;/style&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>전역 스타일 및 변수 설정
+변수를 담아둔 scss 파일을 매번 컴포넌트에서 불러와 사용하는 것은 효율적이지 않음<br />
+따라서 자주 사용하는 변수나 reset스타일, mixin같은 경우 전역 스타일을 설정해서 사용 가능</p>
+
+<p>설정방법<br />
+vue.config.js 파일 생성해서 webpack 설정을 추가</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">css</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">loaderOptions</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">sass</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">additionalData</span><span class="p">:</span> <span class="s2">`
+                    @import "@/assets/scss/abstracts/abstracts.scss";
+                `</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>//예시
+$TEXT_DEFAULT: #333;
+
+//다른컴포넌트
+<span class="nt">&lt;style </span><span class="na">lang=</span><span class="s">"scss"</span><span class="nt">&gt;</span>
+    <span class="nt">p</span> <span class="p">{</span>
+        <span class="nl">color</span><span class="p">:</span> <span class="err">$</span><span class="n">TEXT_DEFAULT</span>
+    <span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+:ET

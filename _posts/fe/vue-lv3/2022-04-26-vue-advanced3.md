@@ -24,3 +24,12 @@ App.vue에 `<router-view></router-view>`로 라우터 컴포넌트 보여줌
 
 >[diff check](https://github.com/wjddk0909/vue-news/commit/7e9afa13197fa14cfbffc011aa9efd13429f1053)
 
+## 3.3 redirect 속성과 router-link
+
+첫 화면에서 빈화면이 나오는데 redirect속성으로 원하는 라우터로 연결 가능  
+라우터 이동 링크 버튼도 추가  
+
+컴포넌트 등록할때는 스크립트단에서는 단어마다 첫글자 대문자로 연결  
+컴포넌트를 태그에서 등록할때는 단어사이에 하이픈으로 연결
+
+>[diff check](https://github.com/wjddk0909/vue-news/commit/d0de793092e5dae58d78f1027b9885d3b5ca22a6)

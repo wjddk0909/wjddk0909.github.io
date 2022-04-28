@@ -20,3 +20,7 @@ package.json의 dependencies에 추가됨(배포할때도 포함 되어야 하�
 
 ## 3.2 router-view를 이용한 라우팅 컴포넌트 표시
 
+App.vue에 `<router-view></router-view>`로 라우터 컴포넌트 보여줌  
+
+>[diff check](https://github.com/wjddk0909/vue-news/commit/7e9afa13197fa14cfbffc011aa9efd13429f1053)
+

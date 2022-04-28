@@ -37,3 +37,5 @@ App.vue에 `<router-view></router-view>`로 라우터 컴포넌트 보여줌
 ## 3.4 ToolBar의 라우터 링크 스타일링
 
 vue cli scss 설정
+
+>[diff check](https://github.com/wjddk0909/vue-news/commit/affc65f482fa6cd8af2060988aa7ca09e9730e30)

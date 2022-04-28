@@ -1,0 +1,13 @@
+I"�<h2 id="그냥-installadd">그냥 install(add)</h2>
+<p><code class="language-plaintext highlighter-rouge">npm install / yarn add</code>
+단순히 <code class="language-plaintext highlighter-rouge">./node_modeuls</code>폴더에 패키지 설치</p>
+
+<h2 id="save---p">–save / -P</h2>
+<p><code class="language-plaintext highlighter-rouge">npm install --save / yarn add --save</code>
+<code class="language-plaintext highlighter-rouge">--save</code>키워드를 통해 우선 <code class="language-plaintext highlighter-rouge">./node_modules</code>폴더에 패키지 설치<br />
+<code class="language-plaintext highlighter-rouge">./package.josn</code>의 <code class="language-plaintext highlighter-rouge">dependencies</code> 옵션에 해당 패키지 추가되어 다음 <code class="language-plaintext highlighter-rouge">install</code>시 해당 패키지가 자동으로 설치됨</p>
+
+<h2 id="save-dev---d">–save-dev / -D</h2>
+<p><code class="language-plaintext highlighter-rouge">npm install --save-dev / yarn add --save-dev</code>
+<code class="language-plaintext highlighter-rouge">./package.json</code>의 <code class="language-plaintext highlighter-rouge">devDependencies</code>옵션에 해당 패키지 추가</p>
+:ET

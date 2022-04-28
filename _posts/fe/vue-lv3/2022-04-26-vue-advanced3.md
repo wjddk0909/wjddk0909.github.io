@@ -33,3 +33,7 @@ App.vue에 `<router-view></router-view>`로 라우터 컴포넌트 보여줌
 컴포넌트를 태그에서 등록할때는 단어사이에 하이픈으로 연결
 
 >[diff check](https://github.com/wjddk0909/vue-news/commit/d0de793092e5dae58d78f1027b9885d3b5ca22a6)
+
+## 3.4 ToolBar의 라우터 링크 스타일링
+
+vue cli scss 설정

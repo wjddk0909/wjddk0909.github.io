@@ -11,6 +11,12 @@ var store = [{
         "url": "/fe-study/fe-interceptor/",
         "teaser": null
       },{
+        "title": "npm install / --save / --save-dev 차이",
+        "excerpt":"그냥 install(add)  npm install / yarn add 단순히 ./node_modeuls폴더에 패키지 설치   –save / -P  npm install --save / yarn add --save --save키워드를 통해 우선 ./node_modules폴더에 패키지 설치  ./package.josn의 dependencies 옵션에 해당 패키지 추가되어 다음 install시 해당 패키지가 자동으로 설치됨   –save-dev / -D  npm install --save-dev / yarn add --save-dev ./package.json의 devDependencies옵션에 해당 패키지 추가  ","categories": ["fe-study"],
+        "tags": ["npm","yarn","install"],
+        "url": "/fe-study/fe-vue-npm-install/",
+        "teaser": null
+      },{
         "title": "vue.js 프로젝트 구조 : views와 components의 차이",
         "excerpt":"vue.js 프로젝트 구조   views폴더와 components폴더의 차이는  router에서 보여주는 component파일은 views폴더에 넣고, 그 외에는 components폴더에 넣는다.  (폴더 구조는 사실 어떻게 하든 상관없지만, vue cli가 제시하는 예시이다.)   ","categories": ["fe-study"],
         "tags": ["views","components"],
@@ -18,7 +24,7 @@ var store = [{
         "teaser": null
       },{
         "title": "vue에서 scss 사용하기",
-        "excerpt":"vue에서 scss 사용 기본 설정   scss 패키지 설치  node-sass와 sass-loader 설치   npm install --save-dev node-sass sass-loader   사용법  간단한 설치만으로도 vue-loader에서 기본으로 설정되어있는 webpack 설정 때문에 패키지 설치 후 컴포넌트 내에서 lang속성을 지정해주면 자동으로 Loader를 사용 할 수 있음   1 2 3 4 5 6 // 컴포넌트 내에 lang속성으로 scss 명시 // 스타일 내부 scss 파일 import하는 방법 // 경로에서 @의 경우 /src와 같은 의미 &lt;style lang=\"scss\"&gt;     @import \"@/asstes/scss/파일명\"; &lt;/style&gt;   전역 스타일 및 변수 설정 변수를 담아둔 scss 파일을 매번 컴포넌트에서 불러와 사용하는 것은 효율적이지 않음  따라서 자주 사용하는 변수나 reset스타일, mixin같은 경우 전역 스타일을 설정해서 사용 가능   설정방법  vue.config.js 파일 생성해서 webpack 설정을 추가   1 2 3 4 5 6 7 8 9 10 11 module.exports = {     css: {         loaderOptions: {             sass: {                 additionalData: `                     @import \"@/assets/scss/abstracts/abstracts.scss\";                 `             }         }     } }   1 2 3 4 5 6 7 8 9 //예시 $TEXT_DEFAULT: #333;  //다른컴포넌트 &lt;style lang=\"scss\"&gt;     p {         color: $TEXT_DEFAULT     } &lt;/style&gt;  ","categories": ["fe-study"],
+        "excerpt":"vue에서 scss 사용 기본 설정   scss 패키지 설치  node-sass와 sass-loader 설치   yarn add node-sass -D yarn add sass-loader -D   사용법  간단한 설치만으로도 vue-loader에서 기본으로 설정되어있는 webpack 설정 때문에 패키지 설치 후 컴포넌트 내에서 lang속성을 지정해주면 자동으로 Loader를 사용 할 수 있음   1 2 3 4 5 6 // 컴포넌트 내에 lang속성으로 scss 명시 // 스타일 내부 scss 파일 import하는 방법 // 경로에서 @의 경우 /src와 같은 의미 &lt;style lang=\"scss\"&gt;     @import \"@/asstes/scss/파일명\"; &lt;/style&gt;   전역 스타일 및 변수 설정 변수를 담아둔 scss 파일을 매번 컴포넌트에서 불러와 사용하는 것은 효율적이지 않음  따라서 자주 사용하는 변수나 reset스타일, mixin같은 경우 전역 스타일을 설정해서 사용 가능   설정방법  vue.config.js 파일 생성해서 webpack 설정을 추가   1 2 3 4 5 6 7 8 9 10 11 module.exports = {     css: {         loaderOptions: {             sass: {                 additionalData: `                     @import \"@/assets/scss/abstracts/abstracts.scss\";                 `             }         }     } }   1 2 3 4 5 6 7 8 9 //예시 $TEXT_DEFAULT: #333;  //다른컴포넌트 &lt;style lang=\"scss\"&gt;     p {         color: $TEXT_DEFAULT     } &lt;/style&gt;  ","categories": ["fe-study"],
         "tags": ["scss"],
         "url": "/fe-study/fe-vue-views-components/",
         "teaser": null
@@ -294,7 +300,7 @@ var store = [{
         "teaser": null
       },{
         "title": "3 - 라우터 기본",
-        "excerpt":"3.1 라우터 설치 및 라우터 구현   yarn add vue-router@3.2.0로 설치하기(vue2는 vue-router3 버전사용, vue3는 vue-router4 버전사용)   package.json의 dependencies에 추가됨(배포할때도 포함 되어야 하는 라이브러리들)   라우터 설정을 main.js에 할 수도 있지만, main.js는 기본적으로 애플리케이션의 설정들(플러그인, 라이브러리, 구조들을 파악)의 청사진으로 보면 됨  그래서 라우터는 따로 폴더를 빼줌   3.2 router-view를 이용한 라우팅 컴포넌트 표시   App.vue에 &lt;router-view&gt;&lt;/router-view&gt;로 라우터 컴포넌트 보여줌      diff check    3.3 redirect 속성과 router-link   첫 화면에서 빈화면이 나오는데 redirect속성으로 원하는 라우터로 연결 가능  라우터 이동 링크 버튼도 추가   컴포넌트 등록할때는 스크립트단에서는 단어마다 첫글자 대문자로 연결  컴포넌트를 태그에서 등록할때는 단어사이에 하이픈으로 연결      diff check   ","categories": ["vue-lv3"],
+        "excerpt":"3.1 라우터 설치 및 라우터 구현   yarn add vue-router@3.2.0로 설치하기(vue2는 vue-router3 버전사용, vue3는 vue-router4 버전사용)   package.json의 dependencies에 추가됨(배포할때도 포함 되어야 하는 라이브러리들)   라우터 설정을 main.js에 할 수도 있지만, main.js는 기본적으로 애플리케이션의 설정들(플러그인, 라이브러리, 구조들을 파악)의 청사진으로 보면 됨  그래서 라우터는 따로 폴더를 빼줌   3.2 router-view를 이용한 라우팅 컴포넌트 표시   App.vue에 &lt;router-view&gt;&lt;/router-view&gt;로 라우터 컴포넌트 보여줌      diff check    3.3 redirect 속성과 router-link   첫 화면에서 빈화면이 나오는데 redirect속성으로 원하는 라우터로 연결 가능  라우터 이동 링크 버튼도 추가   컴포넌트 등록할때는 스크립트단에서는 단어마다 첫글자 대문자로 연결  컴포넌트를 태그에서 등록할때는 단어사이에 하이픈으로 연결      diff check    3.4 ToolBar의 라우터 링크 스타일링   vue cli scss 설정  ","categories": ["vue-lv3"],
         "tags": ["vue","router"],
         "url": "/vue-lv3/vue-advanced3/",
         "teaser": null

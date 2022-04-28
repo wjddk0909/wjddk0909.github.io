@@ -9,6 +9,10 @@
 <lastmod>2021-12-01T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/fe-study/fe-vue-npm-install/</loc>
+<lastmod>2021-12-01T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/fe-study/fe-vue-scss/</loc>
 <lastmod>2021-12-01T00:00:00+09:00</lastmod>
 </url>
@@ -268,5 +272,8 @@
 </url>
 <url>
 <loc>http://localhost:4000/page10/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page11/</loc>
 </url>
 </urlset>

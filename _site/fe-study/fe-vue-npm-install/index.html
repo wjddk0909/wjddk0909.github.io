@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>vue.js 프로젝트 구조 : views와 components의 차이 - FE개발자를 꿈꾸다</title>
-<meta name="description" content="vue.js 프로젝트 구조">
+<!-- begin _includes/seo.html --><title>npm install / –save / –save-dev 차이 - FE개발자를 꿈꾸다</title>
+<meta name="description" content="npm install yarn add">
 
 
   <meta name="author" content="FE Developer">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="FE개발자를 꿈꾸다">
-<meta property="og:title" content="vue.js 프로젝트 구조 : views와 components의 차이">
-<meta property="og:url" content="http://localhost:4000/fe-study/fe-vue-scss/">
+<meta property="og:title" content="npm install / –save / –save-dev 차이">
+<meta property="og:url" content="http://localhost:4000/fe-study/fe-vue-npm-install/">
 
 
-  <meta property="og:description" content="vue.js 프로젝트 구조">
+  <meta property="og:description" content="npm install yarn add">
 
 
 
@@ -47,7 +47,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/fe-study/fe-vue-scss/">
+<link rel="canonical" href="http://localhost:4000/fe-study/fe-vue-npm-install/">
 
 
 
@@ -271,15 +271,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="vue.js 프로젝트 구조 : views와 components의 차이">
-    <meta itemprop="description" content="vue.js 프로젝트 구조">
+    <meta itemprop="headline" content="npm install / –save / –save-dev 차이">
+    <meta itemprop="description" content="npm install yarn add">
     <meta itemprop="datePublished" content="2021-12-01T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">vue.js 프로젝트 구조 : views와 components의 차이
+          <h1 id="page-title" class="page__title" itemprop="headline">npm install / –save / –save-dev 차이
 </h1>
           
 <!--
@@ -301,12 +301,18 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="vuejs-프로젝트-구조">vue.js 프로젝트 구조</h2>
+        <h2 id="그냥-installadd">그냥 install(add)</h2>
+<p><code class="language-plaintext highlighter-rouge">npm install / yarn add</code>
+단순히 <code class="language-plaintext highlighter-rouge">./node_modeuls</code>폴더에 패키지 설치</p>
 
-<p><code class="language-plaintext highlighter-rouge">views</code>폴더와 <code class="language-plaintext highlighter-rouge">components</code>폴더의 차이는<br />
-<code class="language-plaintext highlighter-rouge">router</code>에서 보여주는 <code class="language-plaintext highlighter-rouge">component</code>파일은 <code class="language-plaintext highlighter-rouge">views</code>폴더에 넣고, 그 외에는 <code class="language-plaintext highlighter-rouge">components</code>폴더에 넣는다.<br />
-(폴더 구조는 사실 어떻게 하든 상관없지만, vue cli가 제시하는 예시이다.)</p>
+<h2 id="save---p">–save / -P</h2>
+<p><code class="language-plaintext highlighter-rouge">npm install --save / yarn add --save</code>
+<code class="language-plaintext highlighter-rouge">--save</code>키워드를 통해 우선 <code class="language-plaintext highlighter-rouge">./node_modules</code>폴더에 패키지 설치<br />
+<code class="language-plaintext highlighter-rouge">./package.josn</code>의 <code class="language-plaintext highlighter-rouge">dependencies</code> 옵션에 해당 패키지 추가되어 다음 <code class="language-plaintext highlighter-rouge">install</code>시 해당 패키지가 자동으로 설치됨</p>
 
+<h2 id="save-dev---d">–save-dev / -D</h2>
+<p><code class="language-plaintext highlighter-rouge">npm install --save-dev / yarn add --save-dev</code>
+<code class="language-plaintext highlighter-rouge">./package.json</code>의 <code class="language-plaintext highlighter-rouge">devDependencies</code>옵션에 해당 패키지 추가</p>
 
         
       </section>
@@ -323,9 +329,11 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#components" class="page__taxonomy-item p-category" rel="tag">components</a><span class="sep">, </span>
+      <a href="/tags/#install" class="page__taxonomy-item p-category" rel="tag">install</a><span class="sep">, </span>
     
-      <a href="/tags/#views" class="page__taxonomy-item p-category" rel="tag">views</a>
+      <a href="/tags/#npm" class="page__taxonomy-item p-category" rel="tag">npm</a><span class="sep">, </span>
+    
+      <a href="/tags/#yarn" class="page__taxonomy-item p-category" rel="tag">yarn</a>
     
     </span>
   </p>
@@ -362,22 +370,22 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=vue.js+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EA%B5%AC%EC%A1%B0+%3A+views%EC%99%80+components%EC%9D%98+%EC%B0%A8%EC%9D%B4%20http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-vue-scss%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=npm+install+%2F+--save+%2F+--save-dev+%EC%B0%A8%EC%9D%B4%20http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-vue-npm-install%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-vue-scss%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-vue-npm-install%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-vue-scss%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-vue-npm-install%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/fe-study/fe-vue-npm-install/" class="pagination--pager" title="npm install / –save / –save-dev 차이
+      <a href="/fe-study/fe-interceptor/" class="pagination--pager" title="Interceptor/Debounce/throttle
 ">이전</a>
     
     
-      <a href="/fe-study/fe-vue-views-components/" class="pagination--pager" title="vue에서 scss 사용하기
+      <a href="/fe-study/fe-vue-scss/" class="pagination--pager" title="vue.js 프로젝트 구조 : views와 components의 차이
 ">다음</a>
     
   </nav>

@@ -12,7 +12,8 @@ toc: false
 scss 패키지 설치  
 node-sass와 sass-loader 설치  
 
-`npm install --save-dev node-sass sass-loader`
+`yarn add node-sass -D`
+`yarn add sass-loader -D`
 
 사용법  
 간단한 설치만으로도 vue-loader에서 기본으로 설정되어있는 webpack 설정 때문에 패키지 설치 후 컴포넌트 내에서 lang속성을 지정해주면 자동으로 Loader를 사용 할 수 있음  

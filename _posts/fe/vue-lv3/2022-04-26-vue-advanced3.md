@@ -39,3 +39,9 @@ App.vue에 `<router-view></router-view>`로 라우터 컴포넌트 보여줌
 vue cli scss 설정
 
 >[diff check](https://github.com/wjddk0909/vue-news/commit/affc65f482fa6cd8af2060988aa7ca09e9730e30)
+
+## 3.5 라우터 폴더 작명 팁과 라우터 mode 안내
+
+mode: 'history', // 해쉬값 제거
+
+>[diff check](https://github.com/wjddk0909/vue-news/commit/f7fb20e121bfa69ff9cd80a2537dfba3345e7bd4)

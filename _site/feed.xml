@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-29T01:32:52+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">3 - 라우터 기본</title><link href="http://localhost:4000/vue-lv3/vue-advanced3/" rel="alternate" type="text/html" title="3 - 라우터 기본" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced3</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced3/"><![CDATA[<h2 id="31-라우터-설치-및-라우터-구현">3.1 라우터 설치 및 라우터 구현</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-29T08:54:34+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">3 - 라우터 기본</title><link href="http://localhost:4000/vue-lv3/vue-advanced3/" rel="alternate" type="text/html" title="3 - 라우터 기본" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced3</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced3/"><![CDATA[<h2 id="31-라우터-설치-및-라우터-구현">3.1 라우터 설치 및 라우터 구현</h2>
 
 <p><code class="language-plaintext highlighter-rouge">yarn add vue-router@3.2.0</code>로 설치하기(vue2는 vue-router3 버전사용, vue3는 vue-router4 버전사용)</p>
 
@@ -33,6 +33,14 @@
 
 <blockquote>
   <p><a href="https://github.com/wjddk0909/vue-news/commit/affc65f482fa6cd8af2060988aa7ca09e9730e30">diff check</a></p>
+</blockquote>
+
+<h2 id="35-라우터-폴더-작명-팁과-라우터-mode-안내">3.5 라우터 폴더 작명 팁과 라우터 mode 안내</h2>
+
+<p>mode: ‘history’, // 해쉬값 제거</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/f7fb20e121bfa69ff9cd80a2537dfba3345e7bd4">diff check</a></p>
 </blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="router" /><summary type="html"><![CDATA[Todo App]]></summary></entry><entry><title type="html">1 - 소개 및 설계</title><link href="http://localhost:4000/vue-lv3/vue-advanced1/" rel="alternate" type="text/html" title="1 - 소개 및 설계" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced1</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced1/"><![CDATA[<h2 id="11-소개-및-설계">1.1 소개 및 설계</h2>
 
 <p>해커뉴스 사이트 제작<br />

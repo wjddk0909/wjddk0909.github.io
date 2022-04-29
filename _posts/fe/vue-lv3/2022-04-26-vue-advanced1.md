@@ -1,6 +1,6 @@
 --- 
 title: "1 - 소개 및 설계" 
-excerpt: "Todo App"
+excerpt: "Vue news"
 categories: 
     - vue-lv3
 tags: 

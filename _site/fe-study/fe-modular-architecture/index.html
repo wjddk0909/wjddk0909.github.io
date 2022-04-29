@@ -1,0 +1,669 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>아키텍처 - FE개발자를 꿈꾸다</title>
+<meta name="description" content="아키텍처">
+
+
+  <meta name="author" content="FE Developer">
+  
+  <meta property="article:author" content="FE Developer">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="FE개발자를 꿈꾸다">
+<meta property="og:title" content="아키텍처">
+<meta property="og:url" content="http://localhost:4000/fe-study/fe-modular-architecture/">
+
+
+  <meta property="og:description" content="아키텍처">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo2.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2021-12-01T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/fe-study/fe-modular-architecture/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "꿈꾸는 개발자",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="FE개발자를 꿈꾸다 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          FE개발자를 꿈꾸다
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/logo2.png" alt="FE Developer" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">FE Developer</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>꿈꾸는 개발자</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:wjddk0909@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="아키텍처">
+    <meta itemprop="description" content="아키텍처">
+    <meta itemprop="datePublished" content="2021-12-01T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">아키텍처
+</h1>
+          
+<!--
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+            devinlife comments :
+                싱글 페이지(포스트)에 제목 밑에 Updated 시간 표기
+                기존에는 read_time이 표기. read_time -> date 변경
+-->
+            <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2021-12-01T00:00:00+09:00">December 01, 2021</time></p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="아키텍처는-무엇으로-이루어지는가">아키텍처는 무엇으로 이루어지는가?</h2>
+
+<p>아키텍처는 일반적인 정의에 따르면 설계자가 원하는 기능을 구조로 표현하는 고수준 결과물이다.<br />
+아키텍처는 의도, 규칙, 구성, 대상으로 이루어진다.</p>
+
+<ol>
+  <li>아키텍처는 의도를 가져야 한다.
+    <ul>
+      <li>설계자의 생각을 표현허는 과정인 만큼 아키텍처에는 생각, 의도가 담겨있다.</li>
+    </ul>
+  </li>
+  <li>아키텍처는 규칙을 가져야 한다.
+    <ul>
+      <li>기능을 구조로 맵핑하는 설계 결과물</li>
+      <li>시스템을 구성하는 요소와 요소간의 관계, 요소들을 포함하는 전체 시스템의 경꼐, 시스템과 환경 간의 관계 등을 포함한다.</li>
+    </ul>
+  </li>
+  <li>대상(결과물)을 가져야 한다.
+    <ul>
+      <li>대상(결과물)은 아키텍처를 기초로 만들어질 최종 산출물을 의미</li>
+    </ul>
+  </li>
+</ol>
+
+<p>의도 &gt; (표현) &gt; 규칙 &gt; (구체화) &gt; 구성 &gt; (구현) &gt; 대상/결과물</p>
+
+<ol>
+  <li>아키텍처란? 
+옷을 정리하는 것을 상상해보자. 처음에는 옷이 몇개 없어서 아무데나 두어도 크게 상관이 없다.<br />
+하지만 옷이 많아지면 옷걸이가 필요하고 더 많아지면 옷장이 필요해진다.</li>
+</ol>
+
+<p>옷걸이와 옷장이 있고 없고의 차이는?  옷이 제대로 보관되지 않아서 옷이 상할 것이고 원할때 필요한 옷을 찾기가 힘들어진다.<br />
+그렇다고 옷장에 막무가내로 넣어두기만 하면 어떨까?<br />
+옷장의 첫번째 역할인 <code class="language-plaintext highlighter-rouge">보관</code>이라는 <code class="language-plaintext highlighter-rouge">목적</code>은 충실했지만 필요한 옷을 <code class="language-plaintext highlighter-rouge">쉽게 찾아 꺼낸다</code>는 <code class="language-plaintext highlighter-rouge">목적</code>은 잃게 된다.<br />
+그러니 보관을 하되 잘 꺼낼 수 있도록 잘 넣어두는 방법을 고려해야 한다.</p>
+
+<p>그러려면 일단 잘 넣어두기 위해서 하지 말아야할 <code class="language-plaintext highlighter-rouge">규칙</code>을 정한다.<br />
+예를 들어 옷을 아무렇게나 섞어서 두면 불편하다, 양말이 짝이 안맞다, 위아래 세트인 옷을 찾기 힘들다 등등..<br />
+이 불편함을 제거하기 위한 <code class="language-plaintext highlighter-rouge">규칙</code>을 만든다. 일반적으로 <code class="language-plaintext highlighter-rouge">비슷한 것끼리 분류</code>해서 모은다.</p>
+
+<p>이러한 과정에서 <code class="language-plaintext highlighter-rouge">패턴</code>이 만들어지면 나중에는 이 패턴에 맞는 목적성을 가진 옷장이 등장한다.<br />
+처음에는 단순히 통으로 된 옷장이었다면 상의, 하의를 구분하는 칸이 나뉘어져 있다가 양발을 보관하는 칸이 생기고, 외투나 모자, 가방등 각 용도에 맞는 구조로 만들어진다.</p>
+
+<p>그러면 처음의 옷장에 비해서 세부적인 규칙을 잘 몰라도 옷 정리가 한결 편해진다.</p>
+
+<blockquote>
+  <p>아키텍처란 구조화 된 옷장과 비슷하다. 처음 개발할 때에는 규칙없이 그냥 코드를 만들다 보면 프로젝트의 덩치가 커지고 불편함이 생기고 코드 정리가 안되는 시점이 생긴다. 그러니 처음부터 특정한 규칙을 만들어서 개발하는게 좋다는 것을 깨닫고 규칙을 하나씩 만들어가며 개발을 하다보면 이제 <code class="language-plaintext highlighter-rouge">특정 패턴</code>이 만들어진다. 이러한 패턴들을 모두가 이해하고 따를 수 있도록 하는 구조를 <code class="language-plaintext highlighter-rouge">아키텍처</code>라고 부른다.</p>
+</blockquote>
+
+<p>결국 소프트웨어 관점에서 봤을때 <code class="language-plaintext highlighter-rouge">지속적으로 관리가 잘 되는 코드를 위해서는 좋은 아키텍처가 필요</code>하다는 의미이다.</p>
+
+<blockquote>
+  <p>비유는 엄밀하게는 같은 이야기는 아니다. <code class="language-plaintext highlighter-rouge">옷은 서로 데이터를 주고 받지 않지만 소프트웨어의 각 모듈들은 서로 데이터를 주고 받아야한다.</code> 그러니 아키텍처를 단순히 분류를 넘어 <code class="language-plaintext highlighter-rouge">데이터를 주고 받는 인터페이스 설계</code>가 중요하다.</p>
+</blockquote>
+
+<ol>
+  <li>웹 프론트엔드 아키텍처
+아키텍처는 좋은 구조를 만드는것. 좋은 구조의 첫번째 조건은 <code class="language-plaintext highlighter-rouge">좋은 분류</code>이다.</li>
+</ol>
+
+<blockquote>
+  <p>옷장에서 상의, 하의, 양말 처럼 서로 비슷한 것 끼리 그리고 섞이면 안되는 것끼리 구분을 하는 것이 중요!</p>
+</blockquote>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#architecture" class="page__taxonomy-item p-category" rel="tag">architecture</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#fe-study" class="page__taxonomy-item" rel="tag">fe-study</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-12-01T00:00:00+09:00">December 1, 2021</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%20http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-modular-architecture%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-modular-architecture%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-modular-architecture%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/fe-study/fe-interceptor/" class="pagination--pager" title="Interceptor/Debounce/throttle
+">이전</a>
+    
+    
+      <a href="/fe-study/fe-module/" class="pagination--pager" title="자바스크립트 모듈화
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv3/vue-advanced4/" rel="permalink">4 - API 구현
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 26 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Vue news
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv3/vue-advanced3/" rel="permalink">3 - 라우터 기본
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 26 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Vue news
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv3/vue-advanced2/" rel="permalink">2 - 프로젝트 셋업
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 26 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Vue news
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv3/vue-advanced1/" rel="permalink">1 - 소개 및 설계
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 26 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Vue news
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 꿈꾸는 개발자. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="/assets/js/codeCopy.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

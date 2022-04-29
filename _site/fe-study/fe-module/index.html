@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>vue.js 프로젝트 구조 : views와 components의 차이 - FE개발자를 꿈꾸다</title>
-<meta name="description" content="vue.js 프로젝트 구조">
+<!-- begin _includes/seo.html --><title>자바스크립트 모듈화 - FE개발자를 꿈꾸다</title>
+<meta name="description" content="Module">
 
 
   <meta name="author" content="FE Developer">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="FE개발자를 꿈꾸다">
-<meta property="og:title" content="vue.js 프로젝트 구조 : views와 components의 차이">
-<meta property="og:url" content="http://localhost:4000/fe-study/fe-vue-scss/">
+<meta property="og:title" content="자바스크립트 모듈화">
+<meta property="og:url" content="http://localhost:4000/fe-study/fe-module/">
 
 
-  <meta property="og:description" content="vue.js 프로젝트 구조">
+  <meta property="og:description" content="Module">
 
 
 
@@ -47,7 +47,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/fe-study/fe-vue-scss/">
+<link rel="canonical" href="http://localhost:4000/fe-study/fe-module/">
 
 
 
@@ -271,15 +271,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="vue.js 프로젝트 구조 : views와 components의 차이">
-    <meta itemprop="description" content="vue.js 프로젝트 구조">
+    <meta itemprop="headline" content="자바스크립트 모듈화">
+    <meta itemprop="description" content="Module">
     <meta itemprop="datePublished" content="2021-12-01T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">vue.js 프로젝트 구조 : views와 components의 차이
+          <h1 id="page-title" class="page__title" itemprop="headline">자바스크립트 모듈화
 </h1>
           
 <!--
@@ -288,7 +288,7 @@
 
 
 
-  최대 1 분 소요
+  1 분 소요
 </p>
             devinlife comments :
                 싱글 페이지(포스트)에 제목 밑에 Updated 시간 표기
@@ -301,12 +301,115 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="vuejs-프로젝트-구조">vue.js 프로젝트 구조</h2>
+        <h2 id="자바스크립트의-모듈화">자바스크립트의 모듈화</h2>
 
-<p><code class="language-plaintext highlighter-rouge">views</code>폴더와 <code class="language-plaintext highlighter-rouge">components</code>폴더의 차이는<br />
-<code class="language-plaintext highlighter-rouge">router</code>에서 보여주는 <code class="language-plaintext highlighter-rouge">component</code>파일은 <code class="language-plaintext highlighter-rouge">views</code>폴더에 넣고, 그 외에는 <code class="language-plaintext highlighter-rouge">components</code>폴더에 넣는다.<br />
-(폴더 구조는 사실 어떻게 하든 상관없지만, vue cli가 제시하는 예시이다.)</p>
+<p>자바스크립트는 기본적으로 모듈화 기능이 없었다. <code class="language-plaintext highlighter-rouge">.js</code>파일로 여러개 쪼개서 모든 파일을 하나씩 <code class="language-plaintext highlighter-rouge">&lt;script&gt;&lt;/script&gt;</code> 태그를 이용하여 불러오는 방법이 있긴 했지만 이 방법에는 문제가 있었다.</p>
+<ol>
+  <li>파일을 불러들이는 순서가 중요</li>
+  <li>따로 만든 오브젝트들이 모두 글로벌 변수에 저장</li>
+  <li>변수의 이름이 겹치면 에러 발생</li>
+  <li>그래서 다른 사람이 만든 코드 불러들여서 사용하기 복잡</li>
+</ol>
 
+<h3 id="모듈module">모듈(Module)</h3>
+
+<p>프로그램은 작고 단순한 것에서 크고 복잡한 것으로 진화한다.<br />
+코드의 재활용성을 높이고, 유지보수를 쉽게 할 수 있는 다양한 기법들이 사용된다.<br />
+그중의 하나가 코드를 여러개의 파일로 분리하는 것이다. 이를 통해서 얻을 수 있는 효과는 아래와 같다.</p>
+<ul>
+  <li>자주 사용되는 코드를 별도의 파일로 만들어서 필요할 때마다 재활용(함수의 재사용성과 비슷)</li>
+  <li>코드를 개선하면 이를 사용하고 있는 모든 애플리케이션의 동작이 개선된다.</li>
+  <li>코드 수정 시에 필요한 로직을 빠르게 찾을 수 있다. (파일로 모듈을 쪼개어 놔서)</li>
+  <li>필요한 로직(파일)만을 로드해서 메모리 낭비를 줄일 수 있다.</li>
+</ul>
+
+<h3 id="모듈화의-중요성은">모듈화의 중요성은?</h3>
+<p>모듈화가 중요한 이유는 코딩 작업이 편리해지고 코드의 유지보수가 편해져서이다.<br />
+하나의 <code class="language-plaintext highlighter-rouge">.js</code>파일에 모든 코드가 다 들어있으면 그것을 뜯어보고 이해하고 고치는데 시간이 많이 걸린다.<br />
+하지만 각 기능에 맞춰서 코드를 나누어서 관리하면 코드를 고치거나 업데이트 할 때 해당 부분만 쉽게 찾아서 작업이 가능하다.</p>
+
+<h3 id="방법은">방법은?</h3>
+<ol>
+  <li>export default
+<code class="language-plaintext highlighter-rouge">export</code>할 모듈이 하나 밖에 없을 때 이용</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">export</span> <span class="k">default</span> <span class="nx">a</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ol>
+  <li>named export
+<code class="language-plaintext highlighter-rouge">export</code>할 모듈이 여러개 있을 때 이용</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">bye</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">hi</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">bye</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>위 두가지의 차이점은 어떤 export 방식을 택하느냐에 따라서 모듈을 import 하는 방식이 달라진다.</p>
+
+<ul>
+  <li>1번 방법으로 export 했을때 import 방법
+import 할때 원하는 이름을 임의로 지정할 수 있다.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="nx">ABC</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./a.js</span><span class="dl">'</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>export는 a로 했지만 import할 때는 아무 이름이나 사용이 가능하다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="p">{</span><span class="k">default</span> <span class="k">as</span> <span class="nx">원하는</span> <span class="nx">이름</span><span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./a.js</span><span class="dl">'</span><span class="p">;</span> 
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>혹이 이런식으로도 가능하다.</p>
+
+<ul>
+  <li>2번 방법으로 export 했을 때 import 방법
+import 할 때 이름이 export에서 지정한 이름과 같아야 하고 반드시 <code class="language-plaintext highlighter-rouge">{}</code>안에 적어야한다.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">hi</span><span class="p">,</span> <span class="nx">bye</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./a.js</span><span class="dl">'</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>이렇게 원하는 부분만 골라서 불러 올 수 있다. 만약 모든 모듈을 한꺼번에 불러와야한다면 아래와 같은 방법을 사용한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">say</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./a.js</span><span class="dl">'</span><span class="p">;</span>
+<span class="c1">// say가 아닌 다른 이름도 가능 (임의로 설정한 이름임)</span>
+
+<span class="c1">// 사용은 아래와 같이</span>
+<span class="nx">say</span><span class="p">.</span><span class="nx">hi</span><span class="p">();</span>
+<span class="c1">// 결과 -&gt; hello</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
         
       </section>
@@ -323,9 +426,7 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#components" class="page__taxonomy-item p-category" rel="tag">components</a><span class="sep">, </span>
-    
-      <a href="/tags/#views" class="page__taxonomy-item p-category" rel="tag">views</a>
+      <a href="/tags/#module" class="page__taxonomy-item p-category" rel="tag">Module</a>
     
     </span>
   </p>
@@ -362,22 +463,22 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=vue.js+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EA%B5%AC%EC%A1%B0+%3A+views%EC%99%80+components%EC%9D%98+%EC%B0%A8%EC%9D%B4%20http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-vue-scss%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8+%EB%AA%A8%EB%93%88%ED%99%94%20http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-module%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-vue-scss%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-module%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-vue-scss%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-module%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/fe-study/fe-vue-npm-install/" class="pagination--pager" title="npm install / –save / –save-dev 차이
+      <a href="/fe-study/fe-modular-architecture/" class="pagination--pager" title="아키텍처
 ">이전</a>
     
     
-      <a href="/fe-study/fe-vue-views-components/" class="pagination--pager" title="vue에서 scss 사용하기
+      <a href="/fe-study/fe-npm-install/" class="pagination--pager" title="npm install / –save / –save-dev 차이
 ">다음</a>
     
   </nav>
@@ -392,6 +493,41 @@
     <div class="page__related">
       <h4 class="page__related-title">참고</h4>
       <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv3/vue-advanced4/" rel="permalink">4 - API 구현
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 26 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Vue news
+</p>
+  </article>
+</div>
         
           
 
@@ -423,7 +559,7 @@
     
       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 26 2022</p>
     
-    <p class="archive__item-excerpt" itemprop="description">Todo App
+    <p class="archive__item-excerpt" itemprop="description">Vue news
 </p>
   </article>
 </div>
@@ -458,7 +594,7 @@
     
       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 26 2022</p>
     
-    <p class="archive__item-excerpt" itemprop="description">Todo App
+    <p class="archive__item-excerpt" itemprop="description">Vue news
 </p>
   </article>
 </div>
@@ -493,42 +629,7 @@
     
       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 26 2022</p>
     
-    <p class="archive__item-excerpt" itemprop="description">Todo App
-</p>
-  </article>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/vue-lv2/vuex/" rel="permalink">vuex
-</a>
-      
-    </h2>
-<!--
-    devinlife comments :
-        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
-        기존에는 read_time이 표기. read_time -> date 변경
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  1 분 소요
-</p>
-    
--->
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> March 12 2022</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">vuex 설명
+    <p class="archive__item-excerpt" itemprop="description">Vue news
 </p>
   </article>
 </div>

@@ -1,6 +1,6 @@
 --- 
 title: "3 - 라우터 기본" 
-excerpt: "Todo App"
+excerpt: "Vue news"
 categories: 
     - vue-lv3
 tags: 

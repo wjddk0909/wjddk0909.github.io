@@ -2,7 +2,7 @@
 title: "vue에서 scss 사용하기" 
 excerpt: "scss"
 categories: 
-    - fe-study
+    - vue-study
 tags: 
     - scss
 toc: false

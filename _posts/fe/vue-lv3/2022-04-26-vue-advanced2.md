@@ -1,6 +1,6 @@
 --- 
 title: "2 - 프로젝트 셋업" 
-excerpt: "Todo App"
+excerpt: "Vue news"
 categories: 
     - vue-lv3
 tags: 

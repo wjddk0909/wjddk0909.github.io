@@ -1,47 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-29T08:54:34+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">3 - 라우터 기본</title><link href="http://localhost:4000/vue-lv3/vue-advanced3/" rel="alternate" type="text/html" title="3 - 라우터 기본" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced3</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced3/"><![CDATA[<h2 id="31-라우터-설치-및-라우터-구현">3.1 라우터 설치 및 라우터 구현</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-30T00:22:57+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">4 - API 구현</title><link href="http://localhost:4000/vue-lv3/vue-advanced4/" rel="alternate" type="text/html" title="4 - API 구현" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced4</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced4/"><![CDATA[<h2 id="41-axios를-이용한-api-호출">4.1 axios를 이용한 api 호출</h2>
 
-<p><code class="language-plaintext highlighter-rouge">yarn add vue-router@3.2.0</code>로 설치하기(vue2는 vue-router3 버전사용, vue3는 vue-router4 버전사용)</p>
+<p><a href="https://github.com/tastejs/hacker-news-pwas/blob/master/docs/api.md">해커뉴스 api</a></p>
 
-<p>package.json의 dependencies에 추가됨(배포할때도 포함 되어야 하는 라이브러리들)</p>
+<p>views 폴더에는 페이지 라우팅에 관련된 정보들만 들어가는게 좋다.<br />
+설계가 바뀌거나 할때 유연하게 대처하려면 데이터를 불러온다던지 비즈니스 로직들은 별도의 컴포넌트로 등록하는게 좋다.</p>
 
-<p>라우터 설정을 main.js에 할 수도 있지만, main.js는 기본적으로 애플리케이션의 설정들(플러그인, 라이브러리, 구조들을 파악)의 청사진으로 보면 됨<br />
-그래서 라우터는 따로 폴더를 빼줌</p>
-
-<h2 id="32-router-view를-이용한-라우팅-컴포넌트-표시">3.2 router-view를 이용한 라우팅 컴포넌트 표시</h2>
-
-<p>App.vue에 <code class="language-plaintext highlighter-rouge">&lt;router-view&gt;&lt;/router-view&gt;</code>로 라우터 컴포넌트 보여줌</p>
+<p>우선 views안에 바로 넣고 나중에 수정할 예정</p>
 
 <blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/7e9afa13197fa14cfbffc011aa9efd13429f1053">diff check</a></p>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/1e9ad6983ef8359e0aed961f6bdd567be08ebb33">diff check</a></p>
 </blockquote>
 
-<h2 id="33-redirect-속성과-router-link">3.3 redirect 속성과 router-link</h2>
+<h2 id="42-axios의-api-함수-구조화-방법-및-실습-안내">4.2 axios의 api 함수 구조화 방법 및 실습 안내</h2>
 
-<p>첫 화면에서 빈화면이 나오는데 redirect속성으로 원하는 라우터로 연결 가능<br />
-라우터 이동 링크 버튼도 추가</p>
+<p>라이브러리를 각각의 파일에서 불러와야하고, 공통된 로직들이 계속 파일마다 불러와야 하는데 공통화시켜서 사용</p>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="api" /><category term="axios" /><category term="arrow function" /><category term="비동기처리" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">2 - 프로젝트 셋업</title><link href="http://localhost:4000/vue-lv3/vue-advanced2/" rel="alternate" type="text/html" title="2 - 프로젝트 셋업" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced2</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced2/"><![CDATA[<h2 id="21-vue-cli로-프로젝트-생성-및-eslint-로그-확인">2.1 Vue CLI로 프로젝트 생성 및 ESLint 로그 확인</h2>
 
-<p>컴포넌트 등록할때는 스크립트단에서는 단어마다 첫글자 대문자로 연결<br />
-컴포넌트를 태그에서 등록할때는 단어사이에 하이픈으로 연결</p>
+<p><code class="language-plaintext highlighter-rouge">vue create vue-news</code>로 프로젝트 생성</p>
 
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/d0de793092e5dae58d78f1027b9885d3b5ca22a6">diff check</a></p>
-</blockquote>
+<p><code class="language-plaintext highlighter-rouge">Vue 2</code>선택후 완료 되면 폴더 경로 들어가서 서버 실행하기</p>
 
-<h2 id="34-toolbar의-라우터-링크-스타일링">3.4 ToolBar의 라우터 링크 스타일링</h2>
+<h2 id="22-eslint-도구-소개와-사용해야-하는-이유">2.2 ESLint 도구 소개와 사용해야 하는 이유?</h2>
 
-<p>vue cli scss 설정</p>
+<p>ESLint : javascript 문법 검사기(보조도구)
+javascript에서 ;(세미콜론)을 찍지 않더라도 자바스크립트 해석기에서는 마지막에 세미콜론을 넣어줌<br />
+여기서 ESLint는 세미콜론을 찍게 유도함<br />
+예를들어서</p>
 
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/affc65f482fa6cd8af2060988aa7ca09e9730e30">diff check</a></p>
-</blockquote>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="c1">// 이런식이면 문제 없지만</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="mi">10</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">a는 10</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
 
-<h2 id="35-라우터-폴더-작명-팁과-라우터-mode-안내">3.5 라우터 폴더 작명 팁과 라우터 mode 안내</h2>
-
-<p>mode: ‘history’, // 해쉬값 제거</p>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/f7fb20e121bfa69ff9cd80a2537dfba3345e7bd4">diff check</a></p>
-</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="router" /><summary type="html"><![CDATA[Todo App]]></summary></entry><entry><title type="html">1 - 소개 및 설계</title><link href="http://localhost:4000/vue-lv3/vue-advanced1/" rel="alternate" type="text/html" title="1 - 소개 및 설계" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced1</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced1/"><![CDATA[<h2 id="11-소개-및-설계">1.1 소개 및 설계</h2>
+<span class="c1">// 자바스크립트 해석기가 어디서 세미콜론을 찍어야 할지 모를때</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="mi">10</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">a는 10</span><span class="dl">'</span><span class="p">)</span> <span class="nx">b</span><span class="p">()</span> <span class="nx">c</span><span class="p">()</span>
+</pre></td></tr></tbody></table></code></pre></div></div>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">1 - 소개 및 설계</title><link href="http://localhost:4000/vue-lv3/vue-advanced1/" rel="alternate" type="text/html" title="1 - 소개 및 설계" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced1</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced1/"><![CDATA[<h2 id="11-소개-및-설계">1.1 소개 및 설계</h2>
 
 <p>해커뉴스 사이트 제작<br />
 <a href="https://news.ycombinator.com/">해커뉴스 공식사이트</a></p>
@@ -117,34 +116,50 @@ vue plugin이라는 강력한 기능을 사용<br />
 <ul>
   <li>2.x : 필요 X</li>
   <li>3.x : 필요 O</li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><summary type="html"><![CDATA[Todo App]]></summary></entry><entry><title type="html">2 - 프로젝트 셋업</title><link href="http://localhost:4000/vue-lv3/vue-advanced2/" rel="alternate" type="text/html" title="2 - 프로젝트 셋업" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced2</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced2/"><![CDATA[<h2 id="21-vue-cli로-프로젝트-생성-및-eslint-로그-확인">2.1 Vue CLI로 프로젝트 생성 및 ESLint 로그 확인</h2>
+</ul>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">3 - 라우터 기본</title><link href="http://localhost:4000/vue-lv3/vue-advanced3/" rel="alternate" type="text/html" title="3 - 라우터 기본" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced3</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced3/"><![CDATA[<h2 id="31-라우터-설치-및-라우터-구현">3.1 라우터 설치 및 라우터 구현</h2>
 
-<p><code class="language-plaintext highlighter-rouge">vue create vue-news</code>로 프로젝트 생성</p>
+<p><code class="language-plaintext highlighter-rouge">yarn add vue-router@3.2.0</code>로 설치하기(vue2는 vue-router3 버전사용, vue3는 vue-router4 버전사용)</p>
 
-<p><code class="language-plaintext highlighter-rouge">Vue 2</code>선택후 완료 되면 폴더 경로 들어가서 서버 실행하기</p>
+<p>package.json의 dependencies에 추가됨(배포할때도 포함 되어야 하는 라이브러리들)</p>
 
-<h2 id="22-eslint-도구-소개와-사용해야-하는-이유">2.2 ESLint 도구 소개와 사용해야 하는 이유?</h2>
+<p>라우터 설정을 main.js에 할 수도 있지만, main.js는 기본적으로 애플리케이션의 설정들(플러그인, 라이브러리, 구조들을 파악)의 청사진으로 보면 됨<br />
+그래서 라우터는 따로 폴더를 빼줌</p>
 
-<p>ESLint : javascript 문법 검사기(보조도구)
-javascript에서 ;(세미콜론)을 찍지 않더라도 자바스크립트 해석기에서는 마지막에 세미콜론을 넣어줌<br />
-여기서 ESLint는 세미콜론을 찍게 유도함<br />
-예를들어서</p>
+<h2 id="32-router-view를-이용한-라우팅-컴포넌트-표시">3.2 router-view를 이용한 라우팅 컴포넌트 표시</h2>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre><span class="c1">// 이런식이면 문제 없지만</span>
-<span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="mi">10</span><span class="p">){</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">a는 10</span><span class="dl">'</span><span class="p">);</span>
-<span class="p">}</span>
+<p>App.vue에 <code class="language-plaintext highlighter-rouge">&lt;router-view&gt;&lt;/router-view&gt;</code>로 라우터 컴포넌트 보여줌</p>
 
-<span class="c1">// 자바스크립트 해석기가 어디서 세미콜론을 찍어야 할지 모를때</span>
-<span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="mi">10</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">a는 10</span><span class="dl">'</span><span class="p">)</span> <span class="nx">b</span><span class="p">()</span> <span class="nx">c</span><span class="p">()</span>
-</pre></td></tr></tbody></table></code></pre></div></div>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><summary type="html"><![CDATA[Todo App]]></summary></entry><entry><title type="html">vuex</title><link href="http://localhost:4000/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/7e9afa13197fa14cfbffc011aa9efd13429f1053">diff check</a></p>
+</blockquote>
+
+<h2 id="33-redirect-속성과-router-link">3.3 redirect 속성과 router-link</h2>
+
+<p>첫 화면에서 빈화면이 나오는데 redirect속성으로 원하는 라우터로 연결 가능<br />
+라우터 이동 링크 버튼도 추가</p>
+
+<p>컴포넌트 등록할때는 스크립트단에서는 단어마다 첫글자 대문자로 연결<br />
+컴포넌트를 태그에서 등록할때는 단어사이에 하이픈으로 연결</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/d0de793092e5dae58d78f1027b9885d3b5ca22a6">diff check</a></p>
+</blockquote>
+
+<h2 id="34-toolbar의-라우터-링크-스타일링">3.4 ToolBar의 라우터 링크 스타일링</h2>
+
+<p>vue cli scss 설정</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/affc65f482fa6cd8af2060988aa7ca09e9730e30">diff check</a></p>
+</blockquote>
+
+<h2 id="35-라우터-폴더-작명-팁과-라우터-mode-안내">3.5 라우터 폴더 작명 팁과 라우터 mode 안내</h2>
+
+<p>mode: ‘history’, // 해쉬값 제거</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/f7fb20e121bfa69ff9cd80a2537dfba3345e7bd4">diff check</a></p>
+</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="router" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">vuex</title><link href="http://localhost:4000/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
 
 <ul>
   <li>복잡한 애플리케이션의 컴포넌트들을 효율적으로 관리하는 vuex 라이브러리</li>
@@ -473,47 +488,4 @@ HEAD~3 은 최근 커밋 메시지중 3개만 불러온다는 뜻</p>
 </ul>]]></content><author><name>FE Developer</name></author><category term="css" /><category term="css" /><category term="flex" /><category term="overflow" /><category term="scroll" /><summary type="html"><![CDATA[flex-direction: column]]></summary></entry><entry><title type="html">Vue에서 Fontawesome 사용하기</title><link href="http://localhost:4000/vue-lv2/fontawesome/" rel="alternate" type="text/html" title="Vue에서 Fontawesome 사용하기" /><published>2021-12-11T00:00:00+09:00</published><updated>2021-12-11T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/fontawesome</id><content type="html" xml:base="http://localhost:4000/vue-lv2/fontawesome/"><![CDATA[<h2 id="vue에서-fontawesome-사용하기">Vue에서 Fontawesome 사용하기</h2>
 
 <p>폰트어썸 업데이트하면서 부터인지 vue에서 사용하려면 메일로 무료키트 사용 링크를 받아야한다.<br />
-fontawsome.com/start로 접속 &gt; 이메일 입력 &gt; 확인, 설정 버튼 클릭 &gt; 폰트어썸 로그인 후 무료키트 링크 카피해서 index.html 헤드에 추가</p>]]></content><author><name>FE Developer</name></author><category term="vue-lv2" /><category term="fontawesome" /><summary type="html"><![CDATA[Fontawesome 삽입하기]]></summary></entry><entry><title type="html">REST</title><link href="http://localhost:4000/javascript/rest/" rel="alternate" type="text/html" title="REST" /><published>2021-12-09T00:00:00+09:00</published><updated>2021-12-09T00:00:00+09:00</updated><id>http://localhost:4000/javascript/rest</id><content type="html" xml:base="http://localhost:4000/javascript/rest/"><![CDATA[<h2 id="rest에-대해-알아보자">REST에 대해 알아보자</h2>
-
-<p>REST에 대해 알아보기전에 api에 대해 다시 한번 확인해보자.<br />
-api에 대한 포스팅이 따로 있지만 여기에서는 비유를 통해 간단히 설명한다.</p>
-
-<p>좋아하는 드라마의 본방사수를 위해서 집에 서둘러 들어와 티비를 켜고 원하는 채널을 틀어야 하는 상황일때 이러한 과정이 필요하다.<br />
-티비 리모컨의 전원 버튼을 눌러 티비를 켜고 채널 버튼을 눌러 원하는 채널로 돌려야 한다.<br />
-나 &gt; <strong>리모컨</strong> &gt; 티비 이러한 순서로 볼 수 있다.</p>
-
-<p>즉 API는 리모컨 처럼 애플리케이션과 운영체게 사이의 ‘상호작용’을 돕는다.</p>
-
-<h3 id="웹-api의-역할">웹 API의 역할</h3>
-
-<ul>
-  <li>권한을 가진 사람만 서버와 데이터베이스안의 리소스에 접근이 가능하게 해준다.</li>
-  <li>모든 요청(request)와 응답(response)를 표준화 해준다.</li>
-</ul>
-
-<h2 id="rest의-구성요소">REST의 구성요소</h2>
-
-<ol>
-  <li>자원(Resource) : HTTP UIR 를 통한 자원 명시</li>
-  <li>자원에 대한 행위(Verb) : HTTP Method(post, get put, delete)</li>
-  <li>자원에 대한 행위의 내용(Representations) : HTTP Message Pay Load</li>
-</ol>
-
-<h2 id="rest-api">REST API</h2>
-
-<p>REST API란 REST의 원리를 따르는 API를 의미한다.
-리소스(HTTP URI)로 어떠한 행위(HTTP Method + Pay Load)를 하겠다는 것을 구조적으로 표현하는 방법이다.</p>
-
-<p>REST API의 설계 가이드를 살펴보자.</p>
-
-<ol>
-  <li>URI는 명사, 소문자를 사용한다.</li>
-  <li>마지막에 슬래시를 포함하지 않는다.</li>
-  <li>언더바 대신 하이픈을 사용한다.</li>
-  <li>URI에 파일확장자는 포함하지 않는다.</li>
-</ol>
-
-<h2 id="restful-이란">RESTful 이란?</h2>
-
-<p>RESTful이란 REST API의 설계 가이드를 올바르게 지킨 시스템을 RESTful 하다고 말할 수 있다.
-RESTful하게 만들면 그자체로 API의 목적이 무엇인지 명확하게 알 수 있다.</p>]]></content><author><name>FE Developer</name></author><category term="javascript" /><category term="api" /><category term="REST" /><summary type="html"><![CDATA[REST API, RESTful 이란]]></summary></entry></feed>
+fontawsome.com/start로 접속 &gt; 이메일 입력 &gt; 확인, 설정 버튼 클릭 &gt; 폰트어썸 로그인 후 무료키트 링크 카피해서 index.html 헤드에 추가</p>]]></content><author><name>FE Developer</name></author><category term="vue-lv2" /><category term="fontawesome" /><summary type="html"><![CDATA[Fontawesome 삽입하기]]></summary></entry></feed>

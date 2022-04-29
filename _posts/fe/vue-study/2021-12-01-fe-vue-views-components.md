@@ -2,7 +2,7 @@
 title: "vue.js 프로젝트 구조 : views와 components의 차이" 
 excerpt: "vue.js 프로젝트 구조"
 categories: 
-    - fe-study
+    - vue-study
 tags: 
     - views
     - components

@@ -1,0 +1,78 @@
+--- 
+title: "6 - 라우터 실전" 
+excerpt: "Vue news"
+categories: 
+    - vue-lv3
+tags: 
+    - vue
+    - router
+toc: true
+--- 
+
+## 6.1 동적 라우트 매칭 원리 및 적용
+
+Dynamic Route Matching
+- 파라미터에 값을 넘겨주고 그 정보를 가지고 페이지를 이동한다.  
+- router에 UserView.vue 컴포넌트 추가
+- 아이디를 클릭했을때 그 값을 어떻게 넘겨서 각 회원 상세페이지를 보여줄까..? `path에 /user/:id`
+- `router-link`를 사용한다.
+
+>[diff check](https://github.com/wjddk0909/vue-news/commit/320803e3759da42445e15c713f151a50e2fb46e0)
+
+## 6.2 라우터 params을 이용한 User 상세 페이지 구현
+
+news라우트에서 user 이름 클릭시 user 정보 상세페이지 구현
+- 동적라우트 매칭으로 params를 받아왔고 그것을 이용해서 api를 호출
+- UserView.vue에서 user정보 가져오는 api를 호출 할 수도 있지만 스토어를 사용
+
+1. api/index.js > fetchUserInfo에 user정보 가져오는 로직 넣기
+2. NewsView에서 클릭한 user이름으로 /user/${item.user} router-link를 통해서 이동
+3. router/index.js에 라우트 등록해주기
+4. UserView에서는 $route안의 params.id값을 const userName에 넣어주고 this.$store.dispatch를 통해서 actions에 있는 FETCH_USER에 접근하고 두번째 인자로 클릭한 username을 넘겨준다.
+5. actions(비동기처리)에서 context를 첫번째 인자로 넘겨서 mutations에 접근할 수 있도록 하고 UserView에서 넘겨받은 username을 받도록 두번째 인자에 name을 넣어준다.
+6. user정보 가져오는 함수 fetchUserInfo를 실행하고 인자로 name을 넘겨준다.
+7. commit으로 SET_USER를 실행한다. 
+8. mutations에서 state에 접근해서 user에 비동기로 받아온 데이터를 넣어서 state를 바꾼다.
+9. UserView에서 화면에 데이터를 뿌려준다.
+
+>[diff check](https://github.com/wjddk0909/vue-news/commit/a2d462fc29978f9f39e16f5bbc7c46d0d0ebf947)
+
+## 6.3 질문 상세 페이지 실습 풀이 및 오류 디버깅
+
+1. ItemView.vue 생성하고 router/index.js에 라우트 등록
+2. AskView.vue에 router-link등록하기 > `/item/${item.id}`
+3. ItemView에 created에서 itemId 변수에 this.$route.params.id를 넣어준다.(콘솔로 itemId를 찍어봐서 잘 들어오는지 확인해보기)
+4. actions에 FETCH_ITEM 선언하고 이 액션을 호출했을때 불러올 api함수(fetchItemInfo)를 api/index.js에 선언해준다.
+5. api에 선언한 함수(fetchItemInfo)를 acions상단에 import해주고 FETCH_ITEM안에 실행시켜준다. 
+6. ItemView에서 created 됐을때 dispatch로 actions의 FETCH_ITEM에 연결해서 api를 호출하도록 하고, 두번째 인자로 params.id를 넣은 변수 itemId를 넣어준다.
+7. 다시 actions의 FETCH_ITEM에 ItemView에서 넘겨준 itemId를 여기서는 id(두번째 인자)로 받는다.
+8. actions에 실행한 api함수(fetchItemInfo)가 프로미스 객체이므로 then, catch문을 받을 수 있다.
+9. then에서 commit으로 SET_ITEM(mutations)을 연결한다.
+10. mutations에서 SET_ITEM을 선언하고 첫번째 인자로 state를 넣고 actions에서 비동기처리로 데이터를 data에 받아와서 mutations의 두번째 인자에 item이라고 정의해서 넣어준다.
+11. mutations에서 두번째 인자로 item을 넣었는데 이를 받아줄 item을 store/index.js의 state에서 정의 하지 않았으므로 가서 정의해준다.
+
+>[diff check](https://github.com/wjddk0909/vue-news/commit/5c877f557e5f59afffe38ce8a76b2926f3c8d2e7)
+
+## 6.4 질문 상세 페이지 스타일링 및 v-html 디렉티브 사용법 소개
+
+불러온 데이터를 화면에 표시
+
+- 화면에 뿌려주는 항목들을 mapGetters 헬퍼함수를 이용해서 뿌리기
+- mapGetters를 import한다.
+- store/index.js에 getter추가
+- ItemView로 돌아와서 computed 속성에 ...mapGetters(['fetchedItem']) 정의하고 템플릿영역에서 fetchedItem으로 뿌려줌
+- content부분이 html태그를 그대로 들고와서 화면에 태그가 노출됨 > v-html="fetchedItem.content"
+- [v-html API 문서](https://v2.vuejs.org/v2/api/?redirect=true#v-html)
+- [v-html과 데이터 바인딩 차이점 문서](https://v2.vuejs.org/v2/guide/syntax.html?redirect=true#Raw-HTML)
+
+
+>[diff check](https://github.com/wjddk0909/vue-news/commit/962f263adf8b32e755d7701d1a6635e76f7a9862)
+
+## 6.5 라우터 트랜지션
+
+특정 링크로 이동할때 바로 화면이 바뀌는데 뷰 내부적으로 제공하는 트랜지션 api로 부드러운 화면 전환하기
+- [라우터 트랜지션 문서](https://router.vuejs.org/guide/advanced/transitions.html#per-route-transition)
+- [뷰 트랜지션 문서](https://v2.vuejs.org/v2/guide/transitions.html?redirect=true)
+- 라우터 뷰를 트랜지션 태그로 감싸면 트랜지션 이펙트 사용 가능
+
+>[diff check](https://github.com/wjddk0909/vue-news/commit/4687eb2d5bf41f3be1a687a7ec989bf34bbb80ca)

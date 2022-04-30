@@ -221,6 +221,10 @@
 <lastmod>2022-04-26T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/vue-lv3/vue-advanced6/</loc>
+<lastmod>2022-04-26T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/about/</loc>
 </url>
 <url>
@@ -294,5 +298,8 @@
 </url>
 <url>
 <loc>http://localhost:4000/page11/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page12/</loc>
 </url>
 </urlset>

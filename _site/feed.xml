@@ -1,91 +1,87 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-01T03:07:55+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">6 - 라우터 실전</title><link href="http://localhost:4000/vue-lv3/vue-advanced6/" rel="alternate" type="text/html" title="6 - 라우터 실전" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced6</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced6/"><![CDATA[<h2 id="61-동적-라우트-매칭-원리-및-적용">6.1 동적 라우트 매칭 원리 및 적용</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-02T02:36:06+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">7 - 리스트 아이템 컴포넌트 공통화</title><link href="http://localhost:4000/vue-lv3/vue-advanced7/" rel="alternate" type="text/html" title="7 - 리스트 아이템 컴포넌트 공통화" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced7</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced7/"><![CDATA[<h2 id="71-컴포넌트-공통화-리팩토링">7.1 컴포넌트 공통화 리팩토링</h2>
 
-<p>Dynamic Route Matching</p>
 <ul>
-  <li>파라미터에 값을 넘겨주고 그 정보를 가지고 페이지를 이동한다.</li>
-  <li>router에 UserView.vue 컴포넌트 추가</li>
-  <li>아이디를 클릭했을때 그 값을 어떻게 넘겨서 각 회원 상세페이지를 보여줄까..? <code class="language-plaintext highlighter-rouge">path에 /user/:id</code></li>
-  <li><code class="language-plaintext highlighter-rouge">router-link</code>를 사용한다.</li>
+  <li>각 view페이지 스타일링</li>
 </ul>
 
 <blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/320803e3759da42445e15c713f151a50e2fb46e0">diff check</a></p>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/e889a7c6810e06fdee1f7a455cf05c01a41c13c5">diff check</a></p>
 </blockquote>
 
-<h2 id="62-라우터-params을-이용한-user-상세-페이지-구현">6.2 라우터 params을 이용한 User 상세 페이지 구현</h2>
-
-<p>news라우트에서 user 이름 클릭시 user 정보 상세페이지 구현</p>
-<ul>
-  <li>동적라우트 매칭으로 params를 받아왔고 그것을 이용해서 api를 호출</li>
-  <li>UserView.vue에서 user정보 가져오는 api를 호출 할 수도 있지만 스토어를 사용</li>
-</ul>
-
-<ol>
-  <li>api/index.js &gt; fetchUserInfo에 user정보 가져오는 로직 넣기</li>
-  <li>NewsView에서 클릭한 user이름으로 /user/${item.user} router-link를 통해서 이동</li>
-  <li>router/index.js에 라우트 등록해주기</li>
-  <li>UserView에서는 $route안의 params.id값을 const userName에 넣어주고 this.$store.dispatch를 통해서 actions에 있는 FETCH_USER에 접근하고 두번째 인자로 클릭한 username을 넘겨준다.</li>
-  <li>actions(비동기처리)에서 context를 첫번째 인자로 넘겨서 mutations에 접근할 수 있도록 하고 UserView에서 넘겨받은 username을 받도록 두번째 인자에 name을 넣어준다.</li>
-  <li>user정보 가져오는 함수 fetchUserInfo를 실행하고 인자로 name을 넘겨준다.</li>
-  <li>commit으로 SET_USER를 실행한다.</li>
-  <li>mutations에서 state에 접근해서 user에 비동기로 받아온 데이터를 넣어서 state를 바꾼다.</li>
-  <li>UserView에서 화면에 데이터를 뿌려준다.</li>
-</ol>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/a2d462fc29978f9f39e16f5bbc7c46d0d0ebf947">diff check</a></p>
-</blockquote>
-
-<h2 id="63-질문-상세-페이지-실습-풀이-및-오류-디버깅">6.3 질문 상세 페이지 실습 풀이 및 오류 디버깅</h2>
-
-<ol>
-  <li>ItemView.vue 생성하고 router/index.js에 라우트 등록</li>
-  <li>AskView.vue에 router-link등록하기 &gt; <code class="language-plaintext highlighter-rouge">/item/${item.id}</code></li>
-  <li>ItemView에 created에서 itemId 변수에 this.$route.params.id를 넣어준다.(콘솔로 itemId를 찍어봐서 잘 들어오는지 확인해보기)</li>
-  <li>actions에 FETCH_ITEM 선언하고 이 액션을 호출했을때 불러올 api함수(fetchItemInfo)를 api/index.js에 선언해준다.</li>
-  <li>api에 선언한 함수(fetchItemInfo)를 acions상단에 import해주고 FETCH_ITEM안에 실행시켜준다.</li>
-  <li>ItemView에서 created 됐을때 dispatch로 actions의 FETCH_ITEM에 연결해서 api를 호출하도록 하고, 두번째 인자로 params.id를 넣은 변수 itemId를 넣어준다.</li>
-  <li>다시 actions의 FETCH_ITEM에 ItemView에서 넘겨준 itemId를 여기서는 id(두번째 인자)로 받는다.</li>
-  <li>actions에 실행한 api함수(fetchItemInfo)가 프로미스 객체이므로 then, catch문을 받을 수 있다.</li>
-  <li>then에서 commit으로 SET_ITEM(mutations)을 연결한다.</li>
-  <li>mutations에서 SET_ITEM을 선언하고 첫번째 인자로 state를 넣고 actions에서 비동기처리로 데이터를 data에 받아와서 mutations의 두번째 인자에 item이라고 정의해서 넣어준다.</li>
-  <li>mutations에서 두번째 인자로 item을 넣었는데 이를 받아줄 item을 store/index.js의 state에서 정의 하지 않았으므로 가서 정의해준다.</li>
-</ol>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/5c877f557e5f59afffe38ce8a76b2926f3c8d2e7">diff check</a></p>
-</blockquote>
-
-<h2 id="64-질문-상세-페이지-스타일링-및-v-html-디렉티브-사용법-소개">6.4 질문 상세 페이지 스타일링 및 v-html 디렉티브 사용법 소개</h2>
-
-<p>불러온 데이터를 화면에 표시</p>
+<h2 id="72-공통-컴포넌트-listitem-제작-및-실습-안내">7.2 공통 컴포넌트 ListItem 제작 및 실습 안내</h2>
 
 <ul>
-  <li>화면에 뿌려주는 항목들을 mapGetters 헬퍼함수를 이용해서 뿌리기</li>
-  <li>mapGetters를 import한다.</li>
-  <li>store/index.js에 getter추가</li>
-  <li>ItemView로 돌아와서 computed 속성에 …mapGetters([‘fetchedItem’]) 정의하고 템플릿영역에서 fetchedItem으로 뿌려줌</li>
-  <li>content부분이 html태그를 그대로 들고와서 화면에 태그가 노출됨 &gt; v-html=”fetchedItem.content”</li>
-  <li><a href="https://v2.vuejs.org/v2/api/?redirect=true#v-html">v-html API 문서</a></li>
-  <li><a href="https://v2.vuejs.org/v2/guide/syntax.html?redirect=true#Raw-HTML">v-html과 데이터 바인딩 차이점 문서</a></li>
+  <li>components폴더에 ListItem.vue파일 생성 : 각각의 페이지 컴포넌트가 들고있는 데이터 패치와 스타일링등을 다 들고옴</li>
+  <li>NewsView.vue에 ListItem.vue import해서 컴포넌트로 넣어줌</li>
 </ul>
 
 <blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/962f263adf8b32e755d7701d1a6635e76f7a9862">diff check</a></p>
-</blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/998719e87d71186f1059ae6b391e714f202d703a">diff check</a></p>
+</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="공통화" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">5 - 스토어 구현</title><link href="http://localhost:4000/vue-lv3/vue-advanced5/" rel="alternate" type="text/html" title="5 - 스토어 구현" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced5</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced5/"><![CDATA[<h2 id="51-vuex-설치-및-vuex가-적용된-앱-구조-소개">5.1 Vuex 설치 및 Vuex가 적용된 앱 구조 소개</h2>
 
-<h2 id="65-라우터-트랜지션">6.5 라우터 트랜지션</h2>
-
-<p>특정 링크로 이동할때 바로 화면이 바뀌는데 뷰 내부적으로 제공하는 트랜지션 api로 부드러운 화면 전환하기</p>
 <ul>
-  <li><a href="https://router.vuejs.org/guide/advanced/transitions.html#per-route-transition">라우터 트랜지션 문서</a></li>
-  <li><a href="https://v2.vuejs.org/v2/guide/transitions.html?redirect=true">뷰 트랜지션 문서</a></li>
-  <li>라우터 뷰를 트랜지션 태그로 감싸면 트랜지션 이펙트 사용 가능</li>
+  <li>vuex를 적용해서 api에서 바로 불러오는게 아니고 vuex의 state에 api를 담아서 화면에 표시</li>
+  <li><code class="language-plaintext highlighter-rouge">yarn add vuex@3.4.0</code>로 vuex 라이브러리 설치</li>
+</ul>
+
+<h2 id="52-vuex-모듈화-및-state-적용">5.2 Vuex 모듈화 및 state 적용</h2>
+
+<ul>
+  <li>store폴더 생성후 그안에 작성</li>
+  <li>vuex는 플러그인 형태로 제공 되기 때문에 <code class="language-plaintext highlighter-rouge">Vue.use(Vuex);</code>로 사용</li>
+  <li>vuex는 상태관리 라이브러리이다. 상태라는 것은 여러 컴포넌트간에 공유되는 데이터 속성</li>
+  <li>NewsView가 users라는 데이터를 다른 컴포넌트에 아직 공유하고 있지 않은 상태인데 만약 다른 컴포넌트에서 users를 뿌려줘야 하는 상황이라면 공유해서 사용해야 한다.</li>
 </ul>
 
 <blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/4687eb2d5bf41f3be1a687a7ec989bf34bbb80ca">diff check</a></p>
-</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="router" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">4 - API 구현</title><link href="http://localhost:4000/vue-lv3/vue-advanced4/" rel="alternate" type="text/html" title="4 - API 구현" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced4</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced4/"><![CDATA[<h2 id="41-axios를-이용한-api-호출">4.1 axios를 이용한 api 호출</h2>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/2051c3290d123a0ba6087c52152b824b42d17b83">diff check</a></p>
+</blockquote>
+
+<h2 id="53-newsview에-actions와-mutations-적용">5.3 NewsView에 actions와 mutations 적용</h2>
+
+<ul>
+  <li>비동기 호출은 전부 action에서 하고 받아온 데이터를 mutations를 통해서 state에 넣어주게 구분되어 있다.</li>
+  <li>actions에서 비동기 호출을 하고 첫번째 인자로 context를 주면 mutations에 접근 할 수 있다.</li>
+  <li>context.commit(‘SET_NEWS’, response.data)</li>
+  <li>mutations에서는 첫번째 인자로 state를 넣어주고 두번째 인자에는 actions에서 넘겨준 response.data값이 들어간다.</li>
+  <li>컴포넌트에서 actions에 접근은 dispatch로 한다.</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/f1d13f91ee4672a0a111094a3833f53b230626a0">diff check</a></p>
+</blockquote>
+
+<h2 id="54-jobview에-스토어-적용">5.4 JobView에 스토어 적용</h2>
+
+<ul>
+  <li>Destructuring 사용해서 넣어보기</li>
+  <li><a href="https://joshua1988.github.io/es6-online-book/destructuring.html">Dstructuring 설명</a></li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/74c99efcdd9b849abe927365fbe26b523641d03f">diff check</a></p>
+</blockquote>
+
+<h2 id="55-map-헬퍼-함수를-이용한-askview-풀이">5.5 map 헬퍼 함수를 이용한 AskView 풀이</h2>
+
+<ul>
+  <li>mapState와 mapGetters는 computed 속성에서 사용</li>
+  <li>this.$store.state.ask; 이렇게 가져오는것은 더 길어지면 파악하기 힘들기 때문에 헬퍼 함수를 사용하면 편함</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/f629a7e9aba8a99e6930bfbc528954350b83d02c">diff check</a></p>
+</blockquote>
+
+<h2 id="56-스토어-속성-모듈화">5.6 스토어 속성 모듈화</h2>
+
+<ul>
+  <li>프로젝트가 커질 수록 store가 길어지니까 모듈화해서 나눠놓는게 좋다.</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/6e92aae19f48ffb976010166bf7e4a2794471ec6">diff check</a></p>
+</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="store" /><category term="vuex" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">4 - API 구현</title><link href="http://localhost:4000/vue-lv3/vue-advanced4/" rel="alternate" type="text/html" title="4 - API 구현" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced4</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced4/"><![CDATA[<h2 id="41-axios를-이용한-api-호출">4.1 axios를 이용한 api 호출</h2>
 
 <p><a href="https://github.com/tastejs/hacker-news-pwas/blob/master/docs/api.md">해커뉴스 api</a></p>
 
@@ -326,71 +322,94 @@ vue plugin이라는 강력한 기능을 사용<br />
 <ul>
   <li>2.x : 필요 X</li>
   <li>3.x : 필요 O</li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">5 - 스토어 구현</title><link href="http://localhost:4000/vue-lv3/vue-advanced5/" rel="alternate" type="text/html" title="5 - 스토어 구현" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced5</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced5/"><![CDATA[<h2 id="51-vuex-설치-및-vuex가-적용된-앱-구조-소개">5.1 Vuex 설치 및 Vuex가 적용된 앱 구조 소개</h2>
+</ul>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">6 - 라우터 실전</title><link href="http://localhost:4000/vue-lv3/vue-advanced6/" rel="alternate" type="text/html" title="6 - 라우터 실전" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced6</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced6/"><![CDATA[<h2 id="61-동적-라우트-매칭-원리-및-적용">6.1 동적 라우트 매칭 원리 및 적용</h2>
 
+<p>Dynamic Route Matching</p>
 <ul>
-  <li>vuex를 적용해서 api에서 바로 불러오는게 아니고 vuex의 state에 api를 담아서 화면에 표시</li>
-  <li><code class="language-plaintext highlighter-rouge">yarn add vuex@3.4.0</code>로 vuex 라이브러리 설치</li>
-</ul>
-
-<h2 id="52-vuex-모듈화-및-state-적용">5.2 Vuex 모듈화 및 state 적용</h2>
-
-<ul>
-  <li>store폴더 생성후 그안에 작성</li>
-  <li>vuex는 플러그인 형태로 제공 되기 때문에 <code class="language-plaintext highlighter-rouge">Vue.use(Vuex);</code>로 사용</li>
-  <li>vuex는 상태관리 라이브러리이다. 상태라는 것은 여러 컴포넌트간에 공유되는 데이터 속성</li>
-  <li>NewsView가 users라는 데이터를 다른 컴포넌트에 아직 공유하고 있지 않은 상태인데 만약 다른 컴포넌트에서 users를 뿌려줘야 하는 상황이라면 공유해서 사용해야 한다.</li>
+  <li>파라미터에 값을 넘겨주고 그 정보를 가지고 페이지를 이동한다.</li>
+  <li>router에 UserView.vue 컴포넌트 추가</li>
+  <li>아이디를 클릭했을때 그 값을 어떻게 넘겨서 각 회원 상세페이지를 보여줄까..? <code class="language-plaintext highlighter-rouge">path에 /user/:id</code></li>
+  <li><code class="language-plaintext highlighter-rouge">router-link</code>를 사용한다.</li>
 </ul>
 
 <blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/2051c3290d123a0ba6087c52152b824b42d17b83">diff check</a></p>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/320803e3759da42445e15c713f151a50e2fb46e0">diff check</a></p>
 </blockquote>
 
-<h2 id="53-newsview에-actions와-mutations-적용">5.3 NewsView에 actions와 mutations 적용</h2>
+<h2 id="62-라우터-params을-이용한-user-상세-페이지-구현">6.2 라우터 params을 이용한 User 상세 페이지 구현</h2>
 
+<p>news라우트에서 user 이름 클릭시 user 정보 상세페이지 구현</p>
 <ul>
-  <li>비동기 호출은 전부 action에서 하고 받아온 데이터를 mutations를 통해서 state에 넣어주게 구분되어 있다.</li>
-  <li>actions에서 비동기 호출을 하고 첫번째 인자로 context를 주면 mutations에 접근 할 수 있다.</li>
-  <li>context.commit(‘SET_NEWS’, response.data)</li>
-  <li>mutations에서는 첫번째 인자로 state를 넣어주고 두번째 인자에는 actions에서 넘겨준 response.data값이 들어간다.</li>
-  <li>컴포넌트에서 actions에 접근은 dispatch로 한다.</li>
+  <li>동적라우트 매칭으로 params를 받아왔고 그것을 이용해서 api를 호출</li>
+  <li>UserView.vue에서 user정보 가져오는 api를 호출 할 수도 있지만 스토어를 사용</li>
 </ul>
 
+<ol>
+  <li>api/index.js &gt; fetchUserInfo에 user정보 가져오는 로직 넣기</li>
+  <li>NewsView에서 클릭한 user이름으로 /user/${item.user} router-link를 통해서 이동</li>
+  <li>router/index.js에 라우트 등록해주기</li>
+  <li>UserView에서는 $route안의 params.id값을 const userName에 넣어주고 this.$store.dispatch를 통해서 actions에 있는 FETCH_USER에 접근하고 두번째 인자로 클릭한 username을 넘겨준다.</li>
+  <li>actions(비동기처리)에서 context를 첫번째 인자로 넘겨서 mutations에 접근할 수 있도록 하고 UserView에서 넘겨받은 username을 받도록 두번째 인자에 name을 넣어준다.</li>
+  <li>user정보 가져오는 함수 fetchUserInfo를 실행하고 인자로 name을 넘겨준다.</li>
+  <li>commit으로 SET_USER를 실행한다.</li>
+  <li>mutations에서 state에 접근해서 user에 비동기로 받아온 데이터를 넣어서 state를 바꾼다.</li>
+  <li>UserView에서 화면에 데이터를 뿌려준다.</li>
+</ol>
+
 <blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/f1d13f91ee4672a0a111094a3833f53b230626a0">diff check</a></p>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/a2d462fc29978f9f39e16f5bbc7c46d0d0ebf947">diff check</a></p>
 </blockquote>
 
-<h2 id="54-jobview에-스토어-적용">5.4 JobView에 스토어 적용</h2>
+<h2 id="63-질문-상세-페이지-실습-풀이-및-오류-디버깅">6.3 질문 상세 페이지 실습 풀이 및 오류 디버깅</h2>
 
-<ul>
-  <li>Destructuring 사용해서 넣어보기</li>
-  <li><a href="https://joshua1988.github.io/es6-online-book/destructuring.html">Dstructuring 설명</a></li>
-</ul>
+<ol>
+  <li>ItemView.vue 생성하고 router/index.js에 라우트 등록</li>
+  <li>AskView.vue에 router-link등록하기 &gt; <code class="language-plaintext highlighter-rouge">/item/${item.id}</code></li>
+  <li>ItemView에 created에서 itemId 변수에 this.$route.params.id를 넣어준다.(콘솔로 itemId를 찍어봐서 잘 들어오는지 확인해보기)</li>
+  <li>actions에 FETCH_ITEM 선언하고 이 액션을 호출했을때 불러올 api함수(fetchItemInfo)를 api/index.js에 선언해준다.</li>
+  <li>api에 선언한 함수(fetchItemInfo)를 acions상단에 import해주고 FETCH_ITEM안에 실행시켜준다.</li>
+  <li>ItemView에서 created 됐을때 dispatch로 actions의 FETCH_ITEM에 연결해서 api를 호출하도록 하고, 두번째 인자로 params.id를 넣은 변수 itemId를 넣어준다.</li>
+  <li>다시 actions의 FETCH_ITEM에 ItemView에서 넘겨준 itemId를 여기서는 id(두번째 인자)로 받는다.</li>
+  <li>actions에 실행한 api함수(fetchItemInfo)가 프로미스 객체이므로 then, catch문을 받을 수 있다.</li>
+  <li>then에서 commit으로 SET_ITEM(mutations)을 연결한다.</li>
+  <li>mutations에서 SET_ITEM을 선언하고 첫번째 인자로 state를 넣고 actions에서 비동기처리로 데이터를 data에 받아와서 mutations의 두번째 인자에 item이라고 정의해서 넣어준다.</li>
+  <li>mutations에서 두번째 인자로 item을 넣었는데 이를 받아줄 item을 store/index.js의 state에서 정의 하지 않았으므로 가서 정의해준다.</li>
+</ol>
 
 <blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/74c99efcdd9b849abe927365fbe26b523641d03f">diff check</a></p>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/5c877f557e5f59afffe38ce8a76b2926f3c8d2e7">diff check</a></p>
 </blockquote>
 
-<h2 id="55-map-헬퍼-함수를-이용한-askview-풀이">5.5 map 헬퍼 함수를 이용한 AskView 풀이</h2>
+<h2 id="64-질문-상세-페이지-스타일링-및-v-html-디렉티브-사용법-소개">6.4 질문 상세 페이지 스타일링 및 v-html 디렉티브 사용법 소개</h2>
+
+<p>불러온 데이터를 화면에 표시</p>
 
 <ul>
-  <li>mapState와 mapGetters는 computed 속성에서 사용</li>
-  <li>this.$store.state.ask; 이렇게 가져오는것은 더 길어지면 파악하기 힘들기 때문에 헬퍼 함수를 사용하면 편함</li>
+  <li>화면에 뿌려주는 항목들을 mapGetters 헬퍼함수를 이용해서 뿌리기</li>
+  <li>mapGetters를 import한다.</li>
+  <li>store/index.js에 getter추가</li>
+  <li>ItemView로 돌아와서 computed 속성에 …mapGetters([‘fetchedItem’]) 정의하고 템플릿영역에서 fetchedItem으로 뿌려줌</li>
+  <li>content부분이 html태그를 그대로 들고와서 화면에 태그가 노출됨 &gt; v-html=”fetchedItem.content”</li>
+  <li><a href="https://v2.vuejs.org/v2/api/?redirect=true#v-html">v-html API 문서</a></li>
+  <li><a href="https://v2.vuejs.org/v2/guide/syntax.html?redirect=true#Raw-HTML">v-html과 데이터 바인딩 차이점 문서</a></li>
 </ul>
 
 <blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/f629a7e9aba8a99e6930bfbc528954350b83d02c">diff check</a></p>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/962f263adf8b32e755d7701d1a6635e76f7a9862">diff check</a></p>
 </blockquote>
 
-<h2 id="56-스토어-속성-모듈화">5.6 스토어 속성 모듈화</h2>
+<h2 id="65-라우터-트랜지션">6.5 라우터 트랜지션</h2>
 
+<p>특정 링크로 이동할때 바로 화면이 바뀌는데 뷰 내부적으로 제공하는 트랜지션 api로 부드러운 화면 전환하기</p>
 <ul>
-  <li>프로젝트가 커질 수록 store가 길어지니까 모듈화해서 나눠놓는게 좋다.</li>
+  <li><a href="https://router.vuejs.org/guide/advanced/transitions.html#per-route-transition">라우터 트랜지션 문서</a></li>
+  <li><a href="https://v2.vuejs.org/v2/guide/transitions.html?redirect=true">뷰 트랜지션 문서</a></li>
+  <li>라우터 뷰를 트랜지션 태그로 감싸면 트랜지션 이펙트 사용 가능</li>
 </ul>
 
 <blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/6e92aae19f48ffb976010166bf7e4a2794471ec6">diff check</a></p>
-</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="store" /><category term="vuex" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">vuex</title><link href="http://localhost:4000/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/4687eb2d5bf41f3be1a687a7ec989bf34bbb80ca">diff check</a></p>
+</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="router" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">vuex</title><link href="http://localhost:4000/vue-lv2/vuex/" rel="alternate" type="text/html" title="vuex" /><published>2022-03-12T00:00:00+09:00</published><updated>2022-03-12T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv2/vuex</id><content type="html" xml:base="http://localhost:4000/vue-lv2/vuex/"><![CDATA[<h2 id="vuex-소개">vuex 소개</h2>
 
 <ul>
   <li>복잡한 애플리케이션의 컴포넌트들을 효율적으로 관리하는 vuex 라이브러리</li>
@@ -503,47 +522,4 @@ mutations : 동기 로직</p>
   <li>git add . : 변경한 파일을 저장</li>
   <li>git commit -m “커밋메세지” : 커밋메세지 입력</li>
   <li>git push origin ‘브랜치명’ : 원격저장소 브랜치에 push 하기</li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="git" /><category term="branch" /><summary type="html"><![CDATA[branch 생성하고 사용하기]]></summary></entry><entry><title type="html">git commit 메세지 수정</title><link href="http://localhost:4000/git/git-commit-edit/" rel="alternate" type="text/html" title="git commit 메세지 수정" /><published>2021-12-12T00:00:00+09:00</published><updated>2021-12-12T00:00:00+09:00</updated><id>http://localhost:4000/git/git-commit-edit</id><content type="html" xml:base="http://localhost:4000/git/git-commit-edit/"><![CDATA[<h2 id="마지막-commit-메세지-수정하기">마지막 commit 메세지 수정하기</h2>
-
-<blockquote>
-  <p>git commit –amend -m “바꿀 메세지”<br />
-or<br />
-git commit –amend<br />
-까지 입력후 vi 에서 i(수정모드)로 변경하고 수정 후 esc 누르고 :wq로 저장</p>
-</blockquote>
-
-<h2 id="이전-commit-메세지-수정하기">이전 commit 메세지 수정하기</h2>
-
-<p><code class="language-plaintext highlighter-rouge">rebase</code> 명령어를 사용<br />
-<code class="language-plaintext highlighter-rouge">rebase</code> 명령어는 branch의 base를 다시 설정하여 master브랜치와 merge commit생성을 방지하여 깔끔한 커밋을 남길 수 있도록 도와주는 명령어</p>
-
-<blockquote>
-  <p>git rebase -i HEAD~3</p>
-</blockquote>
-
-<p>rebase에서 -i 옵션을 주면 rebase명령을  대화형으로 수행하여 여러 커밋들의 순서를 바꾸거나 커밋 히스토리를 변경 또는 삭제할 때 사용<br />
-HEAD~3 은 최근 커밋 메시지중 3개만 불러온다는 뜻</p>
-
-<p>입혁하면 최근 커밋 메시지 3개를 불러오는데</p>
-
-<blockquote>
-  <p>pick 커밋번호 커밋메시지</p>
-</blockquote>
-
-<p>형식으로 출력</p>
-
-<p>이때 수정하고 싶은 commit 내역의 <code class="language-plaintext highlighter-rouge">pick</code>을 <code class="language-plaintext highlighter-rouge">reword</code>로 바꾸고 :wq로 저장 종료<br />
-종료가 되면 선택한 commit 메시지에 대한 화면이 다시 터미널에 호출<br />
-위와 동일하게 vi 에서 i(수정모드)로 변경하고 수정 후 esc 누르고 :wq로 저장</p>
-
-<h2 id="원격에-이미-push-했을-때">원격에 이미 Push 했을 때</h2>
-
-<p>commit이 이미 원격에 push 되었다면 커밋 메시지를 수정하고</p>
-
-<blockquote>
-  <p>git push origin master(혹은 브랜치명) -f</p>
-</blockquote>
-
-<p>로 강제 덮어씌우기</p>
-
-<p>*** 개인 레포지토리나 개인 브랜치가 아닌 협업 마스터 브랜치에는 위험할 수 있음</p>]]></content><author><name>FE Developer</name></author><category term="git" /><category term="commit" /><summary type="html"><![CDATA[commit 오타 수정]]></summary></entry></feed>
+</ul>]]></content><author><name>FE Developer</name></author><category term="git" /><category term="branch" /><summary type="html"><![CDATA[branch 생성하고 사용하기]]></summary></entry></feed>

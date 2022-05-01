@@ -334,4 +334,10 @@ var store = [{
         "tags": ["vue","router"],
         "url": "/vue-lv3/vue-advanced6/",
         "teaser": null
+      },{
+        "title": "7 - 리스트 아이템 컴포넌트 공통화",
+        "excerpt":"7.1 컴포넌트 공통화 리팩토링      각 view페이지 스타일링      diff check    7.2 공통 컴포넌트 ListItem 제작 및 실습 안내      components폴더에 ListItem.vue파일 생성 : 각각의 페이지 컴포넌트가 들고있는 데이터 패치와 스타일링등을 다 들고옴   NewsView.vue에 ListItem.vue import해서 컴포넌트로 넣어줌      diff check   ","categories": ["vue-lv3"],
+        "tags": ["vue","공통화"],
+        "url": "/vue-lv3/vue-advanced7/",
+        "teaser": null
       }]

@@ -25,5 +25,20 @@ toc: true
 ## 7.3 공통 컴포넌트 구현(1) - 페이지별 데이터 분기
 
 - 라우터에 있는 정보들로 분기처리 가능
+- router/index.js에 각 라우트 속성에 name값 정의
+- ListItem.vue에서 각 라우트 name으로 들어올때 actions의 비동기처리 실행
 
 >[diff check](https://github.com/wjddk0909/vue-news/commit/da772aa9b27e420163229272518d9b2b8ca86297)
+
+## 7.4 공통 컴포넌트 구현(2) - computed 속성
+
+- computed 사용해서 각 페이지 api 뿌리기
+
+>[diff check](https://github.com/wjddk0909/vue-news/commit/5f8d20a13ceea72f3e6cd31eda7ce6c88194e6f0)
+
+# 7.5 공통 컴포넌트 구현(3) - template 속성과 v-if 디렉티브 활용
+
+- `<template v-if=""></template>` 가상의 태그를 넣고 태그가 vue 내부적으로 분기처리를 해서 v-if안에 해당되는 조건이 있으면 뿌려줌
+- 태그 안에 바로 v-if, v-else 사용 가능
+
+>[diff check](https://github.com/wjddk0909/vue-news/commit/c96efb9243421ea7d663f605399b0d2b0e2124b2)

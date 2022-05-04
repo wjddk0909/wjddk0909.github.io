@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-02T02:36:06+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">7 - 리스트 아이템 컴포넌트 공통화</title><link href="http://localhost:4000/vue-lv3/vue-advanced7/" rel="alternate" type="text/html" title="7 - 리스트 아이템 컴포넌트 공통화" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced7</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced7/"><![CDATA[<h2 id="71-컴포넌트-공통화-리팩토링">7.1 컴포넌트 공통화 리팩토링</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-03T08:50:27+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">7 - 리스트 아이템 컴포넌트 공통화</title><link href="http://localhost:4000/vue-lv3/vue-advanced7/" rel="alternate" type="text/html" title="7 - 리스트 아이템 컴포넌트 공통화" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced7</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced7/"><![CDATA[<h2 id="71-컴포넌트-공통화-리팩토링">7.1 컴포넌트 공통화 리팩토링</h2>
 
 <ul>
   <li>각 view페이지 스타일링</li>
@@ -17,6 +17,16 @@
 
 <blockquote>
   <p><a href="https://github.com/wjddk0909/vue-news/commit/998719e87d71186f1059ae6b391e714f202d703a">diff check</a></p>
+</blockquote>
+
+<h2 id="73-공통-컴포넌트-구현1---페이지별-데이터-분기">7.3 공통 컴포넌트 구현(1) - 페이지별 데이터 분기</h2>
+
+<ul>
+  <li>라우터에 있는 정보들로 분기처리 가능</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/da772aa9b27e420163229272518d9b2b8ca86297">diff check</a></p>
 </blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="공통화" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">5 - 스토어 구현</title><link href="http://localhost:4000/vue-lv3/vue-advanced5/" rel="alternate" type="text/html" title="5 - 스토어 구현" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced5</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced5/"><![CDATA[<h2 id="51-vuex-설치-및-vuex가-적용된-앱-구조-소개">5.1 Vuex 설치 및 Vuex가 적용된 앱 구조 소개</h2>
 
 <ul>

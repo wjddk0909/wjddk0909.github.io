@@ -21,3 +21,9 @@ toc: true
 - NewsView.vue에 ListItem.vue import해서 컴포넌트로 넣어줌
 
 >[diff check](https://github.com/wjddk0909/vue-news/commit/998719e87d71186f1059ae6b391e714f202d703a)
+
+## 7.3 공통 컴포넌트 구현(1) - 페이지별 데이터 분기
+
+- 라우터에 있는 정보들로 분기처리 가능
+
+>[diff check](https://github.com/wjddk0909/vue-news/commit/da772aa9b27e420163229272518d9b2b8ca86297)

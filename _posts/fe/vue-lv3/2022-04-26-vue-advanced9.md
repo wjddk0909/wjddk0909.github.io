@@ -127,5 +127,3 @@ var DialogMixin = {
 - mixins는 새로 생성되는 컴포넌트가 없음
 
 >[diff check](https://github.com/wjddk0909/vue-news/commit/0bfe7e56eb6c5acc7258b0534f07ecaa41e3f639)
-
-## 9.9 Mixin 실습 및 컴포넌트 재활용 방법에 대한 리뷰

@@ -59,6 +59,12 @@ var store = [{
         "url": "/vue-lv1/vue-beginner5/",
         "teaser": null
       },{
+        "title": "vue cli",
+        "excerpt":"vue cli로 프로젝트 생성하기   Vue3대신 Vue2를 선택하는 이유는?     안정적이고 무엇보다 Vue3는 explorer를 지원하지 않는다.   manually로 생성하기          default로 생성할때와 다르게 생성할때 정해야할 정책들이 있음       preset : 미리 만들어둔것 가져오기   progressive web app support : 빌드시에 바로가기 아이콘 생성   css pre-proessors : css 전처리기   unit-testing ; 단위 테스팅   E2E testing   class-style component : 클래스 스타일 사용할건지? (사용안함)   history mode : url에 해쉬태그를 없애는 건데 새로고침이나 url을 입력하고 엔터를 치면 404에러가 발생한다.  이유는 vue는 spa인데 이는 router로 페이지 이동할때 페이지 이동처럼 보이지만 서버에 요청해서 받은게 아니고 한페이지에서 컴포넌트만 갈아끼우고 url 변경하는 형식인데 새로고침, 엔터시 에러가 발생하는것은 서버로 get요청을 보내기 때문에 받아올게 없기 때문이다. (cli로 만들면 문제는 없다는듯)   config : 설정파일   core.js : 바벨에서 es5로 전환할때 그냥 할 수 없는 것들이 있음(예를들어 Promise) 이것들은 폴리필이라는 코드조각을 사용해야 하는데 이 코드 조각들의 모음   ","categories": ["vue-study"],
+        "tags": ["cli"],
+        "url": "/vue-study/fe-vue-cli/",
+        "teaser": null
+      },{
         "title": "vue에서 scss 사용하기",
         "excerpt":"vue에서 scss 사용 기본 설정   scss 패키지 설치  node-sass와 sass-loader 설치   yarn add node-sass -D yarn add sass-loader -D   사용법  간단한 설치만으로도 vue-loader에서 기본으로 설정되어있는 webpack 설정 때문에 패키지 설치 후 컴포넌트 내에서 lang속성을 지정해주면 자동으로 Loader를 사용 할 수 있음   1 2 3 4 5 6 // 컴포넌트 내에 lang속성으로 scss 명시 // 스타일 내부 scss 파일 import하는 방법 // 경로에서 @의 경우 /src와 같은 의미 &lt;style lang=\"scss\"&gt;     @import \"@/asstes/scss/파일명\"; &lt;/style&gt;   전역 스타일 및 변수 설정 변수를 담아둔 scss 파일을 매번 컴포넌트에서 불러와 사용하는 것은 효율적이지 않음  따라서 자주 사용하는 변수나 reset스타일, mixin같은 경우 전역 스타일을 설정해서 사용 가능   설정방법  vue.config.js 파일 생성해서 webpack 설정을 추가   1 2 3 4 5 6 7 8 9 10 11 module.exports = {     css: {         loaderOptions: {             sass: {                 additionalData: `                     @import \"@/assets/scss/abstracts/abstracts.scss\";                 `             }         }     } }   1 2 3 4 5 6 7 8 9 //예시 $TEXT_DEFAULT: #333;  //다른컴포넌트 &lt;style lang=\"scss\"&gt;     p {         color: $TEXT_DEFAULT     } &lt;/style&gt;  ","categories": ["vue-study"],
         "tags": ["scss"],

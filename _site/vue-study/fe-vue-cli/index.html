@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>vue에서 scss 사용하기 - FE개발자를 꿈꾸다</title>
-<meta name="description" content="scss">
+<!-- begin _includes/seo.html --><title>vue cli - FE개발자를 꿈꾸다</title>
+<meta name="description" content="cli">
 
 
   <meta name="author" content="FE Developer">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="FE개발자를 꿈꾸다">
-<meta property="og:title" content="vue에서 scss 사용하기">
-<meta property="og:url" content="http://localhost:4000/vue-study/fe-vue-scss/">
+<meta property="og:title" content="vue cli">
+<meta property="og:url" content="http://localhost:4000/vue-study/fe-vue-cli/">
 
 
-  <meta property="og:description" content="scss">
+  <meta property="og:description" content="cli">
 
 
 
@@ -47,7 +47,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/vue-study/fe-vue-scss/">
+<link rel="canonical" href="http://localhost:4000/vue-study/fe-vue-cli/">
 
 
 
@@ -271,15 +271,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="vue에서 scss 사용하기">
-    <meta itemprop="description" content="scss">
+    <meta itemprop="headline" content="vue cli">
+    <meta itemprop="description" content="cli">
     <meta itemprop="datePublished" content="2021-12-01T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">vue에서 scss 사용하기
+          <h1 id="page-title" class="page__title" itemprop="headline">vue cli
 </h1>
           
 <!--
@@ -301,81 +301,30 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="vue에서-scss-사용-기본-설정">vue에서 scss 사용 기본 설정</h2>
+        <h2 id="vue-cli로-프로젝트-생성하기">vue cli로 프로젝트 생성하기</h2>
 
-<p>scss 패키지 설치<br />
-node-sass와 sass-loader 설치</p>
+<p>Vue3대신 Vue2를 선택하는 이유는?</p>
+<ul>
+  <li>안정적이고 무엇보다 Vue3는 explorer를 지원하지 않는다.</li>
+</ul>
 
-<p><code class="language-plaintext highlighter-rouge">yarn add node-sass -D</code>
-<code class="language-plaintext highlighter-rouge">yarn add sass-loader -D</code></p>
+<p>manually로 생성하기</p>
+<ul>
+  <li>
+    <p>default로 생성할때와 다르게 생성할때 정해야할 정책들이 있음</p>
+  </li>
+  <li>preset : 미리 만들어둔것 가져오기</li>
+  <li>progressive web app support : 빌드시에 바로가기 아이콘 생성</li>
+  <li>css pre-proessors : css 전처리기</li>
+  <li>unit-testing ; 단위 테스팅</li>
+  <li>E2E testing</li>
+  <li>class-style component : 클래스 스타일 사용할건지? (사용안함)</li>
+  <li>history mode : url에 해쉬태그를 없애는 건데 새로고침이나 url을 입력하고 엔터를 치면 404에러가 발생한다.<br />
+이유는 vue는 spa인데 이는 router로 페이지 이동할때 페이지 이동처럼 보이지만 서버에 요청해서 받은게 아니고 한페이지에서 컴포넌트만 갈아끼우고 url 변경하는 형식인데 새로고침, 엔터시 에러가 발생하는것은 서버로 get요청을 보내기 때문에 받아올게 없기 때문이다. (cli로 만들면 문제는 없다는듯)</li>
+  <li>config : 설정파일</li>
+  <li>core.js : 바벨에서 es5로 전환할때 그냥 할 수 없는 것들이 있음(예를들어 Promise) 이것들은 폴리필이라는 코드조각을 사용해야 하는데 이 코드 조각들의 모음</li>
+</ul>
 
-<p>사용법<br />
-간단한 설치만으로도 vue-loader에서 기본으로 설정되어있는 webpack 설정 때문에 패키지 설치 후 컴포넌트 내에서 lang속성을 지정해주면 자동으로 Loader를 사용 할 수 있음</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre>// 컴포넌트 내에 lang속성으로 scss 명시
-// 스타일 내부 scss 파일 import하는 방법
-// 경로에서 @의 경우 /src와 같은 의미
-<span class="nt">&lt;style </span><span class="na">lang=</span><span class="s">"scss"</span><span class="nt">&gt;</span>
-    <span class="k">@import</span> <span class="s1">"@/asstes/scss/파일명"</span><span class="p">;</span>
-<span class="nt">&lt;/style&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>전역 스타일 및 변수 설정
-변수를 담아둔 scss 파일을 매번 컴포넌트에서 불러와 사용하는 것은 효율적이지 않음<br />
-따라서 자주 사용하는 변수나 reset스타일, mixin같은 경우 전역 스타일을 설정해서 사용 가능</p>
-
-<p>설정방법<br />
-vue.config.js 파일 생성해서 webpack 설정을 추가</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="rouge-code"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">css</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">loaderOptions</span><span class="p">:</span> <span class="p">{</span>
-            <span class="na">sass</span><span class="p">:</span> <span class="p">{</span>
-                <span class="na">additionalData</span><span class="p">:</span> <span class="s2">`
-                    @import "@/assets/scss/abstracts/abstracts.scss";
-                `</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="rouge-code"><pre>//예시
-$TEXT_DEFAULT: #333;
-
-//다른컴포넌트
-<span class="nt">&lt;style </span><span class="na">lang=</span><span class="s">"scss"</span><span class="nt">&gt;</span>
-    <span class="nt">p</span> <span class="p">{</span>
-        <span class="nl">color</span><span class="p">:</span> <span class="err">$</span><span class="n">TEXT_DEFAULT</span>
-    <span class="p">}</span>
-<span class="nt">&lt;/style&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
 
         
       </section>
@@ -392,7 +341,7 @@ $TEXT_DEFAULT: #333;
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#scss" class="page__taxonomy-item p-category" rel="tag">scss</a>
+      <a href="/tags/#cli" class="page__taxonomy-item p-category" rel="tag">cli</a>
     
     </span>
   </p>
@@ -429,22 +378,22 @@ $TEXT_DEFAULT: #333;
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=vue%EC%97%90%EC%84%9C+scss+%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fvue-study%2Ffe-vue-scss%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=vue+cli%20http%3A%2F%2Flocalhost%3A4000%2Fvue-study%2Ffe-vue-cli%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fvue-study%2Ffe-vue-scss%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fvue-study%2Ffe-vue-cli%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fvue-study%2Ffe-vue-scss%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fvue-study%2Ffe-vue-cli%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/vue-study/fe-vue-cli/" class="pagination--pager" title="vue cli
+      <a href="/vue-lv1/vue-beginner5/" class="pagination--pager" title="5 - 컴포넌트 통신 방법) 기본
 ">이전</a>
     
     
-      <a href="/vue-study/fe-vue-views-components/" class="pagination--pager" title="vue.js 프로젝트 구조 : views와 components의 차이
+      <a href="/vue-study/fe-vue-scss/" class="pagination--pager" title="vue에서 scss 사용하기
 ">다음</a>
     
   </nav>

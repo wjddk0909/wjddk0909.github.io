@@ -1,0 +1,62 @@
+I"[
+<h2 id="81-사용자-프로필-컴포넌트-소개-및-등록">8.1 사용자 프로필 컴포넌트 소개 및 등록</h2>
+
+<ul>
+  <li>사용자 정보 공통 컴포넌트</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/14deeeb5aea1f060678ff92447969656daec4c08">diff check</a></p>
+</blockquote>
+
+<h2 id="82-사용자-컴포넌트-데이터-흐름-처리-1">8.2 사용자 컴포넌트 데이터 흐름 처리 1</h2>
+
+<ul>
+  <li>UserView에서 UserProfile로 데이터 넘기기</li>
+  <li>vuex사용해서 UserProfile에서 바로 접근</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/1407cba586231ba50ce7d5c08d4e54a5b93ef2cb">diff check</a></p>
+</blockquote>
+
+<h2 id="83-사용자-컴포넌트-데이터-흐름-처리-2">8.3 사용자 컴포넌트 데이터 흐름 처리 2</h2>
+
+<ul>
+  <li>UserView.vue에서 UserProfile.vue로 <code class="language-plaintext highlighter-rouge">:info="userInfo"</code>로 데이터를 넘기고</li>
+  <li>UserProfile.vue에서 <code class="language-plaintext highlighter-rouge">props: { info: Object }</code>로 데이터 받기</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/97795a2c137c7faac6513465516d5cf2122eb93a">diff check</a></p>
+</blockquote>
+
+<h2 id="84-2가지-데이터-처리-흐름-비교">8.4 2가지 데이터 처리 흐름 비교</h2>
+
+<ol>
+  <li>
+    <p>UserProfile에서 computed로 접근<br />
+UserView -&gt; actions에서 api 호출해서 받아오기 -&gt; mutations 호출 -&gt; state변경 -&gt; UserProfile에서 computed로 접근해서 데이터 넘김</p>
+  </li>
+  <li>
+    <p>UserView에서 props로 전달<br />
+UserView -&gt; actions에서 api 호출해서 받아오기 -&gt; mutations 호출 -&gt; state변경 -&gt; UserView에서 props로 UserProfile로 내려줌</p>
+  </li>
+</ol>
+
+<h2 id="85-slot을-이용한-사용자-프로필-컴포넌트-구현">8.5 slot을 이용한 사용자 프로필 컴포넌트 구현</h2>
+
+<ul>
+  <li>slot: 하위컴포넌트에서 미완성으로 넣어둔 부분을 상위에서 하위컴포넌트를 등록할때 그부분을 채워줌</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/aa25c1db22d662283737d105c1b3a0dbf119e5b8">diff check</a></p>
+</blockquote>
+
+<h2 id="86-코드-정리">8.6 코드 정리</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/03720f08f4ec3c15d1a334a959538f07db14971c">diff check</a></p>
+</blockquote>
+:ET

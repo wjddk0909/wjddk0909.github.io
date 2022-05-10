@@ -1,0 +1,700 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>LocalStorage 데이터 저장은 string - FE개발자를 꿈꾸다</title>
+<meta name="description" content="로컬스토리지 사용">
+
+
+  <meta name="author" content="FE Developer">
+  
+  <meta property="article:author" content="FE Developer">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="FE개발자를 꿈꾸다">
+<meta property="og:title" content="LocalStorage 데이터 저장은 string">
+<meta property="og:url" content="http://localhost:4000/javascript/localstorage/">
+
+
+  <meta property="og:description" content="로컬스토리지 사용">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo2.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2021-12-10T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/javascript/localstorage/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "꿈꾸는 개발자",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="FE개발자를 꿈꾸다 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          FE개발자를 꿈꾸다
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/logo2.png" alt="FE Developer" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">FE Developer</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>꿈꾸는 개발자</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:wjddk0909@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="LocalStorage 데이터 저장은 string">
+    <meta itemprop="description" content="로컬스토리지 사용">
+    <meta itemprop="datePublished" content="2021-12-10T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">LocalStorage 데이터 저장은 string
+</h1>
+          
+<!--
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+            devinlife comments :
+                싱글 페이지(포스트)에 제목 밑에 Updated 시간 표기
+                기존에는 read_time이 표기. read_time -> date 변경
+-->
+            <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2021-12-10T00:00:00+09:00">December 10, 2021</time></p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="localstorage에-데이터-저장해서-사용하기">LocalStorage에 데이터 저장해서 사용하기</h2>
+
+<p>개요</p>
+<ul>
+  <li>공지사항 상세보기 페이지에서 수정하기로 넘어 갈때 기존에는 라우터에 params에 데이터(현장코드, 분류, 내용 등등) 넣어서 넘김</li>
+  <li>수정하기 페이지에서 받을때도 <code class="language-plaintext highlighter-rouge">this.$route.params.isEdit</code>로 받아서 객체 안의 데이터를 화면에 뿌려줌</li>
+  <li>문제는 <code class="language-plaintext highlighter-rouge">params</code> 정보는 상세보기 페이지에서 넘겨주는 정보라서 수정하기 페이지에서 새로고침시 정보가 초기화 돼서 수정하기 화면의 데이터가 초기화 됨</li>
+</ul>
+
+<p>해결 방법</p>
+<ul>
+  <li>상세보기 페이지에서 데이터를 <code class="language-plaintext highlighter-rouge">LocalStorage</code>에 <code class="language-plaintext highlighter-rouge">setItem</code>으로 저장</li>
+  <li>수정하기 페이지에서 <code class="language-plaintext highlighter-rouge">getItem</code>으로 받아오기</li>
+</ul>
+
+<p>주의할 점</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">LocalStorage</code>에 <code class="language-plaintext highlighter-rouge">Object</code>값과 <code class="language-plaintext highlighter-rouge">Boolean</code>값 저장</li>
+  <li>데이터 타입 로그를 찍어보면 둘다 <code class="language-plaintext highlighter-rouge">string</code>으로 나옴</li>
+  <li><code class="language-plaintext highlighter-rouge">string</code>으로 넣고 <code class="language-plaintext highlighter-rouge">getItem</code>으로 가져올때 원본 타입으로 가져오기</li>
+</ul>
+
+<ol>
+  <li>Object</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="c1">// 로컬스토리지에 저장해야 하는 파일(NoticeView.vue)</span>
+<span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">editData</span><span class="dl">'</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">gettersFN_000032</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span> 
+<span class="c1">// 객체 &gt; 스트링으로 변환해서 저장</span>
+
+
+<span class="c1">// 로컬스토리지에서 가져와야 하는 파일(NoticeWrite.vue)</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">selectSite</span><span class="p">.</span><span class="nx">editData</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">editData</span><span class="dl">'</span><span class="p">)</span> <span class="k">as</span> <span class="nx">string</span><span class="p">);</span> 
+<span class="c1">// 다시 스트링 &gt; 객체로 변환해서 가져오기</span>
+<span class="c1">// as string: 에러메시지 'null 또는 string 타입 인자는 string 타입의 파라미터에 할당 될 수 없다. null타입은 string타입에 할당될 수 없다.'가 떠서 string으로 선언</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ol>
+  <li>Boolean</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c1">// 로컬스토리지에 저장해야 하는 파일(NoticeView.vue)</span>
+<span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nl">isEdit</span><span class="p">:</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">isEdit</span><span class="dl">'</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">isEdit</span><span class="p">);</span> <span class="c1">// 로컬스토리지를 거치면 타입이 string이 됨</span>
+
+<span class="c1">// 로컬스토리지에서 가져와야 하는 파일(NoticeWrite.vue)</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">getIsEdit</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">isEdit</span><span class="dl">'</span><span class="p">)</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">true</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// 값을 Boolean형태로 반환하도록</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="추가-공지사항-새로고침-이슈">+추가) 공지사항 새로고침 이슈</h2>
+
+<h3 id="신규등록">신규등록</h3>
+
+<p>NoticeList.vue</p>
+<ul>
+  <li>localStorage.removeItem &gt; isEdit(수정하기인지 확인하는 boolean값), editData(공지사항 수정하기 데이터) 삭제</li>
+  <li>const obj에 NM_SITE, CD_SITE 속성 추가</li>
+  <li>로컬스토리지에 저장 <code class="language-plaintext highlighter-rouge">localStorage.setItem('params', JSON.stringify(obj));</code></li>
+  <li>등록하기 페이지 들어오면 <code class="language-plaintext highlighter-rouge">this.selectSite = JSON.parse(localStorage.getItem('params') as string);</code>로 로컬스토리지 가져와서 selectSite에 객체 넣어줌</li>
+  <li>selectSite의 각 속성 가져와서 화면에 뿌려줌 ``</li>
+</ul>
+
+<h3 id="수정등록">수정등록</h3>
+
+<p>NoticeView.vue</p>
+<ul>
+  <li>created 됐을때 <code class="language-plaintext highlighter-rouge">localStorage.setItem('editData', JSON.stringify(this.gettersFN_000032[0]));</code>로 로컬스토리지 저장</li>
+  <li>data에 <code class="language-plaintext highlighter-rouge">isEdit: true</code> 정의</li>
+  <li><code class="language-plaintext highlighter-rouge">moveNoticeUpdate</code> 수정하기 클릭하면 <code class="language-plaintext highlighter-rouge">localStorage.setItem('isEdit', this.isEdit);</code>로 로컬스토리지에 isEdit: true 저장
+NoticeWrite.vue</li>
+  <li>data에 <code class="language-plaintext highlighter-rouge">getIsEdit: false</code> 정의</li>
+  <li><code class="language-plaintext highlighter-rouge">this.getIsEdit = localStorage.getItem('isEdit') === 'true';</code> 로컬스토리지에서 boolean값 가져오기(true)</li>
+  <li>if (this.getIsEdit)일때 <code class="language-plaintext highlighter-rouge">this.isEdit = true;</code> isEdit가 false로 넘어와서 true로 바꿔주기</li>
+  <li><code class="language-plaintext highlighter-rouge">this.selectSite.editData = JSON.parse(localStorage.getItem('editData') as string);</code> 로컬스토리지에서 editData에 넣어둔 공지사항 데이터 가져오기</li>
+  <li>selectSite.editData의 각 속성 가져와서 화면에 뿌려줌 ``</li>
+</ul>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#localstorage" class="page__taxonomy-item p-category" rel="tag">localstorage</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#javascript" class="page__taxonomy-item" rel="tag">javascript</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-12-10T00:00:00+09:00">December 10, 2021</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=LocalStorage+%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%A0%80%EC%9E%A5%EC%9D%80+string%20http%3A%2F%2Flocalhost%3A4000%2Fjavascript%2Flocalstorage%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjavascript%2Flocalstorage%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjavascript%2Flocalstorage%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/javascript/rest/" class="pagination--pager" title="REST
+">이전</a>
+    
+    
+      <a href="/vue-lv2/fontawesome/" class="pagination--pager" title="Vue에서 Fontawesome 사용하기
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv3/vue-advanced9/" rel="permalink">9 - Mixin과 하이 오더 컴포넌트
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 26 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Vue news
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv3/vue-advanced8/" rel="permalink">8 - 사용자 프로필 컴포넌트 공통화
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 26 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Vue news
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv3/vue-advanced7/" rel="permalink">7 - 리스트 아이템 컴포넌트 공통화
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 26 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Vue news
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv3/vue-advanced6/" rel="permalink">6 - 라우터 실전
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 26 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Vue news
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 꿈꾸는 개발자. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="/assets/js/codeCopy.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

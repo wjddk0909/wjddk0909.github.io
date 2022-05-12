@@ -1,0 +1,119 @@
+I"�"<h2 id="vue에서-router-이동을-코드로-어떻게-구현하는가">vue에서 router 이동을 코드로 어떻게 구현하는가</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">router.push({})</code>로 구현</li>
+</ul>
+
+<h2 id="공지사항-상세보기에서-수정하기-페이지로-이동할때">공지사항 상세보기에서 수정하기 페이지로 이동할때</h2>
+
+<ul>
+  <li>라우터 설정시에 <code class="language-plaintext highlighter-rouge">path: 'edit/:NO_NTC/:isEdit',</code>로 설정해주고(path variable)</li>
+  <li>url이 <code class="language-plaintext highlighter-rouge">notice/edit/0HlVn6NilcOOyBqKFordeg==/true</code> 이런식으로 이동, 그 값을 이용해서 새로고침시에 api를 재호출 시킴</li>
+  <li>:NO_NTC, :isEdit는 <code class="language-plaintext highlighter-rouge">NoticeView.vue</code>에서 아래와 같이 넘겨줌
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">moveNoticeUpdate</span> <span class="o">=</span> <span class="k">async</span> <span class="nx">val</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">res</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">encrypt</span><span class="p">(</span><span class="nx">NO_NTC</span><span class="p">.</span><span class="nx">value</span> <span class="k">as</span> <span class="nx">string</span><span class="p">);</span>
+  <span class="k">await</span> <span class="nx">router</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+      <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">NoticeEdit</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">params</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">NO_NTC</span><span class="p">:</span> <span class="nx">res</span><span class="p">,</span>
+          <span class="na">editData</span><span class="p">:</span> <span class="nx">val</span><span class="p">,</span>
+          <span class="na">isEdit</span><span class="p">:</span> <span class="dl">'</span><span class="s1">true</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">NM_SITE</span><span class="p">:</span> <span class="nx">selectSiteParam</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+          <span class="na">CD_SITE</span><span class="p">:</span> <span class="nx">selectSiteParam</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">code</span><span class="p">,</span>
+      <span class="p">},</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="새로고침시에-api-재호출은">새로고침시에 api 재호출은?</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">createInit</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// 리스트에서 진입시 현장명/현장코드 들고오기</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">route</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">editData</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 처음 수정하기 페이지로 들어왔을때는 route.params.editData값을 가지고 있어서 여기가 실행됨</span>
+        <span class="nx">selectSite</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span><span class="nx">selectSite</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span> <span class="p">...</span><span class="nx">route</span><span class="p">.</span><span class="nx">params</span> <span class="p">};</span>
+        <span class="nx">isEdit</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="o">!!</span><span class="nx">selectSite</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">isEdit</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// 새로고침하면 params값이 날라가서 여기가 실행됨</span>
+        <span class="kd">const</span> <span class="p">{</span> <span class="nx">NO_NTC</span> <span class="o">=</span> <span class="dl">''</span><span class="p">,</span> <span class="na">isEdit</span><span class="p">:</span> <span class="nx">edit</span> <span class="o">=</span> <span class="dl">''</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">route</span><span class="p">.</span><span class="nx">params</span><span class="p">;</span> <span class="c1">// route.params에 비구조화할당으로 NO_NTC와 isEdit에 path variable로 넘어온 값을 넣어줌(isEdit: edit는 isEdit를 edit로 변환 / 그리고  = ''은 값이 없으면 빈문자열을 넣어주라는 default값)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">edit</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// isEdit가 true면 여기가 실행 </span>
+            <span class="kd">const</span> <span class="nx">res</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">decrypt</span><span class="p">(</span><span class="nx">NO_NTC</span><span class="p">);</span>
+            <span class="k">await</span> <span class="nx">API_FN_000032</span><span class="p">({</span>
+                <span class="na">P_NO_NTC</span><span class="p">:</span> <span class="nx">res</span><span class="p">,</span>
+            <span class="p">});</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nx">gettersFN_000032</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">selectSite</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="p">...</span><span class="nx">selectSite</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span>
+                    <span class="na">editData</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="p">...</span><span class="nx">gettersFN_000032</span><span class="p">.</span><span class="nx">value</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                    <span class="p">},</span>
+                <span class="p">};</span>
+            <span class="p">}</span>
+
+            <span class="nx">isEdit</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="o">!!</span><span class="nx">edit</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">selectSite</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="p">...</span><span class="nx">selectSite</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span>
+                <span class="na">NM_SITE</span><span class="p">:</span> <span class="nx">route</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">NM_SITE</span><span class="p">,</span>
+                <span class="na">CD_SITE</span><span class="p">:</span> <span class="nx">route</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">CD_SITE</span><span class="p">,</span>
+            <span class="p">};</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">await</span> <span class="nx">initApi</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="nx">createInit</span><span class="p">();</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+:ET

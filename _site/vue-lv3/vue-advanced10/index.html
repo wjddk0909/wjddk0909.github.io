@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>2 - 프로젝트 셋업 - FE개발자를 꿈꾸다</title>
+<!-- begin _includes/seo.html --><title>10 - 데이터 호출과 UX - FE개발자를 꿈꾸다</title>
 <meta name="description" content="Vue news">
 
 
@@ -22,8 +22,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="FE개발자를 꿈꾸다">
-<meta property="og:title" content="2 - 프로젝트 셋업">
-<meta property="og:url" content="http://localhost:4000/vue-lv3/vue-advanced2/">
+<meta property="og:title" content="10 - 데이터 호출과 UX">
+<meta property="og:url" content="http://localhost:4000/vue-lv3/vue-advanced10/">
 
 
   <meta property="og:description" content="Vue news">
@@ -47,7 +47,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/vue-lv3/vue-advanced2/">
+<link rel="canonical" href="http://localhost:4000/vue-lv3/vue-advanced10/">
 
 
 
@@ -271,7 +271,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="2 - 프로젝트 셋업">
+    <meta itemprop="headline" content="10 - 데이터 호출과 UX">
     <meta itemprop="description" content="Vue news">
     <meta itemprop="datePublished" content="2022-04-26T00:00:00+09:00">
     
@@ -279,7 +279,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">2 - 프로젝트 셋업
+          <h1 id="page-title" class="page__title" itemprop="headline">10 - 데이터 호출과 UX
 </h1>
           
 <!--
@@ -288,7 +288,7 @@
 
 
 
-  최대 1 분 소요
+  1 분 소요
 </p>
             devinlife comments :
                 싱글 페이지(포스트)에 제목 밑에 Updated 시간 표기
@@ -305,7 +305,7 @@
             <nav class="toc">
               
                 <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
-                <ul class="toc__menu"><li><a href="#21-vue-cli로-프로젝트-생성-및-eslint-로그-확인">2.1 Vue CLI로 프로젝트 생성 및 ESLint 로그 확인</a></li><li><a href="#22-eslint-도구-소개와-사용해야-하는-이유">2.2 ESLint 도구 소개와 사용해야 하는 이유?</a></li></ul>
+                <ul class="toc__menu"><li><a href="#101-ux를-고려한-데이터-호출-시점">10.1 UX를 고려한 데이터 호출 시점</a></li><li><a href="#102-라이프-사이클-훅을-이용한-데이터-호출-방법의-문제와-비동기-처리-코드-수정">10.2 라이프 사이클 훅을 이용한 데이터 호출 방법의 문제와 비동기 처리 코드 수정</a></li><li><a href="#103-라우터-네비게이션을-이용한-데이터-호출-방법">10.3 라우터 네비게이션을 이용한 데이터 호출 방법</a></li><li><a href="#104-라우터-네비게이션-가드-실습-및-스피너-종료-시점-변경">10.4 라우터 네비게이션 가드 실습 및 스피너 종료 시점 변경</a></li></ul>
 
               
             </nav>
@@ -315,35 +315,87 @@
             </nav>
           </aside>
         
-        <h2 id="21-vue-cli로-프로젝트-생성-및-eslint-로그-확인">2.1 Vue CLI로 프로젝트 생성 및 ESLint 로그 확인</h2>
+        <h2 id="101-ux를-고려한-데이터-호출-시점">10.1 UX를 고려한 데이터 호출 시점</h2>
 
-<p><code class="language-plaintext highlighter-rouge">vue create vue-news</code>로 프로젝트 생성</p>
+<p>데이터 호출 시점</p>
+<ol>
+  <li>컴포넌트 라이프 사이클 훅
+    <ul>
+      <li>created : 인스턴스(컴포넌트)가 생성되자 마자 호출되는 로직들, 화면에 내용들이 붙은 상태는 아님</li>
+    </ul>
+  </li>
+  <li>라우터 네비게이션 가드
+    <ul>
+      <li>라우터로 특정 url에 접근할때 그 전에 동작들을 정의하는 속성(함수)</li>
+    </ul>
+  </li>
+</ol>
 
-<p><code class="language-plaintext highlighter-rouge">Vue 2</code>선택후 완료 되면 폴더 경로 들어가서 서버 실행하기</p>
+<p>네비게이션가드가 라이프사이클훅 보다 먼저 호출 됨<br />
+컴포넌트가 생성되고 나서 데이터를 호출 할건지 라우팅 상태에서 호출할건지에 따라 선택</p>
 
-<h2 id="22-eslint-도구-소개와-사용해야-하는-이유">2.2 ESLint 도구 소개와 사용해야 하는 이유?</h2>
+<p><a href="https://vuejs.org/api/#created">created 라이프 사이클 훅 API 문서</a><br />
+<a href="https://joshua1988.github.io/web-development/vuejs/vue-router-navigation-guards/">네비게이션 가드 블로그</a><br />
+<a href="uide/advanced/navigation-guards.html">네비게이션 가드 뷰 라우터 공식 문서</a></p>
 
-<p>ESLint : javascript 문법 검사기(보조도구)
-javascript에서 ;(세미콜론)을 찍지 않더라도 자바스크립트 해석기에서는 마지막에 세미콜론을 넣어줌<br />
-여기서 ESLint는 세미콜론을 찍게 유도함<br />
-예를들어서</p>
+<h2 id="102-라이프-사이클-훅을-이용한-데이터-호출-방법의-문제와-비동기-처리-코드-수정">10.2 라이프 사이클 훅을 이용한 데이터 호출 방법의 문제와 비동기 처리 코드 수정</h2>
 
+<p>actions.js</p>
+<ul>
+  <li>FETCH_LIST에서 fetchList api 호출에 return 해줘야함</li>
+  <li>return을 해줘야 fetchList에 대한 결과가 프로미스로 체이닝 돼서 FETCH_LIST가 ListMixin에서 .then이 될 수 있게 함</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/c63b150611f9b11ae138b15379a4ab607e4c5370">diff check</a></p>
+</blockquote>
+
+<h2 id="103-라우터-네비게이션을-이용한-데이터-호출-방법">10.3 라우터 네비게이션을 이용한 데이터 호출 방법</h2>
+
+<p>beforeEnter</p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
-7
-</pre></td><td class="rouge-code"><pre><span class="c1">// 이런식이면 문제 없지만</span>
-<span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="mi">10</span><span class="p">){</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">a는 10</span><span class="dl">'</span><span class="p">);</span>
+</pre></td><td class="rouge-code"><pre><span class="nx">beforeEnter</span><span class="p">:</span> <span class="p">(</span><span class="nx">to</span><span class="p">,</span> <span class="k">from</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">to</span><span class="dl">'</span><span class="p">,</span> <span class="nx">to</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">from</span><span class="dl">'</span><span class="p">,</span> <span class="k">from</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">next</span><span class="dl">'</span><span class="p">,</span> <span class="nx">next</span><span class="p">);</span>
+    <span class="nx">next</span><span class="p">();</span>
 <span class="p">}</span>
-
-<span class="c1">// 자바스크립트 해석기가 어디서 세미콜론을 찍어야 할지 모를때</span>
-<span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="mi">10</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">a는 10</span><span class="dl">'</span><span class="p">)</span> <span class="nx">b</span><span class="p">()</span> <span class="nx">c</span><span class="p">()</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
+<ul>
+  <li>to : 이동할 URL의 라우팅 정보</li>
+  <li>from : 현재위치의 URL 라우팅 정보</li>
+  <li>next : function, next();를 호출 해줘야지 이동할 URL로 이동할 수 있음</li>
+</ul>
 
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/4b55dc15e00750fd255de63654429df7f9977d40">diff check</a></p>
+</blockquote>
+
+<h2 id="104-라우터-네비게이션-가드-실습-및-스피너-종료-시점-변경">10.4 라우터 네비게이션 가드 실습 및 스피너 종료 시점 변경</h2>
+
+<ul>
+  <li>데이터를 불러오고 나서도 로딩스피너가 바로 꺼지지 않음</li>
+  <li><code class="language-plaintext highlighter-rouge">LinstMixin.js</code>에서 데이터 호출 로직을 <code class="language-plaintext highlighter-rouge">router/index.js</code>로 옮기기</li>
+  <li>그리고 <code class="language-plaintext highlighter-rouge">bus.$emit('end:spinner');</code>를 뷰페이지의 <code class="language-plaintext highlighter-rouge">mounted()</code>에 넣어줘서 마운트 되면 꺼지도록 수정</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/b2e68117af805ba069554820edafe768c89abb75">diff check</a></p>
+</blockquote>
+
+<ul>
+  <li>각 뷰페이지에 mounted에서 end:spinner가 중복되므로 이것을 다시 재활용 가능</li>
+  <li><code class="language-plaintext highlighter-rouge">LinstMixin.js</code>을 다시 이용해서 데이터 호출 로직은 지우고 그안에 mounted()를 넣어서 재활용</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/8c8fb45ca96ff38af31815fb089ea74931b111b7">diff check</a></p>
+</blockquote>
 
         
       </section>
@@ -397,22 +449,22 @@ javascript에서 ;(세미콜론)을 찍지 않더라도 자바스크립트 해�
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=2+-+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EC%85%8B%EC%97%85%20http%3A%2F%2Flocalhost%3A4000%2Fvue-lv3%2Fvue-advanced2%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=10+-+%EB%8D%B0%EC%9D%B4%ED%84%B0+%ED%98%B8%EC%B6%9C%EA%B3%BC+UX%20http%3A%2F%2Flocalhost%3A4000%2Fvue-lv3%2Fvue-advanced10%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fvue-lv3%2Fvue-advanced2%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fvue-lv3%2Fvue-advanced10%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fvue-lv3%2Fvue-advanced2%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fvue-lv3%2Fvue-advanced10%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/vue-lv3/vue-advanced10/" class="pagination--pager" title="10 - 데이터 호출과 UX
+      <a href="/vue-lv3/vue-advanced1/" class="pagination--pager" title="1 - 소개 및 설계
 ">이전</a>
     
     
-      <a href="/vue-lv3/vue-advanced3/" class="pagination--pager" title="3 - 라우터 기본
+      <a href="/vue-lv3/vue-advanced2/" class="pagination--pager" title="2 - 프로젝트 셋업
 ">다음</a>
     
   </nav>

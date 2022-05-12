@@ -43,7 +43,7 @@ const createInit = async () => {
         isEdit.value = !!selectSite.value.isEdit;
     } else { // 새로고침하면 params값이 날라가서 여기가 실행됨
         const { NO_NTC = '', isEdit: edit = '' } = route.params; // route.params에 비구조화할당으로 NO_NTC와 isEdit에 path variable로 넘어온 값을 넣어줌(isEdit: edit는 isEdit를 edit로 변환 / 그리고  = ''은 값이 없으면 빈문자열을 넣어주라는 default값)
-        if (edit) { // isEdit가 true면 여기가 실행
+        if (edit) { // isEdit가 true면 여기가 실행 
             const res = await decrypt(NO_NTC);
             await API_FN_000032({
                 P_NO_NTC: res,

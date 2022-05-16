@@ -122,3 +122,7 @@ fetchData()
 ## 11.3 async & await 예제 소개
 
 >[diff check](https://github.com/wjddk0909/vue-news/commit/0737fe51e0aa5b5727af0e46305a249db996c090)
+
+## 11.4 async await 예제 실습
+
+>[diff check](https://github.com/wjddk0909/vue-news/commit/8d9fd89a99dcb30b8a86595f38fcbaa4deb9c884)

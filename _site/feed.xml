@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-12T20:17:43+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">11 - async &amp;amp; await를 이용한 비동기 처리</title><link href="http://localhost:4000/vue-lv3/vue-advanced11/" rel="alternate" type="text/html" title="11 - async &amp;amp; await를 이용한 비동기 처리" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced11</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced11/"><![CDATA[<h2 id="111-자바스크립트-비동기-처리-패턴의-발전-과정">11.1 자바스크립트 비동기 처리 패턴의 발전 과정</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-18T23:24:04+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">11 - async &amp;amp; await를 이용한 비동기 처리</title><link href="http://localhost:4000/vue-lv3/vue-advanced11/" rel="alternate" type="text/html" title="11 - async &amp;amp; await를 이용한 비동기 처리" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced11</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced11/"><![CDATA[<h2 id="111-자바스크립트-비동기-처리-패턴의-발전-과정">11.1 자바스크립트 비동기 처리 패턴의 발전 과정</h2>
 
 <p>비동기 처리에 대해서 모르고 자바스크립트로 어떤 데이터를 받아와서 처리하려고 할때 일반적인 사고라면 아래와 같이 작성할 것이다.</p>
 
@@ -168,7 +168,19 @@ Promise와 Callback에서 주는 단점들을 해결 하고 자바스크립트�
 <span class="nx">fetchData</span><span class="p">()</span>
 <span class="c1">// (3) ['user1', 'user2', 'user3']</span>
 <span class="c1">// Promise {&lt;fulfilled&gt;: Array(3)}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="async" /><category term="await" /><category term="promise" /><category term="callback" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">10 - 데이터 호출과 UX</title><link href="http://localhost:4000/vue-lv3/vue-advanced10/" rel="alternate" type="text/html" title="10 - 데이터 호출과 UX" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced10</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced10/"><![CDATA[<h2 id="101-ux를-고려한-데이터-호출-시점">10.1 UX를 고려한 데이터 호출 시점</h2>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="113-async--await-예제-소개">11.3 async &amp; await 예제 소개</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/0737fe51e0aa5b5727af0e46305a249db996c090">diff check</a></p>
+</blockquote>
+
+<h2 id="114-async-await-예제-실습">11.4 async await 예제 실습</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/8d9fd89a99dcb30b8a86595f38fcbaa4deb9c884">diff check</a></p>
+</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="async" /><category term="await" /><category term="promise" /><category term="callback" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">10 - 데이터 호출과 UX</title><link href="http://localhost:4000/vue-lv3/vue-advanced10/" rel="alternate" type="text/html" title="10 - 데이터 호출과 UX" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced10</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced10/"><![CDATA[<h2 id="101-ux를-고려한-데이터-호출-시점">10.1 UX를 고려한 데이터 호출 시점</h2>
 
 <p>데이터 호출 시점</p>
 <ol>

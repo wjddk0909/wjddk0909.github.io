@@ -1,4 +1,4 @@
-I"=3<h2 id="111-자바스크립트-비동기-처리-패턴의-발전-과정">11.1 자바스크립트 비동기 처리 패턴의 발전 과정</h2>
+I"(5<h2 id="111-자바스크립트-비동기-처리-패턴의-발전-과정">11.1 자바스크립트 비동기 처리 패턴의 발전 과정</h2>
 
 <p>비동기 처리에 대해서 모르고 자바스크립트로 어떤 데이터를 받아와서 처리하려고 할때 일반적인 사고라면 아래와 같이 작성할 것이다.</p>
 
@@ -169,4 +169,16 @@ Promise와 Callback에서 주는 단점들을 해결 하고 자바스크립트�
 <span class="c1">// (3) ['user1', 'user2', 'user3']</span>
 <span class="c1">// Promise {&lt;fulfilled&gt;: Array(3)}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="113-async--await-예제-소개">11.3 async &amp; await 예제 소개</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/0737fe51e0aa5b5727af0e46305a249db996c090">diff check</a></p>
+</blockquote>
+
+<h2 id="114-async-await-예제-실습">11.4 async await 예제 실습</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/8d9fd89a99dcb30b8a86595f38fcbaa4deb9c884">diff check</a></p>
+</blockquote>
 :ET

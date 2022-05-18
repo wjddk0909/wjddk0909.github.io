@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>vue.js 프로젝트 구조 : views와 components의 차이 - FE개발자를 꿈꾸다</title>
-<meta name="description" content="vue.js 프로젝트 구조">
+<!-- begin _includes/seo.html --><title>vuex helper 함수 - FE개발자를 꿈꾸다</title>
+<meta name="description" content="vuex helper">
 
 
   <meta name="author" content="FE Developer">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="FE개발자를 꿈꾸다">
-<meta property="og:title" content="vue.js 프로젝트 구조 : views와 components의 차이">
-<meta property="og:url" content="http://localhost:4000/vue-study/fe-vue-views-components/">
+<meta property="og:title" content="vuex helper 함수">
+<meta property="og:url" content="http://localhost:4000/vue-study/fe-vue-vuex-helper/">
 
 
-  <meta property="og:description" content="vue.js 프로젝트 구조">
+  <meta property="og:description" content="vuex helper">
 
 
 
@@ -47,7 +47,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/vue-study/fe-vue-views-components/">
+<link rel="canonical" href="http://localhost:4000/vue-study/fe-vue-vuex-helper/">
 
 
 
@@ -271,15 +271,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="vue.js 프로젝트 구조 : views와 components의 차이">
-    <meta itemprop="description" content="vue.js 프로젝트 구조">
+    <meta itemprop="headline" content="vuex helper 함수">
+    <meta itemprop="description" content="vuex helper">
     <meta itemprop="datePublished" content="2021-12-01T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">vue.js 프로젝트 구조 : views와 components의 차이
+          <h1 id="page-title" class="page__title" itemprop="headline">vuex helper 함수
 </h1>
           
 <!--
@@ -301,12 +301,104 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="vuejs-프로젝트-구조">vue.js 프로젝트 구조</h2>
+        <h2 id="vuex-기본구조">vuex 기본구조</h2>
 
-<p><code class="language-plaintext highlighter-rouge">views</code>폴더와 <code class="language-plaintext highlighter-rouge">components</code>폴더의 차이는<br />
-<code class="language-plaintext highlighter-rouge">router</code>에서 보여주는 <code class="language-plaintext highlighter-rouge">component</code>파일은 <code class="language-plaintext highlighter-rouge">views</code>폴더에 넣고, 그 외에는 <code class="language-plaintext highlighter-rouge">components</code>폴더에 넣는다.<br />
-(폴더 구조는 사실 어떻게 하든 상관없지만, vue cli가 제시하는 예시이다.)</p>
+<p><img src="/assets/images/vue-study/vuex1_1.png" alt="vuex" /></p>
 
+<h2 id="vuex-흐름">vuex 흐름</h2>
+
+<ol>
+  <li>store 생성 : 통합 저장소</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vuex</span><span class="p">.</span><span class="nx">Store</span><span class="p">({</span>
+  <span class="na">state</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">count</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="p">},</span>
+  <span class="na">getters</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="na">actions</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="na">mutations</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ol>
+  <li>Vuex를 Vue 컴포넌트에 가져오기</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="c1">// 'Counter' 컴포넌트를 만듭니다</span>
+<span class="kd">const</span> <span class="nx">Counter</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">template</span><span class="p">:</span> <span class="s2">`&lt;div&gt;8&lt;/div&gt;`</span><span class="p">,</span>
+  <span class="na">computed</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">count</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ol>
+  <li>getters</li>
+</ol>
+
+<p>Vuex는 <code class="language-plaintext highlighter-rouge">getters</code>를 store 안에 정의하는것을 허락
+<code class="language-plaintext highlighter-rouge">getters</code>는 저장소 <code class="language-plaintext highlighter-rouge">state</code>의 값을 기반으로 <code class="language-plaintext highlighter-rouge">state</code>의를 계산해야 할 때 사용
+<code class="language-plaintext highlighter-rouge">computed</code> 속성처럼 getter의 결과는 종속성(dependencies)에 따라 캐쉬되고, 일부 종속성이 변경된 경우에만 다시 재계산</p>
+
+<p>속성유형 접근 방법</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vuex</span><span class="p">.</span><span class="nx">Store</span><span class="p">({</span>
+  <span class="na">state</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">todos</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">text</span><span class="p">:</span> <span class="dl">'</span><span class="s1">...</span><span class="dl">'</span><span class="p">,</span> <span class="na">done</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">text</span><span class="p">:</span> <span class="dl">'</span><span class="s1">...</span><span class="dl">'</span><span class="p">,</span> <span class="na">done</span><span class="p">:</span> <span class="kc">false</span> <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="na">getters</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// 첫 번째 전달 인자로 상태(state)를 받음</span>
+    <span class="na">doneTodos</span><span class="p">:</span> <span class="nx">state</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">state</span><span class="p">.</span><span class="nx">todos</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">todo</span> <span class="o">=&gt;</span> <span class="nx">todo</span><span class="p">.</span><span class="nx">done</span><span class="p">)</span>
+    <span class="p">},</span>
+    <span class="c1">// state와 다른 getter도 받을 수 있습니다.</span>
+    <span class="na">doneTodosCount</span><span class="p">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">getters</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">getters</span><span class="p">.</span><span class="nx">doneTodos</span><span class="p">.</span><span class="nx">length</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
         
       </section>
@@ -323,9 +415,11 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#components" class="page__taxonomy-item p-category" rel="tag">components</a><span class="sep">, </span>
+      <a href="/tags/#helper" class="page__taxonomy-item p-category" rel="tag">helper</a><span class="sep">, </span>
     
-      <a href="/tags/#views" class="page__taxonomy-item p-category" rel="tag">views</a>
+      <a href="/tags/#namespace" class="page__taxonomy-item p-category" rel="tag">namespace</a><span class="sep">, </span>
+    
+      <a href="/tags/#vuex" class="page__taxonomy-item p-category" rel="tag">vuex</a>
     
     </span>
   </p>
@@ -362,22 +456,22 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=vue.js+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EA%B5%AC%EC%A1%B0+%3A+views%EC%99%80+components%EC%9D%98+%EC%B0%A8%EC%9D%B4%20http%3A%2F%2Flocalhost%3A4000%2Fvue-study%2Ffe-vue-views-components%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=vuex+helper+%ED%95%A8%EC%88%98%20http%3A%2F%2Flocalhost%3A4000%2Fvue-study%2Ffe-vue-vuex-helper%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fvue-study%2Ffe-vue-views-components%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fvue-study%2Ffe-vue-vuex-helper%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fvue-study%2Ffe-vue-views-components%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fvue-study%2Ffe-vue-vuex-helper%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/vue-study/fe-vue-scss/" class="pagination--pager" title="vue에서 scss 사용하기
+      <a href="/vue-study/fe-vue-views-components/" class="pagination--pager" title="vue.js 프로젝트 구조 : views와 components의 차이
 ">이전</a>
     
     
-      <a href="/vue-study/fe-vue-vuex-helper/" class="pagination--pager" title="vuex helper 함수
+      <a href="/vue-lv1/vue-beginner6/" class="pagination--pager" title="6 - 컴포넌트 통신 방법) 응용
 ">다음</a>
     
   </nav>

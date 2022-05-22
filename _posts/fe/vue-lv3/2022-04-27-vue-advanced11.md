@@ -126,3 +126,9 @@ fetchData()
 ## 11.4 async await 예제 실습
 
 >[diff check](https://github.com/wjddk0909/vue-news/commit/8d9fd89a99dcb30b8a86595f38fcbaa4deb9c884)
+
+## 11.5 async await 에러 처리 방법과 공통화 함수 작성 방법
+
+- try / catch 문으로 에러 처리
+
+>[diff check](https://github.com/wjddk0909/vue-news/commit/ebb2dccbdc4c56a96ce2c6a5fe335fd1a1be4c33)

@@ -305,7 +305,7 @@
             <nav class="toc">
               
                 <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
-                <ul class="toc__menu"><li><a href="#111-자바스크립트-비동기-처리-패턴의-발전-과정">11.1 자바스크립트 비동기 처리 패턴의 발전 과정</a></li><li><a href="#112-async--await-문법-소개">11.2 async &amp; await 문법 소개</a></li><li><a href="#113-async--await-예제-소개">11.3 async &amp; await 예제 소개</a></li><li><a href="#114-async-await-예제-실습">11.4 async await 예제 실습</a></li><li><a href="#115-async-await-에러-처리-방법과-공통화-함수-작성-방법">11.5 async await 에러 처리 방법과 공통화 함수 작성 방법</a></li></ul>
+                <ul class="toc__menu"><li><a href="#111-자바스크립트-비동기-처리-패턴의-발전-과정">11.1 자바스크립트 비동기 처리 패턴의 발전 과정</a></li><li><a href="#112-async--await-문법-소개">11.2 async &amp; await 문법 소개</a></li><li><a href="#113-async--await-예제-소개">11.3 async &amp; await 예제 소개</a></li><li><a href="#114-async-await-예제-실습">11.4 async await 예제 실습</a></li><li><a href="#115-async-await-에러-처리-방법과-공통화-함수-작성-방법">11.5 async await 에러 처리 방법과 공통화 함수 작성 방법</a></li><li><a href="#116-async-함수를-이용한-코드-리팩토링">11.6 async 함수를 이용한 코드 리팩토링</a></li></ul>
 
               
             </nav>
@@ -509,6 +509,16 @@ Promise와 Callback에서 주는 단점들을 해결 하고 자바스크립트�
   <p><a href="https://github.com/wjddk0909/vue-news/commit/ebb2dccbdc4c56a96ce2c6a5fe335fd1a1be4c33">diff check</a></p>
 </blockquote>
 
+<h2 id="116-async-함수를-이용한-코드-리팩토링">11.6 async 함수를 이용한 코드 리팩토링</h2>
+
+<ul>
+  <li>promise를 반환하는 함수나 api앞에 await를 붙여줌, const response -&gt; promise방식에서 then의 response를 받는것과 같음</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/4f9bd67dbbea1fca881dadbf1dccab1cd31d2c13">diff check</a></p>
+</blockquote>
+
         
       </section>
 
@@ -584,7 +594,8 @@ Promise와 Callback에서 주는 단점들을 해결 하고 자바스크립트�
 ">이전</a>
     
     
-      <a href="#" class="pagination--pager disabled">다음</a>
+      <a href="/vue-lv3/vue-advanced12/" class="pagination--pager" title="12 - 외부 라이브러리 모듈화 방법(차트)
+">다음</a>
     
   </nav>
 
@@ -598,6 +609,41 @@ Promise와 Callback에서 주는 단점들을 해결 하고 자바스크립트�
     <div class="page__related">
       <h4 class="page__related-title">참고</h4>
       <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv3/vue-advanced12/" rel="permalink">12 - 외부 라이브러리 모듈화 방법(차트)
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 27 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Vue news
+</p>
+  </article>
+</div>
         
           
 
@@ -679,41 +725,6 @@ Promise와 Callback에서 주는 단점들을 해결 하고 자바스크립트�
     <h2 class="archive__item-title" itemprop="headline">
       
         <a href="/vue-lv3/vue-advanced8/" rel="permalink">8 - 사용자 프로필 컴포넌트 공통화
-</a>
-      
-    </h2>
-<!--
-    devinlife comments :
-        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
-        기존에는 read_time이 표기. read_time -> date 변경
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  최대 1 분 소요
-</p>
-    
--->
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 26 2022</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">Vue news
-</p>
-  </article>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/vue-lv3/vue-advanced7/" rel="permalink">7 - 리스트 아이템 컴포넌트 공통화
 </a>
       
     </h2>

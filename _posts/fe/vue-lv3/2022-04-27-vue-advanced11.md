@@ -132,3 +132,9 @@ fetchData()
 - try / catch 문으로 에러 처리
 
 >[diff check](https://github.com/wjddk0909/vue-news/commit/ebb2dccbdc4c56a96ce2c6a5fe335fd1a1be4c33)
+
+## 11.6 async 함수를 이용한 코드 리팩토링
+
+- promise를 반환하는 함수나 api앞에 await를 붙여줌, const response -> promise방식에서 then의 response를 받는것과 같음
+
+>[diff check](https://github.com/wjddk0909/vue-news/commit/4f9bd67dbbea1fca881dadbf1dccab1cd31d2c13)

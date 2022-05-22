@@ -1,4 +1,4 @@
-I"+7<h2 id="111-자바스크립트-비동기-처리-패턴의-발전-과정">11.1 자바스크립트 비동기 처리 패턴의 발전 과정</h2>
+I"�8<h2 id="111-자바스크립트-비동기-처리-패턴의-발전-과정">11.1 자바스크립트 비동기 처리 패턴의 발전 과정</h2>
 
 <p>비동기 처리에 대해서 모르고 자바스크립트로 어떤 데이터를 받아와서 처리하려고 할때 일반적인 사고라면 아래와 같이 작성할 것이다.</p>
 
@@ -190,5 +190,15 @@ Promise와 Callback에서 주는 단점들을 해결 하고 자바스크립트�
 
 <blockquote>
   <p><a href="https://github.com/wjddk0909/vue-news/commit/ebb2dccbdc4c56a96ce2c6a5fe335fd1a1be4c33">diff check</a></p>
+</blockquote>
+
+<h2 id="116-async-함수를-이용한-코드-리팩토링">11.6 async 함수를 이용한 코드 리팩토링</h2>
+
+<ul>
+  <li>promise를 반환하는 함수나 api앞에 await를 붙여줌, const response -&gt; promise방식에서 then의 response를 받는것과 같음</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/4f9bd67dbbea1fca881dadbf1dccab1cd31d2c13">diff check</a></p>
 </blockquote>
 :ET

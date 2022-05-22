@@ -1,4 +1,32 @@
-I"0/
+I"43
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/vue-lv3/vue-advanced12/">12 - 외부 라이브러리 모듈화 방법(차트)</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.04.27
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#vue-lv3" class="page__taxonomy-item-category" rel="tag">vue-lv3</a>
+                    
+                    
+                    <a href="/tags/#chart" class="page__taxonomy-item-tag" rel="tag">chart</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#vue" class="page__taxonomy-item-tag" rel="tag">vue</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
 <div class="list__item">
     <article class="archive-item">
         <div>

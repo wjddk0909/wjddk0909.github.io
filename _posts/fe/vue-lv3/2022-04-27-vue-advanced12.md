@@ -37,3 +37,11 @@ toc: true
 
 >[diff check](https://github.com/wjddk0909/vue-chart/commit/3c445f959ca7a499906e6f9cd172005831351145)
 
+## 12.4 LineChart 제작 및 차트 충돌 문제 해결
+
+[line chart](https://www.chartjs.org/docs/latest/getting-started/)
+
+>[diff check](https://github.com/wjddk0909/vue-chart/commit/bc92bf4dd663572e1b9ee8cb6ae893cb6c8a3a37)
+
+
+

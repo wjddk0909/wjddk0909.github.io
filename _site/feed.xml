@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-23T01:43:44+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">12 - 외부 라이브러리 모듈화 방법(차트)</title><link href="http://localhost:4000/vue-lv3/vue-advanced12/" rel="alternate" type="text/html" title="12 - 외부 라이브러리 모듈화 방법(차트)" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced12</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced12/"><![CDATA[<h2 id="121-라이브러리-모듈화의-이유와-배경">12.1 라이브러리 모듈화의 이유와 배경</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-24T00:57:13+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">12 - 외부 라이브러리 모듈화 방법(차트)</title><link href="http://localhost:4000/vue-lv3/vue-advanced12/" rel="alternate" type="text/html" title="12 - 외부 라이브러리 모듈화 방법(차트)" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced12</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced12/"><![CDATA[<h2 id="121-라이브러리-모듈화의-이유와-배경">12.1 라이브러리 모듈화의 이유와 배경</h2>
 
 <p><a href="https://www.chartjs.org/docs/latest/">Chart.js</a>
 <a href="https://2018.stateofjs.com/front-end-frameworks/overview/">State of JS 2018</a></p>
@@ -39,6 +39,14 @@
 
 <blockquote>
   <p><a href="https://github.com/wjddk0909/vue-chart/commit/3c445f959ca7a499906e6f9cd172005831351145">diff check</a></p>
+</blockquote>
+
+<h2 id="124-linechart-제작-및-차트-충돌-문제-해결">12.4 LineChart 제작 및 차트 충돌 문제 해결</h2>
+
+<p><a href="https://www.chartjs.org/docs/latest/getting-started/">line chart</a></p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-chart/commit/bc92bf4dd663572e1b9ee8cb6ae893cb6c8a3a37">diff check</a></p>
 </blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="chart" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">10 - 데이터 호출과 UX</title><link href="http://localhost:4000/vue-lv3/vue-advanced10/" rel="alternate" type="text/html" title="10 - 데이터 호출과 UX" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced10</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced10/"><![CDATA[<h2 id="101-ux를-고려한-데이터-호출-시점">10.1 UX를 고려한 데이터 호출 시점</h2>
 
 <p>데이터 호출 시점</p>

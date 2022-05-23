@@ -77,6 +77,12 @@ var store = [{
         "url": "/vue-study/fe-vue-scss/",
         "teaser": null
       },{
+        "title": "vuex helper 함수",
+        "excerpt":"vuex 기본구조   validation-observer : 전체 범위   validation-provider : 개별   현장명이 하나일때는 필수값 검사를 안해도 됨 -&gt; 값이 바로 들어오기때문에  현장명이 여러개 일때를 validation-provider로 묶어줌  ** 검사해야 될 컴포넌트가 v-model식으로 작동해야함   -&gt; utils &gt; validate.ts에서 required 필수값 내제되어 있음 이 함수를 꺼내와서 메세지를 전달 할 수 있다.   -&gt; main.ts에 임포트 해서 전역으로 사용하도록 함   렌더링원리 공부하기   for문에서 key값을 쓰는 이유? key값이 없으면…   spa가 랜더링이 빠른이유는? 가상돔에서 처리하기때문에  가상돔을 사용하면 빠른이유는? 메모리단계에서 기억하고 계산하기 때문에 빠르다.  ","categories": ["vue-study"],
+        "tags": ["vuex","helper","namespace"],
+        "url": "/vue-study/fe-vue-validation/",
+        "teaser": null
+      },{
         "title": "vue.js 프로젝트 구조 : views와 components의 차이",
         "excerpt":"vue.js 프로젝트 구조   views폴더와 components폴더의 차이는  router에서 보여주는 component파일은 views폴더에 넣고, 그 외에는 components폴더에 넣는다.  (폴더 구조는 사실 어떻게 하든 상관없지만, vue cli가 제시하는 예시이다.)   ","categories": ["vue-study"],
         "tags": ["views","components"],
@@ -390,7 +396,7 @@ var store = [{
         "teaser": null
       },{
         "title": "12 - 외부 라이브러리 모듈화 방법(차트)",
-        "excerpt":"12.1 라이브러리 모듈화의 이유와 배경   Chart.js State of JS 2018      외부 라이브러리 모듈화            이유 : Vue.js 관련 라이브러리가 없을 때 일반 라이브러리를 결합할 수 있어야 함       종류                 차트       데이트피커       테이블       스피너           12.2 차트 라이브러리 설치 및 차트 그리기      chart.js라이브러리 설치 yarn add chart.js@2   chart.js 공식사이트에서 예제 코드 복사해서 붙여넣기      diff check    12.3 BarChart 컴포넌트화 작업      차트 -&gt; 컴포넌트화 : 차트에 해당하는 코드들을 컴포넌트에 만들기   컴포넌트의 플러그인화   컴포넌트 통신을 이용한 차트 컴포넌트 기능 결합      diff check    ","categories": ["vue-lv3"],
+        "excerpt":"12.1 라이브러리 모듈화의 이유와 배경   Chart.js State of JS 2018      외부 라이브러리 모듈화            이유 : Vue.js 관련 라이브러리가 없을 때 일반 라이브러리를 결합할 수 있어야 함       종류                 차트       데이트피커       테이블       스피너           12.2 차트 라이브러리 설치 및 차트 그리기      chart.js라이브러리 설치 yarn add chart.js@2   chart.js 공식사이트에서 예제 코드 복사해서 붙여넣기      diff check    12.3 BarChart 컴포넌트화 작업      차트 -&gt; 컴포넌트화 : 차트에 해당하는 코드들을 컴포넌트에 만들기   컴포넌트의 플러그인화   컴포넌트 통신을 이용한 차트 컴포넌트 기능 결합      diff check    12.4 LineChart 제작 및 차트 충돌 문제 해결   line chart      diff check    ","categories": ["vue-lv3"],
         "tags": ["vue","chart"],
         "url": "/vue-lv3/vue-advanced12/",
         "teaser": null

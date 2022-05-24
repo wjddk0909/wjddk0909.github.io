@@ -305,7 +305,7 @@
             <nav class="toc">
               
                 <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
-                <ul class="toc__menu"><li><a href="#121-라이브러리-모듈화의-이유와-배경">12.1 라이브러리 모듈화의 이유와 배경</a></li><li><a href="#122-차트-라이브러리-설치-및-차트-그리기">12.2 차트 라이브러리 설치 및 차트 그리기</a></li><li><a href="#123-barchart-컴포넌트화-작업">12.3 BarChart 컴포넌트화 작업</a></li><li><a href="#124-linechart-제작-및-차트-충돌-문제-해결">12.4 LineChart 제작 및 차트 충돌 문제 해결</a></li></ul>
+                <ul class="toc__menu"><li><a href="#121-라이브러리-모듈화의-이유와-배경">12.1 라이브러리 모듈화의 이유와 배경</a></li><li><a href="#122-차트-라이브러리-설치-및-차트-그리기">12.2 차트 라이브러리 설치 및 차트 그리기</a></li><li><a href="#123-barchart-컴포넌트화-작업">12.3 BarChart 컴포넌트화 작업</a></li><li><a href="#124-linechart-제작-및-차트-충돌-문제-해결">12.4 LineChart 제작 및 차트 충돌 문제 해결</a></li><li><a href="#125-vue에서-dom을-접근하는-방법인-ref-속성-소개">12.5 Vue에서 DOM을 접근하는 방법인 ref 속성 소개</a></li><li><a href="#126-vuejs-플러그인-소개-및-차트-플러그인-제작">12.6 Vue.js 플러그인 소개 및 차트 플러그인 제작</a></li><li><a href="#127-결합력-높은-차트-컴포넌트-모듈-제작-방법">12.7 결합력 높은 차트 컴포넌트 모듈 제작 방법</a></li></ul>
 
               
             </nav>
@@ -364,6 +364,64 @@
 
 <blockquote>
   <p><a href="https://github.com/wjddk0909/vue-chart/commit/bc92bf4dd663572e1b9ee8cb6ae893cb6c8a3a37">diff check</a></p>
+</blockquote>
+
+<h2 id="125-vue에서-dom을-접근하는-방법인-ref-속성-소개">12.5 Vue에서 DOM을 접근하는 방법인 ref 속성 소개</h2>
+
+<p>ref</p>
+<ul>
+  <li>각각의 컴포넌트에서만 접근할 수 있는 접근자</li>
+  <li>document.getElementById의 경우는 어떤 컴포넌트에서 사용하든 화면에서 그려진 돔에 전부 접근하기때문에 충돌날 확률이 높음</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;div</span> <span class="na">ref=</span><span class="s">"app"</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;</span>hello<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">app</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">app</span><span class="p">;</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-chart/commit/870dda16ea5051a42a9745281f49f85e8f7126df">diff check</a></p>
+</blockquote>
+
+<h2 id="126-vuejs-플러그인-소개-및-차트-플러그인-제작">12.6 Vue.js 플러그인 소개 및 차트 플러그인 제작</h2>
+
+<p><a href="https://vuejs.org/guide/reusability/plugins.html">plugin 문서</a></p>
+
+<ul>
+  <li>chart.js를 각 컴포넌트마다 불러와서 사용하면 차트의 종류가 많아질수록 라이브러리를 컴포넌트마다 불러오는 불필요한 로직이 생김</li>
+</ul>
+
+<p>플러그인</p>
+<ul>
+  <li>인스턴스가 생성됐을때 모든 컴포넌트에서 사용하고 싶은 기능을 정의</li>
+  <li>Vue.use(ChartPlugin)</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-chart/commit/aafdc87c83982f20d494fbe0bf57015a9f0f7146">diff check</a></p>
+</blockquote>
+
+<h2 id="127-결합력-높은-차트-컴포넌트-모듈-제작-방법">12.7 결합력 높은 차트 컴포넌트 모듈 제작 방법</h2>
+
+<ul>
+  <li>컴포넌트 통신을 이용한 차트 컴포넌트 기능 결합</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-chart/commit/a495a8ef2c3d150c06625e8ea9f24510ff0c55d0">diff check</a></p>
 </blockquote>
 
 

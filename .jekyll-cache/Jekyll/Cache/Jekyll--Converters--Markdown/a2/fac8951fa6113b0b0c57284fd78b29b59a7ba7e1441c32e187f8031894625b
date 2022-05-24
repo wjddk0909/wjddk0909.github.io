@@ -1,0 +1,73 @@
+I"�<h2 id="121-라이브러리-모듈화의-이유와-배경">12.1 라이브러리 모듈화의 이유와 배경</h2>
+
+<p><a href="https://www.chartjs.org/docs/latest/">Chart.js</a>
+<a href="https://2018.stateofjs.com/front-end-frameworks/overview/">State of JS 2018</a></p>
+
+<ol>
+  <li>외부 라이브러리 모듈화
+    <ul>
+      <li>이유 : Vue.js 관련 라이브러리가 없을 때 일반 라이브러리를 결합할 수 있어야 함</li>
+      <li>종류</li>
+    </ul>
+    <ol>
+      <li>차트</li>
+      <li>데이트피커</li>
+      <li>테이블</li>
+      <li>스피너</li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="122-차트-라이브러리-설치-및-차트-그리기">12.2 차트 라이브러리 설치 및 차트 그리기</h2>
+
+<ul>
+  <li>chart.js라이브러리 설치 <code class="language-plaintext highlighter-rouge">yarn add chart.js@2</code></li>
+  <li>chart.js 공식사이트에서 예제 코드 복사해서 붙여넣기</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-chart/commit/f519e97f0f1b5d8ba43f0037dc0bf00a3a3749cd">diff check</a></p>
+</blockquote>
+
+<h2 id="123-barchart-컴포넌트화-작업">12.3 BarChart 컴포넌트화 작업</h2>
+
+<ul>
+  <li>차트 -&gt; 컴포넌트화 : 차트에 해당하는 코드들을 컴포넌트에 만들기</li>
+  <li>컴포넌트의 플러그인화</li>
+  <li>컴포넌트 통신을 이용한 차트 컴포넌트 기능 결합</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-chart/commit/3c445f959ca7a499906e6f9cd172005831351145">diff check</a></p>
+</blockquote>
+
+<h2 id="124-linechart-제작-및-차트-충돌-문제-해결">12.4 LineChart 제작 및 차트 충돌 문제 해결</h2>
+
+<p><a href="https://www.chartjs.org/docs/latest/getting-started/">line chart</a></p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-chart/commit/bc92bf4dd663572e1b9ee8cb6ae893cb6c8a3a37">diff check</a></p>
+</blockquote>
+
+<h2 id="125-vue에서-dom을-접근하는-방법인-ref-속성-소개">12.5 Vue에서 DOM을 접근하는 방법인 ref 속성 소개</h2>
+
+<p>ref</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;div</span> <span class="na">ref=</span><span class="s">"app"</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;</span>hello<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">app</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">app</span><span class="p">;</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+:ET

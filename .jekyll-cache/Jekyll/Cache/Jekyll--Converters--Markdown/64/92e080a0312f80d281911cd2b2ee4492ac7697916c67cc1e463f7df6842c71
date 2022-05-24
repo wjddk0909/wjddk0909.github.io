@@ -1,0 +1,20 @@
+I"i<h2 id="git-branch-생성하고-사용하는-방법">git branch 생성하고 사용하는 방법</h2>
+
+<ul>
+  <li>git init : git 저장소 생성(초기화)</li>
+  <li>git remote add origin {link} : link에 생성한 레포지토리 url복사해서 넣기</li>
+  <li>git branch : 깃 브랜치 확인</li>
+  <li>git branch -v : 마지막 커밋메세지 확인</li>
+  <li>git branch ‘브랜치명’ : 브랜치 생성</li>
+  <li>git checkout ‘브랜치명’ : 선택한 브랜치로 이동</li>
+  <li>git branch -d ‘브랜치명’ : 브랜치 삭제하기</li>
+  <li>git merge ‘합칠 브랜치명’ : 현재위치한 브랜치에 합칠 브랜치에서 작업한 내용 가져와서 병합</li>
+  <li>git add . : 변경한 파일을 저장</li>
+  <li>git commit -m “커밋메세지” : 커밋메세지 입력</li>
+  <li>
+    <p>git push origin ‘브랜치명’ : 원격저장소 브랜치에 push 하기</p>
+  </li>
+  <li>git clone -b ‘브랜치명’ –single-branch ‘저장소url’ : 특정 브랜치만 clone 하기</li>
+  <li>git remote remove origin : 기존 리포지토리 remote 제거</li>
+</ul>
+:ET

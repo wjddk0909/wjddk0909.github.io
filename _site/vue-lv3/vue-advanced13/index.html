@@ -1,0 +1,687 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>13 - 컴포넌크 디자인 패턴 - FE개발자를 꿈꾸다</title>
+<meta name="description" content="Vue component">
+
+
+  <meta name="author" content="FE Developer">
+  
+  <meta property="article:author" content="FE Developer">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="FE개발자를 꿈꾸다">
+<meta property="og:title" content="13 - 컴포넌크 디자인 패턴">
+<meta property="og:url" content="http://localhost:4000/vue-lv3/vue-advanced13/">
+
+
+  <meta property="og:description" content="Vue component">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo2.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2022-04-27T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/vue-lv3/vue-advanced13/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "꿈꾸는 개발자",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="FE개발자를 꿈꾸다 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          FE개발자를 꿈꾸다
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/logo2.png" alt="FE Developer" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">FE Developer</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>꿈꾸는 개발자</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:wjddk0909@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="13 - 컴포넌크 디자인 패턴">
+    <meta itemprop="description" content="Vue component">
+    <meta itemprop="datePublished" content="2022-04-27T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">13 - 컴포넌크 디자인 패턴
+</h1>
+          
+<!--
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+            devinlife comments :
+                싱글 페이지(포스트)에 제목 밑에 Updated 시간 표기
+                기존에는 read_time이 표기. read_time -> date 변경
+-->
+            <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2022-04-27T00:00:00+09:00">April 27, 2022</time></p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              
+                <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+                <ul class="toc__menu"><li><a href="#131-component-design-patterns">13.1 Component Design Patterns</a></li><li><a href="#132-common-approach">13.2 Common Approach</a></li><li><a href="#133-component-with-slots---slot-vs-props">13.3 Component with Slots - Slot vs Props</a></li><li><a href="#134-component-with-slots-구현-방법과-활용처">13.4 Component with Slots 구현 방법과 활용처</a></li><li><a href="#134-controlled-component---input-박스를-다룰-때-생기는-문제점">13.4 Controlled Component - Input 박스를 다룰 때 생기는 문제점</a></li></ul>
+
+              
+            </nav>
+            <!-- devinlife comment : right-sidebar ads -->
+            <nav class="toc-custom">
+              
+            </nav>
+          </aside>
+        
+        <h2 id="131-component-design-patterns">13.1 Component Design Patterns</h2>
+
+<p>컴포넌트 디자인 패턴</p>
+<ul>
+  <li>Common : 기본적인 컴포넌트 등록과 컴포넌트 통신</li>
+  <li>Slot : 마크업 확장이 가능한 컴포넌트</li>
+  <li>Controlled : 결합력이 높은 컴포넌트</li>
+  <li>Renderless : 데이터 처리 컴포넌트</li>
+</ul>
+
+<h2 id="132-common-approach">13.2 Common Approach</h2>
+
+<ul>
+  <li>컨테이너 컴포넌트 개념으로 appHeader와 appContent에 데이터를 내려주는 app.vue가 컨테이너 컴포넌트가 됨</li>
+  <li>내려준 데이터를 가지고 표현으로 하고 조작을 하면 이벤트로 올리는 기본적인 컴포넌트 설계방식</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/d44e12c8a303d7f641e12cf58bce836d918560f2">diff check</a></p>
+</blockquote>
+
+<h2 id="133-component-with-slots---slot-vs-props">13.3 Component with Slots - Slot vs Props</h2>
+
+<ul>
+  <li>
+    <item>아이템1</item>
+    <p>컴포넌트 <item></item>안에 텍스트가 들어가 있는 형태</p>
+  </li>
+  <li>Item.vue에서 slot을 지우고 ‘item1’이라고 텍스트를 고정시켜 놓으면 화면에는 item1이 다섯개 찍힘(상위 App.vue에서 정의해준 내용이 소용없게됨)
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/24c77a8971b3273dc4dc0ee1a3e837c72703269a">diff check</a></p>
+    </blockquote>
+  </li>
+  <li>기존의 props 방식
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/5a40536d813b1a15e87593e4b502a2242a03faad">diff check</a>\</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="134-component-with-slots-구현-방법과-활용처">13.4 Component with Slots 구현 방법과 활용처</h2>
+
+<ul>
+  <li>slot을 사용하면서 App.vue에서 데이터에 배열로 값을 넣고 그 데이터를 v-for로 뿌려주면 하위 Item.vue 컴포넌트는 데이터 의존성이 없어진다 -&gt; 데이터는 App.vue에서 가지고 있기 때문에 하위에서는 단지 표현만 해줌
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/3d9d44a07a8d92b21c2b3b8ebbc44260b982b0ed">diff check</a></p>
+    </blockquote>
+  </li>
+  <li>slot을 사용하면 정의하는 곳에서 다시 돔구조와 스타일 정의등이 가능하다
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/49b5ce4c16b9a8a99442ac99ae8c4d767151f186">diff check</a></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="134-controlled-component---input-박스를-다룰-때-생기는-문제점">13.4 Controlled Component - Input 박스를 다룰 때 생기는 문제점</h2>
+
+<ul>
+  <li>checked: false로 정의하고 이것을 props로 App.vue에서 CheckBox.vue에 내려주고 체크박스에서 v-model로 연결</li>
+  <li>화면에서 체크박스를 클릭하면 오류가 뜸 -&gt; 오류메세지의미 : prop을 하위에서 바꾸지 마라는 의미</li>
+  <li>컴포넌트의 n방향 통신을 방지하기 위해 위에서 내리고 아래에서 이벤트를 올리는데 여기서는 하위에서 checked: false로 내려온것을 클릭할때 true로 바꾸게 되면서 뜨는 오류이다.
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/ef851c670633e06e421339e04bd8abba8a4ba962">diff check</a></p>
+    </blockquote>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#component" class="page__taxonomy-item p-category" rel="tag">component</a><span class="sep">, </span>
+    
+      <a href="/tags/#design-pattern" class="page__taxonomy-item p-category" rel="tag">design pattern</a><span class="sep">, </span>
+    
+      <a href="/tags/#vue" class="page__taxonomy-item p-category" rel="tag">vue</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#vue-lv3" class="page__taxonomy-item" rel="tag">vue-lv3</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-04-27T00:00:00+09:00">April 27, 2022</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=13+-+%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%81%AC+%EB%94%94%EC%9E%90%EC%9D%B8+%ED%8C%A8%ED%84%B4%20http%3A%2F%2Flocalhost%3A4000%2Fvue-lv3%2Fvue-advanced13%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fvue-lv3%2Fvue-advanced13%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fvue-lv3%2Fvue-advanced13%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/vue-lv3/vue-advanced12/" class="pagination--pager" title="12 - 외부 라이브러리 모듈화 방법(차트)
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv3/vue-advanced12/" rel="permalink">12 - 외부 라이브러리 모듈화 방법(차트)
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 27 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Vue news
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv3/vue-advanced11/" rel="permalink">11 - async &amp; await를 이용한 비동기 처리
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 27 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Vue news
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv3/vue-advanced10/" rel="permalink">10 - 데이터 호출과 UX
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 27 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Vue news
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv3/vue-advanced9/" rel="permalink">9 - Mixin과 하이 오더 컴포넌트
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 26 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Vue news
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 꿈꾸는 개발자. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="/assets/js/codeCopy.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

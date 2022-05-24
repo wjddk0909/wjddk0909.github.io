@@ -19,3 +19,7 @@ tags:
 - git add . : 변경한 파일을 저장
 - git commit -m "커밋메세지" : 커밋메세지 입력
 - git push origin '브랜치명' : 원격저장소 브랜치에 push 하기 
+
+- git clone -b '브랜치명' --single-branch '저장소url' : 특정 브랜치만 clone 하기
+- git remote remove origin : 기존 리포지토리 remote 제거
+- git config --unset user.name : git config --list 삭제

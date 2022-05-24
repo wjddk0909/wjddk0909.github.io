@@ -1,0 +1,30 @@
+I"b<h2 id="131-component-design-patterns">13.1 Component Design Patterns</h2>
+
+<p>컴포넌트 디자인 패턴</p>
+<ul>
+  <li>Common : 기본적인 컴포넌트 등록과 컴포넌트 통신</li>
+  <li>Slot : 마크업 확장이 가능한 컴포넌트</li>
+  <li>Controlled : 결합력이 높은 컴포넌트</li>
+  <li>Renderless : 데이터 처리 컴포넌트</li>
+</ul>
+
+<h2 id="132-common-approach">13.2 Common Approach</h2>
+
+<ul>
+  <li>컨테이너 컴포넌트 개념으로 appHeader와 appContent에 데이터를 내려주는 app.vue가 컨테이너 컴포넌트가 됨</li>
+  <li>내려준 데이터를 가지고 표현으로 하고 조작을 하면 이벤트로 올리는 기본적인 컴포넌트 설계방식</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/d44e12c8a303d7f641e12cf58bce836d918560f2">diff check</a></p>
+</blockquote>
+
+<h2 id="133-component-with-slots---slot-vs-props">13.3 Component with Slots - Slot vs Props</h2>
+
+<ul>
+  <li>
+    <item>아이템1</item>
+    <p>컴포넌트 <item></item>안에 텍스트가 들어가 있는 형태</p>
+  </li>
+</ul>
+:ET

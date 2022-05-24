@@ -1,191 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-24T21:55:35+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">12 - 외부 라이브러리 모듈화 방법(차트)</title><link href="http://localhost:4000/vue-lv3/vue-advanced12/" rel="alternate" type="text/html" title="12 - 외부 라이브러리 모듈화 방법(차트)" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced12</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced12/"><![CDATA[<h2 id="121-라이브러리-모듈화의-이유와-배경">12.1 라이브러리 모듈화의 이유와 배경</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-25T00:52:18+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">13 - 컴포넌크 디자인 패턴</title><link href="http://localhost:4000/vue-lv3/vue-advanced13/" rel="alternate" type="text/html" title="13 - 컴포넌크 디자인 패턴" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced13</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced13/"><![CDATA[<h2 id="131-component-design-patterns">13.1 Component Design Patterns</h2>
 
-<p><a href="https://www.chartjs.org/docs/latest/">Chart.js</a>
-<a href="https://2018.stateofjs.com/front-end-frameworks/overview/">State of JS 2018</a></p>
+<p>컴포넌트 디자인 패턴</p>
+<ul>
+  <li>Common : 기본적인 컴포넌트 등록과 컴포넌트 통신</li>
+  <li>Slot : 마크업 확장이 가능한 컴포넌트</li>
+  <li>Controlled : 결합력이 높은 컴포넌트</li>
+  <li>Renderless : 데이터 처리 컴포넌트</li>
+</ul>
 
-<ol>
-  <li>외부 라이브러리 모듈화
-    <ul>
-      <li>이유 : Vue.js 관련 라이브러리가 없을 때 일반 라이브러리를 결합할 수 있어야 함</li>
-      <li>종류</li>
-    </ul>
-    <ol>
-      <li>차트</li>
-      <li>데이트피커</li>
-      <li>테이블</li>
-      <li>스피너</li>
-    </ol>
+<h2 id="132-common-approach">13.2 Common Approach</h2>
+
+<ul>
+  <li>컨테이너 컴포넌트 개념으로 appHeader와 appContent에 데이터를 내려주는 app.vue가 컨테이너 컴포넌트가 됨</li>
+  <li>내려준 데이터를 가지고 표현으로 하고 조작을 하면 이벤트로 올리는 기본적인 컴포넌트 설계방식</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/d44e12c8a303d7f641e12cf58bce836d918560f2">diff check</a></p>
+</blockquote>
+
+<h2 id="133-component-with-slots---slot-vs-props">13.3 Component with Slots - Slot vs Props</h2>
+
+<ul>
+  <li>
+    <item>아이템1</item>
+    <p>컴포넌트 <item></item>안에 텍스트가 들어가 있는 형태</p>
   </li>
-</ol>
-
-<h2 id="122-차트-라이브러리-설치-및-차트-그리기">12.2 차트 라이브러리 설치 및 차트 그리기</h2>
-
-<ul>
-  <li>chart.js라이브러리 설치 <code class="language-plaintext highlighter-rouge">yarn add chart.js@2</code></li>
-  <li>chart.js 공식사이트에서 예제 코드 복사해서 붙여넣기</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-chart/commit/f519e97f0f1b5d8ba43f0037dc0bf00a3a3749cd">diff check</a></p>
-</blockquote>
-
-<h2 id="123-barchart-컴포넌트화-작업">12.3 BarChart 컴포넌트화 작업</h2>
-
-<ul>
-  <li>차트 -&gt; 컴포넌트화 : 차트에 해당하는 코드들을 컴포넌트에 만들기</li>
-  <li>컴포넌트의 플러그인화</li>
-  <li>컴포넌트 통신을 이용한 차트 컴포넌트 기능 결합</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-chart/commit/3c445f959ca7a499906e6f9cd172005831351145">diff check</a></p>
-</blockquote>
-
-<h2 id="124-linechart-제작-및-차트-충돌-문제-해결">12.4 LineChart 제작 및 차트 충돌 문제 해결</h2>
-
-<p><a href="https://www.chartjs.org/docs/latest/getting-started/">line chart</a></p>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-chart/commit/bc92bf4dd663572e1b9ee8cb6ae893cb6c8a3a37">diff check</a></p>
-</blockquote>
-
-<h2 id="125-vue에서-dom을-접근하는-방법인-ref-속성-소개">12.5 Vue에서 DOM을 접근하는 방법인 ref 속성 소개</h2>
-
-<p>ref</p>
-<ul>
-  <li>각각의 컴포넌트에서만 접근할 수 있는 접근자</li>
-  <li>document.getElementById의 경우는 어떤 컴포넌트에서 사용하든 화면에서 그려진 돔에 전부 접근하기때문에 충돌날 확률이 높음</li>
-</ul>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre><span class="nt">&lt;div</span> <span class="na">ref=</span><span class="s">"app"</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;</span>hello<span class="nt">&lt;/div&gt;</span>
-
-<span class="nt">&lt;script&gt;</span>
-    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">app</span><span class="dl">'</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">app</span><span class="p">;</span>
-<span class="nt">&lt;/script&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-chart/commit/870dda16ea5051a42a9745281f49f85e8f7126df">diff check</a></p>
-</blockquote>
-
-<h2 id="126-vuejs-플러그인-소개-및-차트-플러그인-제작">12.6 Vue.js 플러그인 소개 및 차트 플러그인 제작</h2>
-
-<p><a href="https://vuejs.org/guide/reusability/plugins.html">plugin 문서</a></p>
-
-<ul>
-  <li>chart.js를 각 컴포넌트마다 불러와서 사용하면 차트의 종류가 많아질수록 라이브러리를 컴포넌트마다 불러오는 불필요한 로직이 생김</li>
-</ul>
-
-<p>플러그인</p>
-<ul>
-  <li>인스턴스가 생성됐을때 모든 컴포넌트에서 사용하고 싶은 기능을 정의</li>
-  <li>Vue.use(ChartPlugin)</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-chart/commit/aafdc87c83982f20d494fbe0bf57015a9f0f7146">diff check</a></p>
-</blockquote>
-
-<h2 id="127-결합력-높은-차트-컴포넌트-모듈-제작-방법">12.7 결합력 높은 차트 컴포넌트 모듈 제작 방법</h2>
-
-<ul>
-  <li>컴포넌트 통신을 이용한 차트 컴포넌트 기능 결합</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-chart/commit/a495a8ef2c3d150c06625e8ea9f24510ff0c55d0">diff check</a></p>
-</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="chart" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">10 - 데이터 호출과 UX</title><link href="http://localhost:4000/vue-lv3/vue-advanced10/" rel="alternate" type="text/html" title="10 - 데이터 호출과 UX" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced10</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced10/"><![CDATA[<h2 id="101-ux를-고려한-데이터-호출-시점">10.1 UX를 고려한 데이터 호출 시점</h2>
-
-<p>데이터 호출 시점</p>
-<ol>
-  <li>컴포넌트 라이프 사이클 훅
-    <ul>
-      <li>created : 인스턴스(컴포넌트)가 생성되자 마자 호출되는 로직들, 화면에 내용들이 붙은 상태는 아님</li>
-    </ul>
+  <li>Item.vue에서 slot을 지우고 ‘item1’이라고 텍스트를 고정시켜 놓으면 화면에는 item1이 다섯개 찍힘(상위 App.vue에서 정의해준 내용이 소용없게됨)
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/24c77a8971b3273dc4dc0ee1a3e837c72703269a">diff check</a></p>
+    </blockquote>
   </li>
-  <li>라우터 네비게이션 가드
-    <ul>
-      <li>라우터로 특정 url에 접근할때 그 전에 동작들을 정의하는 속성(함수)</li>
-    </ul>
+  <li>기존의 props 방식
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/5a40536d813b1a15e87593e4b502a2242a03faad">diff check</a>\</p>
+    </blockquote>
   </li>
-</ol>
-
-<p>네비게이션가드가 라이프사이클훅 보다 먼저 호출 됨<br />
-컴포넌트가 생성되고 나서 데이터를 호출 할건지 라우팅 상태에서 호출할건지에 따라 선택</p>
-
-<p><a href="https://vuejs.org/api/#created">created 라이프 사이클 훅 API 문서</a><br />
-<a href="https://joshua1988.github.io/web-development/vuejs/vue-router-navigation-guards/">네비게이션 가드 블로그</a><br />
-<a href="uide/advanced/navigation-guards.html">네비게이션 가드 뷰 라우터 공식 문서</a></p>
-
-<h2 id="102-라이프-사이클-훅을-이용한-데이터-호출-방법의-문제와-비동기-처리-코드-수정">10.2 라이프 사이클 훅을 이용한 데이터 호출 방법의 문제와 비동기 처리 코드 수정</h2>
-
-<p>actions.js</p>
-<ul>
-  <li>FETCH_LIST에서 fetchList api 호출에 return 해줘야함</li>
-  <li>return을 해줘야 fetchList에 대한 결과가 프로미스로 체이닝 돼서 FETCH_LIST가 ListMixin에서 .then이 될 수 있게 함</li>
 </ul>
 
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/c63b150611f9b11ae138b15379a4ab607e4c5370">diff check</a></p>
-</blockquote>
-
-<h2 id="103-라우터-네비게이션을-이용한-데이터-호출-방법">10.3 라우터 네비게이션을 이용한 데이터 호출 방법</h2>
-
-<p>beforeEnter</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="nx">beforeEnter</span><span class="p">:</span> <span class="p">(</span><span class="nx">to</span><span class="p">,</span> <span class="k">from</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">to</span><span class="dl">'</span><span class="p">,</span> <span class="nx">to</span><span class="p">);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">from</span><span class="dl">'</span><span class="p">,</span> <span class="k">from</span><span class="p">);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">next</span><span class="dl">'</span><span class="p">,</span> <span class="nx">next</span><span class="p">);</span>
-    <span class="nx">next</span><span class="p">();</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-<ul>
-  <li>to : 이동할 URL의 라우팅 정보</li>
-  <li>from : 현재위치의 URL 라우팅 정보</li>
-  <li>next : function, next();를 호출 해줘야지 이동할 URL로 이동할 수 있음</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/4b55dc15e00750fd255de63654429df7f9977d40">diff check</a></p>
-</blockquote>
-
-<h2 id="104-라우터-네비게이션-가드-실습-및-스피너-종료-시점-변경">10.4 라우터 네비게이션 가드 실습 및 스피너 종료 시점 변경</h2>
+<h2 id="134-component-with-slots-구현-방법과-활용처">13.4 Component with Slots 구현 방법과 활용처</h2>
 
 <ul>
-  <li>데이터를 불러오고 나서도 로딩스피너가 바로 꺼지지 않음</li>
-  <li><code class="language-plaintext highlighter-rouge">LinstMixin.js</code>에서 데이터 호출 로직을 <code class="language-plaintext highlighter-rouge">router/index.js</code>로 옮기기</li>
-  <li>그리고 <code class="language-plaintext highlighter-rouge">bus.$emit('end:spinner');</code>를 뷰페이지의 <code class="language-plaintext highlighter-rouge">mounted()</code>에 넣어줘서 마운트 되면 꺼지도록 수정</li>
+  <li>slot을 사용하면서 App.vue에서 데이터에 배열로 값을 넣고 그 데이터를 v-for로 뿌려주면 하위 Item.vue 컴포넌트는 데이터 의존성이 없어진다 -&gt; 데이터는 App.vue에서 가지고 있기 때문에 하위에서는 단지 표현만 해줌
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/3d9d44a07a8d92b21c2b3b8ebbc44260b982b0ed">diff check</a></p>
+    </blockquote>
+  </li>
+  <li>slot을 사용하면 정의하는 곳에서 다시 돔구조와 스타일 정의등이 가능하다
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/49b5ce4c16b9a8a99442ac99ae8c4d767151f186">diff check</a></p>
+    </blockquote>
+  </li>
 </ul>
 
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/b2e68117af805ba069554820edafe768c89abb75">diff check</a></p>
-</blockquote>
+<h2 id="134-controlled-component---input-박스를-다룰-때-생기는-문제점">13.4 Controlled Component - Input 박스를 다룰 때 생기는 문제점</h2>
 
 <ul>
-  <li>각 뷰페이지에 mounted에서 end:spinner가 중복되므로 이것을 다시 재활용 가능</li>
-  <li><code class="language-plaintext highlighter-rouge">LinstMixin.js</code>을 다시 이용해서 데이터 호출 로직은 지우고 그안에 mounted()를 넣어서 재활용</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/8c8fb45ca96ff38af31815fb089ea74931b111b7">diff check</a></p>
-</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">11 - async &amp;amp; await를 이용한 비동기 처리</title><link href="http://localhost:4000/vue-lv3/vue-advanced11/" rel="alternate" type="text/html" title="11 - async &amp;amp; await를 이용한 비동기 처리" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced11</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced11/"><![CDATA[<h2 id="111-자바스크립트-비동기-처리-패턴의-발전-과정">11.1 자바스크립트 비동기 처리 패턴의 발전 과정</h2>
+  <li>checked: false로 정의하고 이것을 props로 App.vue에서 CheckBox.vue에 내려주고 체크박스에서 v-model로 연결</li>
+  <li>화면에서 체크박스를 클릭하면 오류가 뜸 -&gt; 오류메세지의미 : prop을 하위에서 바꾸지 마라는 의미</li>
+  <li>컴포넌트의 n방향 통신을 방지하기 위해 위에서 내리고 아래에서 이벤트를 올리는데 여기서는 하위에서 checked: false로 내려온것을 클릭할때 true로 바꾸게 되면서 뜨는 오류이다.
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/ef851c670633e06e421339e04bd8abba8a4ba962">diff check</a></p>
+    </blockquote>
+  </li>
+</ul>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="component" /><category term="design pattern" /><summary type="html"><![CDATA[Vue component]]></summary></entry><entry><title type="html">11 - async &amp;amp; await를 이용한 비동기 처리</title><link href="http://localhost:4000/vue-lv3/vue-advanced11/" rel="alternate" type="text/html" title="11 - async &amp;amp; await를 이용한 비동기 처리" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced11</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced11/"><![CDATA[<h2 id="111-자바스크립트-비동기-처리-패턴의-발전-과정">11.1 자바스크립트 비동기 처리 패턴의 발전 과정</h2>
 
 <p>비동기 처리에 대해서 모르고 자바스크립트로 어떤 데이터를 받아와서 처리하려고 할때 일반적인 사고라면 아래와 같이 작성할 것이다.</p>
 
@@ -387,7 +265,194 @@ Promise와 Callback에서 주는 단점들을 해결 하고 자바스크립트�
 
 <blockquote>
   <p><a href="https://github.com/wjddk0909/vue-news/commit/4f9bd67dbbea1fca881dadbf1dccab1cd31d2c13">diff check</a></p>
-</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="async" /><category term="await" /><category term="promise" /><category term="callback" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">9 - Mixin과 하이 오더 컴포넌트</title><link href="http://localhost:4000/vue-lv3/vue-advanced9/" rel="alternate" type="text/html" title="9 - Mixin과 하이 오더 컴포넌트" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced9</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced9/"><![CDATA[<h2 id="91-컴포넌트-재활용-방법-및-재활용할-포인트-소개">9.1 컴포넌트 재활용 방법 및 재활용할 포인트 소개</h2>
+</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="async" /><category term="await" /><category term="promise" /><category term="callback" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">10 - 데이터 호출과 UX</title><link href="http://localhost:4000/vue-lv3/vue-advanced10/" rel="alternate" type="text/html" title="10 - 데이터 호출과 UX" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced10</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced10/"><![CDATA[<h2 id="101-ux를-고려한-데이터-호출-시점">10.1 UX를 고려한 데이터 호출 시점</h2>
+
+<p>데이터 호출 시점</p>
+<ol>
+  <li>컴포넌트 라이프 사이클 훅
+    <ul>
+      <li>created : 인스턴스(컴포넌트)가 생성되자 마자 호출되는 로직들, 화면에 내용들이 붙은 상태는 아님</li>
+    </ul>
+  </li>
+  <li>라우터 네비게이션 가드
+    <ul>
+      <li>라우터로 특정 url에 접근할때 그 전에 동작들을 정의하는 속성(함수)</li>
+    </ul>
+  </li>
+</ol>
+
+<p>네비게이션가드가 라이프사이클훅 보다 먼저 호출 됨<br />
+컴포넌트가 생성되고 나서 데이터를 호출 할건지 라우팅 상태에서 호출할건지에 따라 선택</p>
+
+<p><a href="https://vuejs.org/api/#created">created 라이프 사이클 훅 API 문서</a><br />
+<a href="https://joshua1988.github.io/web-development/vuejs/vue-router-navigation-guards/">네비게이션 가드 블로그</a><br />
+<a href="uide/advanced/navigation-guards.html">네비게이션 가드 뷰 라우터 공식 문서</a></p>
+
+<h2 id="102-라이프-사이클-훅을-이용한-데이터-호출-방법의-문제와-비동기-처리-코드-수정">10.2 라이프 사이클 훅을 이용한 데이터 호출 방법의 문제와 비동기 처리 코드 수정</h2>
+
+<p>actions.js</p>
+<ul>
+  <li>FETCH_LIST에서 fetchList api 호출에 return 해줘야함</li>
+  <li>return을 해줘야 fetchList에 대한 결과가 프로미스로 체이닝 돼서 FETCH_LIST가 ListMixin에서 .then이 될 수 있게 함</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/c63b150611f9b11ae138b15379a4ab607e4c5370">diff check</a></p>
+</blockquote>
+
+<h2 id="103-라우터-네비게이션을-이용한-데이터-호출-방법">10.3 라우터 네비게이션을 이용한 데이터 호출 방법</h2>
+
+<p>beforeEnter</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="nx">beforeEnter</span><span class="p">:</span> <span class="p">(</span><span class="nx">to</span><span class="p">,</span> <span class="k">from</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">to</span><span class="dl">'</span><span class="p">,</span> <span class="nx">to</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">from</span><span class="dl">'</span><span class="p">,</span> <span class="k">from</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">next</span><span class="dl">'</span><span class="p">,</span> <span class="nx">next</span><span class="p">);</span>
+    <span class="nx">next</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<ul>
+  <li>to : 이동할 URL의 라우팅 정보</li>
+  <li>from : 현재위치의 URL 라우팅 정보</li>
+  <li>next : function, next();를 호출 해줘야지 이동할 URL로 이동할 수 있음</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/4b55dc15e00750fd255de63654429df7f9977d40">diff check</a></p>
+</blockquote>
+
+<h2 id="104-라우터-네비게이션-가드-실습-및-스피너-종료-시점-변경">10.4 라우터 네비게이션 가드 실습 및 스피너 종료 시점 변경</h2>
+
+<ul>
+  <li>데이터를 불러오고 나서도 로딩스피너가 바로 꺼지지 않음</li>
+  <li><code class="language-plaintext highlighter-rouge">LinstMixin.js</code>에서 데이터 호출 로직을 <code class="language-plaintext highlighter-rouge">router/index.js</code>로 옮기기</li>
+  <li>그리고 <code class="language-plaintext highlighter-rouge">bus.$emit('end:spinner');</code>를 뷰페이지의 <code class="language-plaintext highlighter-rouge">mounted()</code>에 넣어줘서 마운트 되면 꺼지도록 수정</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/b2e68117af805ba069554820edafe768c89abb75">diff check</a></p>
+</blockquote>
+
+<ul>
+  <li>각 뷰페이지에 mounted에서 end:spinner가 중복되므로 이것을 다시 재활용 가능</li>
+  <li><code class="language-plaintext highlighter-rouge">LinstMixin.js</code>을 다시 이용해서 데이터 호출 로직은 지우고 그안에 mounted()를 넣어서 재활용</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-news/commit/8c8fb45ca96ff38af31815fb089ea74931b111b7">diff check</a></p>
+</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">12 - 외부 라이브러리 모듈화 방법(차트)</title><link href="http://localhost:4000/vue-lv3/vue-advanced12/" rel="alternate" type="text/html" title="12 - 외부 라이브러리 모듈화 방법(차트)" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced12</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced12/"><![CDATA[<h2 id="121-라이브러리-모듈화의-이유와-배경">12.1 라이브러리 모듈화의 이유와 배경</h2>
+
+<p><a href="https://www.chartjs.org/docs/latest/">Chart.js</a>
+<a href="https://2018.stateofjs.com/front-end-frameworks/overview/">State of JS 2018</a></p>
+
+<ol>
+  <li>외부 라이브러리 모듈화
+    <ul>
+      <li>이유 : Vue.js 관련 라이브러리가 없을 때 일반 라이브러리를 결합할 수 있어야 함</li>
+      <li>종류</li>
+    </ul>
+    <ol>
+      <li>차트</li>
+      <li>데이트피커</li>
+      <li>테이블</li>
+      <li>스피너</li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="122-차트-라이브러리-설치-및-차트-그리기">12.2 차트 라이브러리 설치 및 차트 그리기</h2>
+
+<ul>
+  <li>chart.js라이브러리 설치 <code class="language-plaintext highlighter-rouge">yarn add chart.js@2</code></li>
+  <li>chart.js 공식사이트에서 예제 코드 복사해서 붙여넣기</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-chart/commit/f519e97f0f1b5d8ba43f0037dc0bf00a3a3749cd">diff check</a></p>
+</blockquote>
+
+<h2 id="123-barchart-컴포넌트화-작업">12.3 BarChart 컴포넌트화 작업</h2>
+
+<ul>
+  <li>차트 -&gt; 컴포넌트화 : 차트에 해당하는 코드들을 컴포넌트에 만들기</li>
+  <li>컴포넌트의 플러그인화</li>
+  <li>컴포넌트 통신을 이용한 차트 컴포넌트 기능 결합</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-chart/commit/3c445f959ca7a499906e6f9cd172005831351145">diff check</a></p>
+</blockquote>
+
+<h2 id="124-linechart-제작-및-차트-충돌-문제-해결">12.4 LineChart 제작 및 차트 충돌 문제 해결</h2>
+
+<p><a href="https://www.chartjs.org/docs/latest/getting-started/">line chart</a></p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-chart/commit/bc92bf4dd663572e1b9ee8cb6ae893cb6c8a3a37">diff check</a></p>
+</blockquote>
+
+<h2 id="125-vue에서-dom을-접근하는-방법인-ref-속성-소개">12.5 Vue에서 DOM을 접근하는 방법인 ref 속성 소개</h2>
+
+<p>ref</p>
+<ul>
+  <li>각각의 컴포넌트에서만 접근할 수 있는 접근자</li>
+  <li>document.getElementById의 경우는 어떤 컴포넌트에서 사용하든 화면에서 그려진 돔에 전부 접근하기때문에 충돌날 확률이 높음</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;div</span> <span class="na">ref=</span><span class="s">"app"</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;</span>hello<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">app</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">app</span><span class="p">;</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-chart/commit/870dda16ea5051a42a9745281f49f85e8f7126df">diff check</a></p>
+</blockquote>
+
+<h2 id="126-vuejs-플러그인-소개-및-차트-플러그인-제작">12.6 Vue.js 플러그인 소개 및 차트 플러그인 제작</h2>
+
+<p><a href="https://vuejs.org/guide/reusability/plugins.html">plugin 문서</a></p>
+
+<ul>
+  <li>chart.js를 각 컴포넌트마다 불러와서 사용하면 차트의 종류가 많아질수록 라이브러리를 컴포넌트마다 불러오는 불필요한 로직이 생김</li>
+</ul>
+
+<p>플러그인</p>
+<ul>
+  <li>인스턴스가 생성됐을때 모든 컴포넌트에서 사용하고 싶은 기능을 정의</li>
+  <li>Vue.use(ChartPlugin)</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-chart/commit/aafdc87c83982f20d494fbe0bf57015a9f0f7146">diff check</a></p>
+</blockquote>
+
+<h2 id="127-결합력-높은-차트-컴포넌트-모듈-제작-방법">12.7 결합력 높은 차트 컴포넌트 모듈 제작 방법</h2>
+
+<ul>
+  <li>컴포넌트 통신을 이용한 차트 컴포넌트 기능 결합</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-chart/commit/a495a8ef2c3d150c06625e8ea9f24510ff0c55d0">diff check</a></p>
+</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="chart" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">9 - Mixin과 하이 오더 컴포넌트</title><link href="http://localhost:4000/vue-lv3/vue-advanced9/" rel="alternate" type="text/html" title="9 - Mixin과 하이 오더 컴포넌트" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced9</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced9/"><![CDATA[<h2 id="91-컴포넌트-재활용-방법-및-재활용할-포인트-소개">9.1 컴포넌트 재활용 방법 및 재활용할 포인트 소개</h2>
 
 <ul>
   <li>dispatch를 분기처리 하기 위해 ListItem에 있던 dispatch를 각각의 view파일로 옮김</li>
@@ -918,31 +983,4 @@ Promise와 Callback에서 주는 단점들을 해결 하고 자바스크립트�
 
 <blockquote>
   <p><a href="https://github.com/wjddk0909/vue-news/commit/f7fb20e121bfa69ff9cd80a2537dfba3345e7bd4">diff check</a></p>
-</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="router" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">2 - 프로젝트 셋업</title><link href="http://localhost:4000/vue-lv3/vue-advanced2/" rel="alternate" type="text/html" title="2 - 프로젝트 셋업" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced2</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced2/"><![CDATA[<h2 id="21-vue-cli로-프로젝트-생성-및-eslint-로그-확인">2.1 Vue CLI로 프로젝트 생성 및 ESLint 로그 확인</h2>
-
-<p><code class="language-plaintext highlighter-rouge">vue create vue-news</code>로 프로젝트 생성</p>
-
-<p><code class="language-plaintext highlighter-rouge">Vue 2</code>선택후 완료 되면 폴더 경로 들어가서 서버 실행하기</p>
-
-<h2 id="22-eslint-도구-소개와-사용해야-하는-이유">2.2 ESLint 도구 소개와 사용해야 하는 이유?</h2>
-
-<p>ESLint : javascript 문법 검사기(보조도구)
-javascript에서 ;(세미콜론)을 찍지 않더라도 자바스크립트 해석기에서는 마지막에 세미콜론을 넣어줌<br />
-여기서 ESLint는 세미콜론을 찍게 유도함<br />
-예를들어서</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre><span class="c1">// 이런식이면 문제 없지만</span>
-<span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="mi">10</span><span class="p">){</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">a는 10</span><span class="dl">'</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="c1">// 자바스크립트 해석기가 어디서 세미콜론을 찍어야 할지 모를때</span>
-<span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="mi">10</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">a는 10</span><span class="dl">'</span><span class="p">)</span> <span class="nx">b</span><span class="p">()</span> <span class="nx">c</span><span class="p">()</span>
-</pre></td></tr></tbody></table></code></pre></div></div>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><summary type="html"><![CDATA[Vue news]]></summary></entry></feed>
+</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="router" /><summary type="html"><![CDATA[Vue news]]></summary></entry></feed>

@@ -26,9 +26,9 @@ if (id === 'john') { // #2 그 id가 john이면
 그러나 위와 같이 코드를 짠다면 `var id = $.get('domain.com/id');` 여기서 데이터 요청을 보내고 받아오기 전에 아래줄이 실행이 되기때문에, 이것에 대해 콜백 처리가 필요하다.
 
 ```javascript
-$.get('domain.com/id', function(id) {
-    if (id === 'john') {
-        $.get('domain.com/products', function(products) {
+$.get('domain.com/id', function(id) {// domain.com/id 결과를 받아서 콜백함수 function(id) 실행
+    if (id === 'john') { // id가 john이면
+        $.get('domain.com/products', function(products) { // domain.com/products 결과를 받아서 콜백함수 function(products) 실행
             console.log(products);
         });
     }
@@ -44,7 +44,7 @@ $.get('domain.com/id', function(id) {
 //         });
 //     }
 // });
-function getId() {
+function getId() { // getId()는 Promise를 리턴하니까 .then() 메소드 체이닝 가능
     return new Promise(function(resolve reject) {
         $.get('domain.com/id', function(id) {
             resolve(id);
@@ -54,7 +54,6 @@ function getId() {
 function getProduct() {
     if (id === 'john') {
         $.get('domain.com/products', function(products) {
-            console.log(products);\
             return new Promise(...)
         });
     }
@@ -64,7 +63,7 @@ function logProduct(products) {
 }
 getId() // #1 id를 가져오면
     .then(getProduct()) // #2 product를 가져오고
-    .then(logProduct()) // #3 콘솔에 product를 찍기
+    .then(logProduct()) // #3 콘솔에 product를 찍기 -> 코드의 흐름이 보기 쉽다.
     .catch()
 ```
 
@@ -121,9 +120,13 @@ fetchData()
 
 ## 11.3 async & await 예제 소개
 
+- 로그인 버튼을 클릭하면 user id가 1인 api를 호출하고 .then 메소드체이닝으로 결과의 id가 1이면 todos를 get 요청 보내기
+
 >[diff check](https://github.com/wjddk0909/vue-news/commit/0737fe51e0aa5b5727af0e46305a249db996c090)
 
 ## 11.4 async await 예제 실습
+
+- 함수 앞에 async 붙이고 함수 안의 로직중 promise 비동기 처리 앞에 await를 붙여준다.
 
 >[diff check](https://github.com/wjddk0909/vue-news/commit/8d9fd89a99dcb30b8a86595f38fcbaa4deb9c884)
 

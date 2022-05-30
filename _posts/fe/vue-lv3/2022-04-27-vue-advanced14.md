@@ -20,3 +20,5 @@ CLI로 생성한 프로젝트를 서비스에 배포하려면 제일 먼저 위 
 ## 14.2 Netlify를 이용한 배포 실습
 
 [Netlify 공식 사이트 주소](https://www.netlify.com/)
+
+- github으로 signup

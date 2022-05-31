@@ -60,3 +60,5 @@ created() {
 }  
 
 VUE_를 붙이면 접근 가능해진다.
+
+[vue news site 보러가기](https://vue-news-site.netlify.app/news)

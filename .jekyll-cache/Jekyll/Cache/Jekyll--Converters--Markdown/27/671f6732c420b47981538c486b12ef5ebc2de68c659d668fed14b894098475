@@ -1,0 +1,19 @@
+I"�<h2 id="truty--falsy">Truty &amp; Falsy</h2>
+
+<p>자바스크립트에는 <code class="language-plaintext highlighter-rouge">truthy</code>와 <code class="language-plaintext highlighter-rouge">falsy</code>가 있다.<br />
+if문같이 boolean값으로 판단할때 실제로 true/false값은 아니지만 true/false 값으로 사용되는 값들을 말한다.</p>
+
+<ul>
+  <li>Falsy : <code class="language-plaintext highlighter-rouge">false, 0, -0, 0n, "", null, undefined, NaN</code></li>
+  <li>Truthy : <code class="language-plaintext highlighter-rouge">true, {}, [], 1, "0", "false", new Date(), -12, 12n, 3.14, Infinity, -Infinity</code> … falsy가 아닌 다른 모든 값</li>
+</ul>
+
+<p>NaN은 어떤 값과도 동일하지 않고 자기 자신과도 동일하지 않다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kc">NaN</span> <span class="o">=</span> <span class="kc">null</span> <span class="c1">// false</span>
+<span class="kc">NaN</span> <span class="o">=</span> <span class="kc">undefined</span> <span class="c1">//false</span>
+<span class="kc">NaN</span> <span class="o">=</span> <span class="kc">NaN</span> <span class="c1">// false</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+:ET

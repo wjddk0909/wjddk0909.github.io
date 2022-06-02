@@ -338,9 +338,9 @@
 5
 6
 7
-</pre></td><td class="rouge-code"><pre><span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">domain.com/id</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">id</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">john</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">domain.com/products</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">products</span><span class="p">)</span> <span class="p">{</span>
+</pre></td><td class="rouge-code"><pre><span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">domain.com/id</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span><span class="c1">// domain.com/id 결과를 받아서 콜백함수 function(id) 실행</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">id</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">john</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// id가 john이면</span>
+        <span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">domain.com/products</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">products</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// domain.com/products 결과를 받아서 콜백함수 function(products) 실행</span>
             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">products</span><span class="p">);</span>
         <span class="p">});</span>
     <span class="p">}</span>
@@ -376,7 +376,6 @@
 26
 27
 28
-29
 </pre></td><td class="rouge-code"><pre><span class="c1">// $.get('domain.com/id', function(id) {</span>
 <span class="c1">//     if (id === 'john') {</span>
 <span class="c1">//         $.get('domain.com/products', function(products) {</span>
@@ -384,7 +383,7 @@
 <span class="c1">//         });</span>
 <span class="c1">//     }</span>
 <span class="c1">// });</span>
-<span class="kd">function</span> <span class="nx">getId</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nx">getId</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// getId()는 Promise를 리턴하니까 .then() 메소드 체이닝 가능</span>
     <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">domain.com/id</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">resolve</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
@@ -394,7 +393,6 @@
 <span class="kd">function</span> <span class="nx">getProduct</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">id</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">john</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">domain.com/products</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">products</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">products</span><span class="p">);</span><span class="o">\</span>
             <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(...)</span>
         <span class="p">});</span>
     <span class="p">}</span>
@@ -404,7 +402,7 @@
 <span class="p">}</span>
 <span class="nx">getId</span><span class="p">()</span> <span class="c1">// #1 id를 가져오면</span>
     <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">getProduct</span><span class="p">())</span> <span class="c1">// #2 product를 가져오고</span>
-    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">logProduct</span><span class="p">())</span> <span class="c1">// #3 콘솔에 product를 찍기</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">logProduct</span><span class="p">())</span> <span class="c1">// #3 콘솔에 product를 찍기 -&gt; 코드의 흐름이 보기 쉽다.</span>
     <span class="p">.</span><span class="k">catch</span><span class="p">()</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -489,11 +487,19 @@ Promise와 Callback에서 주는 단점들을 해결 하고 자바스크립트�
 
 <h2 id="113-async--await-예제-소개">11.3 async &amp; await 예제 소개</h2>
 
+<ul>
+  <li>로그인 버튼을 클릭하면 user id가 1인 api를 호출하고 .then 메소드체이닝으로 결과의 id가 1이면 todos를 get 요청 보내기</li>
+</ul>
+
 <blockquote>
   <p><a href="https://github.com/wjddk0909/vue-news/commit/0737fe51e0aa5b5727af0e46305a249db996c090">diff check</a></p>
 </blockquote>
 
 <h2 id="114-async-await-예제-실습">11.4 async await 예제 실습</h2>
+
+<ul>
+  <li>함수 앞에 async 붙이고 함수 안의 로직중 promise 비동기 처리 앞에 await를 붙여준다.</li>
+</ul>
 
 <blockquote>
   <p><a href="https://github.com/wjddk0909/vue-news/commit/8d9fd89a99dcb30b8a86595f38fcbaa4deb9c884">diff check</a></p>
@@ -619,6 +625,41 @@ Promise와 Callback에서 주는 단점들을 해결 하고 자바스크립트�
     
     <h2 class="archive__item-title" itemprop="headline">
       
+        <a href="/vue-lv3/vue-advanced14/" rel="permalink">14 - 서비스 배포 환경 구성
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 27 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">배포 환경
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
         <a href="/vue-lv3/vue-advanced13/" rel="permalink">13 - 컴포넌크 디자인 패턴
 </a>
       
@@ -709,41 +750,6 @@ Promise와 Callback에서 주는 단점들을 해결 하고 자바스크립트�
 -->
     
       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 27 2022</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">Vue news
-</p>
-  </article>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/vue-lv3/vue-advanced9/" rel="permalink">9 - Mixin과 하이 오더 컴포넌트
-</a>
-      
-    </h2>
-<!--
-    devinlife comments :
-        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
-        기존에는 read_time이 표기. read_time -> date 변경
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  1 분 소요
-</p>
-    
--->
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 26 2022</p>
     
     <p class="archive__item-excerpt" itemprop="description">Vue news
 </p>

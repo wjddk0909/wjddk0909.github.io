@@ -1,0 +1,62 @@
+I"e<h2 id="es6-템플릿-리터럴">es6 템플릿 리터럴</h2>
+
+<p>es6에서 템플릿 리터럴을 사용하면 내부에 변수값을 사용할 수 있다.</p>
+
+<p>객체 안에서 key값에 변수를 넣는 법도 있다.</p>
+
+<h3 id="computed-property-name">Computed Property Name</h3>
+
+<p><code class="language-plaintext highlighter-rouge">[]</code>를 사용해 넣으면 된다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="kd">let</span> <span class="nx">key</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">info</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">ellin</span><span class="dl">"</span>
+<span class="p">}</span>
+
+<span class="c1">// info = { name: "ellin" }</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>변수 외에 함수도 가능</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">func1</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">func2</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">[</span><span class="s2">`key</span><span class="p">${</span><span class="nx">func1</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">)}</span><span class="s2">`</span><span class="p">]</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">result is 13</span><span class="dl">'</span><span class="p">,</span>
+  <span class="p">[</span><span class="nx">func2</span><span class="p">()]</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span>
+<span class="p">}</span>
+
+<span class="c1">// obj = {</span>
+<span class="c1">//    key13: 'result is 13', </span>
+<span class="c1">//    hello: 'hi'</span>
+<span class="c1">//  }</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+:ET

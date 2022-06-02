@@ -288,7 +288,7 @@
 
 
 
-  최대 1 분 소요
+  1 분 소요
 </p>
             devinlife comments :
                 싱글 페이지(포스트)에 제목 밑에 Updated 시간 표기
@@ -305,7 +305,7 @@
             <nav class="toc">
               
                 <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
-                <ul class="toc__menu"><li><a href="#131-component-design-patterns">13.1 Component Design Patterns</a></li><li><a href="#132-common-approach">13.2 Common Approach</a></li><li><a href="#133-component-with-slots---slot-vs-props">13.3 Component with Slots - Slot vs Props</a></li><li><a href="#134-component-with-slots-구현-방법과-활용처">13.4 Component with Slots 구현 방법과 활용처</a></li><li><a href="#134-controlled-component---input-박스를-다룰-때-생기는-문제점">13.4 Controlled Component - Input 박스를 다룰 때 생기는 문제점</a></li></ul>
+                <ul class="toc__menu"><li><a href="#131-component-design-patterns">13.1 Component Design Patterns</a></li><li><a href="#132-common-approach">13.2 Common Approach</a></li><li><a href="#133-component-with-slots---slot-vs-props">13.3 Component with Slots - Slot vs Props</a></li><li><a href="#134-component-with-slots-구현-방법과-활용처">13.4 Component with Slots 구현 방법과 활용처</a></li><li><a href="#134-controlled-component---input-박스를-다룰-때-생기는-문제점">13.4 Controlled Component - Input 박스를 다룰 때 생기는 문제점</a></li><li><a href="#135-controlled-component---구현-방법과-활용처">13.5 Controlled Component - 구현 방법과 활용처</a></li><li><a href="#136-renderless-component---소개">13.6 Renderless Component - 소개</a></li><li><a href="#137-renderless-component---render-function">13.7 Renderless Component - Render Function</a></li><li><a href="#138-renderless-component---구현-방법과-활용처">13.8 Renderless Component - 구현 방법과 활용처</a></li></ul>
 
               
             </nav>
@@ -382,6 +382,74 @@
   </li>
 </ul>
 
+<h2 id="135-controlled-component---구현-방법과-활용처">13.5 Controlled Component - 구현 방법과 활용처</h2>
+
+<ul>
+  <li>App.vue에서 하위 컴포넌트로 v-model로 값을 내린다.</li>
+  <li>체크박스에서 관리하던 데이터값이 상위에서 관리가 됨</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/06f526bf8dc45a27480031cf6b2c680e79d264f2">diff check</a></p>
+</blockquote>
+
+<h2 id="136-renderless-component---소개">13.6 Renderless Component - 소개</h2>
+
+<ul>
+  <li>표현을 하지 않는 컴포넌트 -&gt; Renderless Component</li>
+</ul>
+
+<h2 id="137-renderless-component---render-function">13.7 Renderless Component - Render Function</h2>
+
+<ul>
+  <li>main.js에서 render 속성이 정의된 부분을 보면 h=&gt;h(App)이 있다.
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="c1">// 기본 표현</span>
+<span class="nx">render</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">createElement</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">createElement</span><span class="p">(</span><span class="nx">App</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>내부적으로 createElement라는 함수를 파라미터로 받고 이 함수에 App을 넘겨줘서 element를 생성한다. 여기서 createElement는 단지 변수명이기 때문에 h로 바꾸면
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="c1">// h는 hyperscript의 약자로 virtual DOM에서 관용적으로 사용되는 표현, HTML구조를 생성하는 스크립트라는 의미</span>
+<span class="nx">render</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">h</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>위 표현을 화살표 함수로 적으면
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nx">render</span><span class="p">:</span> <span class="p">(</span><span class="nx">h</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="k">return</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">)}</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>좀 더 간단히 적을 수 있다.
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">render</span><span class="p">:</span> <span class="nx">h</span> <span class="o">=&gt;</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">$mount</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="138-renderless-component---구현-방법과-활용처">13.8 Renderless Component - 구현 방법과 활용처</h2>
+
+<ul>
+  <li>FetchData.vue의 데이터(response와 loading)을 접근할 수 있는게 $scopedSlots</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/c8c895d9e5b9a2fb49f33f8fc92032e8fed2256c">diff check</a></p>
+</blockquote>
+
         
       </section>
 
@@ -453,7 +521,8 @@
 ">이전</a>
     
     
-      <a href="#" class="pagination--pager disabled">다음</a>
+      <a href="/vue-lv3/vue-advanced14/" class="pagination--pager" title="14 - 서비스 배포 환경 구성
+">다음</a>
     
   </nav>
 
@@ -467,6 +536,41 @@
     <div class="page__related">
       <h4 class="page__related-title">참고</h4>
       <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-lv3/vue-advanced14/" rel="permalink">14 - 서비스 배포 환경 구성
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 27 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">배포 환경
+</p>
+  </article>
+</div>
         
           
 
@@ -567,41 +671,6 @@
 -->
     
       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 27 2022</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">Vue news
-</p>
-  </article>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/vue-lv3/vue-advanced9/" rel="permalink">9 - Mixin과 하이 오더 컴포넌트
-</a>
-      
-    </h2>
-<!--
-    devinlife comments :
-        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
-        기존에는 read_time이 표기. read_time -> date 변경
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  1 분 소요
-</p>
-    
--->
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 26 2022</p>
     
     <p class="archive__item-excerpt" itemprop="description">Vue news
 </p>

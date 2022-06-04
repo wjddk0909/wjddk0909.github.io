@@ -3,7 +3,7 @@
    ========================================================================== */
 
 table {
-  display: block;
+  // display: block;
   margin-bottom: 1em;
   width: 100%;
   font-family: $global-font-family;
@@ -29,7 +29,7 @@ th {
 
 td {
   padding: 0.5em;
-  border-bottom: 1px solid mix(#000, $border-color, 25%);
+  border: 1px solid mix(#000, $border-color, 25%);
 }
 
 tr,

@@ -1,5 +1,5 @@
 --- 
-title: "13 - 컴포넌크 디자인 패턴" 
+title: "13 - 컴포넌트 디자인 패턴" 
 excerpt: "Vue component"
 categories: 
     - vue-lv3

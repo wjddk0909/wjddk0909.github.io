@@ -1,9 +1,0 @@
-I"�<h2 id="데이터-타입">데이터 타입</h2>
-
-<p>데이터 타입은 크게 <code class="language-plaintext highlighter-rouge">primitive type</code>과 <code class="language-plaintext highlighter-rouge">reference type</code>으로 나눌 수 있다.</p>
-
-<h3 id="primitive-type-기본형">Primitive Type (기본형)</h3>
-
-<p>기본형은 불변성이다. <code class="language-plaintext highlighter-rouge">숫자, 문자열, boolean, null, undefined, Symbol</code>이 있다.</p>
-
-:ET

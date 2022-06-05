@@ -1,4 +1,4 @@
-I"+<h2 id="데이터-타입">데이터 타입</h2>
+I"�<h2 id="데이터-타입">데이터 타입</h2>
 
 <p>데이터 타입은 크게 <code class="language-plaintext highlighter-rouge">primitive type</code>과 <code class="language-plaintext highlighter-rouge">reference type</code>으로 나눌 수 있다.</p>
 
@@ -32,7 +32,7 @@
   <table style="margin-left: auto; margin-right: auto; min-width: 180px; text-align: center; width: auto;">
   <caption>변수영역</caption>
     <colgroup>
-      <col width="30%" />
+      <col width="40%" />
     </colgroup>
     <tr>
       <td>주소</td>
@@ -46,7 +46,7 @@
   <table style="margin-left: auto; margin-right: auto; min-width: 180px; text-align: center; width: auto;">
   <caption>데이터 영역</caption>
     <colgroup>
-      <col width="30%" />
+      <col width="40%" />
     </colgroup>
     <tr>
       <td>주소</td>
@@ -59,7 +59,85 @@
   </table>
 </div>
 
+<p>이때 변수 a의 값이 바뀌면, a에 할당된 10이라는 데이터가 바뀌는게 아니고 공간을 새로 확보해서 새 데이터를 할당하고 a변수가 가리키는 주소값을 바꾼다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">a = 15;</code></p>
+
+<div>
+  <table style="margin-left: auto; margin-right: auto; min-width: 180px; text-align: center; width: auto;">
+  <caption>변수영역</caption>
+    <colgroup>
+      <col width="40%" />
+    </colgroup>
+    <tr>
+      <td>주소</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <td>데이터</td>
+      <td>변수명:a <br />값: @2001</td>
+    </tr>
+  </table>
+  <table style="margin-left: auto; margin-right: auto; min-width: 180px; text-align: center; width: auto;">
+  <caption>데이터 영역</caption>
+    <colgroup>
+      <col width="40%" />
+    </colgroup>
+    <tr>
+      <td>주소</td>
+      <td>2000</td>
+      <td>2001</td>
+    </tr>
+    <tr>
+      <td>데이터</td>
+      <td>10</td>
+      <td>15</td>
+    </tr>
+  </table>
+</div>
+
+<p>변수 복사<br />
+새로운 변수 b를 선언하고 b에 a를 할당하면 변수 b의 공간을 확보하고(선언) b의 값이 가리키는 주소값은 a 값이 가리키는 주소값을 공유받는다(할당)</p>
+
+<p><code class="language-plaintext highlighter-rouge">var b = a;</code></p>
+
+<div>
+  <table style="margin-left: auto; margin-right: auto; min-width: 180px; text-align: center; width: auto;">
+  <caption>변수영역</caption>
+    <colgroup>
+      <col width="40%" />
+    </colgroup>
+    <tr>
+      <td>주소</td>
+      <td>1000</td>
+      <td>1001</td>
+    </tr>
+    <tr>
+      <td>데이터</td>
+      <td>변수명:a <br />값: @2001</td>
+      <td>변수명:b <br />값: @2001</td>
+    </tr>
+  </table>
+  <table style="margin-left: auto; margin-right: auto; min-width: 180px; text-align: center; width: auto;">
+  <caption>데이터 영역</caption>
+    <colgroup>
+      <col width="40%" />
+    </colgroup>
+    <tr>
+      <td>주소</td>
+      <td>2000</td>
+      <td>2001</td>
+    </tr>
+    <tr>
+      <td>데이터</td>
+      <td>10</td>
+      <td>15</td>
+    </tr>
+  </table>
+</div>
+
 <h3 id="reference-type참조타입">Reference Type(참조타입)</h3>
 
-<p><a href="https://velog.io/@yujuck/JavaScript-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%95%A0%EB%8B%B9%EC%9D%98-%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC">참조</a></p>
+<p><a href="https://velog.io/@zzin0/Primitive-Type-VS-Reference-Type">참조</a>
+<a href="https://velog.io/@yujuck/JavaScript-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%95%A0%EB%8B%B9%EC%9D%98-%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC">참조</a></p>
 :ET

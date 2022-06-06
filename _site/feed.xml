@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-06T17:59:26+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-06T18:06:08+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
 
 <p>function 형태</p>
 <ul>
@@ -187,7 +187,12 @@ __proto__: ƒ () // apply, bind, call 빌트인 function 오브젝트의 prototy
   <li>생성한 functio 오브젝트에 저장</li>
 </ul>
 
-<p>인식한 환경을 function 오브젝트의 내부 프로퍼티에 설정 -&gt; {name: value} 형태로</p>]]></content><author><name>FE Developer</name></author><category term="js-advanced" /><category term="function" /><category term="object" /><summary type="html"><![CDATA[function 형태, 오브젝트 생성, 저장, 생각의 전환]]></summary></entry><entry><title type="html">13 - 컴포넌트 디자인 패턴</title><link href="http://localhost:4000/vue-lv3/vue-advanced13/" rel="alternate" type="text/html" title="13 - 컴포넌트 디자인 패턴" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced13</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced13/"><![CDATA[<h2 id="131-component-design-patterns">13.1 Component Design Patterns</h2>
+<p>인식한 환경을 function 오브젝트의 내부 프로퍼티에 설정 -&gt; {name: value} 형태로</p>
+
+<p>내부 프로퍼티란?</p>
+<ul>
+  <li>엔진이 내부 처리에 사용하는 프로퍼티(외부에서 사용 불가)</li>
+</ul>]]></content><author><name>FE Developer</name></author><category term="js-advanced" /><category term="function" /><category term="object" /><summary type="html"><![CDATA[function 형태, 오브젝트 생성, 저장, 생각의 전환]]></summary></entry><entry><title type="html">13 - 컴포넌트 디자인 패턴</title><link href="http://localhost:4000/vue-lv3/vue-advanced13/" rel="alternate" type="text/html" title="13 - 컴포넌트 디자인 패턴" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced13</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced13/"><![CDATA[<h2 id="131-component-design-patterns">13.1 Component Design Patterns</h2>
 
 <p>컴포넌트 디자인 패턴</p>
 <ul>

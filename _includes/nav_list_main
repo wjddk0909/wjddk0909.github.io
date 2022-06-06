@@ -61,6 +61,13 @@
                 {% endif %}
             {% endfor %}
         </ul>
+        <ul>
+            {% for category in site.categories %}
+                {% if category[0] == "js-advanced" %}
+                    <li><a href="/categories/js-advanced" class="">JavaScript 중고급 : 근본 핵심 논리 ({{category[1].size}})</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
         <span class="nav__sub-title">HTML/CSS</span>
         <ul>
             {% for category in site.categories %}

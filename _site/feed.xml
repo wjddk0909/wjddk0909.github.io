@@ -1,62 +1,296 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-05T18:50:13+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">14 - 서비스 배포 환경 구성</title><link href="http://localhost:4000/vue-lv3/vue-advanced14/" rel="alternate" type="text/html" title="14 - 서비스 배포 환경 구성" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced14</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced14/"><![CDATA[<h2 id="141-서비스-배포를-위한-명령어-소개-및-실습">14.1 서비스 배포를 위한 명령어 소개 및 실습</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-06T17:33:21+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
 
-<p>배포명령어 <code class="language-plaintext highlighter-rouge">npm run build</code>  <code class="language-plaintext highlighter-rouge">yarn build</code></p>
-
-<p>CLI로 생성한 프로젝트를 서비스에 배포하려면 제일 먼저 위 명령어를 실행.<br />
-실행하고 나면 호스팅 할 수 있는 형태(dist폴더)의 HTML, CSS, Javascript, 이미지 등의 파일 생성.<br />
-이렇게 생성된 자원을 빌드된 자원이라고 부름</p>
-
-<h2 id="142-netlify를-이용한-배포-실습">14.2 Netlify를 이용한 배포 실습</h2>
-
-<p><a href="https://www.netlify.com/">Netlify 공식 사이트 주소</a></p>
-
+<p>function 형태</p>
 <ul>
-  <li>github으로 signup</li>
-  <li>deploy site</li>
+  <li>빌트인 Function 오브젝트 Function.prototype.call()</li>
+  <li>function 오브젝트
+    <ul>
+      <li>function book(){…}</li>
+      <li>var book = function() {…}</li>
+      <li>인스턴스이지만, new 연산자로 생성한 인스턴스와 구분하기 위해 function 오브젝트로 표기</li>
+    </ul>
+  </li>
+  <li>function 인스턴스
+    <ul>
+      <li>new Book()처럼 new연산자를 사용하여 Book.prototype에 연결된 메소드로 생성</li>
+    </ul>
+  </li>
 </ul>
 
-<h2 id="143-base-디렉토리-설정-및-배포-완료">14.3 base 디렉토리 설정 및 배포 완료</h2>
-
+<p>function 오브젝트 생성</p>
 <ul>
-  <li>deploy failed가 나오면 deploy setting으로 돌아가서</li>
-  <li>base directory를 설정해줘야 한다.</li>
-  <li>폴더 경로에 맞게 수정해주기</li>
+  <li>var book = function() {…};</li>
+  <li>엔진이 function 키워드를 만나면 빌트인 Function 오브젝트의 prototype에 연결된 메소드로 function 오브젝트 생성</li>
+  <li>생성한 오브젝트를 book 변수에 할당</li>
+  <li>book() 형태로 호출
+    <ul>
+      <li>function 오브젝트이므로 호출 가능</li>
+    </ul>
+  </li>
 </ul>
 
-<h2 id="144-spa-호스팅시에-서버에-추가해줘야-하는-설정-안내">14.4 SPA 호스팅시에 서버에 추가해줘야 하는 설정 안내</h2>
-
-<p><a href="https://cli.vuejs.org/guide/deployment.html#netlify">Vue CLI 배포 설명 페이지</a></p>
-
-<h2 id="145-env-환경-변수-파일을-이용한-옵션-변경-방법">14.5 env 환경 변수 파일을 이용한 옵션 변경 방법</h2>
-
+<p>오브젝트 저장</p>
 <ul>
-  <li>코드를 서버에 배포할때 특정 옵션들을 담아 놓는 파일</li>
-  <li>브라우저에 어떤 값을 노출 하고 싶지 않은 코드를 넣음</li>
-  <li>.env 로 파일 생성</li>
-  <li>변수=값 형식으로 작성</li>
+  <li>함수를 호출하려면 생성한 function 오브젝트를 저장해야한다.</li>
+  <li>function 오브젝트 저장형태
+    <ul>
+      <li>{name: value} 형태로 저장</li>
+      <li>{book: 생성한 function 오브젝트} 형태</li>
+    </ul>
+  </li>
+  <li>함수를 호출하려면
+    <ol>
+      <li>저장된 오브젝트에서 함수 이름(book)으로 검색</li>
+      <li>value 값을 구하고</li>
+      <li>value가 function 오브젝트면 호출</li>
+    </ol>
+  </li>
 </ul>
 
-<p>.env<br />
-APP_TITLE=HELLO</p>
+<p>함수가 호출되면 엔진은 함수의 변수와 함수를 {name: value} 형태로 실행 환경을 설정하고 함수 코드를 실행한다.<br />
+{name: value} 형태로 생각을 전환해야 JS의 아키텍처와 메커니즘을 쉽게 이해할 수 있다.<br />
+function(){…} 코드를 보면 함수의 변수와 함수가 {name: value} 형태로 연상되어야 한다.</p>
 
-<p>App.vue
-created() {<br />
-  console.log(process.env.APP_TITLE)<br />
-}</p>
+<h2 id="12-function-오브젝트-생성-과정-function-오브젝트-구조">1.2 function 오브젝트 생성 과정, function 오브젝트 구조</h2>
 
-<p>이렇게 넣고 실행해보면 콘솔창에 undefined가 뜬다.</p>
+<p>function 오브젝트 생성 과정</p>
 
-<p>.env<br />
-VUE_APP_TITLE=HELLO</p>
+<ol>
+  <li>function sports(){…} 형태에서 function 키워드를 만나면</li>
+  <li>오브젝트를 생성하고 저장
+    <ul>
+      <li>{sports: {…}}</li>
+      <li>sports는 function 오브젝트 이름</li>
+      <li>오브젝트 {…}에 프로퍼티가 없는 상태 -&gt; 이제부터 빈 오브젝트에 프로퍼티를 채운다.</li>
+    </ul>
+  </li>
+</ol>
 
-<p>App.vue
-created() {<br />
-  console.log(process.env.VUE_APP_TITLE)<br />
-}</p>
+<p>ㄴsports 오브젝트 형태</p>
 
-<p>VUE_를 붙이면 접근 가능해진다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">sports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){};</span>
+<span class="cm">/*
+1. 생성한 오브젝트가 sports에 할당된다. -&gt; 오브젝트를 생성하는 시점에는 빈 오브젝트
+2. Local의 sports를 펼치면
+arguments: (...)
+caller: (...)
+length: 0
+name: "sports"
+prototype: {
+  construnctor: ƒ ()
+  __propto__: Object // 빌트인 오브젝트에 관련된 메소드들이 설정되어있음(6개)
+}
+__proto__: ƒ () // apply, bind, call 빌트인 function 오브젝트의 prototype에 연결되어 있는 메소드들이 설정됨
+*/</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p><a href="https://vue-news-site.netlify.app/news">vue news site 보러가기</a></p>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="deploy" /><summary type="html"><![CDATA[배포 환경]]></summary></entry><entry><title type="html">12 - 외부 라이브러리 모듈화 방법(차트)</title><link href="http://localhost:4000/vue-lv3/vue-advanced12/" rel="alternate" type="text/html" title="12 - 외부 라이브러리 모듈화 방법(차트)" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced12</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced12/"><![CDATA[<h2 id="121-라이브러리-모듈화의-이유와-배경">12.1 라이브러리 모듈화의 이유와 배경</h2>
+<ol>
+  <li>sports 오브젝트에 <code class="language-plaintext highlighter-rouge">prototype 오브젝트</code> 첨부</li>
+  <li>prototype에 <code class="language-plaintext highlighter-rouge">constructor</code> 프로퍼티 첨부
+    <ul>
+      <li>prototype.contructor가 sports 오브젝트 참조</li>
+    </ul>
+  </li>
+  <li>prototype에 <code class="language-plaintext highlighter-rouge">__proto__</code> 오브젝트 첨부</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="nx">sports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">prototype</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">constructor</span><span class="p">:</span> <span class="nx">sports</span>
+    <span class="na">__proto__</span><span class="p">:</span> <span class="p">{}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<ol>
+  <li>빌트인 Object.prototype의 메소드로 Object 인스턴스를 생성하여 <code class="language-plaintext highlighter-rouge">prototype.__proto__</code>에 첨부</li>
+  <li>sports 오브젝트에 <code class="language-plaintext highlighter-rouge">__proto__</code> 오브젝트 첨부 -&gt; <code class="language-plaintext highlighter-rouge">sports.__proto__</code> 구조가 된다.</li>
+  <li>빌트인 Function.prototype의 메소드로 function 인스턴스를 생성해서 <code class="language-plaintext highlighter-rouge">sports.__proto__</code>에 첨부</li>
+  <li>sports 오브젝트 프로퍼티에 초기값 설정 - arguments, caller, length, name 프로퍼티</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="nx">sports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">arguments</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="na">caller</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="na">length</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sports</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">prototype</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">constructor</span><span class="p">:</span> <span class="nx">sports</span><span class="p">,</span>
+    <span class="na">__propto__</span><span class="p">:</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span>
+  <span class="p">},</span>
+  <span class="na">__proto__</span><span class="p">:</span> <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>function 오브젝트에 prototype이 있으며 constuctor가 연결된다.</li>
+  <li>__proto__가 연결되어 있으며 Object인스턴스가 연결된다.</li>
+  <li>function 오브젝트에 __proto__가 있으며 Function 인스턴스가 연결된다.</li>
+  <li>Array면 Array인스턴스가 연결되고 String이면 String 인스턴스가 연결된다.</li>
+</ul>]]></content><author><name>FE Developer</name></author><category term="js-advanced" /><category term="function" /><category term="object" /><summary type="html"><![CDATA[function 형태, 오브젝트 생성, 저장, 생각의 전환]]></summary></entry><entry><title type="html">13 - 컴포넌트 디자인 패턴</title><link href="http://localhost:4000/vue-lv3/vue-advanced13/" rel="alternate" type="text/html" title="13 - 컴포넌트 디자인 패턴" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced13</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced13/"><![CDATA[<h2 id="131-component-design-patterns">13.1 Component Design Patterns</h2>
+
+<p>컴포넌트 디자인 패턴</p>
+<ul>
+  <li>Common : 기본적인 컴포넌트 등록과 컴포넌트 통신</li>
+  <li>Slot : 마크업 확장이 가능한 컴포넌트</li>
+  <li>Controlled : 결합력이 높은 컴포넌트</li>
+  <li>Renderless : 데이터 처리 컴포넌트</li>
+</ul>
+
+<h2 id="132-common-approach">13.2 Common Approach</h2>
+
+<ul>
+  <li>컨테이너 컴포넌트 개념으로 appHeader와 appContent에 데이터를 내려주는 app.vue가 컨테이너 컴포넌트가 됨</li>
+  <li>내려준 데이터를 가지고 표현으로 하고 조작을 하면 이벤트로 올리는 기본적인 컴포넌트 설계방식</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/d44e12c8a303d7f641e12cf58bce836d918560f2">diff check</a></p>
+</blockquote>
+
+<h2 id="133-component-with-slots---slot-vs-props">13.3 Component with Slots - Slot vs Props</h2>
+
+<ul>
+  <li>
+    <item>아이템1</item>
+    <p>컴포넌트 <item></item>안에 텍스트가 들어가 있는 형태</p>
+  </li>
+  <li>Item.vue에서 slot을 지우고 ‘item1’이라고 텍스트를 고정시켜 놓으면 화면에는 item1이 다섯개 찍힘(상위 App.vue에서 정의해준 내용이 소용없게됨)
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/24c77a8971b3273dc4dc0ee1a3e837c72703269a">diff check</a></p>
+    </blockquote>
+  </li>
+  <li>기존의 props 방식
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/5a40536d813b1a15e87593e4b502a2242a03faad">diff check</a>\</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="134-component-with-slots-구현-방법과-활용처">13.4 Component with Slots 구현 방법과 활용처</h2>
+
+<ul>
+  <li>slot을 사용하면서 App.vue에서 데이터에 배열로 값을 넣고 그 데이터를 v-for로 뿌려주면 하위 Item.vue 컴포넌트는 데이터 의존성이 없어진다 -&gt; 데이터는 App.vue에서 가지고 있기 때문에 하위에서는 단지 표현만 해줌
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/3d9d44a07a8d92b21c2b3b8ebbc44260b982b0ed">diff check</a></p>
+    </blockquote>
+  </li>
+  <li>slot을 사용하면 정의하는 곳에서 다시 돔구조와 스타일 정의등이 가능하다
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/49b5ce4c16b9a8a99442ac99ae8c4d767151f186">diff check</a></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="134-controlled-component---input-박스를-다룰-때-생기는-문제점">13.4 Controlled Component - Input 박스를 다룰 때 생기는 문제점</h2>
+
+<ul>
+  <li>checked: false로 정의하고 이것을 props로 App.vue에서 CheckBox.vue에 내려주고 체크박스에서 v-model로 연결</li>
+  <li>화면에서 체크박스를 클릭하면 오류가 뜸 -&gt; 오류메세지의미 : prop을 하위에서 바꾸지 마라는 의미</li>
+  <li>컴포넌트의 n방향 통신을 방지하기 위해 위에서 내리고 아래에서 이벤트를 올리는데 여기서는 하위에서 checked: false로 내려온것을 클릭할때 true로 바꾸게 되면서 뜨는 오류이다.
+    <blockquote>
+      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/ef851c670633e06e421339e04bd8abba8a4ba962">diff check</a></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="135-controlled-component---구현-방법과-활용처">13.5 Controlled Component - 구현 방법과 활용처</h2>
+
+<ul>
+  <li>App.vue에서 하위 컴포넌트로 v-model로 값을 내린다.</li>
+  <li>체크박스에서 관리하던 데이터값이 상위에서 관리가 됨</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/06f526bf8dc45a27480031cf6b2c680e79d264f2">diff check</a></p>
+</blockquote>
+
+<h2 id="136-renderless-component---소개">13.6 Renderless Component - 소개</h2>
+
+<ul>
+  <li>표현을 하지 않는 컴포넌트 -&gt; Renderless Component</li>
+</ul>
+
+<h2 id="137-renderless-component---render-function">13.7 Renderless Component - Render Function</h2>
+
+<ul>
+  <li>main.js에서 render 속성이 정의된 부분을 보면 h=&gt;h(App)이 있다.
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="c1">// 기본 표현</span>
+<span class="nx">render</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">createElement</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">createElement</span><span class="p">(</span><span class="nx">App</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>내부적으로 createElement라는 함수를 파라미터로 받고 이 함수에 App을 넘겨줘서 element를 생성한다. 여기서 createElement는 단지 변수명이기 때문에 h로 바꾸면
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="c1">// h는 hyperscript의 약자로 virtual DOM에서 관용적으로 사용되는 표현, HTML구조를 생성하는 스크립트라는 의미</span>
+<span class="nx">render</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">h</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>위 표현을 화살표 함수로 적으면
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nx">render</span><span class="p">:</span> <span class="p">(</span><span class="nx">h</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="k">return</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">)}</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>좀 더 간단히 적을 수 있다.
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">render</span><span class="p">:</span> <span class="nx">h</span> <span class="o">=&gt;</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">$mount</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="138-renderless-component---구현-방법과-활용처">13.8 Renderless Component - 구현 방법과 활용처</h2>
+
+<ul>
+  <li>FetchData.vue의 데이터(response와 loading)을 접근할 수 있는게 $scopedSlots</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/c8c895d9e5b9a2fb49f33f8fc92032e8fed2256c">diff check</a></p>
+</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="component" /><category term="design pattern" /><summary type="html"><![CDATA[Vue component]]></summary></entry><entry><title type="html">12 - 외부 라이브러리 모듈화 방법(차트)</title><link href="http://localhost:4000/vue-lv3/vue-advanced12/" rel="alternate" type="text/html" title="12 - 외부 라이브러리 모듈화 방법(차트)" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced12</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced12/"><![CDATA[<h2 id="121-라이브러리-모듈화의-이유와-배경">12.1 라이브러리 모듈화의 이유와 배경</h2>
 
 <p><a href="https://www.chartjs.org/docs/latest/">Chart.js</a>
 <a href="https://2018.stateofjs.com/front-end-frameworks/overview/">State of JS 2018</a></p>
@@ -451,140 +685,65 @@ Promise와 Callback에서 주는 단점들을 해결 하고 자바스크립트�
 
 <blockquote>
   <p><a href="https://github.com/wjddk0909/vue-news/commit/8c8fb45ca96ff38af31815fb089ea74931b111b7">diff check</a></p>
-</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">13 - 컴포넌트 디자인 패턴</title><link href="http://localhost:4000/vue-lv3/vue-advanced13/" rel="alternate" type="text/html" title="13 - 컴포넌트 디자인 패턴" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced13</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced13/"><![CDATA[<h2 id="131-component-design-patterns">13.1 Component Design Patterns</h2>
+</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">14 - 서비스 배포 환경 구성</title><link href="http://localhost:4000/vue-lv3/vue-advanced14/" rel="alternate" type="text/html" title="14 - 서비스 배포 환경 구성" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced14</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced14/"><![CDATA[<h2 id="141-서비스-배포를-위한-명령어-소개-및-실습">14.1 서비스 배포를 위한 명령어 소개 및 실습</h2>
 
-<p>컴포넌트 디자인 패턴</p>
-<ul>
-  <li>Common : 기본적인 컴포넌트 등록과 컴포넌트 통신</li>
-  <li>Slot : 마크업 확장이 가능한 컴포넌트</li>
-  <li>Controlled : 결합력이 높은 컴포넌트</li>
-  <li>Renderless : 데이터 처리 컴포넌트</li>
-</ul>
+<p>배포명령어 <code class="language-plaintext highlighter-rouge">npm run build</code>  <code class="language-plaintext highlighter-rouge">yarn build</code></p>
 
-<h2 id="132-common-approach">13.2 Common Approach</h2>
+<p>CLI로 생성한 프로젝트를 서비스에 배포하려면 제일 먼저 위 명령어를 실행.<br />
+실행하고 나면 호스팅 할 수 있는 형태(dist폴더)의 HTML, CSS, Javascript, 이미지 등의 파일 생성.<br />
+이렇게 생성된 자원을 빌드된 자원이라고 부름</p>
 
-<ul>
-  <li>컨테이너 컴포넌트 개념으로 appHeader와 appContent에 데이터를 내려주는 app.vue가 컨테이너 컴포넌트가 됨</li>
-  <li>내려준 데이터를 가지고 표현으로 하고 조작을 하면 이벤트로 올리는 기본적인 컴포넌트 설계방식</li>
-</ul>
+<h2 id="142-netlify를-이용한-배포-실습">14.2 Netlify를 이용한 배포 실습</h2>
 
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/d44e12c8a303d7f641e12cf58bce836d918560f2">diff check</a></p>
-</blockquote>
-
-<h2 id="133-component-with-slots---slot-vs-props">13.3 Component with Slots - Slot vs Props</h2>
+<p><a href="https://www.netlify.com/">Netlify 공식 사이트 주소</a></p>
 
 <ul>
-  <li>
-    <item>아이템1</item>
-    <p>컴포넌트 <item></item>안에 텍스트가 들어가 있는 형태</p>
-  </li>
-  <li>Item.vue에서 slot을 지우고 ‘item1’이라고 텍스트를 고정시켜 놓으면 화면에는 item1이 다섯개 찍힘(상위 App.vue에서 정의해준 내용이 소용없게됨)
-    <blockquote>
-      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/24c77a8971b3273dc4dc0ee1a3e837c72703269a">diff check</a></p>
-    </blockquote>
-  </li>
-  <li>기존의 props 방식
-    <blockquote>
-      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/5a40536d813b1a15e87593e4b502a2242a03faad">diff check</a>\</p>
-    </blockquote>
-  </li>
+  <li>github으로 signup</li>
+  <li>deploy site</li>
 </ul>
 
-<h2 id="134-component-with-slots-구현-방법과-활용처">13.4 Component with Slots 구현 방법과 활용처</h2>
+<h2 id="143-base-디렉토리-설정-및-배포-완료">14.3 base 디렉토리 설정 및 배포 완료</h2>
 
 <ul>
-  <li>slot을 사용하면서 App.vue에서 데이터에 배열로 값을 넣고 그 데이터를 v-for로 뿌려주면 하위 Item.vue 컴포넌트는 데이터 의존성이 없어진다 -&gt; 데이터는 App.vue에서 가지고 있기 때문에 하위에서는 단지 표현만 해줌
-    <blockquote>
-      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/3d9d44a07a8d92b21c2b3b8ebbc44260b982b0ed">diff check</a></p>
-    </blockquote>
-  </li>
-  <li>slot을 사용하면 정의하는 곳에서 다시 돔구조와 스타일 정의등이 가능하다
-    <blockquote>
-      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/49b5ce4c16b9a8a99442ac99ae8c4d767151f186">diff check</a></p>
-    </blockquote>
-  </li>
+  <li>deploy failed가 나오면 deploy setting으로 돌아가서</li>
+  <li>base directory를 설정해줘야 한다.</li>
+  <li>폴더 경로에 맞게 수정해주기</li>
 </ul>
 
-<h2 id="134-controlled-component---input-박스를-다룰-때-생기는-문제점">13.4 Controlled Component - Input 박스를 다룰 때 생기는 문제점</h2>
+<h2 id="144-spa-호스팅시에-서버에-추가해줘야-하는-설정-안내">14.4 SPA 호스팅시에 서버에 추가해줘야 하는 설정 안내</h2>
+
+<p><a href="https://cli.vuejs.org/guide/deployment.html#netlify">Vue CLI 배포 설명 페이지</a></p>
+
+<h2 id="145-env-환경-변수-파일을-이용한-옵션-변경-방법">14.5 env 환경 변수 파일을 이용한 옵션 변경 방법</h2>
 
 <ul>
-  <li>checked: false로 정의하고 이것을 props로 App.vue에서 CheckBox.vue에 내려주고 체크박스에서 v-model로 연결</li>
-  <li>화면에서 체크박스를 클릭하면 오류가 뜸 -&gt; 오류메세지의미 : prop을 하위에서 바꾸지 마라는 의미</li>
-  <li>컴포넌트의 n방향 통신을 방지하기 위해 위에서 내리고 아래에서 이벤트를 올리는데 여기서는 하위에서 checked: false로 내려온것을 클릭할때 true로 바꾸게 되면서 뜨는 오류이다.
-    <blockquote>
-      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/ef851c670633e06e421339e04bd8abba8a4ba962">diff check</a></p>
-    </blockquote>
-  </li>
+  <li>코드를 서버에 배포할때 특정 옵션들을 담아 놓는 파일</li>
+  <li>브라우저에 어떤 값을 노출 하고 싶지 않은 코드를 넣음</li>
+  <li>.env 로 파일 생성</li>
+  <li>변수=값 형식으로 작성</li>
 </ul>
 
-<h2 id="135-controlled-component---구현-방법과-활용처">13.5 Controlled Component - 구현 방법과 활용처</h2>
+<p>.env<br />
+APP_TITLE=HELLO</p>
 
-<ul>
-  <li>App.vue에서 하위 컴포넌트로 v-model로 값을 내린다.</li>
-  <li>체크박스에서 관리하던 데이터값이 상위에서 관리가 됨</li>
-</ul>
+<p>App.vue
+created() {<br />
+  console.log(process.env.APP_TITLE)<br />
+}</p>
 
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/06f526bf8dc45a27480031cf6b2c680e79d264f2">diff check</a></p>
-</blockquote>
+<p>이렇게 넣고 실행해보면 콘솔창에 undefined가 뜬다.</p>
 
-<h2 id="136-renderless-component---소개">13.6 Renderless Component - 소개</h2>
+<p>.env<br />
+VUE_APP_TITLE=HELLO</p>
 
-<ul>
-  <li>표현을 하지 않는 컴포넌트 -&gt; Renderless Component</li>
-</ul>
+<p>App.vue
+created() {<br />
+  console.log(process.env.VUE_APP_TITLE)<br />
+}</p>
 
-<h2 id="137-renderless-component---render-function">13.7 Renderless Component - Render Function</h2>
+<p>VUE_를 붙이면 접근 가능해진다.</p>
 
-<ul>
-  <li>main.js에서 render 속성이 정의된 부분을 보면 h=&gt;h(App)이 있다.
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="c1">// 기본 표현</span>
-<span class="nx">render</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">createElement</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">createElement</span><span class="p">(</span><span class="nx">App</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>내부적으로 createElement라는 함수를 파라미터로 받고 이 함수에 App을 넘겨줘서 element를 생성한다. 여기서 createElement는 단지 변수명이기 때문에 h로 바꾸면
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="c1">// h는 hyperscript의 약자로 virtual DOM에서 관용적으로 사용되는 표현, HTML구조를 생성하는 스크립트라는 의미</span>
-<span class="nx">render</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">h</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>위 표현을 화살표 함수로 적으면
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="nx">render</span><span class="p">:</span> <span class="p">(</span><span class="nx">h</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="k">return</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">)}</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>좀 더 간단히 적을 수 있다.
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
-  <span class="na">render</span><span class="p">:</span> <span class="nx">h</span> <span class="o">=&gt;</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">);</span>
-<span class="p">}).</span><span class="nx">$mount</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-</ul>
-
-<h2 id="138-renderless-component---구현-방법과-활용처">13.8 Renderless Component - 구현 방법과 활용처</h2>
-
-<ul>
-  <li>FetchData.vue의 데이터(response와 loading)을 접근할 수 있는게 $scopedSlots</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/c8c895d9e5b9a2fb49f33f8fc92032e8fed2256c">diff check</a></p>
-</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="component" /><category term="design pattern" /><summary type="html"><![CDATA[Vue component]]></summary></entry><entry><title type="html">9 - Mixin과 하이 오더 컴포넌트</title><link href="http://localhost:4000/vue-lv3/vue-advanced9/" rel="alternate" type="text/html" title="9 - Mixin과 하이 오더 컴포넌트" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced9</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced9/"><![CDATA[<h2 id="91-컴포넌트-재활용-방법-및-재활용할-포인트-소개">9.1 컴포넌트 재활용 방법 및 재활용할 포인트 소개</h2>
+<p><a href="https://vue-news-site.netlify.app/news">vue news site 보러가기</a></p>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="deploy" /><summary type="html"><![CDATA[배포 환경]]></summary></entry><entry><title type="html">9 - Mixin과 하이 오더 컴포넌트</title><link href="http://localhost:4000/vue-lv3/vue-advanced9/" rel="alternate" type="text/html" title="9 - Mixin과 하이 오더 컴포넌트" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced9</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced9/"><![CDATA[<h2 id="91-컴포넌트-재활용-방법-및-재활용할-포인트-소개">9.1 컴포넌트 재활용 방법 및 재활용할 포인트 소개</h2>
 
 <ul>
   <li>dispatch를 분기처리 하기 위해 ListItem에 있던 dispatch를 각각의 view파일로 옮김</li>
@@ -977,99 +1136,4 @@ Promise와 Callback에서 주는 단점들을 해결 하고 자바스크립트�
 
 <blockquote>
   <p><a href="https://github.com/wjddk0909/vue-news/commit/6e92aae19f48ffb976010166bf7e4a2794471ec6">diff check</a></p>
-</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="store" /><category term="vuex" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">4 - API 구현</title><link href="http://localhost:4000/vue-lv3/vue-advanced4/" rel="alternate" type="text/html" title="4 - API 구현" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced4</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced4/"><![CDATA[<h2 id="41-axios를-이용한-api-호출">4.1 axios를 이용한 api 호출</h2>
-
-<p><a href="https://github.com/tastejs/hacker-news-pwas/blob/master/docs/api.md">해커뉴스 api</a></p>
-
-<ul>
-  <li>views 폴더에는 페이지 라우팅에 관련된 정보들만 들어가는게 좋다.</li>
-  <li>설계가 바뀌거나 할때 유연하게 대처하려면 데이터를 불러온다던지 비즈니스 로직들은 별도의 컴포넌트로 등록하는게 좋다.</li>
-  <li>우선 views안에 바로 넣고 나중에 수정할 예정</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/1e9ad6983ef8359e0aed961f6bdd567be08ebb33">diff check</a></p>
-</blockquote>
-
-<h2 id="42-axios의-api-함수-구조화-방법-및-실습-안내">4.2 axios의 api 함수 구조화 방법 및 실습 안내</h2>
-
-<ul>
-  <li>라이브러리를 각각의 파일에서 불러와야하고, 공통된 로직들이 계속 파일마다 불러와야 하는데 공통화시켜서 사용</li>
-  <li>data를 요청할때는 created나 beforeMount에서 많이 함 - 마운트 되고나서 데이터를 요청하면 데이터를 받아와서 데이터 배열에 넣으면 뷰의 리액티비티 시스템때문에 화면이 다시 그려짐</li>
-  <li>return axios.get = return new Promise가 같은 말이고 이것은 promise가 떨어진다는건데 -&gt; 뒤에 .then()을 연결할 수 있다는 뜻</li>
-</ul>
-
-<p>api/index.js</p>
-<ul>
-  <li>정의한 함수를 다른데서 import로 쓸 수 있도록 export해줘야 함</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/06ce74056f9d3f9d2759451e31df0e6f2fe637fd">diff check</a></p>
-</blockquote>
-
-<h2 id="43-자바스크립트-this-4가지와-화살표-함수의-this">4.3 자바스크립트 this 4가지와 화살표 함수의 this</h2>
-
-<p>this
-가장 최상단에는 window가 있는데 콘솔창에 this를 그냥 찍어보면 window를 가리킨다.<br />
-함수안에 console.log(this)를 선언하고 함수를 실행하면 window를 가리킨다. 기본적으로 this는 전역을 향한다.</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// 전역을 가리킴</span>
-    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nx">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="c1">// window객체와, 30이 찍힘</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>생성자 함수로 인스턴스를 생성했을 때는</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">Vue</span><span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// 함수 자체를 가리킴</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">el</span> <span class="o">=</span> <span class="nx">el</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="k">new</span> <span class="nx">Vue</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Vue{}, Vue{el: '#app'} 이 찍힘</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>비동기 처리에서의 this</p>
-<ul>
-  <li>호출 전에는 VueComponent</li>
-  <li>호출 후에는 undefined</li>
-</ul>
-
-<p>기본적으로 비동기 호출 자체는 호출되는 시점에서 기존에 있었던 this를 벗어난 새로운 this가 생김<br />
-그래서 함수밖과 함수안의 this가 다르기 때문에 함수 밖에서 변수에 this를 담아서 바인딩 해줘야 한다.<br />
-그러나 화살표 함수를 사용하면 this가 호출되는 위치의 this를 가져온다.</p>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/380ade3516f7e36d2ca98e7ded01f671a0b79090">diff check</a></p>
-</blockquote>
-
-<h2 id="44-자바스크립트-비동기-처리1---callback">4.4 자바스크립트 비동기 처리(1) - Callback</h2>
-
-<p>Callback
-어떤 특정 함수나 기능이 종료되는 시점에 실행 되는 함수<br />
-자바스크립트는 함수를 인자로 넘길 수 있는데 인자로 전달되는 함수를 보통 콜백함수라고 표현</p>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/6a724932fde0983c7f219e975add4cf036386bf3">diff check</a></p>
-</blockquote>
-
-<h2 id="45-자바스크립트-비동기-처리2---promise">4.5 자바스크립트 비동기 처리(2) - Promise</h2>
-
-<p>새로운 비동기 처리 패턴 promise</p>
-
-<ul>
-  <li><a href="https://joshua1988.github.io/web-development/javascript/promise-for-beginners/">프로미스 쉽게 이해하기</a></li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/a6d0d624a94196cf3011115cc93108125248260a">diff check</a></p>
-</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="api" /><category term="axios" /><category term="arrow function" /><category term="비동기처리" /><summary type="html"><![CDATA[Vue news]]></summary></entry></feed>
+</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="store" /><category term="vuex" /><summary type="html"><![CDATA[Vue news]]></summary></entry></feed>

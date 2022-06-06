@@ -1,0 +1,127 @@
+I"�<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
+
+<p>function 형태</p>
+<ul>
+  <li>빌트인 Function 오브젝트 Function.prototype.call()</li>
+  <li>function 오브젝트
+    <ul>
+      <li>function book(){…}</li>
+      <li>var book = function() {…}</li>
+      <li>인스턴스이지만, new 연산자로 생성한 인스턴스와 구분하기 위해 function 오브젝트로 표기</li>
+    </ul>
+  </li>
+  <li>function 인스턴스
+    <ul>
+      <li>new Book()처럼 new연산자를 사용하여 Book.prototype에 연결된 메소드로 생성</li>
+    </ul>
+  </li>
+</ul>
+
+<p>function 오브젝트 생성</p>
+<ul>
+  <li>var book = function() {…};</li>
+  <li>엔진이 function 키워드를 만나면 빌트인 Function 오브젝트의 prototype에 연결된 메소드로 function 오브젝트 생성</li>
+  <li>생성한 오브젝트를 book 변수에 할당</li>
+  <li>book() 형태로 호출
+    <ul>
+      <li>function 오브젝트이므로 호출 가능</li>
+    </ul>
+  </li>
+</ul>
+
+<p>오브젝트 저장</p>
+<ul>
+  <li>함수를 호출하려면 생성한 function 오브젝트를 저장해야한다.</li>
+  <li>function 오브젝트 저장형태
+    <ul>
+      <li>{name: value} 형태로 저장</li>
+      <li>{book: 생성한 function 오브젝트} 형태</li>
+    </ul>
+  </li>
+  <li>함수를 호출하려면
+    <ol>
+      <li>저장된 오브젝트에서 함수 이름(book)으로 검색</li>
+      <li>value 값을 구하고</li>
+      <li>value가 function 오브젝트면 호출</li>
+    </ol>
+  </li>
+</ul>
+
+<p>함수가 호출되면 엔진은 함수의 변수와 함수를 {name: value} 형태로 실행 환경을 설정하고 함수 코드를 실행한다.<br />
+{name: value} 형태로 생각을 전환해야 JS의 아키텍처와 메커니즘을 쉽게 이해할 수 있다.<br />
+function(){…} 코드를 보면 함수의 변수와 함수가 {name: value} 형태로 연상되어야 한다.</p>
+
+<h2 id="12-function-오브젝트-생성-과정-function-오브젝트-구조">1.2 function 오브젝트 생성 과정, function 오브젝트 구조</h2>
+
+<p>function 오브젝트 생성 과정</p>
+
+<ol>
+  <li>function sports(){…} 형태에서 function 키워드를 만나면</li>
+  <li>오브젝트를 생성하고 저장
+    <ul>
+      <li>{sports: {…}}</li>
+      <li>sports는 function 오브젝트 이름</li>
+      <li>오브젝트 {…}에 프로퍼티가 없는 상태 -&gt; 이제부터 빈 오브젝트에 프로퍼티를 채운다.</li>
+    </ul>
+  </li>
+</ol>
+
+<ul>
+  <li>sports 오브젝트 형태
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">sports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){};</span>
+<span class="cm">/*
+1. 생성한 오브젝트가 sports에 할당된다. -&gt; 오브젝트를 생성하는 시점에는 빈 오브젝트
+2. Local의 sports를 펼치면
+arguments: (...)
+caller: (...)
+length: 0
+name: "sports"
+prototype: {
+  construnctor: ƒ ()
+  __propto__: Object // 빌트인 오브젝트에 관련된 메소드들이 설정되어있음
+}
+__proto__: ƒ () // apply, bind, call 빌트인 function 오브젝트의 prototype에 연결되어 있는 메소드들이 설정됨
+*/</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+</ul>
+
+<ol>
+  <li>sports 오브젝트에 <code class="language-plaintext highlighter-rouge">prototype 오브젝트</code> 첨부</li>
+  <li>prototype에 <code class="language-plaintext highlighter-rouge">constructor</code> 프로퍼티 첨부
+    <ul>
+      <li>prototype.contructor가 sports 오브젝트 참조</li>
+    </ul>
+  </li>
+  <li>prototype에 <code class="language-plaintext highlighter-rouge">__proto__</code> 오브젝트 첨부</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="nx">sports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">prototype</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">constructor</span><span class="p">:</span> <span class="nx">sports</span>
+    <span class="na">__proto__</span><span class="p">:</span> <span class="p">{}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+:ET

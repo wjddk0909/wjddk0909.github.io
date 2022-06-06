@@ -305,6 +305,10 @@
 <lastmod>2022-04-27T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/js-advanced/js-advanced1/</loc>
+<lastmod>2022-06-06T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/about/</loc>
 </url>
 <url>
@@ -327,6 +331,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/categories/javascript</loc>
+</url>
+<url>
+<loc>http://localhost:4000/categories/js-advanced</loc>
 </url>
 <url>
 <loc>http://localhost:4000/categories/tips</loc>

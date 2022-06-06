@@ -1,0 +1,374 @@
+I"?5
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/javascript/localstorage/">LocalStorage 데이터 저장은 string</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.10
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#javascript" class="page__taxonomy-item-category" rel="tag">javascript</a>
+                    
+                    
+                    <a href="/tags/#localstorage" class="page__taxonomy-item-tag" rel="tag">localstorage</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/javascript/some-every/">some vs every / foreach vs map 반복문 차이</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.09
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#javascript" class="page__taxonomy-item-category" rel="tag">javascript</a>
+                    
+                    
+                    <a href="/tags/#every" class="page__taxonomy-item-tag" rel="tag">every</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#foreach" class="page__taxonomy-item-tag" rel="tag">foreach</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#map" class="page__taxonomy-item-tag" rel="tag">map</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#some" class="page__taxonomy-item-tag" rel="tag">some</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/javascript/rest/">REST</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.09
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#javascript" class="page__taxonomy-item-category" rel="tag">javascript</a>
+                    
+                    
+                    <a href="/tags/#api" class="page__taxonomy-item-tag" rel="tag">api</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#rest" class="page__taxonomy-item-tag" rel="tag">REST</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/javascript/hoisting/">호이스팅(Hoisting)</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.08
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#javascript" class="page__taxonomy-item-category" rel="tag">javascript</a>
+                    
+                    
+                    <a href="/tags/#hoisting" class="page__taxonomy-item-tag" rel="tag">hoisting</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/javascript/api/">api</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.07
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#javascript" class="page__taxonomy-item-category" rel="tag">javascript</a>
+                    
+                    
+                    <a href="/tags/#api" class="page__taxonomy-item-tag" rel="tag">api</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/javascript/call-apply-bind/">call/apply/bind 함수의 차이점</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.06
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#javascript" class="page__taxonomy-item-category" rel="tag">javascript</a>
+                    
+                    
+                    <a href="/tags/#apply" class="page__taxonomy-item-tag" rel="tag">apply</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#bind" class="page__taxonomy-item-tag" rel="tag">bind</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#call" class="page__taxonomy-item-tag" rel="tag">call</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#function" class="page__taxonomy-item-tag" rel="tag">function</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/javascript/dom/">DOM</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.05
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#javascript" class="page__taxonomy-item-category" rel="tag">javascript</a>
+                    
+                    
+                    <a href="/tags/#dom" class="page__taxonomy-item-tag" rel="tag">DOM</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/javascript/truthy-falsy/">Truthy &amp; Falsy</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.03
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#javascript" class="page__taxonomy-item-category" rel="tag">javascript</a>
+                    
+                    
+                    <a href="/tags/#falsy" class="page__taxonomy-item-tag" rel="tag">falsy</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#truthy" class="page__taxonomy-item-tag" rel="tag">truthy</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/javascript/primitive-reference/">데이터 타입 - primitive type / reference type</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.03
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#javascript" class="page__taxonomy-item-category" rel="tag">javascript</a>
+                    
+                    
+                    <a href="/tags/#primitive-type" class="page__taxonomy-item-tag" rel="tag">primitive type</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#reference-type" class="page__taxonomy-item-tag" rel="tag">reference type</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/javascript/lexical-scope/">Computed Property Name - 객체 key값에 변수 넣기</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.03
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#javascript" class="page__taxonomy-item-category" rel="tag">javascript</a>
+                    
+                    
+                    <a href="/tags/#es6" class="page__taxonomy-item-tag" rel="tag">es6</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#object" class="page__taxonomy-item-tag" rel="tag">object</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#variable" class="page__taxonomy-item-tag" rel="tag">variable</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/javascript/instance/">인스턴스</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.03
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#javascript" class="page__taxonomy-item-category" rel="tag">javascript</a>
+                    
+                    
+                    <a href="/tags/#instance" class="page__taxonomy-item-tag" rel="tag">instance</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#primitive" class="page__taxonomy-item-tag" rel="tag">primitive</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/javascript/debounce-throttle/">디바운싱과 쓰로틀링</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.03
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#javascript" class="page__taxonomy-item-category" rel="tag">javascript</a>
+                    
+                    
+                    <a href="/tags/#debounce" class="page__taxonomy-item-tag" rel="tag">debounce</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#throttle" class="page__taxonomy-item-tag" rel="tag">throttle</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/javascript/Computed-Property-Name/">Computed Property Name - 객체 key값에 변수 넣기</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.03
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#javascript" class="page__taxonomy-item-category" rel="tag">javascript</a>
+                    
+                    
+                    <a href="/tags/#es6" class="page__taxonomy-item-tag" rel="tag">es6</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#object" class="page__taxonomy-item-tag" rel="tag">object</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#variable" class="page__taxonomy-item-tag" rel="tag">variable</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+:ET

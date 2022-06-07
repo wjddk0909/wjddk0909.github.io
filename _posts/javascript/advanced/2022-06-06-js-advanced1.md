@@ -128,6 +128,46 @@ sports = {
 
 내부 프로퍼티란?  
 - 엔진이 내부 처리에 사용하는 프로퍼티(외부에서 사용 불가)
+- 자바스크립트 엔진의 구현 알고리즘을 설명하기 위해 ECMAScript 사양에서 사용하는 의사 프로퍼티(내부 엔진 설명용)
+- 일부 내부 슬롯과 내부 메서드에 한해 간접적으로 접근할 수 있는 수단 제공
+- `[[]]` 이중 대괄호로 감싼 형태. 예를 들어 모든 걕체는 `[[prototype]]`이라는 내부 프로퍼티(슬롯)을 가진다.
+
+## 1.4 내부 프로퍼티 분류: 공통 내부 프로퍼티, 선택적 내부 프로퍼티
+
+내부 프로퍼티 분류  
+- 공통 프로퍼티
+  - 모든 오브젝트에 공통으로 설정되는 프로퍼티
+- 선택적 프로퍼티
+  - 오브젝트에 따라 선택적으로 설정되는 프로퍼티
+  - 해당되는 오브젝트에만 설정
+
+자바스크립트 엔진은 프로퍼티를 생성할 때 `프로퍼티의 상태를 나타내는 프로퍼티 어트리뷰트`를 기본값으로 자동 정의한다.  
+> 프로퍼티의 상태랑 프로퍼티의 값(value), 값의 갱신 가능 여부(writable), 열거 가능 여부(enumerable), 재정의 가능 여부(configurable)를 말한다. 
+
+프로퍼티 어트리뷰트(상태)는 자바스크립트 엔진이 관리하는 내부상태 값인 내부 슬롯 `[[value]], [[writable]], [[enumerable]], [[configurable]]`이다. (내부 슬롯중 간접적으로 접근할 수 있는 일부)
+
+따라서 프로퍼티 어트리뷰트에 직접 전근할 수 없지만 `Object.getOwnPropertyDescriptor`메서드를 사용하여 간접적으로 확인할 수 있다.
+
+```javascript
+const person = {
+  name: 'ellin',
+  age: 25
+}
+
+// 프로퍼티 어트리뷰트 정보를 제공하는 프로퍼티 디스크립터 객체를 반환한다.
+console.log(Object.getOwnPropertyDescriptor(person, 'name'))
+// {value: 'ellin', writable: true, enumerable: true, configurable: true}
+
+
+// 모든 프로퍼티의 프로퍼티 어트리뷰트 정보를 제공하는 프로퍼티 디스크립터 객체를 반환한다.
+console.log(Object.getOwnPropertyDescriptors(person))
+/*
+{
+  age: { value: 25, writable: true, enumerable: true, configurable: true },
+  name: { value: 'ellin', writable: true, enumerable: true, configurable: true }
+}
+*/
+```
 
 
 

@@ -1,0 +1,150 @@
+I"�$<h3 id="v-on">v-on</h3>
+<p>해당 HTML 요소의 이벤트를 뷰 인스턴스의 로직과 연결할 때 사용</p>
+
+<h3 id="v-bind">v-bind</h3>
+<p>뷰 인스턴스의 데이터 속성을 해당 HTML 요소에 연결할 때 사용</p>
+
+<h3 id="v-model">v-model</h3>
+<p>v-bind와 v-on의 조합</p>
+
+<ol>
+  <li>input 태그에는 <code class="language-plaintext highlighter-rouge">value/input</code></li>
+  <li>checkbox 태그에는 <code class="language-plaintext highlighter-rouge">checked/change</code></li>
+  <li>select 태그에는 <code class="language-plaintext highlighter-rouge">value/change</code></li>
+</ol>
+
+<h3 id="v-model-속성">v-model 속성</h3>
+<p>사용자의 입력을 받는 UI 요소들에 v-model이라는 속성을 사용하면 입력 값이 자동으로 뷰 데이터 속성에 연결된다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;input</span> <span class="na">v-model=</span><span class="s">"inputText"</span><span class="nt">&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">inputText</span><span class="p">:</span> <span class="dl">''</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>v-model의 한계<br />
+한국어, 중국어, 일본어 입력시 한 글자에 대한 입력이 끝나야지 data 속성값과 input 박스의 텍스트가 동기화 된다.<br />
+한국어 입력을 다룰 때, v-bind:value와 v-on:input을 직접 연결해서 사용하는 것을 권고 <a href="https://kr.vuejs.org/v2/guide/forms.html">Vue.js공식문서</a></li>
+</ul>
+
+<p>위 코드를 v-bind:value와 v-on:input을 직접 연결해서 작성하면</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;input</span> <span class="na">v-bind:value=</span><span class="s">"inputText"</span> <span class="na">v-on:input=</span><span class="s">"updateInput"</span><span class="nt">&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">inputText</span><span class="p">:</span> <span class="dl">''</span>
+  <span class="p">},</span>
+  <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">updateInput</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">updatedText</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">inputText</span> <span class="o">=</span> <span class="nx">updatedText</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>매번 v-on과 v-bind를 이용해서 이벤트와 값을 조합해 처리하는것이 귀찮게 느껴지면 input 컴포넌트를 분리해서 부모 컴포넌트에서는 v-model로 처리하는 방법이 있다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="c">&lt;!-- BaseInput.vue - 싱글 파일 컴포넌트 구조--&gt;</span>
+<span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">v-bind:value=</span><span class="s">"value"</span> <span class="na">v-on:input=</span><span class="s">"updateInput"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="na">props</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">value</span><span class="dl">'</span><span class="p">],</span>
+  <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">updateInput</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">input</span><span class="dl">'</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">BaseInput</code> 컴포넌트의 상위 컴포넌트에서 <code class="language-plaintext highlighter-rouge">props</code>로 받은 <code class="language-plaintext highlighter-rouge">value</code>를 인풋 태그에 값으로 연결</li>
+  <li>인풋 태그에서 값이 입력되면 인풋 태그에서 <code class="language-plaintext highlighter-rouge">input</code> 이벤트가 발생하고 <code class="language-plaintext highlighter-rouge">updateInput</code> 메서드 실행</li>
+  <li><code class="language-plaintext highlighter-rouge">updateInput</code> 메서드에서 인풋 태그에 입력되 값을 상위 컴포넌트에 <code class="language-plaintext highlighter-rouge">input</code> 이벤트로 올리기</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c">&lt;!-- App.vue - 싱글 파일 컴포넌트 구조 --&gt;</span>
+<span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;base-input</span> <span class="na">v-model=</span><span class="s">"inputText"</span><span class="nt">&gt;&lt;/base-input&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="k">import</span> <span class="nx">BaseInput</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./BaseInput.vue</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="na">components</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">base-input</span><span class="dl">'</span><span class="p">:</span> <span class="nx">BaseInput</span>
+  <span class="p">},</span>
+  <span class="na">data</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">inputText</span><span class="p">:</span> <span class="dl">''</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+:ET

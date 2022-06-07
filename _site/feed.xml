@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-06T18:06:08+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-07T12:35:22+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
 
 <p>function 형태</p>
 <ul>
@@ -192,7 +192,74 @@ __proto__: ƒ () // apply, bind, call 빌트인 function 오브젝트의 prototy
 <p>내부 프로퍼티란?</p>
 <ul>
   <li>엔진이 내부 처리에 사용하는 프로퍼티(외부에서 사용 불가)</li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="js-advanced" /><category term="function" /><category term="object" /><summary type="html"><![CDATA[function 형태, 오브젝트 생성, 저장, 생각의 전환]]></summary></entry><entry><title type="html">13 - 컴포넌트 디자인 패턴</title><link href="http://localhost:4000/vue-lv3/vue-advanced13/" rel="alternate" type="text/html" title="13 - 컴포넌트 디자인 패턴" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced13</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced13/"><![CDATA[<h2 id="131-component-design-patterns">13.1 Component Design Patterns</h2>
+  <li>자바스크립트 엔진의 구현 알고리즘을 설명하기 위해 ECMAScript 사양에서 사용하는 의사 프로퍼티(내부 엔진 설명용)</li>
+  <li>일부 내부 슬롯과 내부 메서드에 한해 간접적으로 접근할 수 있는 수단 제공</li>
+  <li><code class="language-plaintext highlighter-rouge">[[]]</code> 이중 대괄호로 감싼 형태. 예를 들어 모든 걕체는 <code class="language-plaintext highlighter-rouge">[[prototype]]</code>이라는 내부 프로퍼티(슬롯)을 가진다.</li>
+</ul>
+
+<h2 id="14-내부-프로퍼티-분류-공통-내부-프로퍼티-선택적-내부-프로퍼티">1.4 내부 프로퍼티 분류: 공통 내부 프로퍼티, 선택적 내부 프로퍼티</h2>
+
+<p>내부 프로퍼티 분류</p>
+<ul>
+  <li>공통 프로퍼티
+    <ul>
+      <li>모든 오브젝트에 공통으로 설정되는 프로퍼티</li>
+    </ul>
+  </li>
+  <li>선택적 프로퍼티
+    <ul>
+      <li>오브젝트에 따라 선택적으로 설정되는 프로퍼티</li>
+      <li>해당되는 오브젝트에만 설정</li>
+    </ul>
+  </li>
+</ul>
+
+<p>자바스크립트 엔진은 프로퍼티를 생성할 때 <code class="language-plaintext highlighter-rouge">프로퍼티의 상태를 나타내는 프로퍼티 어트리뷰트</code>를 기본값으로 자동 정의한다.</p>
+<blockquote>
+  <p>프로퍼티의 상태랑 프로퍼티의 값(value), 값의 갱신 가능 여부(writable), 열거 가능 여부(enumerable), 재정의 가능 여부(configurable)를 말한다.</p>
+</blockquote>
+
+<p>프로퍼티 어트리뷰트(상태)는 자바스크립트 엔진이 관리하는 내부상태 값인 내부 슬롯 <code class="language-plaintext highlighter-rouge">[[value]], [[writable]], [[enumerable]], [[configurable]]</code>이다. (내부 슬롯중 간접적으로 접근할 수 있는 일부)</p>
+
+<p>따라서 프로퍼티 어트리뷰트에 직접 전근할 수 없지만 <code class="language-plaintext highlighter-rouge">Object.getOwnPropertyDescriptor</code>메서드를 사용하여 간접적으로 확인할 수 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">ellin</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">age</span><span class="p">:</span> <span class="mi">25</span>
+<span class="p">}</span>
+
+<span class="c1">// 프로퍼티 어트리뷰트 정보를 제공하는 프로퍼티 디스크립터 객체를 반환한다.</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptor</span><span class="p">(</span><span class="nx">person</span><span class="p">,</span> <span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">))</span>
+<span class="c1">// {value: 'ellin', writable: true, enumerable: true, configurable: true}</span>
+
+
+<span class="c1">// 모든 프로퍼티의 프로퍼티 어트리뷰트 정보를 제공하는 프로퍼티 디스크립터 객체를 반환한다.</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptors</span><span class="p">(</span><span class="nx">person</span><span class="p">))</span>
+<span class="cm">/*
+{
+  age: { value: 25, writable: true, enumerable: true, configurable: true },
+  name: { value: 'ellin', writable: true, enumerable: true, configurable: true }
+}
+*/</span>
+</pre></td></tr></tbody></table></code></pre></div></div>]]></content><author><name>FE Developer</name></author><category term="js-advanced" /><category term="function" /><category term="object" /><summary type="html"><![CDATA[function 형태, 오브젝트 생성, 저장, 생각의 전환]]></summary></entry><entry><title type="html">13 - 컴포넌트 디자인 패턴</title><link href="http://localhost:4000/vue-lv3/vue-advanced13/" rel="alternate" type="text/html" title="13 - 컴포넌트 디자인 패턴" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced13</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced13/"><![CDATA[<h2 id="131-component-design-patterns">13.1 Component Design Patterns</h2>
 
 <p>컴포넌트 디자인 패턴</p>
 <ul>

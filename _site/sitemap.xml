@@ -317,6 +317,14 @@
 <lastmod>2022-06-06T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/webpack/module-bundler-webpack1/</loc>
+<lastmod>2022-06-07T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/typescript/interface/</loc>
+<lastmod>2022-06-09T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/about/</loc>
 </url>
 <url>
@@ -347,6 +355,9 @@
 <loc>http://localhost:4000/categories/tips</loc>
 </url>
 <url>
+<loc>http://localhost:4000/categories/typescript</loc>
+</url>
+<url>
 <loc>http://localhost:4000/categories/vue-lv1</loc>
 </url>
 <url>
@@ -357,6 +368,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/categories/vue-study</loc>
+</url>
+<url>
+<loc>http://localhost:4000/categories/webpack</loc>
 </url>
 <url>
 <loc>http://localhost:4000/</loc>
@@ -408,5 +422,8 @@
 </url>
 <url>
 <loc>http://localhost:4000/page16/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page17/</loc>
 </url>
 </urlset>

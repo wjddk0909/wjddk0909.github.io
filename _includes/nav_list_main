@@ -53,6 +53,21 @@
                 {% endif %}
             {% endfor %}
         </ul>
+        <ul>
+            {% for category in site.categories %}
+                {% if category[0] == "webpack" %}
+                    <li><a href="/categories/webpack" class="">프론트엔드 개발자를 위한 웹팩 ({{category[1].size}})</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <span class="nav__sub-title">TypeScript</span>
+        <ul>
+            {% for category in site.categories %}
+                {% if category[0] == "typescript" %}
+                    <li><a href="/categories/typescript" class="">TypeScript 개념 이론 ({{category[1].size}})</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
         <span class="nav__sub-title">JavaScript</span>
         <ul>
             {% for category in site.categories %}

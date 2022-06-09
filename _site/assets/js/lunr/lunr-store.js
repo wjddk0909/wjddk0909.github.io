@@ -472,4 +472,16 @@ var store = [{
         "tags": ["function","object"],
         "url": "/js-advanced/js-advanced1/",
         "teaser": null
+      },{
+        "title": "Node.js와 NPM",
+        "excerpt":"개발 환경 구성   ","categories": ["webpack"],
+        "tags": ["node.js","npm"],
+        "url": "/webpack/module-bundler-webpack1/",
+        "teaser": null
+      },{
+        "title": "[TypeScript] interface 사용",
+        "excerpt":"TypeScript interface 사용하기   ","categories": ["typescript"],
+        "tags": ["interface"],
+        "url": "/typescript/interface/",
+        "teaser": null
       }]

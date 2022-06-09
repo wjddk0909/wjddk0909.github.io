@@ -1,0 +1,163 @@
+I"� <h2 id="typescript-interface-사용하기">TypeScript interface 사용하기</h2>
+
+<p>TypeScript에서 Object 타입을 선언할 때 interface와 type을 사용<br />
+TypeScript는 객체를 선언하고 그냥 접근할 수 없다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">let</span> <span class="nx">user</span><span class="p">:</span><span class="nx">object</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ellin</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">age</span><span class="p">:</span> <span class="mi">20</span>
+<span class="p">}</span> <span class="c1">// 객체 선언</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="c1">// Error</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이때 interface를 선언해서 접근해야 한다.</p>
+
+<h3 id="사용법">사용법</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="cm">/**
+ * interface 인터페이스 이름 {
+ * key: type;
+ * key: type;
+ * }
+ * **/</span>
+<span class="kr">interface</span> <span class="nx">User</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">user</span><span class="p">:</span> <span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ellin</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">age</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="c1">// ellin</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="c1">// store notice.ts</span>
+<span class="kd">const</span> <span class="nx">state</span><span class="p">:</span> <span class="nx">NoticeStateType</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">...</span>
+    <span class="na">selected_fn_000039</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+
+<span class="c1">// store noticeType.ts</span>
+<span class="k">export</span> <span class="kr">interface</span> <span class="nx">NoticeStateType</span> <span class="p">{</span>
+    <span class="p">...</span>
+    <span class="nx">selected_fn_000039</span><span class="p">:</span> <span class="kr">string</span> <span class="o">|</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="optional-readonly-index-사용법">optional, readonly, index 사용법</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+</pre></td><td class="rouge-code"><pre><span class="kr">enum</span> <span class="nx">Gender</span> <span class="p">{</span>
+    <span class="nx">Man</span><span class="p">,</span>
+    <span class="nx">Woman</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">User</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+    <span class="nl">gender</span><span class="p">?:</span> <span class="nx">Gender</span><span class="p">;</span> <span class="c1">// 있어도 되고 없어도 되는 옵셔널-물음표</span>
+    <span class="k">readonly</span> <span class="nx">birth</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span> <span class="c1">//읽기 전용</span>
+    <span class="p">[</span><span class="nx">key</span><span class="p">:</span><span class="kr">number</span><span class="p">]:</span> <span class="kr">string</span><span class="p">;</span> <span class="c1">// 여러 속성 정보를 받을 때 사용 (key:number, value:string)</span>
+<span class="p">}</span>
+
+<span class="c1">//gender 포함</span>
+<span class="kd">const</span> <span class="nx">user1</span><span class="p">:</span><span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ellin1</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">age</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="na">gender</span><span class="p">:</span> <span class="nx">Gender</span><span class="p">.</span><span class="nx">Man</span><span class="p">,</span>
+    <span class="na">birth</span><span class="p">:</span><span class="mi">20020101</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1">//gedner 제외</span>
+<span class="kd">const</span> <span class="nx">user2</span><span class="p">:</span><span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ellin2</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">age</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
+    <span class="na">birth</span><span class="p">:</span><span class="mi">20020101</span>
+<span class="p">}</span>
+
+<span class="c1">//index 사용</span>
+<span class="kd">const</span> <span class="nx">user3</span><span class="p">:</span><span class="nx">UserInfo</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ellin3</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">age</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+    <span class="na">birth</span><span class="p">:</span><span class="mi">19891225</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1반</span><span class="dl">"</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2번</span><span class="dl">"</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>gender 속성은 optional(?) 형태라서 사용하지 않으면 선언을 피할 수 있다.</li>
+  <li>birth 속성은 읽기 전용으로 선언했기 때문에 값을 수정하려고 하면 Compile Error 발생</li>
+  <li><code class="language-plaintext highlighter-rouge">[key:number]</code> 속성은 index방식으로 여러개를 한 번에 사용할 수 있고, 사용하지 않으면 선언을 피할 수 있다.</li>
+</ul>
+:ET

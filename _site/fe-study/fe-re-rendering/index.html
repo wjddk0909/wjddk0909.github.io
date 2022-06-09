@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>npm install / –save / –save-dev 차이 - FE개발자를 꿈꾸다</title>
-<meta name="description" content="npm install yarn add">
+<!-- begin _includes/seo.html --><title>SPA Virtual DOM 작동 원리 - FE개발자를 꿈꾸다</title>
+<meta name="description" content="re-rendering과 key값">
 
 
   <meta name="author" content="FE Developer">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="FE개발자를 꿈꾸다">
-<meta property="og:title" content="npm install / –save / –save-dev 차이">
-<meta property="og:url" content="http://localhost:4000/fe-study/fe-npm-install/">
+<meta property="og:title" content="SPA Virtual DOM 작동 원리">
+<meta property="og:url" content="http://localhost:4000/fe-study/fe-re-rendering/">
 
 
-  <meta property="og:description" content="npm install yarn add">
+  <meta property="og:description" content="re-rendering과 key값">
 
 
 
@@ -47,7 +47,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/fe-study/fe-npm-install/">
+<link rel="canonical" href="http://localhost:4000/fe-study/fe-re-rendering/">
 
 
 
@@ -271,15 +271,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="npm install / –save / –save-dev 차이">
-    <meta itemprop="description" content="npm install yarn add">
+    <meta itemprop="headline" content="SPA Virtual DOM 작동 원리">
+    <meta itemprop="description" content="re-rendering과 key값">
     <meta itemprop="datePublished" content="2021-12-01T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">npm install / –save / –save-dev 차이
+          <h1 id="page-title" class="page__title" itemprop="headline">SPA Virtual DOM 작동 원리
 </h1>
           
 <!--
@@ -301,18 +301,25 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="그냥-installadd">그냥 install(add)</h2>
-<p><code class="language-plaintext highlighter-rouge">npm install / yarn add</code>
-단순히 <code class="language-plaintext highlighter-rouge">./node_modeuls</code>폴더에 패키지 설치</p>
+        <h2 id="virtual-dom">Virtual DOM</h2>
 
-<h2 id="save---p">–save / -P</h2>
-<p><code class="language-plaintext highlighter-rouge">npm install --save / yarn add --save</code>
-<code class="language-plaintext highlighter-rouge">--save</code>키워드를 통해 우선 <code class="language-plaintext highlighter-rouge">./node_modules</code>폴더에 패키지 설치<br />
-<code class="language-plaintext highlighter-rouge">./package.josn</code>의 <code class="language-plaintext highlighter-rouge">dependencies</code> 옵션에 해당 패키지 추가되어 다음 <code class="language-plaintext highlighter-rouge">install</code>시 해당 패키지가 자동으로 설치됨</p>
+<p>DOM의 노드 요소들을 직접 조작하게 되면 JavaScript 프레임워크가 필요 이상으로 DOM을 업데이트한다.<br />
+예를 들어 10개의 항목이 있다고 가정했을때, 첫번째 요소만 고치려고 하지만 전체 목록을 다시 작성한다. 이것은 필요한 것보다 열배는 많은 작업이다.</p>
 
-<h2 id="save-dev---d">–save-dev / -D</h2>
-<p><code class="language-plaintext highlighter-rouge">npm install --save-dev / yarn add --save-dev</code>
-<code class="language-plaintext highlighter-rouge">./package.json</code>의 <code class="language-plaintext highlighter-rouge">devDependencies</code>옵션에 해당 패키지 추가</p>
+<p>Virtual DOM은 DOM을 추상화한 가상의 객체를 메모리에 만들어 놓는 것.<br />
+Virtuadl DOM은 DOM과 유사한 역할을 담당한다.<br />
+변경사항을 DOM에 직접 수정하는 것이 아니라 중간 단계로 Virtual DOM을 수정하고 그것을 통해서 DOM을 수정(가상돔에 변경내역을 모으고 실제돔과 비교해서 변경이 있는 부분만 실제돔에 재렌더링 함)</p>
+
+<h3 id="virtual-dom이-작동하는-방식">Virtual DOM이 작동하는 방식</h3>
+
+<ul>
+  <li>각 <code class="language-plaintext highlighter-rouge">component</code>는 고유한 <code class="language-plaintext highlighter-rouge">key</code>값을 가지고 이 키값은 자동으로 부여되지만 임의로 지정도 가능하다.</li>
+  <li>컴포넌트의 상태가 변하면 가상돔트리를 업데이트 하고 실제돔트리는 변경하지 않는다.</li>
+  <li>업데이트가 되면 가상돔의 키값이 바뀌고, 실제돔과 비교해서 키값이 다른 부분만 실제돔에서 리렌더링 한다.(최소한의 조작)</li>
+</ul>
+
+<p>위와 같은 방식으로 작동하는 걸로 이해함.. (틀린 부분이 있으면 추후 수정)</p>
+
 
         
       </section>
@@ -329,11 +336,11 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#install" class="page__taxonomy-item p-category" rel="tag">install</a><span class="sep">, </span>
+      <a href="/tags/#re-rendering" class="page__taxonomy-item p-category" rel="tag">re-rendering</a><span class="sep">, </span>
     
-      <a href="/tags/#npm" class="page__taxonomy-item p-category" rel="tag">npm</a><span class="sep">, </span>
+      <a href="/tags/#spa" class="page__taxonomy-item p-category" rel="tag">SPA</a><span class="sep">, </span>
     
-      <a href="/tags/#yarn" class="page__taxonomy-item p-category" rel="tag">yarn</a>
+      <a href="/tags/#virtual-dom" class="page__taxonomy-item p-category" rel="tag">Virtual DOM</a>
     
     </span>
   </p>
@@ -370,22 +377,22 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=npm+install+%2F+--save+%2F+--save-dev+%EC%B0%A8%EC%9D%B4%20http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-npm-install%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=SPA+Virtual+DOM+%EC%9E%91%EB%8F%99+%EC%9B%90%EB%A6%AC%20http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-re-rendering%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-npm-install%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-re-rendering%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-npm-install%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ffe-study%2Ffe-re-rendering%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/fe-study/fe-module/" class="pagination--pager" title="자바스크립트 모듈화
+      <a href="/fe-study/fe-npm-install/" class="pagination--pager" title="npm install / –save / –save-dev 차이
 ">이전</a>
     
     
-      <a href="/fe-study/fe-re-rendering/" class="pagination--pager" title="SPA Virtual DOM 작동 원리
+      <a href="/fe-study/fe-routing/" class="pagination--pager" title="라우팅 - 동적라우팅 / 정적라우팅
 ">다음</a>
     
   </nav>

@@ -86,6 +86,13 @@
         <span class="nav__sub-title">HTML/CSS</span>
         <ul>
             {% for category in site.categories %}
+                {% if category[0] == "html" %}
+                    <li><a href="/categories/html" class="">HTML 정리 ({{category[1].size}})</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <ul>
+            {% for category in site.categories %}
                 {% if category[0] == "css" %}
                     <li><a href="/categories/css" class="">css 정리 ({{category[1].size}})</a></li>
                 {% endif %}

@@ -53,6 +53,10 @@
 <lastmod>2021-12-01T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/vue-study/fe-input-accept-props/</loc>
+<lastmod>2021-12-01T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/vue-study/fe-vue-cli/</loc>
 <lastmod>2021-12-01T00:00:00+09:00</lastmod>
 </url>
@@ -261,6 +265,10 @@
 <lastmod>2021-12-12T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/html/input-accept/</loc>
+<lastmod>2021-12-12T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/vue-lv2/vuex/</loc>
 <lastmod>2022-03-12T00:00:00+09:00</lastmod>
 </url>
@@ -352,6 +360,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/categories/git</loc>
+</url>
+<url>
+<loc>http://localhost:4000/categories/html</loc>
 </url>
 <url>
 <loc>http://localhost:4000/categories/javascript</loc>

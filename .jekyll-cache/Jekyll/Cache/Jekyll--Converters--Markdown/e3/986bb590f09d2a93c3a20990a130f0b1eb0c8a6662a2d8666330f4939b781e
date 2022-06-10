@@ -1,0 +1,38 @@
+I"[
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/html/input-accept/">input file 첨부시 확장자 제한하기</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.12
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#html" class="page__taxonomy-item-category" rel="tag">html</a>
+                    
+                    
+                    <a href="/tags/#accept" class="page__taxonomy-item-tag" rel="tag">accept</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#file" class="page__taxonomy-item-tag" rel="tag">file</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#html" class="page__taxonomy-item-tag" rel="tag">html</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#input" class="page__taxonomy-item-tag" rel="tag">input</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+:ET

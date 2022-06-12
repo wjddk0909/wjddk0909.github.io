@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-12T17:32:45+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">[TypeScript] interface 사용</title><link href="http://localhost:4000/typescript/interface/" rel="alternate" type="text/html" title="[TypeScript] interface 사용" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/interface</id><content type="html" xml:base="http://localhost:4000/typescript/interface/"><![CDATA[<h2 id="typescript-interface-사용하기">TypeScript interface 사용하기</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-12T17:56:13+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">[TypeScript] interface 사용</title><link href="http://localhost:4000/typescript/interface/" rel="alternate" type="text/html" title="[TypeScript] interface 사용" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/interface</id><content type="html" xml:base="http://localhost:4000/typescript/interface/"><![CDATA[<h2 id="typescript-interface-사용하기">TypeScript interface 사용하기</h2>
 
 <p>TypeScript에서 Object 타입을 선언할 때 interface와 type을 사용<br />
 TypeScript는 객체를 선언하고 그냥 접근할 수 없다.</p>
@@ -159,7 +159,19 @@ TypeScript는 객체를 선언하고 그냥 접근할 수 없다.</p>
   <li>gender 속성은 optional(?) 형태라서 사용하지 않으면 선언을 피할 수 있다.</li>
   <li>birth 속성은 읽기 전용으로 선언했기 때문에 값을 수정하려고 하면 Compile Error 발생</li>
   <li><code class="language-plaintext highlighter-rouge">[key:number]</code> 속성은 index방식으로 여러개를 한 번에 사용할 수 있고, 사용하지 않으면 선언을 피할 수 있다.</li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="typescript" /><category term="interface" /><summary type="html"><![CDATA[interface]]></summary></entry><entry><title type="html">Node.js와 NPM</title><link href="http://localhost:4000/webpack/module-bundler-webpack1/" rel="alternate" type="text/html" title="Node.js와 NPM" /><published>2022-06-07T00:00:00+09:00</published><updated>2022-06-07T00:00:00+09:00</updated><id>http://localhost:4000/webpack/module-bundler-webpack1</id><content type="html" xml:base="http://localhost:4000/webpack/module-bundler-webpack1/"><![CDATA[<h2 id="개발-환경-구성">개발 환경 구성</h2>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="node.js" /><category term="npm" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
+</ul>]]></content><author><name>FE Developer</name></author><category term="typescript" /><category term="interface" /><summary type="html"><![CDATA[interface]]></summary></entry><entry><title type="html">Node.js와 NPM</title><link href="http://localhost:4000/webpack/module-bundler-webpack1/" rel="alternate" type="text/html" title="Node.js와 NPM" /><published>2022-06-07T00:00:00+09:00</published><updated>2022-06-07T00:00:00+09:00</updated><id>http://localhost:4000/webpack/module-bundler-webpack1</id><content type="html" xml:base="http://localhost:4000/webpack/module-bundler-webpack1/"><![CDATA[<h2 id="개발-환경-구성">개발 환경 구성</h2>
+
+<ul>
+  <li>Chrome</li>
+  <li>Git</li>
+  <li>Visual Studio Code</li>
+  <li>Node.js(v12.x 이상)</li>
+</ul>
+
+<p>단축키<br />
+명령어 입력 : command + shift + p</p>
+
+<p><a href="https://joshua1988.github.io/webpack-guide/">수업교안사이트</a></p>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="node.js" /><category term="npm" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
 
 <p>function 형태</p>
 <ul>

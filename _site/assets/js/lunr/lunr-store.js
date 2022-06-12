@@ -498,7 +498,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Node.js와 NPM",
-        "excerpt":"개발 환경 구성   ","categories": ["webpack"],
+        "excerpt":"개발 환경 구성      Chrome   Git   Visual Studio Code   Node.js(v12.x 이상)   단축키  명령어 입력 : command + shift + p   수업교안사이트  ","categories": ["webpack"],
         "tags": ["node.js","npm"],
         "url": "/webpack/module-bundler-webpack1/",
         "teaser": null

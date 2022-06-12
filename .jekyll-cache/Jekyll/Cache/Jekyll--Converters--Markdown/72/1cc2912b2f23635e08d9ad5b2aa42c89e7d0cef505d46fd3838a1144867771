@@ -1,0 +1,50 @@
+I"�
+<h2 id="rest에-대해-알아보자">REST에 대해 알아보자</h2>
+
+<p>REST에 대해 알아보기전에 api에 대해 다시 한번 확인해보자.<br />
+api에 대한 포스팅이 따로 있지만 여기에서는 비유를 통해 간단히 설명한다.</p>
+
+<p>좋아하는 드라마의 본방사수를 위해서 집에 서둘러 들어와 티비를 켜고 원하는 채널을 틀어야 하는 상황일때 이러한 과정이 필요하다.<br />
+티비 리모컨의 전원 버튼을 눌러 티비를 켜고 채널 버튼을 눌러 원하는 채널로 돌려야 한다.<br />
+나 &gt; <strong>리모컨</strong> &gt; 티비 이러한 순서로 볼 수 있다.</p>
+
+<p>즉 API는 리모컨 처럼 애플리케이션과 운영체계 사이의 ‘상호작용’을 돕는다.</p>
+
+<h3 id="웹-api의-역할">웹 API의 역할</h3>
+
+<ul>
+  <li>권한을 가진 사람만 서버와 데이터베이스안의 리소스에 접근이 가능하게 해준다.</li>
+  <li>모든 요청(request)와 응답(response)를 표준화 해준다.</li>
+</ul>
+
+<h2 id="rest의-구성요소">REST의 구성요소</h2>
+
+<p><code class="language-plaintext highlighter-rouge">REST</code>는 Representational State Tranfer의 약자로 <code class="language-plaintext highlighter-rouge">자원을 정의하고 자원에 대한 주소를 지정하는 방법</code>중 하나이다.<br />
+URI를 통해 자원을 명시하고 HTTP method를 통해서 동작을 정의한다.<br />
+REST API만 보고도 의도하는 바를 명확히 이해할 수 잇지만, 제한적인 HTTP method가 단점이다.(POST, GET, DELETE, PUT)</p>
+
+<ol>
+  <li>자원(Resource) : HTTP UIR 를 통한 자원 명시</li>
+  <li>자원에 대한 행위(Verb) : HTTP Method(post, get put, delete)</li>
+  <li>자원에 대한 행위의 내용(Representations) : HTTP Message Pay Load</li>
+</ol>
+
+<h2 id="rest-api">REST API</h2>
+
+<p>REST API란 REST의 원리를 따르는 API를 의미한다.
+리소스(HTTP URI)로 어떠한 행위(HTTP Method + Pay Load)를 하겠다는 것을 구조적으로 표현하는 방법이다.</p>
+
+<p>REST API의 설계 가이드를 살펴보자.</p>
+
+<ol>
+  <li>URI는 명사, 소문자를 사용한다.</li>
+  <li>마지막에 슬래시를 포함하지 않는다.</li>
+  <li>언더바 대신 하이픈을 사용한다.</li>
+  <li>URI에 파일확장자는 포함하지 않는다.</li>
+</ol>
+
+<h2 id="restful-이란">RESTful 이란?</h2>
+
+<p>RESTful이란 표준은 존재하지 않지만 설계를 위한 기본 규칙은 존재하는데 이 REST API의 설계 가이드를 올바르게 지킨 시스템을 RESTful 하다고 말할 수 있다.
+RESTful하게 만들면 그자체로 API의 목적이 무엇인지 명확하게 알 수 있다.</p>
+:ET

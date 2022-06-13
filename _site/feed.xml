@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-12T21:09:28+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">[TypeScript] interface 사용</title><link href="http://localhost:4000/typescript/interface/" rel="alternate" type="text/html" title="[TypeScript] interface 사용" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/interface</id><content type="html" xml:base="http://localhost:4000/typescript/interface/"><![CDATA[<h2 id="typescript-interface-사용하기">TypeScript interface 사용하기</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-13T22:35:40+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">[TypeScript] interface 사용</title><link href="http://localhost:4000/typescript/interface/" rel="alternate" type="text/html" title="[TypeScript] interface 사용" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/interface</id><content type="html" xml:base="http://localhost:4000/typescript/interface/"><![CDATA[<h2 id="typescript-interface-사용하기">TypeScript interface 사용하기</h2>
 
 <p>TypeScript에서 Object 타입을 선언할 때 interface와 type을 사용<br />
 TypeScript는 객체를 선언하고 그냥 접근할 수 없다.</p>
@@ -171,7 +171,23 @@ TypeScript는 객체를 선언하고 그냥 접근할 수 없다.</p>
 <p>단축키<br />
 명령어 입력 : command + shift + p</p>
 
-<p><a href="https://joshua1988.github.io/webpack-guide/">수업교안사이트</a></p>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="node.js" /><category term="npm" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
+<p><a href="https://joshua1988.github.io/webpack-guide/">수업교안사이트</a></p>
+
+<h2 id="11-npm-초기화-명령어---init">1.1 npm 초기화 명령어 - init</h2>
+
+<ul>
+  <li>npm init 으로 package.json을 생성</li>
+  <li>또는 npm init -y 로 자동 생성</li>
+</ul>
+
+<h2 id="12-npm-설치-명령어---install">1.2 npm 설치 명령어 - install</h2>
+
+<ul>
+  <li>npm install jquery 로 설치하면 node_modules폴더 생성되고 그 안에 라이브러리가 설치됨</li>
+  <li>packge.json에도 jquery의 버전도 명시 되어 있음</li>
+</ul>
+
+<h2 id="npm을-사용하는-이유와-첫-번째-장점">npm을 사용하는 이유와 첫 번째 장점</h2>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="node.js" /><category term="npm" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
 
 <p>function 형태</p>
 <ul>

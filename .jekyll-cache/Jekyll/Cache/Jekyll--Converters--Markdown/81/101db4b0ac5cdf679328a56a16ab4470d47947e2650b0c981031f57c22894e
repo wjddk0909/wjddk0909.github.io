@@ -1,0 +1,31 @@
+I"�<h2 id="개발-환경-구성">개발 환경 구성</h2>
+
+<ul>
+  <li>Chrome</li>
+  <li>Git</li>
+  <li>Visual Studio Code</li>
+  <li>Node.js(v12.x 이상)</li>
+</ul>
+
+<p>단축키<br />
+명령어 입력 : command + shift + p</p>
+
+<p><a href="https://joshua1988.github.io/webpack-guide/">수업교안사이트</a></p>
+
+<h2 id="11-npm-초기화-명령어---init">1.1 npm 초기화 명령어 - init</h2>
+
+<ul>
+  <li>npm init 으로 package.json을 생성</li>
+  <li>또는 npm init -y 로 자동 생성</li>
+</ul>
+
+<h2 id="12-npm-설치-명령어---install">1.2 npm 설치 명령어 - install</h2>
+
+<ul>
+  <li>npm install jquery 로 설치하면 node_modules폴더 생성되고 그 안에 라이브러리가 설치됨</li>
+  <li>packge.json에도 jquery의 버전도 명시 되어 있음</li>
+</ul>
+
+<h2 id="npm을-사용하는-이유와-첫-번째-장점">npm을 사용하는 이유와 첫 번째 장점</h2>
+
+:ET

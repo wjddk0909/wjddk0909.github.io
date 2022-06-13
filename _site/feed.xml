@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-13T22:35:40+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">[TypeScript] interface 사용</title><link href="http://localhost:4000/typescript/interface/" rel="alternate" type="text/html" title="[TypeScript] interface 사용" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/interface</id><content type="html" xml:base="http://localhost:4000/typescript/interface/"><![CDATA[<h2 id="typescript-interface-사용하기">TypeScript interface 사용하기</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-14T08:15:06+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">[TypeScript] interface 사용</title><link href="http://localhost:4000/typescript/interface/" rel="alternate" type="text/html" title="[TypeScript] interface 사용" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/interface</id><content type="html" xml:base="http://localhost:4000/typescript/interface/"><![CDATA[<h2 id="typescript-interface-사용하기">TypeScript interface 사용하기</h2>
 
 <p>TypeScript에서 Object 타입을 선언할 때 interface와 type을 사용<br />
 TypeScript는 객체를 선언하고 그냥 접근할 수 없다.</p>
@@ -187,7 +187,13 @@ TypeScript는 객체를 선언하고 그냥 접근할 수 없다.</p>
   <li>packge.json에도 jquery의 버전도 명시 되어 있음</li>
 </ul>
 
-<h2 id="npm을-사용하는-이유와-첫-번째-장점">npm을 사용하는 이유와 첫 번째 장점</h2>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="node.js" /><category term="npm" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
+<h2 id="npm을-사용하는-이유와-장점">npm을 사용하는 이유와 장점</h2>
+
+<ul>
+  <li>라이브러리간에 의존성이 있는 경우에 라이브러리 관리가 필요하다.</li>
+  <li>npm을 사용하면 라이브러리의 목록과 각각의 버전까지 확인 가능</li>
+  <li>cdn을 쓰는 경우를 생각하면 브라우저에서 검색해서 하나씩 들고 와야하지만 npm은 <code class="language-plaintext highlighter-rouge">npm install jquery-ui</code> 같이 명령어로 설치가 가능하다.</li>
+</ul>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="node.js" /><category term="npm" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
 
 <p>function 형태</p>
 <ul>

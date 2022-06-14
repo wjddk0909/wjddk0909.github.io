@@ -288,7 +288,7 @@
 
 
 
-  최대 1 분 소요
+  1 분 소요
 </p>
             devinlife comments :
                 싱글 페이지(포스트)에 제목 밑에 Updated 시간 표기
@@ -305,7 +305,7 @@
             <nav class="toc">
               
                 <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
-                <ul class="toc__menu"><li><a href="#21-npm-지역-설치-명령어와-제거-명령어---uninstall">2.1 NPM 지역 설치 명령어와 제거 명령어 - uninstall</a></li><li><a href="#22-npm-전역-설치-명령어---install-global">2.2 NPM 전역 설치 명령어 - install –global</a></li><li><a href="#23-전역으로-설치된-라이브러리-경로-확인">2.3 전역으로 설치된 라이브러리 경로 확인</a><ul><li><a href="#npm-전역-설치-경로">npm 전역 설치 경로</a></li></ul></li><li><a href="#24-지역-설치와-전역global-설치-비교-정리">2.4 지역 설치와 전역(–global) 설치 비교 정리</a></li></ul>
+                <ul class="toc__menu"><li><a href="#21-npm-지역-설치-명령어와-제거-명령어---uninstall">2.1 NPM 지역 설치 명령어와 제거 명령어 - uninstall</a></li><li><a href="#22-npm-전역-설치-명령어---install-global">2.2 NPM 전역 설치 명령어 - install –global</a></li><li><a href="#23-전역으로-설치된-라이브러리-경로-확인">2.3 전역으로 설치된 라이브러리 경로 확인</a><ul><li><a href="#npm-전역-설치-경로">npm 전역 설치 경로</a></li></ul></li><li><a href="#24-지역-설치와-전역global-설치-비교-정리">2.4 지역 설치와 전역(–global) 설치 비교 정리</a></li><li><a href="#25-지역-설치-명령어-옵션---save-dev-d">2.5 지역 설치 명령어 옵션 - –save-dev(-D)</a></li><li><a href="#26-dependencies와-devdependencies의-차이점">2.6 dependencies와 devDependencies의 차이점</a></li><li><a href="#27-개발용-라이브러리와-배포용-라이브러리-구분하기">2.7 개발용 라이브러리와 배포용 라이브러리 구분하기</a></li></ul>
 
               
             </nav>
@@ -348,6 +348,58 @@
 
 <p>npm 전역설치<br />
 npm 전역설치는 위와 같이 프로젝트에서 사용할 라이브러리를 불러올 때 사용하는 것이 아니라 시스템 레벨에서 사용할 자바스크립트 라이브러리를 설치할 때 사용</p>
+
+<h2 id="25-지역-설치-명령어-옵션---save-dev-d">2.5 지역 설치 명령어 옵션 - –save-dev(-D)</h2>
+
+<p>npm 지역 설치 옵션 두가지</p>
+<ul>
+  <li>npm install vue –save-prod</li>
+  <li>npm install vue –save-dev</li>
+</ul>
+
+<p>위 명령어를 축약하면</p>
+<ul>
+  <li>npm i vue</li>
+  <li>npm i vue -D</li>
+</ul>
+
+<h2 id="26-dependencies와-devdependencies의-차이점">2.6 dependencies와 devDependencies의 차이점</h2>
+
+<p>dependencies</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">npm i</code>로 설치</li>
+  <li>애플리케이션의 로직과 직접적인 연관이 있는 라이브러리</li>
+</ul>
+
+<p>devDependencies</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">npm i vue -D</code>로 설치</li>
+  <li>webpack, js-compression, sass등등 개발을 할때 도움을 주는 개발용 보조 라이브러리</li>
+</ul>
+
+<h2 id="27-개발용-라이브러리와-배포용-라이브러리-구분하기">2.7 개발용 라이브러리와 배포용 라이브러리 구분하기</h2>
+
+<p>개발용 라이브러리</p>
+<ul>
+  <li>devDependencies</li>
+</ul>
+
+<p>배포용 라이브러리</p>
+<ul>
+  <li>dependencies</li>
+</ul>
+
+<p>npm 지역 설치를 할 떄는 해당 라이브러리가 배포용인지 개발용인지 구분해줘야 한다. 예를들어 <code class="language-plaintext highlighter-rouge">jquery</code>와 같이 화면 로직과ㅓ 직접적으로 관련된 라이브러리는 배포용으로 설치해야 한다.<br />
+<code class="language-plaintext highlighter-rouge">npm i jquery</code><br />
+이렇게 설치된 배포용 라이브러리는 <code class="language-plaintext highlighter-rouge">npm run build</code>로 빌드를 하면 최종 애플리케이션 코드 안에 포함된다.<br />
+그런데 만약 설치 옵션에 <code class="language-plaintext highlighter-rouge">-D</code>를 줬다면 해당 라이브러리는 빌드하고 배포할 때 애플리케이션 코드에서 빠지게 되기 때문에 최종 애플리케이션에 포함되어야 하는 라이브러리는 <code class="language-plaintext highlighter-rouge">-D</code>로 설치하면 안된다.</p>
+
+<p>배포할 때 빠져도 좋은 라이브러리의 예시</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">webpack</code> : 빌드도구</li>
+  <li><code class="language-plaintext highlighter-rouge">eslint</code> : 코드 문법 검사 도구</li>
+  <li><code class="language-plaintext highlighter-rouge">imagemin</code> : 이미지 압축 도구</li>
+</ul>
 
         
       </section>

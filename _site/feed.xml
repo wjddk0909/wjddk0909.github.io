@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-14T09:45:46+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">[TypeScript] interface 사용</title><link href="http://localhost:4000/typescript/interface/" rel="alternate" type="text/html" title="[TypeScript] interface 사용" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/interface</id><content type="html" xml:base="http://localhost:4000/typescript/interface/"><![CDATA[<h2 id="typescript-interface-사용하기">TypeScript interface 사용하기</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-14T12:03:31+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">[TypeScript] interface 사용</title><link href="http://localhost:4000/typescript/interface/" rel="alternate" type="text/html" title="[TypeScript] interface 사용" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/interface</id><content type="html" xml:base="http://localhost:4000/typescript/interface/"><![CDATA[<h2 id="typescript-interface-사용하기">TypeScript interface 사용하기</h2>
 
 <p>TypeScript에서 Object 타입을 선언할 때 interface와 type을 사용<br />
 TypeScript는 객체를 선언하고 그냥 접근할 수 없다.</p>
@@ -159,41 +159,7 @@ TypeScript는 객체를 선언하고 그냥 접근할 수 없다.</p>
   <li>gender 속성은 optional(?) 형태라서 사용하지 않으면 선언을 피할 수 있다.</li>
   <li>birth 속성은 읽기 전용으로 선언했기 때문에 값을 수정하려고 하면 Compile Error 발생</li>
   <li><code class="language-plaintext highlighter-rouge">[key:number]</code> 속성은 index방식으로 여러개를 한 번에 사용할 수 있고, 사용하지 않으면 선언을 피할 수 있다.</li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="typescript" /><category term="interface" /><summary type="html"><![CDATA[interface]]></summary></entry><entry><title type="html">Node.js와 NPM</title><link href="http://localhost:4000/webpack/module-bundler-webpack1/" rel="alternate" type="text/html" title="Node.js와 NPM" /><published>2022-06-07T00:00:00+09:00</published><updated>2022-06-07T00:00:00+09:00</updated><id>http://localhost:4000/webpack/module-bundler-webpack1</id><content type="html" xml:base="http://localhost:4000/webpack/module-bundler-webpack1/"><![CDATA[<h2 id="개발-환경-구성">개발 환경 구성</h2>
-
-<ul>
-  <li>Chrome</li>
-  <li>Git</li>
-  <li>Visual Studio Code</li>
-  <li>Node.js(v12.x 이상)</li>
-</ul>
-
-<p>단축키<br />
-명령어 입력 : command + shift + p</p>
-
-<p><a href="https://joshua1988.github.io/webpack-guide/">수업교안사이트</a></p>
-
-<h2 id="11-npm-초기화-명령어---init">1.1 npm 초기화 명령어 - init</h2>
-
-<ul>
-  <li>npm init 으로 package.json을 생성</li>
-  <li>또는 npm init -y 로 자동 생성</li>
-</ul>
-
-<h2 id="12-npm-설치-명령어---install">1.2 npm 설치 명령어 - install</h2>
-
-<ul>
-  <li>npm install jquery 로 설치하면 node_modules폴더 생성되고 그 안에 라이브러리가 설치됨</li>
-  <li>packge.json에도 jquery의 버전도 명시 되어 있음</li>
-</ul>
-
-<h2 id="npm을-사용하는-이유와-장점">npm을 사용하는 이유와 장점</h2>
-
-<ul>
-  <li>라이브러리간에 의존성이 있는 경우에 라이브러리 관리가 필요하다.</li>
-  <li>npm을 사용하면 라이브러리의 목록과 각각의 버전까지 확인 가능</li>
-  <li>cdn을 쓰는 경우를 생각하면 브라우저에서 검색해서 하나씩 들고 와야하지만 npm은 <code class="language-plaintext highlighter-rouge">npm install jquery-ui</code> 같이 명령어로 설치가 가능하다.</li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="node.js" /><category term="npm" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">NPM(Node Package Manager)</title><link href="http://localhost:4000/webpack/module-bundler-webpack2/" rel="alternate" type="text/html" title="NPM(Node Package Manager)" /><published>2022-06-07T00:00:00+09:00</published><updated>2022-06-07T00:00:00+09:00</updated><id>http://localhost:4000/webpack/module-bundler-webpack2</id><content type="html" xml:base="http://localhost:4000/webpack/module-bundler-webpack2/"><![CDATA[<h2 id="21-npm-지역-설치-명령어와-제거-명령어---uninstall">2.1 NPM 지역 설치 명령어와 제거 명령어 - uninstall</h2>
+</ul>]]></content><author><name>FE Developer</name></author><category term="typescript" /><category term="interface" /><summary type="html"><![CDATA[interface]]></summary></entry><entry><title type="html">NPM(Node Package Manager)</title><link href="http://localhost:4000/webpack/module-bundler-webpack2/" rel="alternate" type="text/html" title="NPM(Node Package Manager)" /><published>2022-06-07T00:00:00+09:00</published><updated>2022-06-07T00:00:00+09:00</updated><id>http://localhost:4000/webpack/module-bundler-webpack2</id><content type="html" xml:base="http://localhost:4000/webpack/module-bundler-webpack2/"><![CDATA[<h2 id="21-npm-지역-설치-명령어와-제거-명령어---uninstall">2.1 NPM 지역 설치 명령어와 제거 명령어 - uninstall</h2>
 
 <p>npm 지역 설치</p>
 
@@ -277,7 +243,62 @@ npm 전역설치는 위와 같이 프로젝트에서 사용할 라이브러리�
   <li><code class="language-plaintext highlighter-rouge">webpack</code> : 빌드도구</li>
   <li><code class="language-plaintext highlighter-rouge">eslint</code> : 코드 문법 검사 도구</li>
   <li><code class="language-plaintext highlighter-rouge">imagemin</code> : 이미지 압축 도구</li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="node.js" /><category term="npm" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
+</ul>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="node.js" /><category term="npm" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">Node.js와 NPM</title><link href="http://localhost:4000/webpack/module-bundler-webpack1/" rel="alternate" type="text/html" title="Node.js와 NPM" /><published>2022-06-07T00:00:00+09:00</published><updated>2022-06-07T00:00:00+09:00</updated><id>http://localhost:4000/webpack/module-bundler-webpack1</id><content type="html" xml:base="http://localhost:4000/webpack/module-bundler-webpack1/"><![CDATA[<h2 id="개발-환경-구성">개발 환경 구성</h2>
+
+<ul>
+  <li>Chrome</li>
+  <li>Git</li>
+  <li>Visual Studio Code</li>
+  <li>Node.js(v12.x 이상)</li>
+</ul>
+
+<p>단축키<br />
+명령어 입력 : command + shift + p</p>
+
+<p><a href="https://joshua1988.github.io/webpack-guide/">수업교안사이트</a></p>
+
+<h2 id="11-npm-초기화-명령어---init">1.1 npm 초기화 명령어 - init</h2>
+
+<ul>
+  <li>npm init 으로 package.json을 생성</li>
+  <li>또는 npm init -y 로 자동 생성</li>
+</ul>
+
+<h2 id="12-npm-설치-명령어---install">1.2 npm 설치 명령어 - install</h2>
+
+<ul>
+  <li>npm install jquery 로 설치하면 node_modules폴더 생성되고 그 안에 라이브러리가 설치됨</li>
+  <li>packge.json에도 jquery의 버전도 명시 되어 있음</li>
+</ul>
+
+<h2 id="npm을-사용하는-이유와-장점">npm을 사용하는 이유와 장점</h2>
+
+<ul>
+  <li>라이브러리간에 의존성이 있는 경우에 라이브러리 관리가 필요하다.</li>
+  <li>npm을 사용하면 라이브러리의 목록과 각각의 버전까지 확인 가능</li>
+  <li>cdn을 쓰는 경우를 생각하면 브라우저에서 검색해서 하나씩 들고 와야하지만 npm은 <code class="language-plaintext highlighter-rouge">npm install jquery-ui</code> 같이 명령어로 설치가 가능하다.</li>
+</ul>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="node.js" /><category term="npm" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">웹팩 시작하기</title><link href="http://localhost:4000/webpack/module-bundler-webpack3/" rel="alternate" type="text/html" title="웹팩 시작하기" /><published>2022-06-07T00:00:00+09:00</published><updated>2022-06-07T00:00:00+09:00</updated><id>http://localhost:4000/webpack/module-bundler-webpack3</id><content type="html" xml:base="http://localhost:4000/webpack/module-bundler-webpack3/"><![CDATA[<h2 id="31-웹팩-소개">3.1 웹팩 소개</h2>
+
+<p>웹팩이란 최신 프론트엔드 프레임워크에서 가장 많이 사용되는 모듈 번들러 이다. 모듈 번들러란 웹 애플리케이션을 구성하는 자원(HTML, CSS, Jacascript, images등)을 모두 각각의 모듈로 보고 이를 조합해서 병합된 하나의 결과물을 만드는 도구를 의미한다.</p>
+
+<h3 id="모듈이란">모듈이란?</h3>
+<p>모듈이란 프로그래밍 관점에서 특정 기능을 갖는 작은 코드단위를 말한다.</p>
+
+<h3 id="모듈-번들링이란">모듈 번들링이란?</h3>
+<p>웹 애플리케이션을 구성하는 몇십, 몇백개의 자원들을 하나의 파일로 병합 및 압축 해주는 동작</p>
+
+<h2 id="32-웹팩-시작하기-튜토리얼-파트-1---웹팩-적용-전">3.2 웹팩 시작하기 튜토리얼 파트 1 - 웹팩 적용 전</h2>
+
+<p><a href="https://joshua1988.github.io/webpack-guide/getting-started.html#%EC%9B%B9%ED%8C%A9-%EB%A7%9B%EB%B3%B4%EA%B8%B0-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC">참고 페이지</a></p>
+
+<p><code class="language-plaintext highlighter-rouge">npm init -y</code><br />
+npm을 이용해서 프로젝트를 관리하기 위한 초기화 설정</p>
+
+<p><code class="language-plaintext highlighter-rouge">npm i webpack webpack-cli -D</code><br />
+devDependencies에 webpack과 webpack-cli설치</p>
+
+<p><code class="language-plaintext highlighter-rouge">npm install lodash</code><br />
+lodash : 자바스크립트 유틸리티 라이브러리</p>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="webpack" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
 
 <p>function 형태</p>
 <ul>
@@ -1124,194 +1145,4 @@ created() {<br />
 
 <p>VUE_를 붙이면 접근 가능해진다.</p>
 
-<p><a href="https://vue-news-site.netlify.app/news">vue news site 보러가기</a></p>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="deploy" /><summary type="html"><![CDATA[배포 환경]]></summary></entry><entry><title type="html">9 - Mixin과 하이 오더 컴포넌트</title><link href="http://localhost:4000/vue-lv3/vue-advanced9/" rel="alternate" type="text/html" title="9 - Mixin과 하이 오더 컴포넌트" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced9</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced9/"><![CDATA[<h2 id="91-컴포넌트-재활용-방법-및-재활용할-포인트-소개">9.1 컴포넌트 재활용 방법 및 재활용할 포인트 소개</h2>
-
-<ul>
-  <li>dispatch를 분기처리 하기 위해 ListItem에 있던 dispatch를 각각의 view파일로 옮김</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/e605bd1e36873caf64ba40af860edd802a96f8d8">diff check</a></p>
-</blockquote>
-
-<h2 id="92-이벤트-버스를-이용한-스피너-컴포넌트-구현">9.2 이벤트 버스를 이용한 스피너 컴포넌트 구현</h2>
-
-<ul>
-  <li>export 스타일에 따라서 import하는 방법이 달라진다.</li>
-</ul>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="rouge-code"><pre><span class="c1">// default의 경우는 아무 이름이나 정의해서 사용할 수 있다.</span>
-<span class="c1">// bus.js</span>
-<span class="k">export</span> <span class="k">default</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">();</span>
-<span class="c1">// App.vue</span>
-<span class="k">import</span> <span class="nx">bus</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./bus.js</span><span class="dl">'</span> <span class="c1">// bus나 bus1 이나 아무거나 가능</span>
-
-<span class="c1">// bus.js</span>
-<span class="k">export</span> <span class="kd">const</span> <span class="nx">bus</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">();</span>
-<span class="c1">// App.vue</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">bus</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./bus.js</span><span class="dl">'</span> <span class="c1">// 먼저 정의해준 변수명을 {}안에 넣어서 사용</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/c644bff38ffe7391be6e49d3c2429ed3f5882615">diff check</a></p>
-</blockquote>
-
-<h2 id="93-스피너-실행-및-종료-시점-알아보기">9.3 스피너 실행 및 종료 시점 알아보기</h2>
-
-<ul>
-  <li>actions.js에서 response를 return 하면 NewsView에서 dispatch에 .then으로 프로미스 체이닝이 가능</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/c139797550d73804d916ed64d4f2b5000d21910d">diff check</a></p>
-</blockquote>
-
-<h2 id="94-하이-오더-컴포넌트hoc-소개-및-구현">9.4 하이 오더 컴포넌트(HOC) 소개 및 구현</h2>
-
-<p>컴포넌트의 로직을 재사용하기 위한 기술 하이 오더 컴포넌트</p>
-<ul>
-  <li>CreateListView.js가 하이오더컴포넌트</li>
-  <li>기존에 있었던 컴포넌트의 위에 하나의 컴포넌트가 더 생성됨</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/a58c83719b1b8befd5ef9f213e964e3135aa219f">diff check</a></p>
-</blockquote>
-
-<h2 id="95-하이-오더-컴포넌트에서-사용할-listview-컴포넌트-구현">9.5 하이 오더 컴포넌트에서 사용할 ListView 컴포넌트 구현</h2>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/ddc1c29c3b0bbae9caf83abcc0df58a143e9f839">diff check</a></p>
-</blockquote>
-
-<h2 id="96-하이-오더-컴포넌트가-적용된-앱-구조-설명-및-흐름-정리">9.6 하이 오더 컴포넌트가 적용된 앱 구조 설명 및 흐름 정리</h2>
-
-<ul>
-  <li>router/index.js에서 <code class="language-plaintext highlighter-rouge">component: createListView('NewsView'),</code>으로 pagename을 넘기고</li>
-  <li>CreateListView에서 name으로 받고 재사용하는 로직들을 created()에 넣어줌</li>
-  <li>spinner를 켜고 끄는 로직까지 같이 넣어줌</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/2af588dd119046a7cf25ab8fb3c253cd95318408">diff check</a></p>
-</blockquote>
-
-<h2 id="97-mixin의-개요와-활용처-그리고-hoc와의-차이점">9.7 Mixin의 개요와 활용처 그리고 HOC와의 차이점</h2>
-
-<p>Mixins</p>
-<ul>
-  <li>여러 컴포넌트간에 공통으로 사용하고 있는 로직 기능들을 재사용하는 방법</li>
-  <li>믹스인안에 정의할 수 있는 재사용 로직은 <code class="language-plaintext highlighter-rouge">data, methods, created</code> 등과 같은 컴포넌트 옵션</li>
-  <li>hoc는 중간에 컴포넌트가 하나 더 생기므로 레벨이 깊어져서 통신에 불편함이 생김</li>
-</ul>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">HelloMixins</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1">// 컴포넌트 옵션 (data, methods, created 등)\</span>
-<span class="p">};</span>
-
-<span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
-    <span class="na">mixins</span><span class="p">:</span> <span class="p">[</span><span class="nx">HelloMixins</span><span class="p">]</span>
-<span class="p">})</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-<p>위와 같이 믹스인을 주입할 컴포넌트에 <code class="language-plaintext highlighter-rouge">mixins</code> 속성을 선언하고 <code class="language-plaintext highlighter-rouge">[]</code> 배열안에 주입할 믹스인들을 추가</p>
-
-<p>예시</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">DialogMixin</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">{</span>
-            <span class="na">dialog</span><span class="p">:</span> <span class="kc">false</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nx">showDialog</span><span class="p">()</span> <span class="p">{</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">dialog</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-        <span class="p">},</span>
-        <span class="nx">closeDialog</span><span class="p">()</span> <span class="p">{</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">dialog</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-<p><code class="language-plaintext highlighter-rouge">DialogMixin</code>에 다이얼로그의 표시 상태를 나타내는 <code class="language-plaintext highlighter-rouge">dialog</code>데이터와 다이얼로그를 열거나 닫는 메서드 <code class="language-plaintext highlighter-rouge">showDialog()</code>, <code class="language-plaintext highlighter-rouge">closeDialog()</code> 정의</p>
-
-<p>재사용</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-</pre></td><td class="rouge-code"><pre><span class="c">&lt;!-- LoginForm.vue --&gt;</span>
-<span class="nt">&lt;script&gt;</span>
-    <span class="k">import</span> <span class="p">{</span> <span class="nx">DialogMixin</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./mixins.js</span><span class="dl">'</span><span class="p">;</span>
-
-    <span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
-        <span class="na">mixins</span><span class="p">:</span> <span class="p">[</span> <span class="nx">DialogMixin</span> <span class="p">],</span>
-        <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nx">submitForm</span><span class="p">()</span> <span class="p">{</span>
-                <span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">login</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
-                    <span class="na">id</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
-                    <span class="na">pw</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">pw</span>
-                <span class="p">})</span>
-                <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">closeDialog</span><span class="p">())</span>
-                <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">));</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="nt">&lt;/script&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h2 id="98-mixin-적용-후-hoc-구조와-비교">9.8 Mixin 적용 후 HOC 구조와 비교</h2>
-
-<ul>
-  <li>hoc는 AskView와 ListItem 사이에 ListView 컴포넌트가 생성되어 레벨이 더 깊어짐</li>
-  <li>mixins는 새로 생성되는 컴포넌트가 없음</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/0bfe7e56eb6c5acc7258b0534f07ecaa41e3f639">diff check</a></p>
-</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="mixin" /><category term="hoc" /><summary type="html"><![CDATA[Vue news]]></summary></entry></feed>
+<p><a href="https://vue-news-site.netlify.app/news">vue news site 보러가기</a></p>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="deploy" /><summary type="html"><![CDATA[배포 환경]]></summary></entry></feed>

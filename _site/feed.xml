@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-14T08:15:06+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">[TypeScript] interface 사용</title><link href="http://localhost:4000/typescript/interface/" rel="alternate" type="text/html" title="[TypeScript] interface 사용" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/interface</id><content type="html" xml:base="http://localhost:4000/typescript/interface/"><![CDATA[<h2 id="typescript-interface-사용하기">TypeScript interface 사용하기</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-14T09:33:30+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">[TypeScript] interface 사용</title><link href="http://localhost:4000/typescript/interface/" rel="alternate" type="text/html" title="[TypeScript] interface 사용" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/interface</id><content type="html" xml:base="http://localhost:4000/typescript/interface/"><![CDATA[<h2 id="typescript-interface-사용하기">TypeScript interface 사용하기</h2>
 
 <p>TypeScript에서 Object 타입을 선언할 때 interface와 type을 사용<br />
 TypeScript는 객체를 선언하고 그냥 접근할 수 없다.</p>
@@ -193,7 +193,39 @@ TypeScript는 객체를 선언하고 그냥 접근할 수 없다.</p>
   <li>라이브러리간에 의존성이 있는 경우에 라이브러리 관리가 필요하다.</li>
   <li>npm을 사용하면 라이브러리의 목록과 각각의 버전까지 확인 가능</li>
   <li>cdn을 쓰는 경우를 생각하면 브라우저에서 검색해서 하나씩 들고 와야하지만 npm은 <code class="language-plaintext highlighter-rouge">npm install jquery-ui</code> 같이 명령어로 설치가 가능하다.</li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="node.js" /><category term="npm" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
+</ul>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="node.js" /><category term="npm" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">NPM(Node Package Manager)</title><link href="http://localhost:4000/webpack/module-bundler-webpack2/" rel="alternate" type="text/html" title="NPM(Node Package Manager)" /><published>2022-06-07T00:00:00+09:00</published><updated>2022-06-07T00:00:00+09:00</updated><id>http://localhost:4000/webpack/module-bundler-webpack2</id><content type="html" xml:base="http://localhost:4000/webpack/module-bundler-webpack2/"><![CDATA[<h2 id="21-npm-지역-설치-명령어와-제거-명령어---uninstall">2.1 NPM 지역 설치 명령어와 제거 명령어 - uninstall</h2>
+
+<p>npm 지역 설치</p>
+
+<p>npm install gulp로 설치하면 package.json에 gulp가 설치되어있는것을 확인할 수 있다.<br />
+삭제는 npm uninstall gulp로 삭제하면 된다.</p>
+
+<h2 id="22-npm-전역-설치-명령어---install-global">2.2 NPM 전역 설치 명령어 - install –global</h2>
+
+<p><code class="language-plaintext highlighter-rouge">npm install gulp --global</code>로 설치하면 node_modules 폴더 안에 설치되지 않고 시스템내에 설치되어 <code class="language-plaintext highlighter-rouge">gulp</code> 명령어 인식 가능</p>
+
+<h2 id="23-전역으로-설치된-라이브러리-경로-확인">2.3 전역으로 설치된 라이브러리 경로 확인</h2>
+
+<p><a href="https://joshua1988.github.io/webpack-guide/build/npm-module-install.html#npm-%EC%A0%84%EC%97%AD-%EC%84%A4%EC%B9%98-%EA%B2%BD%EB%A1%9C">npm 전역 라이브러리 설치 경로</a></p>
+
+<h3 id="npm-전역-설치-경로">npm 전역 설치 경로</h3>
+<blockquote>
+  <p>window<br />
+%USERPROFILE%\AppData\Roaming\npm\node_modules</p>
+</blockquote>
+
+<blockquote>
+  <p>mac<br />
+/usr/local/lib/node_modules</p>
+</blockquote>
+
+<h2 id="24-지역-설치와-전역global-설치-비교-정리">2.4 지역 설치와 전역(–global) 설치 비교 정리</h2>
+
+<p>npm 지역 설치<br />
+<code class="language-plaintext highlighter-rouge">package.json</code>파일을 생성하고 해당 프로젝트에서 사용할 자바스크립트 라이브러리를 설치</p>
+
+<p>npm 전역설치<br />
+npm 전역설치는 위와 같이 프로젝트에서 사용할 라이브러리를 불러올 때 사용하는 것이 아니라 시스템 레벨에서 사용할 자바스크립트 라이브러리를 설치할 때 사용</p>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="node.js" /><category term="npm" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
 
 <p>function 형태</p>
 <ul>
@@ -1040,66 +1072,7 @@ created() {<br />
 
 <p>VUE_를 붙이면 접근 가능해진다.</p>
 
-<p><a href="https://vue-news-site.netlify.app/news">vue news site 보러가기</a></p>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="deploy" /><summary type="html"><![CDATA[배포 환경]]></summary></entry><entry><title type="html">8 - 사용자 프로필 컴포넌트 공통화</title><link href="http://localhost:4000/vue-lv3/vue-advanced8/" rel="alternate" type="text/html" title="8 - 사용자 프로필 컴포넌트 공통화" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced8</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced8/"><![CDATA[<h2 id="81-사용자-프로필-컴포넌트-소개-및-등록">8.1 사용자 프로필 컴포넌트 소개 및 등록</h2>
-
-<ul>
-  <li>사용자 정보 공통 컴포넌트</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/14deeeb5aea1f060678ff92447969656daec4c08">diff check</a></p>
-</blockquote>
-
-<h2 id="82-사용자-컴포넌트-데이터-흐름-처리-1">8.2 사용자 컴포넌트 데이터 흐름 처리 1</h2>
-
-<ul>
-  <li>UserView에서 UserProfile로 데이터 넘기기</li>
-  <li>vuex사용해서 UserProfile에서 바로 접근</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/1407cba586231ba50ce7d5c08d4e54a5b93ef2cb">diff check</a></p>
-</blockquote>
-
-<h2 id="83-사용자-컴포넌트-데이터-흐름-처리-2">8.3 사용자 컴포넌트 데이터 흐름 처리 2</h2>
-
-<ul>
-  <li>UserView.vue에서 UserProfile.vue로 <code class="language-plaintext highlighter-rouge">:info="userInfo"</code>로 데이터를 넘기고</li>
-  <li>UserProfile.vue에서 <code class="language-plaintext highlighter-rouge">props: { info: Object }</code>로 데이터 받기</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/97795a2c137c7faac6513465516d5cf2122eb93a">diff check</a></p>
-</blockquote>
-
-<h2 id="84-2가지-데이터-처리-흐름-비교">8.4 2가지 데이터 처리 흐름 비교</h2>
-
-<ol>
-  <li>
-    <p>UserProfile에서 computed로 접근<br />
-UserView -&gt; actions에서 api 호출해서 받아오기 -&gt; mutations 호출 -&gt; state변경 -&gt; UserProfile에서 computed로 접근해서 데이터 넘김</p>
-  </li>
-  <li>
-    <p>UserView에서 props로 전달<br />
-UserView -&gt; actions에서 api 호출해서 받아오기 -&gt; mutations 호출 -&gt; state변경 -&gt; UserView에서 props로 UserProfile로 내려줌</p>
-  </li>
-</ol>
-
-<h2 id="85-slot을-이용한-사용자-프로필-컴포넌트-구현">8.5 slot을 이용한 사용자 프로필 컴포넌트 구현</h2>
-
-<ul>
-  <li>slot: 하위컴포넌트에서 미완성으로 넣어둔 부분을 상위에서 하위컴포넌트를 등록할때 그부분을 채워줌</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/aa25c1db22d662283737d105c1b3a0dbf119e5b8">diff check</a></p>
-</blockquote>
-
-<h2 id="86-코드-정리">8.6 코드 정리</h2>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/03720f08f4ec3c15d1a334a959538f07db14971c">diff check</a></p>
-</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="공통화" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">9 - Mixin과 하이 오더 컴포넌트</title><link href="http://localhost:4000/vue-lv3/vue-advanced9/" rel="alternate" type="text/html" title="9 - Mixin과 하이 오더 컴포넌트" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced9</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced9/"><![CDATA[<h2 id="91-컴포넌트-재활용-방법-및-재활용할-포인트-소개">9.1 컴포넌트 재활용 방법 및 재활용할 포인트 소개</h2>
+<p><a href="https://vue-news-site.netlify.app/news">vue news site 보러가기</a></p>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="deploy" /><summary type="html"><![CDATA[배포 환경]]></summary></entry><entry><title type="html">9 - Mixin과 하이 오더 컴포넌트</title><link href="http://localhost:4000/vue-lv3/vue-advanced9/" rel="alternate" type="text/html" title="9 - Mixin과 하이 오더 컴포넌트" /><published>2022-04-26T00:00:00+09:00</published><updated>2022-04-26T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced9</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced9/"><![CDATA[<h2 id="91-컴포넌트-재활용-방법-및-재활용할-포인트-소개">9.1 컴포넌트 재활용 방법 및 재활용할 포인트 소개</h2>
 
 <ul>
   <li>dispatch를 분기처리 하기 위해 ListItem에 있던 dispatch를 각각의 view파일로 옮김</li>

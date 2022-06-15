@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-14T12:03:31+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">[TypeScript] interface 사용</title><link href="http://localhost:4000/typescript/interface/" rel="alternate" type="text/html" title="[TypeScript] interface 사용" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/interface</id><content type="html" xml:base="http://localhost:4000/typescript/interface/"><![CDATA[<h2 id="typescript-interface-사용하기">TypeScript interface 사용하기</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-14T12:35:33+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE개발자를 꿈꾸다</title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">[TypeScript] interface 사용</title><link href="http://localhost:4000/typescript/interface/" rel="alternate" type="text/html" title="[TypeScript] interface 사용" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/interface</id><content type="html" xml:base="http://localhost:4000/typescript/interface/"><![CDATA[<h2 id="typescript-interface-사용하기">TypeScript interface 사용하기</h2>
 
 <p>TypeScript에서 Object 타입을 선언할 때 interface와 type을 사용<br />
 TypeScript는 객체를 선언하고 그냥 접근할 수 없다.</p>
@@ -298,7 +298,29 @@ npm을 이용해서 프로젝트를 관리하기 위한 초기화 설정</p>
 devDependencies에 webpack과 webpack-cli설치</p>
 
 <p><code class="language-plaintext highlighter-rouge">npm install lodash</code><br />
-lodash : 자바스크립트 유틸리티 라이브러리</p>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="webpack" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
+lodash : 자바스크립트 유틸리티 라이브러리</p>
+
+<h2 id="33-웹팩-시작하기-튜토리얼-파트-2---웹팩-적용-후">3.3 웹팩 시작하기 튜토리얼 파트 2 - 웹팩 적용 후</h2>
+
+<ol>
+  <li>
+    <p>index.js<br />
+<code class="language-plaintext highlighter-rouge">import _ from "lodash";</code> 추가</p>
+  </li>
+  <li>
+    <p>index.html<br />
+cdn으로 들고오던 lodash스크립트는 주석처리하고 body안의 스크립트는 <code class="language-plaintext highlighter-rouge">&lt;script src="./dist/main.js"&gt;&lt;/script&gt;</code>로 변경</p>
+  </li>
+  <li>
+    <p>package.json<br />
+웹팩 빌드 명령어를 실행하기 위해 <code class="language-plaintext highlighter-rouge">package.json</code> 파일에 내용 추가</p>
+    <blockquote>
+      <p>“scripts”: {<br />
+ “build”: “webpack –mode=none”<br />
+}</p>
+    </blockquote>
+  </li>
+</ol>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="webpack" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
 
 <p>function 형태</p>
 <ul>

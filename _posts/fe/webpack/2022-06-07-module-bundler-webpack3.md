@@ -30,3 +30,16 @@ devDependencies에 webpack과 webpack-cli설치
 `npm install lodash`  
 lodash : 자바스크립트 유틸리티 라이브러리  
 
+## 3.3 웹팩 시작하기 튜토리얼 파트 2 - 웹팩 적용 후
+
+1. index.js  
+`import _ from "lodash";` 추가
+
+2. index.html  
+cdn으로 들고오던 lodash스크립트는 주석처리하고 body안의 스크립트는 `<script src="./dist/main.js"></script>`로 변경
+
+3. package.json  
+웹팩 빌드 명령어를 실행하기 위해 `package.json` 파일에 내용 추가  
+>"scripts": {  
+>  "build": "webpack --mode=none"  
+>}

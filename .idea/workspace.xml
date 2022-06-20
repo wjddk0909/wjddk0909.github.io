@@ -2,61 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a69373c-892c-4395-9af1-0ded14856430" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Cache/b7/9606fb3afea5bd1609ed40b622142f1c98125abcfe89a76a661b0e8e343910" beforeDir="false" afterPath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Cache/b7/9606fb3afea5bd1609ed40b622142f1c98125abcfe89a76a661b0e8e343910" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/01/ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/0b/1e119f0488c1b4ed796ce1e6d68b58616f124e2e5805ad079a3e47ea76a52f" beforeDir="false" afterPath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/0b/1e119f0488c1b4ed796ce1e6d68b58616f124e2e5805ad079a3e47ea76a52f" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/19/fe7d371a6b9e0d4e9ee59c8c1f058b2f6a37f3e0c70e54d028543c397245bf" beforeDir="false" afterPath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/19/fe7d371a6b9e0d4e9ee59c8c1f058b2f6a37f3e0c70e54d028543c397245bf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/1f/5d3b7e66105fdc3275c4537c5e9635998bd54b6ac19c0eeea0be50f7a86c50" beforeDir="false" afterPath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/1f/5d3b7e66105fdc3275c4537c5e9635998bd54b6ac19c0eeea0be50f7a86c50" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/3f/7a13ab5ec2c1681e7c652ce7f931e253bce4fc80c7bc554a16ccd052d2eb11" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/3f/8a662172569823e09315e9abd7928d0229b045dd87c3c4f8590b11f8d12fa3" beforeDir="false" afterPath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/3f/8a662172569823e09315e9abd7928d0229b045dd87c3c4f8590b11f8d12fa3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/40/9b9bf935c216bea7ede0be5c98a22e90d8ef8a9ba0885cc61c89ebdd86cd2f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/47/574e765fb9effc182b3833492af1ebee80dc09725a9bb87e83cf8c82b3dc1e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/4d/094cd4fb80fb960594c2afd5de2ee41eb4e61bd978b1551bfa2ae39165bcfc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/7d/012179862546749f56be6ea6058e3dddf79f639eb3eafe5cd6bc210ddbf131" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/8c/fbea3b704cd02b55f27664c457c4281c010ff242de8dc53b28b3a05e1b59d2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/94/b6ff6f937546162769d62a78c114e6b9ec782ff67346fc525ad95a946e5a89" beforeDir="false" afterPath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/94/b6ff6f937546162769d62a78c114e6b9ec782ff67346fc525ad95a946e5a89" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/c6/dfac8b06badabcc0c86833d8be836db81ae9b52024bf9df28ed7a966c41458" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Module/01/ab28cab3fa36b2b4f8988ddefd1b746c28483fd1ce41fa28ed8571140a98d5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Module/03/c192411ad06f9a1353db99b096857c6c910ac1b0531b230139642aaef72387" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Module/4b/10c422830c67b5e3fa5ff0b7ac0937fbefc0d5047bdd4bd58ba2caf182ef17" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Module/6f/1257795a2955008b20df032c69ada882ad784519c961d3b8ec56ee8479253b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Module/7f/990412281b62ef9522c826b7d020b13ad311000ecefa74b816bf1484066286" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jekyll-cache/Jekyll/Cache/Module/9d/dee46ac93eabf5990a97b9743e913c6ba5ad056cb6154d821f801211e273a0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/blog/2021-12-03-firstpost.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/blog/2021-12-03-firstpost.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/blog/2021-12-03-md.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/blog/2021-12-03-md.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/blog/2021-12-03-post.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/blog/2021-12-03-post.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/git/2021-12-12-gitbranch.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/git/2021-12-12-gitbranch.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/javascript/2021-12-03-instance.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/javascript/2021-12-03-instance.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/javascript/2021-12-05-dom.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/javascript/2021-12-05-dom.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/javascript/2021-12-06-call-apply-bind.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/javascript/2021-12-06-call-apply-bind.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/javascript/2021-12-07-api.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/javascript/2021-12-07-api.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/javascript/2021-12-08-hoisting.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/javascript/2021-12-08-hoisting.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/javascript/2021-12-09-rest.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/javascript/2021-12-09-rest.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/vue/vue-lv2/2021-12-11-fontawesome.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/vue/vue-lv2/2021-12-11-fontawesome.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/vue/vue-lv2/2022-03-12-vuex.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/vue/vue-lv2/2022-03-12-vuex.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_sass/minimal-mistakes/_syntax.scss" beforeDir="false" afterPath="$PROJECT_DIR$/_sass/minimal-mistakes/_syntax.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/assets/js/lunr/lunr-store.js" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/js/lunr/lunr-store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/blog/firstpost/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/blog/firstpost/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/blog/md/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/blog/md/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/blog/post/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/blog/post/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/categories/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/categories/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/git/gitbranch/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/git/gitbranch/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/javascript/api/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/javascript/api/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/javascript/call-apply-bind/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/javascript/call-apply-bind/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/javascript/dom/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/javascript/dom/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/javascript/hoisting/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/javascript/hoisting/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/javascript/instance/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/javascript/instance/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/javascript/rest/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/javascript/rest/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page2/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/page3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/page3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/sitemap.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/tags/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/tags/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/vue/vue-lv2/fontawesome/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/vue/vue-lv2/fontawesome/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/vue/vue-lv2/vuex/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/vue/vue-lv2/vuex/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,12 +20,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="vue.rearranger.settings.migration" value="true" />
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/ellin.hand/wjddk0909.github.io/_posts/fe/vue-study",
+    "nodejs_package_manager_path": "yarn",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/_posts/fe/vue-study" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -91,6 +43,7 @@
       <updated>1647322990324</updated>
       <workItem from="1647322992126" duration="10000" />
       <workItem from="1647323346390" duration="620000" />
+      <workItem from="1655766907581" duration="1359000" />
     </task>
     <servers />
   </component>

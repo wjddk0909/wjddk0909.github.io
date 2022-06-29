@@ -62,6 +62,7 @@ user.age = 10;
 user.gender = "male"
 console.log(user.age)
 ```
+
 여기에서 `user.age = 10;`으로 변경은 문제가 없지만 `user.gender = "male"`은 에러가 발생한다.  
 interface안에 있어도 되고 없어도 되는 옵셔널 속성으로 넣어주고 추가하면 된다.  
 readonly속성은 생성할때만 할당이 가능하고 이후에는 수정이 불가하다.  

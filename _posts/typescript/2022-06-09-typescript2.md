@@ -65,3 +65,6 @@ enum Os {
     Android
 }
 ```
+
+typescript에서 enum을 사용하지 않는게 좋은 이유  
+[참고 링크](https://engineering.linecorp.com/ko/blog/typescript-enum-tree-shaking/)

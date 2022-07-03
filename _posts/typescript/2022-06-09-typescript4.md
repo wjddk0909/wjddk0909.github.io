@@ -6,4 +6,4 @@ categories:
 tags: 
     - typescript
 --- 
-## 
+## 함수를 정의하는 방법

@@ -1,0 +1,126 @@
+I"W
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/typescript/typescript4/">[TypeScript] #4 함수 타입정의</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.06.09
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#typescript" class="page__taxonomy-item-category" rel="tag">typescript</a>
+                    
+                    
+                    <a href="/tags/#typescript" class="page__taxonomy-item-tag" rel="tag">typescript</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/typescript/typescript3/">[TypeScript] #3 인터페이스</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.06.09
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#typescript" class="page__taxonomy-item-category" rel="tag">typescript</a>
+                    
+                    
+                    <a href="/tags/#interface" class="page__taxonomy-item-tag" rel="tag">interface</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#typescript" class="page__taxonomy-item-tag" rel="tag">typescript</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/typescript/typescript2/">[TypeScript] #2 기본타입</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.06.09
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#typescript" class="page__taxonomy-item-category" rel="tag">typescript</a>
+                    
+                    
+                    <a href="/tags/#typescript" class="page__taxonomy-item-tag" rel="tag">typescript</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/typescript/typescript1/">[TypeScript] #1 타입스크립트를 쓰는 이유</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.06.09
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#typescript" class="page__taxonomy-item-category" rel="tag">typescript</a>
+                    
+                    
+                    <a href="/tags/#typescript" class="page__taxonomy-item-tag" rel="tag">typescript</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/typescript/interface/">[TypeScript] interface 사용</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.06.09
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#typescript" class="page__taxonomy-item-category" rel="tag">typescript</a>
+                    
+                    
+                    <a href="/tags/#interface" class="page__taxonomy-item-tag" rel="tag">interface</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+:ET

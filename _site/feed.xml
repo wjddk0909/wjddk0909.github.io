@@ -1,4 +1,369 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-06-15T12:16:43+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE Developer Note </title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">[TypeScript] interface 사용</title><link href="http://localhost:4000/typescript/interface/" rel="alternate" type="text/html" title="[TypeScript] interface 사용" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/interface</id><content type="html" xml:base="http://localhost:4000/typescript/interface/"><![CDATA[<h2 id="typescript-interface-사용하기">TypeScript interface 사용하기</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-07-09T20:51:57+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE Developer Note </title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">[TypeScript-part1] 강의 오리엔테이션</title><link href="http://localhost:4000/typescript-part1/typescript-part1-beginners1/" rel="alternate" type="text/html" title="[TypeScript-part1] 강의 오리엔테이션" /><published>2022-07-09T00:00:00+09:00</published><updated>2022-07-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript-part1/typescript-part1-beginners1</id><content type="html" xml:base="http://localhost:4000/typescript-part1/typescript-part1-beginners1/"><![CDATA[<h2 id="타입스크립트-오리엔테이션">타입스크립트 오리엔테이션</h2>
+
+<p>자바스크립트로 제작된 COVID-19 세계 현황판을 타입스크립트로 변환해보면서 타입스크립트의 개념과 기초를 배워보는 강좌</p>
+
+<ul>
+  <li>구현되어 있는 자바스크립트를 타입스크립트로 변환하기 위해 필요한 개념들을 설명하고 실습</li>
+  <li>그 후에 실제 프로젝트에 적용해보는 순서로 진행</li>
+</ul>
+
+<p>강의 대상</p>
+<ul>
+  <li>자바스크립트 문법을 알고 있는 웹 개발자</li>
+  <li>자바스크립트로 좀 더 단단한 웹 애플리케이션을 만들고 싶은 웹 개발자(버그가 좀 더 없었으면 좋겠다)</li>
+  <li>타입스크립트로 되어 있는 프로젝트에서 퍼블리싱을 해야 하는 퍼블리셔</li>
+</ul>]]></content><author><name>FE Developer</name></author><category term="typescript-part1" /><category term="typescript" /><summary type="html"><![CDATA[typescript에 대해서]]></summary></entry><entry><title type="html">[TypeScript] #3 인터페이스</title><link href="http://localhost:4000/typescript/typescript3/" rel="alternate" type="text/html" title="[TypeScript] #3 인터페이스" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/typescript3</id><content type="html" xml:base="http://localhost:4000/typescript/typescript3/"><![CDATA[<h2 id="오브젝트-인터페이스">오브젝트 인터페이스</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kd">let</span> <span class="nx">user</span><span class="p">:</span><span class="nx">object</span><span class="p">;</span>
+
+<span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">abc</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">age</span><span class="p">:</span> <span class="mi">20</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>타입스크립트에서 객체를 만들고 오브젝트 타입으로 정의한 후 콘솔로 찍어보면 에러가 발생한다.<br />
+오브젝트에는 특정 속성 값에 대한 정보가 없기 때문이다. <code class="language-plaintext highlighter-rouge">name</code>에 커서를 올려보면 오브젝트에는 name이 없다고 뜬다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="kr">interface</span> <span class="nx">User</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">age</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">user</span><span class="p">:</span> <span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">abc</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">age</span><span class="p">:</span> <span class="mi">20</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이제 <code class="language-plaintext highlighter-rouge">console.log(user.)</code>까지만 찍어도 어떤 프로퍼티들이 있는지 힌트가 뜬다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre><span class="nx">type</span> <span class="nx">Score</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">A</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">B</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">C</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">F</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">User</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">age</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nx">gender</span><span class="p">?:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nx">readonly</span> <span class="nx">birthYear</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="p">[</span><span class="nx">grade</span><span class="p">:</span> <span class="nx">number</span><span class="p">]:</span> <span class="nx">Score</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">user</span><span class="p">:</span> <span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">abc</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">age</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="na">birthYear</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="dl">'</span><span class="s1">A</span><span class="dl">'</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="dl">'</span><span class="s1">B</span><span class="dl">'</span>
+<span class="p">}</span>
+
+<span class="nx">user</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">gender</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">male</span><span class="dl">"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>여기에서 <code class="language-plaintext highlighter-rouge">user.age = 10;</code>으로 변경은 문제가 없지만 <code class="language-plaintext highlighter-rouge">user.gender = "male"</code>은 에러가 발생한다.<br />
+interface안에 있어도 되고 없어도 되는 옵셔널 속성으로 넣어주고 추가하면 된다.<br />
+readonly속성은 생성할때만 할당이 가능하고 이후에는 수정이 불가하다.</p>
+
+<p>여러가지 추가해야될 속성이 생길때, 예들들어 학년별로 성적을 추가해야한다고 할때<br />
+옵셔널 말고 다른방법으로는 <code class="language-plaintext highlighter-rouge">[grade: number]</code> -&gt; 문자열 인덱스 서명을 추가하는 방법</p>
+
+<h2 id="인터페이스에-함수">인터페이스에 함수</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre><span class="kr">interface</span> <span class="nx">Add</span> <span class="p">{</span>
+    <span class="p">(</span><span class="nx">num1</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">num2</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">number</span><span class="p">;</span> <span class="c1">// : number 는 리턴값이 number라는 뜻</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">add</span><span class="p">:</span> <span class="nx">Add</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">add</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+
+<span class="kr">interface</span> <span class="nx">isAdult</span> <span class="p">{</span>
+    <span class="p">(</span><span class="nx">age</span><span class="p">:</span><span class="nx">number</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">a</span><span class="p">:</span> <span class="nx">isAdult</span> <span class="o">=</span> <span class="p">(</span><span class="nx">age</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">age</span> <span class="o">&gt;</span> <span class="mi">19</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">a</span><span class="p">(</span><span class="mi">33</span><span class="p">)</span> <span class="c1">// true</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="인터페이스-확장extends">인터페이스 확장(extends)</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="kr">interface</span> <span class="nx">Car</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">wheels</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nx">start</span><span class="p">():</span> <span class="k">void</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">Toy</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">ToyCar</span> <span class="kd">extends</span> <span class="nx">Car</span><span class="p">,</span> <span class="nx">Toy</span> <span class="p">{</span>
+    <span class="nl">price</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>]]></content><author><name>FE Developer</name></author><category term="typescript" /><category term="typescript" /><category term="interface" /><summary type="html"><![CDATA[타입스크립트]]></summary></entry><entry><title type="html">[TypeScript] #2 기본타입</title><link href="http://localhost:4000/typescript/typescript2/" rel="alternate" type="text/html" title="[TypeScript] #2 기본타입" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/typescript2</id><content type="html" xml:base="http://localhost:4000/typescript/typescript2/"><![CDATA[<h2 id="기본타입">기본타입</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">let</span> <span class="nx">age</span><span class="p">:</span><span class="nx">number</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">isAdult</span><span class="p">:</span><span class="nx">boolean</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">a</span><span class="p">:</span><span class="nx">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">a2</span><span class="p">:</span><span class="nb">Array</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+
+<span class="kd">let</span> <span class="nx">week1</span><span class="p">:</span><span class="nx">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">mon</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">tue</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">wed</span><span class="dl">'</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">week2</span><span class="p">:</span><span class="nb">Array</span><span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">mon</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">tue</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">wed</span><span class="dl">'</span><span class="p">];</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="tuple-튜플">tuple 튜플</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">let</span> <span class="nx">b</span><span class="p">:[</span><span class="nx">string</span><span class="p">,</span> <span class="nx">number</span><span class="p">];</span>
+
+<span class="nx">b</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">z</span><span class="dl">'</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
+<span class="c1">// b = [1, 'z']; // 에러</span>
+
+<span class="nx">b</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
+<span class="nx">b</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span> <span class="c1">// number에는 없는 메소드라고 에러 발생</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="void-never">void, never</h2>
+
+<p>void : 함수에서 아무것도 반환하지 않을떄 사용</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">sayHello</span><span class="p">():</span><span class="k">void</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>never : 항상 에러를 반환하거나, 영원히 끝나지 않는 함수의 타입으로 사용</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">showError</span><span class="p">():</span><span class="nx">never</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">infLoop</span><span class="p">():</span><span class="nx">never</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// do something</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="enum">enum</h2>
+
+<p>enum : 비슷한 값들끼리 묶였다</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kr">enum</span> <span class="nx">Os</span> <span class="p">{</span>
+    <span class="nx">Window</span><span class="p">,</span>
+    <span class="nx">Ios</span><span class="p">,</span>
+    <span class="nx">Android</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>typescript에서 enum을 사용하지 않는게 좋은 이유<br />
+<a href="https://engineering.linecorp.com/ko/blog/typescript-enum-tree-shaking/">참고 링크</a></p>]]></content><author><name>FE Developer</name></author><category term="typescript" /><category term="typescript" /><summary type="html"><![CDATA[타입스크립트]]></summary></entry><entry><title type="html">[TypeScript] #1 타입스크립트를 쓰는 이유</title><link href="http://localhost:4000/typescript/typescript1/" rel="alternate" type="text/html" title="[TypeScript] #1 타입스크립트를 쓰는 이유" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/typescript1</id><content type="html" xml:base="http://localhost:4000/typescript/typescript1/"><![CDATA[<h2 id="타입스크립트-사용하기">타입스크립트 사용하기</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">add</span><span class="p">();</span> <span class="c1">// NaN</span>
+<span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// NaN</span>
+<span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="c1">// 3</span>
+<span class="nx">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span> <span class="c1">// 7 -&gt; 12를 예상했을때 어디서 문제가 발생했는지 찾아봐야함</span>
+<span class="nx">add</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">world</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// "helloworld"</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>add(1,2)를 제외하고는 원하는 값을 얻을 수 없지만 자바스크립트는 실행하기 전어떠한 경고도 주지 않는다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">showItems</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="nx">showItem</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]);</span> <span class="c1">// 1  2  3</span>
+<span class="nx">showItem</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="c1">// 에러</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>자바스크립트 (동적언어) : 런타임에 타입결정 -&gt; 오류 발견(사용자가 오류를 보게 됨)</li>
+  <li>자바, 타입스크립트 (정적언어) : 컴파일 타임에 타입 결정 -&gt; 오류 발견</li>
+</ul>
+
+<h2 id="typescript-playground">typescript playground</h2>
+
+<p><a href="https://www.typescriptlang.org/play">TypeScript</a></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">num1</span><span class="p">:</span><span class="nx">number</span><span class="p">,</span> <span class="nx">num2</span><span class="p">:</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// add(); // NaN</span>
+<span class="c1">// add(1); // NaN</span>
+<span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="c1">// 3</span>
+<span class="c1">// add(3,4,5); // 7 </span>
+<span class="c1">// add('hello', 'world'); // "helloworld"</span>
+
+<span class="kd">function</span> <span class="nx">showItems</span><span class="p">(</span><span class="nx">arr</span><span class="p">:</span><span class="nx">number</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="nx">showItem</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]);</span> <span class="c1">// 1  2  3</span>
+<span class="c1">//showItem(1,2,3); // 에러</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>typescript playground에서 위 예제 코드를 넣어보면 자바스크립트는 오류를 표현하지 않던 부분이 오류를 표현한다.<br />
+add에 인자가 2개가 들어와야하는데 갯수가 맞지 않다고 뜨고, num1과 num2에 타입을 정의해주면 ‘hello’,’world’는 타입에러가 뜬다.</p>
+
+<p>arr:number[]가 아닌 arr:string[]을 적는다면 <code class="language-plaintext highlighter-rouge">showItem([1,2,3]);</code>에 에러가 잡히게 된다.<br />
+또한, arr:number로 배열을 넣지 않으면 <code class="language-plaintext highlighter-rouge">arr.forEach((item)</code>이쪽에 에러가 잡힌다.</p>
+
+<p>또한 add()만 작성해줘도 어떤 인자 타입이 몇개가 필요한지 힌트가 나오기 때문에 내가 짠 코드가 아니더라도 코드를 뒤져보지 않고도 쉽게 코드 작성이 가능하다.</p>]]></content><author><name>FE Developer</name></author><category term="typescript" /><category term="typescript" /><summary type="html"><![CDATA[타입스크립트]]></summary></entry><entry><title type="html">[TypeScript] interface 사용</title><link href="http://localhost:4000/typescript/interface/" rel="alternate" type="text/html" title="[TypeScript] interface 사용" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/interface</id><content type="html" xml:base="http://localhost:4000/typescript/interface/"><![CDATA[<h2 id="typescript-interface-사용하기">TypeScript interface 사용하기</h2>
 
 <p>TypeScript에서 Object 타입을 선언할 때 interface와 type을 사용<br />
 TypeScript는 객체를 선언하고 그냥 접근할 수 없다.</p>
@@ -159,7 +524,144 @@ TypeScript는 객체를 선언하고 그냥 접근할 수 없다.</p>
   <li>gender 속성은 optional(?) 형태라서 사용하지 않으면 선언을 피할 수 있다.</li>
   <li>birth 속성은 읽기 전용으로 선언했기 때문에 값을 수정하려고 하면 Compile Error 발생</li>
   <li><code class="language-plaintext highlighter-rouge">[key:number]</code> 속성은 index방식으로 여러개를 한 번에 사용할 수 있고, 사용하지 않으면 선언을 피할 수 있다.</li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="typescript" /><category term="interface" /><summary type="html"><![CDATA[interface]]></summary></entry><entry><title type="html">NPM(Node Package Manager)</title><link href="http://localhost:4000/webpack/module-bundler-webpack2/" rel="alternate" type="text/html" title="NPM(Node Package Manager)" /><published>2022-06-07T00:00:00+09:00</published><updated>2022-06-07T00:00:00+09:00</updated><id>http://localhost:4000/webpack/module-bundler-webpack2</id><content type="html" xml:base="http://localhost:4000/webpack/module-bundler-webpack2/"><![CDATA[<h2 id="21-npm-지역-설치-명령어와-제거-명령어---uninstall">2.1 NPM 지역 설치 명령어와 제거 명령어 - uninstall</h2>
+</ul>]]></content><author><name>FE Developer</name></author><category term="typescript" /><category term="interface" /><summary type="html"><![CDATA[interface]]></summary></entry><entry><title type="html">[TypeScript] #4 함수 타입정의</title><link href="http://localhost:4000/typescript/typescript4/" rel="alternate" type="text/html" title="[TypeScript] #4 함수 타입정의" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/typescript4</id><content type="html" xml:base="http://localhost:4000/typescript/typescript4/"><![CDATA[<h2 id="함수를-정의하는-방법">함수를 정의하는 방법</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">num1</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">num2</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">isAdult</span><span class="p">(</span><span class="nx">age</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">boolean</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">age</span> <span class="o">&gt;</span> <span class="mi">19</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">hello</span><span class="p">(</span><span class="nx">name</span><span class="p">?:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">`Hellom </span><span class="p">${</span><span class="nx">name</span> <span class="o">||</span> <span class="dl">"</span><span class="s2">world</span><span class="dl">"</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">hello</span><span class="p">();</span> <span class="c1">// name?: 옵셔널이 아니면 name을 전달해 주지 않으면 에러가 난다.</span>
+
+<span class="c1">// 자바스크립트에서 디폴트값 주기</span>
+<span class="kd">function</span> <span class="nx">hello2</span><span class="p">(</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">world</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">`Hello, </span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">hello</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">age</span><span class="p">?:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">string</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">age</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">`Hello, </span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2">. You are </span><span class="p">${</span><span class="nx">age</span><span class="p">}</span><span class="s2">.`</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">`Hello, </span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">hello</span><span class="p">(</span><span class="dl">"</span><span class="s2">Sam</span><span class="dl">"</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">hello</span><span class="p">(</span><span class="dl">"</span><span class="s2">Sam</span><span class="dl">"</span><span class="p">,</span> <span class="mi">30</span><span class="p">));</span>
+</pre></td></tr></tbody></table></code></pre></div></div>]]></content><author><name>FE Developer</name></author><category term="typescript" /><category term="typescript" /><summary type="html"><![CDATA[타입스크립트]]></summary></entry><entry><title type="html">웹팩 시작하기</title><link href="http://localhost:4000/webpack/module-bundler-webpack3/" rel="alternate" type="text/html" title="웹팩 시작하기" /><published>2022-06-07T00:00:00+09:00</published><updated>2022-06-07T00:00:00+09:00</updated><id>http://localhost:4000/webpack/module-bundler-webpack3</id><content type="html" xml:base="http://localhost:4000/webpack/module-bundler-webpack3/"><![CDATA[<h2 id="31-웹팩-소개">3.1 웹팩 소개</h2>
+
+<p>웹팩이란 최신 프론트엔드 프레임워크에서 가장 많이 사용되는 모듈 번들러 이다. 모듈 번들러란 웹 애플리케이션을 구성하는 자원(HTML, CSS, Jacascript, images등)을 모두 각각의 모듈로 보고 이를 조합해서 병합된 하나의 결과물을 만드는 도구를 의미한다.</p>
+
+<h3 id="모듈이란">모듈이란?</h3>
+<p>모듈이란 프로그래밍 관점에서 특정 기능을 갖는 작은 코드단위를 말한다.</p>
+
+<h3 id="모듈-번들링이란">모듈 번들링이란?</h3>
+<p>웹 애플리케이션을 구성하는 몇십, 몇백개의 자원들을 하나의 파일로 병합 및 압축 해주는 동작</p>
+
+<h2 id="32-웹팩-시작하기-튜토리얼-파트-1---웹팩-적용-전">3.2 웹팩 시작하기 튜토리얼 파트 1 - 웹팩 적용 전</h2>
+
+<p><a href="https://joshua1988.github.io/webpack-guide/getting-started.html#%EC%9B%B9%ED%8C%A9-%EB%A7%9B%EB%B3%B4%EA%B8%B0-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC">참고 페이지</a></p>
+
+<p><code class="language-plaintext highlighter-rouge">npm init -y</code><br />
+npm을 이용해서 프로젝트를 관리하기 위한 초기화 설정</p>
+
+<p><code class="language-plaintext highlighter-rouge">npm i webpack webpack-cli -D</code><br />
+devDependencies에 webpack과 webpack-cli설치</p>
+
+<p><code class="language-plaintext highlighter-rouge">npm install lodash</code><br />
+lodash : 자바스크립트 유틸리티 라이브러리</p>
+
+<h2 id="33-웹팩-시작하기-튜토리얼-파트-2---웹팩-적용-후">3.3 웹팩 시작하기 튜토리얼 파트 2 - 웹팩 적용 후</h2>
+
+<ol>
+  <li>
+    <p>index.js<br />
+<code class="language-plaintext highlighter-rouge">import _ from "lodash";</code> 추가</p>
+  </li>
+  <li>
+    <p>index.html<br />
+cdn으로 들고오던 lodash스크립트는 주석처리하고 body안의 스크립트는 <code class="language-plaintext highlighter-rouge">&lt;script src="./dist/main.js"&gt;&lt;/script&gt;</code>로 변경</p>
+  </li>
+  <li>
+    <p>package.json<br />
+웹팩 빌드 명령어를 실행하기 위해 <code class="language-plaintext highlighter-rouge">package.json</code> 파일에 내용 추가</p>
+    <blockquote>
+      <p>“scripts”: {<br />
+ “build”: “webpack –mode=none”<br />
+}</p>
+    </blockquote>
+  </li>
+</ol>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="webpack" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">Node.js와 NPM</title><link href="http://localhost:4000/webpack/module-bundler-webpack1/" rel="alternate" type="text/html" title="Node.js와 NPM" /><published>2022-06-07T00:00:00+09:00</published><updated>2022-06-07T00:00:00+09:00</updated><id>http://localhost:4000/webpack/module-bundler-webpack1</id><content type="html" xml:base="http://localhost:4000/webpack/module-bundler-webpack1/"><![CDATA[<h2 id="개발-환경-구성">개발 환경 구성</h2>
+
+<ul>
+  <li>Chrome</li>
+  <li>Git</li>
+  <li>Visual Studio Code</li>
+  <li>Node.js(v12.x 이상)</li>
+</ul>
+
+<p>단축키<br />
+명령어 입력 : command + shift + p</p>
+
+<p><a href="https://joshua1988.github.io/webpack-guide/">수업교안사이트</a></p>
+
+<h2 id="11-npm-초기화-명령어---init">1.1 npm 초기화 명령어 - init</h2>
+
+<ul>
+  <li>npm init 으로 package.json을 생성</li>
+  <li>또는 npm init -y 로 자동 생성</li>
+</ul>
+
+<h2 id="12-npm-설치-명령어---install">1.2 npm 설치 명령어 - install</h2>
+
+<ul>
+  <li>npm install jquery 로 설치하면 node_modules폴더 생성되고 그 안에 라이브러리가 설치됨</li>
+  <li>packge.json에도 jquery의 버전도 명시 되어 있음</li>
+</ul>
+
+<h2 id="npm을-사용하는-이유와-장점">npm을 사용하는 이유와 장점</h2>
+
+<ul>
+  <li>라이브러리간에 의존성이 있는 경우에 라이브러리 관리가 필요하다.</li>
+  <li>npm을 사용하면 라이브러리의 목록과 각각의 버전까지 확인 가능</li>
+  <li>cdn을 쓰는 경우를 생각하면 브라우저에서 검색해서 하나씩 들고 와야하지만 npm은 <code class="language-plaintext highlighter-rouge">npm install jquery-ui</code> 같이 명령어로 설치가 가능하다.</li>
+</ul>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="node.js" /><category term="npm" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">NPM(Node Package Manager)</title><link href="http://localhost:4000/webpack/module-bundler-webpack2/" rel="alternate" type="text/html" title="NPM(Node Package Manager)" /><published>2022-06-07T00:00:00+09:00</published><updated>2022-06-07T00:00:00+09:00</updated><id>http://localhost:4000/webpack/module-bundler-webpack2</id><content type="html" xml:base="http://localhost:4000/webpack/module-bundler-webpack2/"><![CDATA[<h2 id="21-npm-지역-설치-명령어와-제거-명령어---uninstall">2.1 NPM 지역 설치 명령어와 제거 명령어 - uninstall</h2>
 
 <p>npm 지역 설치</p>
 
@@ -243,84 +745,7 @@ npm 전역설치는 위와 같이 프로젝트에서 사용할 라이브러리�
   <li><code class="language-plaintext highlighter-rouge">webpack</code> : 빌드도구</li>
   <li><code class="language-plaintext highlighter-rouge">eslint</code> : 코드 문법 검사 도구</li>
   <li><code class="language-plaintext highlighter-rouge">imagemin</code> : 이미지 압축 도구</li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="node.js" /><category term="npm" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">Node.js와 NPM</title><link href="http://localhost:4000/webpack/module-bundler-webpack1/" rel="alternate" type="text/html" title="Node.js와 NPM" /><published>2022-06-07T00:00:00+09:00</published><updated>2022-06-07T00:00:00+09:00</updated><id>http://localhost:4000/webpack/module-bundler-webpack1</id><content type="html" xml:base="http://localhost:4000/webpack/module-bundler-webpack1/"><![CDATA[<h2 id="개발-환경-구성">개발 환경 구성</h2>
-
-<ul>
-  <li>Chrome</li>
-  <li>Git</li>
-  <li>Visual Studio Code</li>
-  <li>Node.js(v12.x 이상)</li>
-</ul>
-
-<p>단축키<br />
-명령어 입력 : command + shift + p</p>
-
-<p><a href="https://joshua1988.github.io/webpack-guide/">수업교안사이트</a></p>
-
-<h2 id="11-npm-초기화-명령어---init">1.1 npm 초기화 명령어 - init</h2>
-
-<ul>
-  <li>npm init 으로 package.json을 생성</li>
-  <li>또는 npm init -y 로 자동 생성</li>
-</ul>
-
-<h2 id="12-npm-설치-명령어---install">1.2 npm 설치 명령어 - install</h2>
-
-<ul>
-  <li>npm install jquery 로 설치하면 node_modules폴더 생성되고 그 안에 라이브러리가 설치됨</li>
-  <li>packge.json에도 jquery의 버전도 명시 되어 있음</li>
-</ul>
-
-<h2 id="npm을-사용하는-이유와-장점">npm을 사용하는 이유와 장점</h2>
-
-<ul>
-  <li>라이브러리간에 의존성이 있는 경우에 라이브러리 관리가 필요하다.</li>
-  <li>npm을 사용하면 라이브러리의 목록과 각각의 버전까지 확인 가능</li>
-  <li>cdn을 쓰는 경우를 생각하면 브라우저에서 검색해서 하나씩 들고 와야하지만 npm은 <code class="language-plaintext highlighter-rouge">npm install jquery-ui</code> 같이 명령어로 설치가 가능하다.</li>
-</ul>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="node.js" /><category term="npm" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">웹팩 시작하기</title><link href="http://localhost:4000/webpack/module-bundler-webpack3/" rel="alternate" type="text/html" title="웹팩 시작하기" /><published>2022-06-07T00:00:00+09:00</published><updated>2022-06-07T00:00:00+09:00</updated><id>http://localhost:4000/webpack/module-bundler-webpack3</id><content type="html" xml:base="http://localhost:4000/webpack/module-bundler-webpack3/"><![CDATA[<h2 id="31-웹팩-소개">3.1 웹팩 소개</h2>
-
-<p>웹팩이란 최신 프론트엔드 프레임워크에서 가장 많이 사용되는 모듈 번들러 이다. 모듈 번들러란 웹 애플리케이션을 구성하는 자원(HTML, CSS, Jacascript, images등)을 모두 각각의 모듈로 보고 이를 조합해서 병합된 하나의 결과물을 만드는 도구를 의미한다.</p>
-
-<h3 id="모듈이란">모듈이란?</h3>
-<p>모듈이란 프로그래밍 관점에서 특정 기능을 갖는 작은 코드단위를 말한다.</p>
-
-<h3 id="모듈-번들링이란">모듈 번들링이란?</h3>
-<p>웹 애플리케이션을 구성하는 몇십, 몇백개의 자원들을 하나의 파일로 병합 및 압축 해주는 동작</p>
-
-<h2 id="32-웹팩-시작하기-튜토리얼-파트-1---웹팩-적용-전">3.2 웹팩 시작하기 튜토리얼 파트 1 - 웹팩 적용 전</h2>
-
-<p><a href="https://joshua1988.github.io/webpack-guide/getting-started.html#%EC%9B%B9%ED%8C%A9-%EB%A7%9B%EB%B3%B4%EA%B8%B0-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC">참고 페이지</a></p>
-
-<p><code class="language-plaintext highlighter-rouge">npm init -y</code><br />
-npm을 이용해서 프로젝트를 관리하기 위한 초기화 설정</p>
-
-<p><code class="language-plaintext highlighter-rouge">npm i webpack webpack-cli -D</code><br />
-devDependencies에 webpack과 webpack-cli설치</p>
-
-<p><code class="language-plaintext highlighter-rouge">npm install lodash</code><br />
-lodash : 자바스크립트 유틸리티 라이브러리</p>
-
-<h2 id="33-웹팩-시작하기-튜토리얼-파트-2---웹팩-적용-후">3.3 웹팩 시작하기 튜토리얼 파트 2 - 웹팩 적용 후</h2>
-
-<ol>
-  <li>
-    <p>index.js<br />
-<code class="language-plaintext highlighter-rouge">import _ from "lodash";</code> 추가</p>
-  </li>
-  <li>
-    <p>index.html<br />
-cdn으로 들고오던 lodash스크립트는 주석처리하고 body안의 스크립트는 <code class="language-plaintext highlighter-rouge">&lt;script src="./dist/main.js"&gt;&lt;/script&gt;</code>로 변경</p>
-  </li>
-  <li>
-    <p>package.json<br />
-웹팩 빌드 명령어를 실행하기 위해 <code class="language-plaintext highlighter-rouge">package.json</code> 파일에 내용 추가</p>
-    <blockquote>
-      <p>“scripts”: {<br />
- “build”: “webpack –mode=none”<br />
-}</p>
-    </blockquote>
-  </li>
-</ol>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="webpack" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
+</ul>]]></content><author><name>FE Developer</name></author><category term="webpack" /><category term="node.js" /><category term="npm" /><summary type="html"><![CDATA[Modul Bundler Webpack]]></summary></entry><entry><title type="html">Function 오브젝트</title><link href="http://localhost:4000/js-advanced/js-advanced1/" rel="alternate" type="text/html" title="Function 오브젝트" /><published>2022-06-06T00:00:00+09:00</published><updated>2022-06-06T00:00:00+09:00</updated><id>http://localhost:4000/js-advanced/js-advanced1</id><content type="html" xml:base="http://localhost:4000/js-advanced/js-advanced1/"><![CDATA[<h2 id="11-function-형태-function-오브젝트-생성-오브젝트-저장-생각의-전환">1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환</h2>
 
 <p>function 형태</p>
 <ul>
@@ -581,590 +1006,4 @@ __proto__: ƒ () // apply, bind, call 빌트인 function 오브젝트의 prototy
   name: { value: 'ellin', writable: true, enumerable: true, configurable: true }
 }
 */</span>
-</pre></td></tr></tbody></table></code></pre></div></div>]]></content><author><name>FE Developer</name></author><category term="js-advanced" /><category term="function" /><category term="object" /><summary type="html"><![CDATA[function 형태, 오브젝트 생성, 저장, 생각의 전환]]></summary></entry><entry><title type="html">13 - 컴포넌트 디자인 패턴</title><link href="http://localhost:4000/vue-lv3/vue-advanced13/" rel="alternate" type="text/html" title="13 - 컴포넌트 디자인 패턴" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced13</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced13/"><![CDATA[<h2 id="131-component-design-patterns">13.1 Component Design Patterns</h2>
-
-<p>컴포넌트 디자인 패턴</p>
-<ul>
-  <li>Common : 기본적인 컴포넌트 등록과 컴포넌트 통신</li>
-  <li>Slot : 마크업 확장이 가능한 컴포넌트</li>
-  <li>Controlled : 결합력이 높은 컴포넌트</li>
-  <li>Renderless : 데이터 처리 컴포넌트</li>
-</ul>
-
-<h2 id="132-common-approach">13.2 Common Approach</h2>
-
-<ul>
-  <li>컨테이너 컴포넌트 개념으로 appHeader와 appContent에 데이터를 내려주는 app.vue가 컨테이너 컴포넌트가 됨</li>
-  <li>내려준 데이터를 가지고 표현으로 하고 조작을 하면 이벤트로 올리는 기본적인 컴포넌트 설계방식</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/d44e12c8a303d7f641e12cf58bce836d918560f2">diff check</a></p>
-</blockquote>
-
-<h2 id="133-component-with-slots---slot-vs-props">13.3 Component with Slots - Slot vs Props</h2>
-
-<ul>
-  <li>
-    <item>아이템1</item>
-    <p>컴포넌트 <item></item>안에 텍스트가 들어가 있는 형태</p>
-  </li>
-  <li>Item.vue에서 slot을 지우고 ‘item1’이라고 텍스트를 고정시켜 놓으면 화면에는 item1이 다섯개 찍힘(상위 App.vue에서 정의해준 내용이 소용없게됨)
-    <blockquote>
-      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/24c77a8971b3273dc4dc0ee1a3e837c72703269a">diff check</a></p>
-    </blockquote>
-  </li>
-  <li>기존의 props 방식
-    <blockquote>
-      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/5a40536d813b1a15e87593e4b502a2242a03faad">diff check</a>\</p>
-    </blockquote>
-  </li>
-</ul>
-
-<h2 id="134-component-with-slots-구현-방법과-활용처">13.4 Component with Slots 구현 방법과 활용처</h2>
-
-<ul>
-  <li>slot을 사용하면서 App.vue에서 데이터에 배열로 값을 넣고 그 데이터를 v-for로 뿌려주면 하위 Item.vue 컴포넌트는 데이터 의존성이 없어진다 -&gt; 데이터는 App.vue에서 가지고 있기 때문에 하위에서는 단지 표현만 해줌
-    <blockquote>
-      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/3d9d44a07a8d92b21c2b3b8ebbc44260b982b0ed">diff check</a></p>
-    </blockquote>
-  </li>
-  <li>slot을 사용하면 정의하는 곳에서 다시 돔구조와 스타일 정의등이 가능하다
-    <blockquote>
-      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/49b5ce4c16b9a8a99442ac99ae8c4d767151f186">diff check</a></p>
-    </blockquote>
-  </li>
-</ul>
-
-<h2 id="134-controlled-component---input-박스를-다룰-때-생기는-문제점">13.4 Controlled Component - Input 박스를 다룰 때 생기는 문제점</h2>
-
-<ul>
-  <li>checked: false로 정의하고 이것을 props로 App.vue에서 CheckBox.vue에 내려주고 체크박스에서 v-model로 연결</li>
-  <li>화면에서 체크박스를 클릭하면 오류가 뜸 -&gt; 오류메세지의미 : prop을 하위에서 바꾸지 마라는 의미</li>
-  <li>컴포넌트의 n방향 통신을 방지하기 위해 위에서 내리고 아래에서 이벤트를 올리는데 여기서는 하위에서 checked: false로 내려온것을 클릭할때 true로 바꾸게 되면서 뜨는 오류이다.
-    <blockquote>
-      <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/ef851c670633e06e421339e04bd8abba8a4ba962">diff check</a></p>
-    </blockquote>
-  </li>
-</ul>
-
-<h2 id="135-controlled-component---구현-방법과-활용처">13.5 Controlled Component - 구현 방법과 활용처</h2>
-
-<ul>
-  <li>App.vue에서 하위 컴포넌트로 v-model로 값을 내린다.</li>
-  <li>체크박스에서 관리하던 데이터값이 상위에서 관리가 됨</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/06f526bf8dc45a27480031cf6b2c680e79d264f2">diff check</a></p>
-</blockquote>
-
-<h2 id="136-renderless-component---소개">13.6 Renderless Component - 소개</h2>
-
-<ul>
-  <li>표현을 하지 않는 컴포넌트 -&gt; Renderless Component</li>
-</ul>
-
-<h2 id="137-renderless-component---render-function">13.7 Renderless Component - Render Function</h2>
-
-<ul>
-  <li>main.js에서 render 속성이 정의된 부분을 보면 h=&gt;h(App)이 있다.
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="c1">// 기본 표현</span>
-<span class="nx">render</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">createElement</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">createElement</span><span class="p">(</span><span class="nx">App</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>내부적으로 createElement라는 함수를 파라미터로 받고 이 함수에 App을 넘겨줘서 element를 생성한다. 여기서 createElement는 단지 변수명이기 때문에 h로 바꾸면
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="c1">// h는 hyperscript의 약자로 virtual DOM에서 관용적으로 사용되는 표현, HTML구조를 생성하는 스크립트라는 의미</span>
-<span class="nx">render</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">h</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>위 표현을 화살표 함수로 적으면
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="nx">render</span><span class="p">:</span> <span class="p">(</span><span class="nx">h</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="k">return</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">)}</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>좀 더 간단히 적을 수 있다.
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
-  <span class="na">render</span><span class="p">:</span> <span class="nx">h</span> <span class="o">=&gt;</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">);</span>
-<span class="p">}).</span><span class="nx">$mount</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-</ul>
-
-<h2 id="138-renderless-component---구현-방법과-활용처">13.8 Renderless Component - 구현 방법과 활용처</h2>
-
-<ul>
-  <li>FetchData.vue의 데이터(response와 loading)을 접근할 수 있는게 $scopedSlots</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-design-pattern/commit/c8c895d9e5b9a2fb49f33f8fc92032e8fed2256c">diff check</a></p>
-</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="component" /><category term="design pattern" /><summary type="html"><![CDATA[Vue component]]></summary></entry><entry><title type="html">12 - 외부 라이브러리 모듈화 방법(차트)</title><link href="http://localhost:4000/vue-lv3/vue-advanced12/" rel="alternate" type="text/html" title="12 - 외부 라이브러리 모듈화 방법(차트)" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced12</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced12/"><![CDATA[<h2 id="121-라이브러리-모듈화의-이유와-배경">12.1 라이브러리 모듈화의 이유와 배경</h2>
-
-<p><a href="https://www.chartjs.org/docs/latest/">Chart.js</a>
-<a href="https://2018.stateofjs.com/front-end-frameworks/overview/">State of JS 2018</a></p>
-
-<ol>
-  <li>외부 라이브러리 모듈화
-    <ul>
-      <li>이유 : Vue.js 관련 라이브러리가 없을 때 일반 라이브러리를 결합할 수 있어야 함</li>
-      <li>종류</li>
-    </ul>
-    <ol>
-      <li>차트</li>
-      <li>데이트피커</li>
-      <li>테이블</li>
-      <li>스피너</li>
-    </ol>
-  </li>
-</ol>
-
-<h2 id="122-차트-라이브러리-설치-및-차트-그리기">12.2 차트 라이브러리 설치 및 차트 그리기</h2>
-
-<ul>
-  <li>chart.js라이브러리 설치 <code class="language-plaintext highlighter-rouge">yarn add chart.js@2</code></li>
-  <li>chart.js 공식사이트에서 예제 코드 복사해서 붙여넣기</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-chart/commit/f519e97f0f1b5d8ba43f0037dc0bf00a3a3749cd">diff check</a></p>
-</blockquote>
-
-<h2 id="123-barchart-컴포넌트화-작업">12.3 BarChart 컴포넌트화 작업</h2>
-
-<ul>
-  <li>차트 -&gt; 컴포넌트화 : 차트에 해당하는 코드들을 컴포넌트에 만들기</li>
-  <li>컴포넌트의 플러그인화</li>
-  <li>컴포넌트 통신을 이용한 차트 컴포넌트 기능 결합</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-chart/commit/3c445f959ca7a499906e6f9cd172005831351145">diff check</a></p>
-</blockquote>
-
-<h2 id="124-linechart-제작-및-차트-충돌-문제-해결">12.4 LineChart 제작 및 차트 충돌 문제 해결</h2>
-
-<p><a href="https://www.chartjs.org/docs/latest/getting-started/">line chart</a></p>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-chart/commit/bc92bf4dd663572e1b9ee8cb6ae893cb6c8a3a37">diff check</a></p>
-</blockquote>
-
-<h2 id="125-vue에서-dom을-접근하는-방법인-ref-속성-소개">12.5 Vue에서 DOM을 접근하는 방법인 ref 속성 소개</h2>
-
-<p>ref</p>
-<ul>
-  <li>각각의 컴포넌트에서만 접근할 수 있는 접근자</li>
-  <li>document.getElementById의 경우는 어떤 컴포넌트에서 사용하든 화면에서 그려진 돔에 전부 접근하기때문에 충돌날 확률이 높음</li>
-</ul>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre><span class="nt">&lt;div</span> <span class="na">ref=</span><span class="s">"app"</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;</span>hello<span class="nt">&lt;/div&gt;</span>
-
-<span class="nt">&lt;script&gt;</span>
-    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">app</span><span class="dl">'</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">divElement</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">app</span><span class="p">;</span>
-<span class="nt">&lt;/script&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-chart/commit/870dda16ea5051a42a9745281f49f85e8f7126df">diff check</a></p>
-</blockquote>
-
-<h2 id="126-vuejs-플러그인-소개-및-차트-플러그인-제작">12.6 Vue.js 플러그인 소개 및 차트 플러그인 제작</h2>
-
-<p><a href="https://vuejs.org/guide/reusability/plugins.html">plugin 문서</a></p>
-
-<ul>
-  <li>chart.js를 각 컴포넌트마다 불러와서 사용하면 차트의 종류가 많아질수록 라이브러리를 컴포넌트마다 불러오는 불필요한 로직이 생김</li>
-</ul>
-
-<p>플러그인</p>
-<ul>
-  <li>인스턴스가 생성됐을때 모든 컴포넌트에서 사용하고 싶은 기능을 정의</li>
-  <li>Vue.use(ChartPlugin)</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-chart/commit/aafdc87c83982f20d494fbe0bf57015a9f0f7146">diff check</a></p>
-</blockquote>
-
-<h2 id="127-결합력-높은-차트-컴포넌트-모듈-제작-방법">12.7 결합력 높은 차트 컴포넌트 모듈 제작 방법</h2>
-
-<ul>
-  <li>컴포넌트 통신을 이용한 차트 컴포넌트 기능 결합</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-chart/commit/a495a8ef2c3d150c06625e8ea9f24510ff0c55d0">diff check</a></p>
-</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="chart" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">11 - async &amp;amp; await를 이용한 비동기 처리</title><link href="http://localhost:4000/vue-lv3/vue-advanced11/" rel="alternate" type="text/html" title="11 - async &amp;amp; await를 이용한 비동기 처리" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced11</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced11/"><![CDATA[<h2 id="111-자바스크립트-비동기-처리-패턴의-발전-과정">11.1 자바스크립트 비동기 처리 패턴의 발전 과정</h2>
-
-<p>비동기 처리에 대해서 모르고 자바스크립트로 어떤 데이터를 받아와서 처리하려고 할때 일반적인 사고라면 아래와 같이 작성할 것이다.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">domain.com/id</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// #1 domain.com/id 로 get 요청을 보내서 결과값을 id에 담고</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">id</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">john</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// #2 그 id가 john이면</span>
-    <span class="kd">var</span> <span class="nx">products</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">domain.com/products</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// #3 domain.com/products 로 get 요청을 받아서 결과값을 products에 담아라</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>그러나 위와 같이 코드를 짠다면 <code class="language-plaintext highlighter-rouge">var id = $.get('domain.com/id');</code> 여기서 데이터 요청을 보내고 받아오기 전에 아래줄이 실행이 되기때문에, 이것에 대해 콜백 처리가 필요하다.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre><span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">domain.com/id</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span><span class="c1">// domain.com/id 결과를 받아서 콜백함수 function(id) 실행</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">id</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">john</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// id가 john이면</span>
-        <span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">domain.com/products</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">products</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// domain.com/products 결과를 받아서 콜백함수 function(products) 실행</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">products</span><span class="p">);</span>
-        <span class="p">});</span>
-    <span class="p">}</span>
-<span class="p">});</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>이것을 Promise를 적용해보면,(대충 아래같은 식으로 코드 작성)</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-</pre></td><td class="rouge-code"><pre><span class="c1">// $.get('domain.com/id', function(id) {</span>
-<span class="c1">//     if (id === 'john') {</span>
-<span class="c1">//         $.get('domain.com/products', function(products) {</span>
-<span class="c1">//             console.log(products);</span>
-<span class="c1">//         });</span>
-<span class="c1">//     }</span>
-<span class="c1">// });</span>
-<span class="kd">function</span> <span class="nx">getId</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// getId()는 Promise를 리턴하니까 .then() 메소드 체이닝 가능</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">domain.com/id</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">resolve</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
-        <span class="p">})</span>
-    <span class="p">})</span>
-<span class="p">}</span>
-<span class="kd">function</span> <span class="nx">getProduct</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">id</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">john</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">domain.com/products</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">products</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(...)</span>
-        <span class="p">});</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="kd">function</span> <span class="nx">logProduct</span><span class="p">(</span><span class="nx">products</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">products</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="nx">getId</span><span class="p">()</span> <span class="c1">// #1 id를 가져오면</span>
-    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">getProduct</span><span class="p">())</span> <span class="c1">// #2 product를 가져오고</span>
-    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">logProduct</span><span class="p">())</span> <span class="c1">// #3 콘솔에 product를 찍기 -&gt; 코드의 흐름이 보기 쉽다.</span>
-    <span class="p">.</span><span class="k">catch</span><span class="p">()</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h2 id="112-async--await-문법-소개">11.2 async &amp; await 문법 소개</h2>
-
-<p>async &amp; await는 자바스크립트 비동기 처리 패턴의 최신 문법.<br />
-Promise와 Callback에서 주는 단점들을 해결 하고 자바스크립트의 비동기전 사고 방식에서 벗어나 동기적(절차적)으로 코드를 작성할 수 있게 도와준다.</p>
-
-<p>기본문법</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="k">async</span> <span class="kd">function</span> <span class="nx">fetchData</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">await</span> <span class="nx">getUserList</span><span class="p">();</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-<p>async함수는 함수의 앞에 <code class="language-plaintext highlighter-rouge">async</code>를 붙여주고 함수의 내부 로직 중 비동기 처리 로직 앞에 <code class="language-plaintext highlighter-rouge">await</code>를 붙여주면 된다.<br />
-좀 더 정확하게 말하면 <code class="language-plaintext highlighter-rouge">Promise</code>객체를 반환하는 API 호출 함수 앞에 <code class="language-plaintext highlighter-rouge">await</code>를 붙인다.</p>
-
-<p>예제를 좀 더 살펴보면</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">fetchData</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="nx">getUserList</span><span class="p">();</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="kd">function</span> <span class="nx">getUserList</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">userList</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">user1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">user2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">user3</span><span class="dl">'</span><span class="p">];</span>
-        <span class="nx">resolve</span><span class="p">(</span><span class="nx">userList</span><span class="p">);</span>
-    <span class="p">});</span>
-<span class="p">}</span>
-
-<span class="nx">fetchData</span><span class="p">()</span>
-<span class="c1">// Promise {&lt;fulfilled&gt;: Array(3)}</span>
-<span class="c1">// undefined</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>여기에 async await를 적용하면</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="rouge-code"><pre><span class="k">async</span> <span class="kd">function</span> <span class="nx">fetchData1</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">getUserList1</span><span class="p">();</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="kd">function</span> <span class="nx">getUserList1</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">userList</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">user1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">user2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">user3</span><span class="dl">'</span><span class="p">];</span>
-        <span class="nx">resolve</span><span class="p">(</span><span class="nx">userList</span><span class="p">);</span>
-    <span class="p">});</span>
-<span class="p">}</span>
-
-<span class="nx">fetchData</span><span class="p">()</span>
-<span class="c1">// (3) ['user1', 'user2', 'user3']</span>
-<span class="c1">// Promise {&lt;fulfilled&gt;: Array(3)}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h2 id="113-async--await-예제-소개">11.3 async &amp; await 예제 소개</h2>
-
-<ul>
-  <li>로그인 버튼을 클릭하면 user id가 1인 api를 호출하고 .then 메소드체이닝으로 결과의 id가 1이면 todos를 get 요청 보내기</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/0737fe51e0aa5b5727af0e46305a249db996c090">diff check</a></p>
-</blockquote>
-
-<h2 id="114-async-await-예제-실습">11.4 async await 예제 실습</h2>
-
-<ul>
-  <li>함수 앞에 async 붙이고 함수 안의 로직중 promise 비동기 처리 앞에 await를 붙여준다.</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/8d9fd89a99dcb30b8a86595f38fcbaa4deb9c884">diff check</a></p>
-</blockquote>
-
-<h2 id="115-async-await-에러-처리-방법과-공통화-함수-작성-방법">11.5 async await 에러 처리 방법과 공통화 함수 작성 방법</h2>
-
-<ul>
-  <li>try / catch 문으로 에러 처리</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/ebb2dccbdc4c56a96ce2c6a5fe335fd1a1be4c33">diff check</a></p>
-</blockquote>
-
-<h2 id="116-async-함수를-이용한-코드-리팩토링">11.6 async 함수를 이용한 코드 리팩토링</h2>
-
-<ul>
-  <li>promise를 반환하는 함수나 api앞에 await를 붙여줌, const response -&gt; promise방식에서 then의 response를 받는것과 같음</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/4f9bd67dbbea1fca881dadbf1dccab1cd31d2c13">diff check</a></p>
-</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="async" /><category term="await" /><category term="promise" /><category term="callback" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">10 - 데이터 호출과 UX</title><link href="http://localhost:4000/vue-lv3/vue-advanced10/" rel="alternate" type="text/html" title="10 - 데이터 호출과 UX" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced10</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced10/"><![CDATA[<h2 id="101-ux를-고려한-데이터-호출-시점">10.1 UX를 고려한 데이터 호출 시점</h2>
-
-<p>데이터 호출 시점</p>
-<ol>
-  <li>컴포넌트 라이프 사이클 훅
-    <ul>
-      <li>created : 인스턴스(컴포넌트)가 생성되자 마자 호출되는 로직들, 화면에 내용들이 붙은 상태는 아님</li>
-    </ul>
-  </li>
-  <li>라우터 네비게이션 가드
-    <ul>
-      <li>라우터로 특정 url에 접근할때 그 전에 동작들을 정의하는 속성(함수)</li>
-    </ul>
-  </li>
-</ol>
-
-<p>네비게이션가드가 라이프사이클훅 보다 먼저 호출 됨<br />
-컴포넌트가 생성되고 나서 데이터를 호출 할건지 라우팅 상태에서 호출할건지에 따라 선택</p>
-
-<p><a href="https://vuejs.org/api/#created">created 라이프 사이클 훅 API 문서</a><br />
-<a href="https://joshua1988.github.io/web-development/vuejs/vue-router-navigation-guards/">네비게이션 가드 블로그</a><br />
-<a href="uide/advanced/navigation-guards.html">네비게이션 가드 뷰 라우터 공식 문서</a></p>
-
-<h2 id="102-라이프-사이클-훅을-이용한-데이터-호출-방법의-문제와-비동기-처리-코드-수정">10.2 라이프 사이클 훅을 이용한 데이터 호출 방법의 문제와 비동기 처리 코드 수정</h2>
-
-<p>actions.js</p>
-<ul>
-  <li>FETCH_LIST에서 fetchList api 호출에 return 해줘야함</li>
-  <li>return을 해줘야 fetchList에 대한 결과가 프로미스로 체이닝 돼서 FETCH_LIST가 ListMixin에서 .then이 될 수 있게 함</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/c63b150611f9b11ae138b15379a4ab607e4c5370">diff check</a></p>
-</blockquote>
-
-<h2 id="103-라우터-네비게이션을-이용한-데이터-호출-방법">10.3 라우터 네비게이션을 이용한 데이터 호출 방법</h2>
-
-<p>beforeEnter</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="nx">beforeEnter</span><span class="p">:</span> <span class="p">(</span><span class="nx">to</span><span class="p">,</span> <span class="k">from</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">to</span><span class="dl">'</span><span class="p">,</span> <span class="nx">to</span><span class="p">);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">from</span><span class="dl">'</span><span class="p">,</span> <span class="k">from</span><span class="p">);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">next</span><span class="dl">'</span><span class="p">,</span> <span class="nx">next</span><span class="p">);</span>
-    <span class="nx">next</span><span class="p">();</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-<ul>
-  <li>to : 이동할 URL의 라우팅 정보</li>
-  <li>from : 현재위치의 URL 라우팅 정보</li>
-  <li>next : function, next();를 호출 해줘야지 이동할 URL로 이동할 수 있음</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/4b55dc15e00750fd255de63654429df7f9977d40">diff check</a></p>
-</blockquote>
-
-<h2 id="104-라우터-네비게이션-가드-실습-및-스피너-종료-시점-변경">10.4 라우터 네비게이션 가드 실습 및 스피너 종료 시점 변경</h2>
-
-<ul>
-  <li>데이터를 불러오고 나서도 로딩스피너가 바로 꺼지지 않음</li>
-  <li><code class="language-plaintext highlighter-rouge">LinstMixin.js</code>에서 데이터 호출 로직을 <code class="language-plaintext highlighter-rouge">router/index.js</code>로 옮기기</li>
-  <li>그리고 <code class="language-plaintext highlighter-rouge">bus.$emit('end:spinner');</code>를 뷰페이지의 <code class="language-plaintext highlighter-rouge">mounted()</code>에 넣어줘서 마운트 되면 꺼지도록 수정</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/b2e68117af805ba069554820edafe768c89abb75">diff check</a></p>
-</blockquote>
-
-<ul>
-  <li>각 뷰페이지에 mounted에서 end:spinner가 중복되므로 이것을 다시 재활용 가능</li>
-  <li><code class="language-plaintext highlighter-rouge">LinstMixin.js</code>을 다시 이용해서 데이터 호출 로직은 지우고 그안에 mounted()를 넣어서 재활용</li>
-</ul>
-
-<blockquote>
-  <p><a href="https://github.com/wjddk0909/vue-news/commit/8c8fb45ca96ff38af31815fb089ea74931b111b7">diff check</a></p>
-</blockquote>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><summary type="html"><![CDATA[Vue news]]></summary></entry><entry><title type="html">14 - 서비스 배포 환경 구성</title><link href="http://localhost:4000/vue-lv3/vue-advanced14/" rel="alternate" type="text/html" title="14 - 서비스 배포 환경 구성" /><published>2022-04-27T00:00:00+09:00</published><updated>2022-04-27T00:00:00+09:00</updated><id>http://localhost:4000/vue-lv3/vue-advanced14</id><content type="html" xml:base="http://localhost:4000/vue-lv3/vue-advanced14/"><![CDATA[<h2 id="141-서비스-배포를-위한-명령어-소개-및-실습">14.1 서비스 배포를 위한 명령어 소개 및 실습</h2>
-
-<p>배포명령어 <code class="language-plaintext highlighter-rouge">npm run build</code>  <code class="language-plaintext highlighter-rouge">yarn build</code></p>
-
-<p>CLI로 생성한 프로젝트를 서비스에 배포하려면 제일 먼저 위 명령어를 실행.<br />
-실행하고 나면 호스팅 할 수 있는 형태(dist폴더)의 HTML, CSS, Javascript, 이미지 등의 파일 생성.<br />
-이렇게 생성된 자원을 빌드된 자원이라고 부름</p>
-
-<h2 id="142-netlify를-이용한-배포-실습">14.2 Netlify를 이용한 배포 실습</h2>
-
-<p><a href="https://www.netlify.com/">Netlify 공식 사이트 주소</a></p>
-
-<ul>
-  <li>github으로 signup</li>
-  <li>deploy site</li>
-</ul>
-
-<h2 id="143-base-디렉토리-설정-및-배포-완료">14.3 base 디렉토리 설정 및 배포 완료</h2>
-
-<ul>
-  <li>deploy failed가 나오면 deploy setting으로 돌아가서</li>
-  <li>base directory를 설정해줘야 한다.</li>
-  <li>폴더 경로에 맞게 수정해주기</li>
-</ul>
-
-<h2 id="144-spa-호스팅시에-서버에-추가해줘야-하는-설정-안내">14.4 SPA 호스팅시에 서버에 추가해줘야 하는 설정 안내</h2>
-
-<p><a href="https://cli.vuejs.org/guide/deployment.html#netlify">Vue CLI 배포 설명 페이지</a></p>
-
-<h2 id="145-env-환경-변수-파일을-이용한-옵션-변경-방법">14.5 env 환경 변수 파일을 이용한 옵션 변경 방법</h2>
-
-<ul>
-  <li>코드를 서버에 배포할때 특정 옵션들을 담아 놓는 파일</li>
-  <li>브라우저에 어떤 값을 노출 하고 싶지 않은 코드를 넣음</li>
-  <li>.env 로 파일 생성</li>
-  <li>변수=값 형식으로 작성</li>
-</ul>
-
-<p>.env<br />
-APP_TITLE=HELLO</p>
-
-<p>App.vue
-created() {<br />
-  console.log(process.env.APP_TITLE)<br />
-}</p>
-
-<p>이렇게 넣고 실행해보면 콘솔창에 undefined가 뜬다.</p>
-
-<p>.env<br />
-VUE_APP_TITLE=HELLO</p>
-
-<p>App.vue
-created() {<br />
-  console.log(process.env.VUE_APP_TITLE)<br />
-}</p>
-
-<p>VUE_를 붙이면 접근 가능해진다.</p>
-
-<p><a href="https://vue-news-site.netlify.app/news">vue news site 보러가기</a></p>]]></content><author><name>FE Developer</name></author><category term="vue-lv3" /><category term="vue" /><category term="deploy" /><summary type="html"><![CDATA[배포 환경]]></summary></entry></feed>
+</pre></td></tr></tbody></table></code></pre></div></div>]]></content><author><name>FE Developer</name></author><category term="js-advanced" /><category term="function" /><category term="object" /><summary type="html"><![CDATA[function 형태, 오브젝트 생성, 저장, 생각의 전환]]></summary></entry></feed>

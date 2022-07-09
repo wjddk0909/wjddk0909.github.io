@@ -1,0 +1,72 @@
+I"]
+<h2 id="git-fork">git fork</h2>
+
+<ol>
+  <li>프로젝트 Fork 하기</li>
+</ol>
+
+<p>작업할 프로젝트의 레포지토리를 Fork해서 내 레포지토리로 가져온다.<br />
+레포지토리 상단에 Fork버튼이 있다.</p>
+
+<p><img src="/assets/images/git/git_fork01.png" alt="fork" /></p>
+
+<p>octocat/Spoon-Knife를 포크해서 내 레포지토리에 wjddk0909/Spoon-Knife가 생겼다.</p>
+
+<p><img src="/assets/images/git/git_fork02.png" alt="fork" /></p>
+
+<ol>
+  <li>Fork한 레포지토리를 clone하기</li>
+</ol>
+
+<blockquote>
+  <p>git clone https://github.com/wjddk0909/Spoon-Knife.git</p>
+</blockquote>
+
+<ol>
+  <li>기존 원격 저장소를 연결</li>
+</ol>
+
+<p>내 레포지토리에 fork한 프로젝트는 기존 프로젝트가 수정되어도 반영되지 않는다.<br />
+local 레포지토리를 기존의 원격 저장소와 연결해서 pull 받으면 변경된 사항이 반영되도록 해야 한다.<br />
+(기존 원격 저장소의 내용이 반영 되지 않아도 된다면 건너뛰어도 되는 과정)</p>
+
+<p>반영 된 결과는 push를 통해 내 원격저장소(fork뜬 레포지토리)에 반영한다.</p>
+
+<blockquote>
+  <p>git remote add upstream https://github.com/octocat/Spoon-Knife.git<br />
+git remote -v</p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">git remote -v</code>는 연결된 upstream repository(기존 원격저장소)를 확인하는 명령어</p>
+
+<ol>
+  <li>upstream repository(기존 원격저장소)에서 최신 업데이트 데이터 가져오는 방법</li>
+</ol>
+
+<p>1) fetch 명령어를 통해 upstream repository(기존 원격저장소)의 내용 불러오기</p>
+
+<blockquote>
+  <p>git fetch upstream</p>
+</blockquote>
+
+<p>2) upstream repository(기존 원격저장소)의 master 브랜치(혹은 원햐는 브랜치)로부터 나의 local master branch로 merge 한다.</p>
+
+<blockquote>
+  <p>git checkout master(<code class="language-plaintext highlighter-rouge">원하는브랜치명</code>)
+git merge upstream/master(<code class="language-plaintext highlighter-rouge">upstream에서 합칠 브랜치</code>)</p>
+</blockquote>
+
+<p>3) push 명령어를 통해 나의 원격 저장소(fork뜬 레포지토리)에 반영</p>
+
+<blockquote>
+  <p>git push origin master</p>
+</blockquote>
+
+<ol>
+  <li>브랜치 확인 하는 명령어</li>
+</ol>
+
+<p>1) 로컬브랜치 <code class="language-plaintext highlighter-rouge">git branch</code>
+2) 원격 저장소 브랜치 <code class="language-plaintext highlighter-rouge">git branch -r</code>
+3) 로컬/원격 모든 브랜치 <code class="language-plaintext highlighter-rouge">git branch -a</code></p>
+:ET

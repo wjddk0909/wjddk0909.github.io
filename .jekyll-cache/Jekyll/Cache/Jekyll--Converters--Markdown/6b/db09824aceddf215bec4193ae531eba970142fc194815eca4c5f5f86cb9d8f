@@ -1,0 +1,173 @@
+I"�(<h2 id="오브젝트-인터페이스">오브젝트 인터페이스</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kd">let</span> <span class="nx">user</span><span class="p">:</span><span class="nx">object</span><span class="p">;</span>
+
+<span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">abc</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">age</span><span class="p">:</span> <span class="mi">20</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>타입스크립트에서 객체를 만들고 오브젝트 타입으로 정의한 후 콘솔로 찍어보면 에러가 발생한다.<br />
+오브젝트에는 특정 속성 값에 대한 정보가 없기 때문이다. <code class="language-plaintext highlighter-rouge">name</code>에 커서를 올려보면 오브젝트에는 name이 없다고 뜬다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="kr">interface</span> <span class="nx">User</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">age</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">user</span><span class="p">:</span> <span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">abc</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">age</span><span class="p">:</span> <span class="mi">20</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이제 <code class="language-plaintext highlighter-rouge">console.log(user.)</code>까지만 찍어도 어떤 프로퍼티들이 있는지 힌트가 뜬다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre><span class="nx">type</span> <span class="nx">Score</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">A</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">B</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">C</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">F</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">User</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">age</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nx">gender</span><span class="p">?:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nx">readonly</span> <span class="nx">birthYear</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="p">[</span><span class="nx">grade</span><span class="p">:</span> <span class="nx">number</span><span class="p">]:</span> <span class="nx">Score</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">user</span><span class="p">:</span> <span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">abc</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">age</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="na">birthYear</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="dl">'</span><span class="s1">A</span><span class="dl">'</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="dl">'</span><span class="s1">B</span><span class="dl">'</span>
+<span class="p">}</span>
+
+<span class="nx">user</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">gender</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">male</span><span class="dl">"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>여기에서 <code class="language-plaintext highlighter-rouge">user.age = 10;</code>으로 변경은 문제가 없지만 <code class="language-plaintext highlighter-rouge">user.gender = "male"</code>은 에러가 발생한다.<br />
+interface안에 있어도 되고 없어도 되는 옵셔널 속성으로 넣어주고 추가하면 된다.<br />
+readonly속성은 생성할때만 할당이 가능하고 이후에는 수정이 불가하다.</p>
+
+<p>여러가지 추가해야될 속성이 생길때, 예들들어 학년별로 성적을 추가해야한다고 할때<br />
+옵셔널 말고 다른방법으로는 <code class="language-plaintext highlighter-rouge">[grade: number]</code> -&gt; 문자열 인덱스 서명을 추가하는 방법</p>
+
+<h2 id="인터페이스에-함수">인터페이스에 함수</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre><span class="kr">interface</span> <span class="nx">Add</span> <span class="p">{</span>
+    <span class="p">(</span><span class="nx">num1</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">num2</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">number</span><span class="p">;</span> <span class="c1">// : number 는 리턴값이 number라는 뜻</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">add</span><span class="p">:</span> <span class="nx">Add</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">add</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+
+<span class="kr">interface</span> <span class="nx">isAdult</span> <span class="p">{</span>
+    <span class="p">(</span><span class="nx">age</span><span class="p">:</span><span class="nx">number</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">a</span><span class="p">:</span> <span class="nx">isAdult</span> <span class="o">=</span> <span class="p">(</span><span class="nx">age</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">age</span> <span class="o">&gt;</span> <span class="mi">19</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">a</span><span class="p">(</span><span class="mi">33</span><span class="p">)</span> <span class="c1">// true</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="인터페이스-확장extends">인터페이스 확장(extends)</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="kr">interface</span> <span class="nx">Car</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">wheels</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nx">start</span><span class="p">():</span> <span class="k">void</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">Toy</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">ToyCar</span> <span class="kd">extends</span> <span class="nx">Car</span><span class="p">,</span> <span class="nx">Toy</span> <span class="p">{</span>
+    <span class="nl">price</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+:ET

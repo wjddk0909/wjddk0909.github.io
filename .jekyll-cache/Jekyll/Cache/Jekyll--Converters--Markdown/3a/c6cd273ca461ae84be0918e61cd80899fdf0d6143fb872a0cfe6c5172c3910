@@ -1,0 +1,89 @@
+I"�<h2 id="기본타입">기본타입</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">let</span> <span class="nx">age</span><span class="p">:</span><span class="nx">number</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">isAdult</span><span class="p">:</span><span class="nx">boolean</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">a</span><span class="p">:</span><span class="nx">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">a2</span><span class="p">:</span><span class="nb">Array</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+
+<span class="kd">let</span> <span class="nx">week1</span><span class="p">:</span><span class="nx">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">mon</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">tue</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">wed</span><span class="dl">'</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">week2</span><span class="p">:</span><span class="nb">Array</span><span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">mon</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">tue</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">wed</span><span class="dl">'</span><span class="p">];</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="tuple-튜플">tuple 튜플</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">let</span> <span class="nx">b</span><span class="p">:[</span><span class="nx">string</span><span class="p">,</span> <span class="nx">number</span><span class="p">];</span>
+
+<span class="nx">b</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">z</span><span class="dl">'</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
+<span class="c1">// b = [1, 'z']; // 에러</span>
+
+<span class="nx">b</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
+<span class="nx">b</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span> <span class="c1">// number에는 없는 메소드라고 에러 발생</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="void-never">void, never</h2>
+
+<p>void : 함수에서 아무것도 반환하지 않을떄 사용</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">sayHello</span><span class="p">():</span><span class="k">void</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>never : 항상 에러를 반환하거나, 영원히 끝나지 않는 함수의 타입으로 사용</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">showError</span><span class="p">():</span><span class="nx">never</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">infLoop</span><span class="p">():</span><span class="nx">never</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// do something</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="enum">enum</h2>
+
+<p>enum : 비슷한 값들끼리 묶였다</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kr">enum</span> <span class="nx">Os</span> <span class="p">{</span>
+    <span class="nx">Window</span><span class="p">,</span>
+    <span class="nx">Ios</span><span class="p">,</span>
+    <span class="nx">Android</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>typescript에서 enum을 사용하지 않는게 좋은 이유<br />
+<a href="https://engineering.linecorp.com/ko/blog/typescript-enum-tree-shaking/">참고 링크</a></p>
+:ET

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-07-09T20:51:57+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE Developer Note </title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">[TypeScript-part1] 강의 오리엔테이션</title><link href="http://localhost:4000/typescript-part1/typescript-part1-beginners1/" rel="alternate" type="text/html" title="[TypeScript-part1] 강의 오리엔테이션" /><published>2022-07-09T00:00:00+09:00</published><updated>2022-07-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript-part1/typescript-part1-beginners1</id><content type="html" xml:base="http://localhost:4000/typescript-part1/typescript-part1-beginners1/"><![CDATA[<h2 id="타입스크립트-오리엔테이션">타입스크립트 오리엔테이션</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-07-09T21:18:52+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">FE Developer Note </title><subtitle>An amazing website.</subtitle><author><name>FE Developer</name></author><entry><title type="html">[TypeScript-part1] 강의 오리엔테이션</title><link href="http://localhost:4000/typescript-part1/typescript-part1-beginners1/" rel="alternate" type="text/html" title="[TypeScript-part1] 강의 오리엔테이션" /><published>2022-07-09T00:00:00+09:00</published><updated>2022-07-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript-part1/typescript-part1-beginners1</id><content type="html" xml:base="http://localhost:4000/typescript-part1/typescript-part1-beginners1/"><![CDATA[<h2 id="타입스크립트-오리엔테이션">타입스크립트 오리엔테이션</h2>
 
 <p>자바스크립트로 제작된 COVID-19 세계 현황판을 타입스크립트로 변환해보면서 타입스크립트의 개념과 기초를 배워보는 강좌</p>
 
@@ -12,6 +12,12 @@
   <li>자바스크립트 문법을 알고 있는 웹 개발자</li>
   <li>자바스크립트로 좀 더 단단한 웹 애플리케이션을 만들고 싶은 웹 개발자(버그가 좀 더 없었으면 좋겠다)</li>
   <li>타입스크립트로 되어 있는 프로젝트에서 퍼블리싱을 해야 하는 퍼블리셔</li>
+</ul>
+
+<h2 id="개발환경-안내">개발환경 안내</h2>
+
+<ul>
+  <li><a href="https://github.com/joshua1988/learn-typescript">강의 레포지토리 주소</a></li>
 </ul>]]></content><author><name>FE Developer</name></author><category term="typescript-part1" /><category term="typescript" /><summary type="html"><![CDATA[typescript에 대해서]]></summary></entry><entry><title type="html">[TypeScript] #3 인터페이스</title><link href="http://localhost:4000/typescript/typescript3/" rel="alternate" type="text/html" title="[TypeScript] #3 인터페이스" /><published>2022-06-09T00:00:00+09:00</published><updated>2022-06-09T00:00:00+09:00</updated><id>http://localhost:4000/typescript/typescript3</id><content type="html" xml:base="http://localhost:4000/typescript/typescript3/"><![CDATA[<h2 id="오브젝트-인터페이스">오브젝트 인터페이스</h2>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1

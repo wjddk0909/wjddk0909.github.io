@@ -23,7 +23,7 @@ toc: true
 
 > [diff check](https://github.com/wjddk0909/typescript-part1/commit/7f7ab5d62b0c40bf2f6a8df95e8b237b8715c662)
 
-## 타입스크립트 설정파일
+## 3.2 타입스크립트 설정파일
 
 타입스크립트 설정파일  
 타입스크립트를 변환하기 위해서 TSC를 사용했는데, 웹팩이나 그런트. 걸프 등과 같은 웹 테스크 매니저를 통해 자동화를 하는 것이 편하다.  
@@ -88,7 +88,7 @@ tsconfig에 들어갈 기타 항목들
 
 > [diff check](https://github.com/wjddk0909/typescript-part1/commit/3750e167117e25c273048bb1f1b04424b6c2bdda)
 
-## 타입스크립트 플레이그라운드 사이트 소개
+## 3.3 타입스크립트 플레이그라운드 사이트 소개
 
 - [플레이그라운드 사이트](https://www.typescriptlang.org/play)
 - [바벨사이트](https://babeljs.io/)

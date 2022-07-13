@@ -35,3 +35,15 @@ toc: true
 - 진위값 : boolean
 
 > [diff check](https://github.com/wjddk0909/typescript-part1/commit/b3089f7bbc8f254ca1eff138ace9def91ceee33e)
+
+## 4.3 함수 타입 - 파라미터, 반환값
+
+> [diff check](https://github.com/wjddk0909/typescript-part1/commit/bab4d27472f0ed03116a8d4c5686356b9ab19e84)
+
+## 4.4 함수 타입 - 파라미터를 제한하는 특성
+
+> [diff check](https://github.com/wjddk0909/typescript-part1/commit/e3b4d4d02ac229811b127e215b5af92c1330d193)
+
+## 4.5 함수 타입 - 옵셔널 파라미터
+
+> [diff check](https://github.com/wjddk0909/typescript-part1/commit/45bd2b613db76a29e7cec836f9f8567761df2efa)

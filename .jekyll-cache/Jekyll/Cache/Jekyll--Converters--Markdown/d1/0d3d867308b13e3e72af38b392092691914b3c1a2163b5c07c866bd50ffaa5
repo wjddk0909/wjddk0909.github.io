@@ -1,0 +1,63 @@
+I"i<h2 id="71-타입-별칭-소개">7.1 타입 별칭 소개</h2>
+
+<p>타입 별칭은 특정 타입이나 인터페이스를 참조할 수 있는 타입 변수를 의미합니다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="c1">// string 타입을 사용할 때</span>
+<span class="kd">const</span> <span class="nx">name</span><span class="p">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">capt</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// 타입 별칭을 사용할 때</span>
+<span class="nx">type</span> <span class="nx">MyName</span> <span class="o">=</span> <span class="nx">string</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">name</span><span class="p">:</span> <span class="nx">MyName</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">capt</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// interface 레벨의 복잡한 타입에도 별칭 부여 가능</span>
+<span class="nx">type</span> <span class="nx">Developer</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">skill</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 타입 별칭에 제네릭도 사용가능</span>
+<span class="nx">type</span> <span class="nx">User</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">T</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="72-타입-별칭-코드-예제">7.2 타입 별칭 코드 예제</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/30ee844445f3081b96be8d0bea796ce59473e966">diff check</a></p>
+</blockquote>
+
+<h2 id="73-타입-별칭과-인터페이스의-차이점">7.3 타입 별칭과 인터페이스의 차이점</h2>
+
+<p>타입 별칭은 새로운 타입 값을 하나 생성하는 것이 아니라 정의한 타입에 대해 나중에 쉽게 참고할 수 있게 이름을 부여하는 것과 같다.</p>
+
+<p>인터페이스로 선언한 타입을 프리뷰로 확인하면 인터페이스를 가리킨다.</p>
+
+<p><img src="/assets/images/ts/part1-7_01.png" alt="인터페이스" /><br />
+<img src="/assets/images/ts/part1-7_02.png" alt="인터페이스" /></p>
+
+<p>인터페이스와 타입은 마우스 커서를 대면 뜨는 프리뷰 설명에 차이가 있다.</p>
+
+<p>인터페이스를 가리키기 때문에 인터페이스로 바로 이동이 가능하다. (커맨드 + b)</p>
+
+<p>타입은 확장이 되지 않는다.<br />
+인터페이스는 확장이 가능한데 반해 타입 별칭은 확장이 불가능하다. 따라서 <code class="language-plaintext highlighter-rouge">type</code> 보다는 <code class="language-plaintext highlighter-rouge">interface</code>로 선언해서 사용하는 것을 추천</p>
+
+:ET

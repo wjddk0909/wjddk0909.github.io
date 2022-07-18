@@ -1,0 +1,222 @@
+I"J4<h2 id="21-타입스크립트란">2.1 타입스크립트란?</h2>
+
+<p>타입스크립트는 자바스크립트에 타입을 부여한 언어.<br />
+자바스크립트의 확장된 언어라고 볼 수 있다. 타입스크립트는 자바스크립트와 다르게 브라우저에서 실행하기 위해 파일을 한번 변환해줘야 함.<br />
+이 과정을 <code class="language-plaintext highlighter-rouge">컴파일(compile)</code>이라고 한다.</p>
+
+<h2 id="22-왜-타입스크립트를-쓰면-좋은가요">2.2 왜 타입스크립트를 쓰면 좋은가요?</h2>
+
+<ul>
+  <li><a href="https://github.com/axios/axios">HTTP 요청 라이브러리 axios</a></li>
+  <li><a href="https://joshua1988.github.io/web-development/javascript/promise-for-beginners/">Promise 소개 글</a></li>
+  <li><a href="https://jsonplaceholder.typicode.com/">JSONPlaceHolder 사이트</a></li>
+</ul>
+
+<p>clone 받았던 레포지토리에서 <code class="language-plaintext highlighter-rouge">why-ts</code>폴더의 <code class="language-plaintext highlighter-rouge">index.html</code>을 참고한다.<br />
+사용자정보를 받아오는 웹페이지를 작성해 둔 상태이다.</p>
+
+<p>axios를 이용해서 유저 정보를 api호출을 통해 유저 정보를 가져오자.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://jsonplaceholder.typicode.com/users</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">startApp</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">axios</span>
+    <span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+      <span class="nx">user</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+      <span class="c1">// TODO: 이름, 이메일, 주소 표시하기</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span>
+      <span class="nx">username</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">user</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">name</span><span class="p">;</span>
+      <span class="nx">email</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">user</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">email</span><span class="p">;</span>
+      <span class="nx">address</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">user</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">address</span><span class="p">;</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/a390b64ee3e1c51f645359c7536ff0344ef051a0">diff check</a></p>
+</blockquote>
+
+<p>위와 같이 작성해도 코드상에서는 문제가 없어 보인다.<br />
+하지만 화면에서 확인해보면 <code class="language-plaintext highlighter-rouge">주소: [object Object]</code>라는 문구가 나온다.<br />
+address가 객체형태이기 때문이다.<br />
+<code class="language-plaintext highlighter-rouge">address.innerText = user[0].address.street;</code>라고 작성한다면 문제가 없다.<br />
+그러나 <code class="language-plaintext highlighter-rouge">address.innerText = user[0].addres.street;</code> 이런식으로 오타가 있으면 화면에서는 undefined를 찍어낸다.</p>
+
+<p>이렇게 코드상에서 잘못 입력하더라도 화면에서 직접 확인해야지 해당 코드가 잘못 되었는지 확인이 가능하다. <br />
+이런 부분들을 타입스크립크를 사용하면 더 명확하게 할 수 있는 부분이다.</p>
+
+<h2 id="23-자바스크립트에-타입이-있을-때의-첫-번째-장점">2.3 자바스크립트에 타입이 있을 때의 첫 번째 장점</h2>
+
+<p>타입스크립트의 2가지 관점에서 자바스크립트 코드의 품질과 개발 생산성을 높인다.</p>
+
+<ul>
+  <li>에러의 사전 방지</li>
+  <li>코드 가읻 및 자동 완성(개발 생산성 향상)</li>
+</ul>
+
+<p>에러의 사전 방지 : 에러를 사전에 미리 예방</p>
+
+<p>Jsdoc의 표준 문법 : /** 치고 엔터를 치면 된다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="cm">/**
+ * @typedef {object} Address
+ * @property {string} street
+ * @property {string} city
+ */</span>
+
+<span class="cm">/**
+ * @typedef {object} User
+ * @property {string} name
+ * @property {string} email
+ * @property {Address} address
+ */</span>
+<span class="cm">/**
+ * @returns {Promise&lt;User&gt;}
+ */</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>타입스크립트 이전에 자바스크립트에서는 위와 같은 Jsdoc 규칙으로 주석을 달아서 어떤 데이터타입인지 어떤 속성인지 명시를 했다.<br />
+타입스크립트를 사용하면 어떤 데이터 타입이 들어오는지 속성이 무엇이 있는지 코드상에서 바로바로 잡아준다.</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/26e35a45796ef357ad39659cc735598786b6cd6e">diff check</a></p>
+</blockquote>
+
+<h2 id="24-자바스크립트에-타입이-있을-때의-두-번째-장점">2.4 자바스크립트에 타입이 있을 때의 두 번째 장점</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="c1">// sample.js</span>
+
+<span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="dl">'</span><span class="s1">20</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 1020</span>
+
+<span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="dl">'</span><span class="s1">20</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 1020</span>
+
+<span class="c1">// 자바스크립트는 숫자와 문자를 더하면 전부다 문자로 취급</span>
+<span class="c1">// 타입스크립트를 사용하면 a와 b에 모두 숫자만 들어오게 정의할 수 있다.</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c1">//sample.ts</span>
+
+<span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">b</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">number</span> <span class="p">{</span> <span class="c1">// a와 b는 number, 그리고 함수가 반환하는 값의 타입까지 number라고 정의</span>
+    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="nx">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="dl">'</span><span class="s1">20</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 지정한 타입과 다른 타입의 값을 넣으면 에러가 남</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">const result = sum(10, 20);</code> 이런식으로 변수에 넣어주면 <code class="language-plaintext highlighter-rouge">result.</code>을 찍어보면
+result는 number타입이 명시 되어 있기 때문에 number에서 제공하는 property를 전부 활용 할 수 있게 된다. 타입스크립트가 아니라면 온갖 프로퍼티가 다 나온다.</p>
+
+<p>이런 코드 자동완성 기능을 intellisence라고 한다. (또는 code completion)
+<a href="https://www.jetbrains.com/help/webstorm/auto-completing-code.html">코드 자동완성</a></p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/9dac152d5b0d0f0a7238b9f6073678e48c37b24a">diff check</a></p>
+</blockquote>
+
+<h2 id="25-자바스크립트를-타입스크립트처럼-코딩하는-방법">2.5 자바스크립트를 타입스크립트처럼 코딩하는 방법</h2>
+
+<p>앞서 사용했던 것 처럼 Jsdoc을 사용해서 다시 정의해보면,</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="cm">/**
+ *
+ * @param {number} a 첫번째 숫자
+ * @param {number} b 두번째 숫자
+ */</span>
+<span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>sum함수에 커서를 올려보면 preview가 보이는데 a와 b에 number가 들어가는게 보인다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nx">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="nx">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="dl">'</span><span class="s1">20</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 그러나 이렇게 넣어도 자바스크립트에서는 에러로 잡지는 않는다. 웹스톰에서는 잡는듯..? 설정을 미리 따로 해줘서 그런것 같기도? 잘 모르겠다...ㅠ</span>
+<span class="c1">// vs code에서 자바스크립트에 Jsdoc주석 위에 // @ts-check 추가 하면 ts 문법으로 에러 검사해준다고 함 </span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/22dbd8bdf75373b402624a3b82b387a8d3e67aa5">diff check</a></p>
+</blockquote>
+:ET

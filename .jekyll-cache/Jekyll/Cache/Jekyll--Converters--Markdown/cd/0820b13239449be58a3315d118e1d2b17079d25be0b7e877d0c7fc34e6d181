@@ -1,0 +1,108 @@
+I"<h2 id="61-인터페이스-소개-및-변수를-정의하는-인터페이스">6.1 인터페이스 소개 및 변수를 정의하는 인터페이스</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/b9559cb2582ba028305cb883cef723d2668ea265">diff check</a></p>
+</blockquote>
+
+<h2 id="62-함수의-인자를-정의하는-인터페이스">6.2 함수의 인자를 정의하는 인터페이스</h2>
+
+<p>변수에 인터페이스를 활용하는 방법을 사용해보았다면 이번에는 함수에 인터페이스를 활용하는 방법을 사용해 보자</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">getUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">getUser</span><span class="p">()</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>여기까지 입력하고 <code class="language-plaintext highlighter-rouge">getUer()</code>함수를 호출하는 부분에 마우스를 올려보면,<br />
+<code class="language-plaintext highlighter-rouge">function getUser(user: any): void</code>를 보여주며 any 타입이기 때문에 어떤 타입의 인자가 들어가도 에러가 나지 않는다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">getUser</span><span class="p">(</span><span class="nx">user</span><span class="p">:</span> <span class="nx">User</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">ja</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">jungah</span><span class="dl">'</span>
+<span class="p">}</span>
+<span class="nx">getUser</span><span class="p">(</span><span class="nx">ja</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>만약 여기에 <code class="language-plaintext highlighter-rouge">user: User</code> 위에서 정의한 User인터페이스를 받는다면<br />
+<code class="language-plaintext highlighter-rouge">ja</code>에는 age가 없기 때문에 에러가 난다.</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/360e007d8cb944e6dd85c091b1dce58f62fa4aa6">diff check</a></p>
+</blockquote>
+
+<h2 id="63-함수-구조를-정의하는-인터페이스">6.3 함수 구조를 정의하는 인터페이스</h2>
+
+<p>api를 호출 했을 때, 그 api의 데이터 타입이 어떤지 인터페이스를 정의해서 그것을 활용할때 인터페이스가 빛을 발한다.</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/d06b7d38811c91b4ceb84786e559946d07e8cee3">diff check</a></p>
+</blockquote>
+
+<h2 id="64-인덱싱-방식을-정의하는-인터페이스">6.4 인덱싱 방식을 정의하는 인터페이스</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/5ccae53bb0970b84683efe66be30c979bd86d655">diff check</a></p>
+</blockquote>
+
+<h2 id="65-인터페이스-딕셔너리-패턴">6.5 인터페이스 딕셔너리 패턴</h2>
+
+<p>RegExp : 정규표현식 생성자라는 느낌의 예약어?</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/ba556c4b4eb553834d890331ca4a5fa793d11720">diff check</a></p>
+</blockquote>
+
+<h2 id="66-인터페이스-확장상속">6.6 인터페이스 확장(상속)</h2>
+
+<p>인터페이스를 상속받아서 기존에 있던것보다 확장해서 사용하는 것<br />
+인터페이스를 각각 정의했을때 각 인터페이스에 중복되는 속성들이 있다면 상속을 받아서 사용할 수 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="kr">interface</span> <span class="nx">Person</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">age</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">Developer</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">age</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nl">language</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 상속받아서 확장</span>
+<span class="kr">interface</span> <span class="nx">Developer</span> <span class="kd">extends</span> <span class="nx">Person</span> <span class="p">{</span>
+    <span class="nl">language</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/cc7993d889893ff00fc8cc02fb39c369ad883567">diff check</a></p>
+</blockquote>
+
+:ET

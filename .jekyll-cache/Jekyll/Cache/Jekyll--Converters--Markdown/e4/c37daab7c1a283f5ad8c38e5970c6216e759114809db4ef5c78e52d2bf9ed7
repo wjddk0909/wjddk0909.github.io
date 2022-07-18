@@ -1,0 +1,132 @@
+I"�%<h2 id="81-연산자를-이용한-타입-정의---union-type">8.1 연산자를 이용한 타입 정의 - Union Type</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/d6a98809b130c7389993b94248aff79c72a61476">diff check</a></p>
+</blockquote>
+
+<h2 id="82-유니온-타입의-장점">8.2 유니온 타입의 장점</h2>
+
+<p>유니온 타입은 특정 파라미터나 변수에 여러가지 타입을 지정하고 싶을 때 사용한다.</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/bfa08f4fe10154a2e5d3db6e6675ccdb35462b18">diff check</a></p>
+</blockquote>
+
+<h3 id="타입-가드">타입 가드</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">logMessage</span><span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="nx">string</span> <span class="o">|</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">value</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">number</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">value</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">value</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">value</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>위와 같이 <code class="language-plaintext highlighter-rouge">if문</code>으로 특정 타입으로 타입의 범위를 좁혀나가는(필터링 하는) 과정</p>
+
+<h3 id="에러처리타입-가드">에러처리(타입 가드)</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">logMessage</span><span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="nx">string</span> <span class="o">|</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">value</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">number</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">value</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">value</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">value</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nx">TypeError</span><span class="p">(</span><span class="dl">'</span><span class="s1">value must be string or number</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>위와 같이 지정된 타입 이외의 타입이 들어오면 에러 처리도 할 수 있다.</p>
+
+<h2 id="83-유니온-타입의-특징">8.3 유니온 타입의 특징</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="kr">interface</span> <span class="nx">Developer</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">skill</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">Person</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">age</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">askSomeone</span><span class="p">(</span><span class="nx">someone</span><span class="p">:</span> <span class="nx">Developer</span> <span class="o">|</span> <span class="nx">Person</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">someone</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">abc</span><span class="dl">'</span><span class="p">;</span>
+    <span class="nx">someone</span><span class="p">.</span><span class="nx">skill</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">javascript</span><span class="dl">'</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>인터페이스를 두개를 선언하고 아래에서 유니온 타입으로 파라미터로 정의해 줬을때,<br />
+someone에 접근할 수 있는 속성은 <code class="language-plaintext highlighter-rouge">name</code>뿐이다.<br />
+아직 어떤 형태의 객체가 들어올지 모르는 상황에서 <code class="language-plaintext highlighter-rouge">skill, age</code> 속성들을 모두 열어 놓는다면 에러가 발생할 수도 있다고 판단하기 때문에 위와 같이 유니온 타입을 썼을때는 공통속성에만 접근할 수 있도록 한다.</p>
+
+<p>이 <code class="language-plaintext highlighter-rouge">skill, age</code>같은 속성에 접근하고 싶다면 이전 시간에 봤던 <code class="language-plaintext highlighter-rouge">타입가드</code>를 이용해서 특정 타입으로 제한을 하고 그 후에 그 타입으로 인자가 들어왔을 때 처리하는 방식으로 해야한다.</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/7cc601b5f38ac11997eac77e90293035bb9eb6c5">diff check</a></p>
+</blockquote>
+
+<h2 id="84-인터섹션-타입-소개">8.4 인터섹션 타입 소개</h2>
+
+<p><code class="language-plaintext highlighter-rouge">&amp;</code> 앤드 연산자를 사용한 인터섹션 타입</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">askSomeone2</span><span class="p">(</span><span class="nx">someone</span><span class="p">:</span> <span class="nx">Developer</span> <span class="o">&amp;</span> <span class="nx">Person</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">someone</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">abc</span><span class="dl">'</span><span class="p">;</span>
+    <span class="nx">someone</span><span class="p">.</span><span class="nx">skill</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">javascript</span><span class="dl">'</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>위 유니온 타입에서는 <code class="language-plaintext highlighter-rouge">someone.skill</code> 속성이 뜨지 않고 <code class="language-plaintext highlighter-rouge">someone.skill = 'javascript'</code>이 에러가 나는 반면 인터섹션 타입에서는 <code class="language-plaintext highlighter-rouge">someone.skill = 'javascript'</code>이 에러가 나지 않는다.<br />
+Developer 인터페이스와 Person 인터페이스 속성 모두를 가지고 있는 데이터 타입.
+이것이 &amp; 인터섹션이다.<br />
+그러나 실무에서는 유니온 타입이 더 많이 쓰인다.</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/1f38d6ebcb428bb4cfc682075023e0e098bc9e8f">diff check</a></p>
+</blockquote>
+
+<h2 id="85-유니온-타입과-인터섹션-타입의-차이점">8.5 유니온 타입과 인터섹션 타입의 차이점</h2>
+
+<ul>
+  <li>유니온 타입: 여러 타입 중 하나의 타입만 만족하면 되므로 상황에 따라 원하는 타입을 만족하는 데이터를 넘기면됨</li>
+  <li>인터섹션 타입: 인터섹션으로 선언된 모든 타입을 만족하는 데이터를 넘겨야된다.</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/944f98a8cbb6a5d29fa3f1ec894d583384c13445">diff check</a></p>
+</blockquote>
+:ET

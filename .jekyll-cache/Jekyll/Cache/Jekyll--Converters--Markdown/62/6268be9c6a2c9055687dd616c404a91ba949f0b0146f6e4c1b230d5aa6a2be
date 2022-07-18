@@ -1,0 +1,90 @@
+I"R<h2 id="eslint란">ESLint란?</h2>
+
+<p>ESLint는 ES + Lint의 합성어로 ES는 표준 자바스크립트 (ECMA Javascript)를 말하고, Lint는 에러가 있는 코드에 표시를 달아놓는 것을 말한다.
+ 
+그래서 ESLint를 사용하면 위 처럼 컴포넌트의 이름이 합성어가 아닐 경우 에러가 발생</p>
+
+<h2 id="해결방법">해결방법</h2>
+
+<p>설정파일에 옵션을 추가하면 되는데,<br />
+vue cli로 default로 프로젝트를 생성하면 package.json안에 ESLint 설정옵션이 생성된다.<br />
+이것을 따로 빼서 파일을 별도로 생성해 주는게 나중에 옵션을 추가해 줄 경우 코드가 길어지는 것을 방지해 줄 수 있다.</p>
+
+<blockquote>
+  <p>루트에 <code class="language-plaintext highlighter-rouge">.eslintrc.js</code> 파일 생성</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre></td><td class="rouge-code"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">root</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="na">env</span><span class="p">:</span> <span class="p">{</span>
+		<span class="na">node</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="p">},</span>
+	<span class="na">extends</span><span class="p">:</span> <span class="p">[</span>
+		<span class="dl">'</span><span class="s1">plugin:vue/essential</span><span class="dl">'</span><span class="p">,</span>
+		<span class="dl">'</span><span class="s1">eslint:recommended</span><span class="dl">'</span><span class="p">,</span>
+		<span class="dl">'</span><span class="s1">plugin:prettier/recommended</span><span class="dl">'</span><span class="p">,</span>
+	<span class="p">],</span>
+	<span class="na">parserOptions</span><span class="p">:</span> <span class="p">{</span>
+		<span class="na">parser</span><span class="p">:</span> <span class="dl">'</span><span class="s1">@babel/eslint-parser</span><span class="dl">'</span><span class="p">,</span>
+	<span class="p">},</span>
+	<span class="na">rules</span><span class="p">:</span> <span class="p">{</span>
+		<span class="dl">'</span><span class="s1">no-console</span><span class="dl">'</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">production</span><span class="dl">'</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">warn</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">off</span><span class="dl">'</span><span class="p">,</span>
+		<span class="dl">'</span><span class="s1">no-debugger</span><span class="dl">'</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">production</span><span class="dl">'</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">warn</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">off</span><span class="dl">'</span><span class="p">,</span>
+		<span class="dl">'</span><span class="s1">vue/multi-word-component-names</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">off</span><span class="dl">'</span><span class="p">,</span>
+		<span class="dl">'</span><span class="s1">prettier/prettier</span><span class="dl">'</span><span class="p">:</span> <span class="p">[</span>
+			<span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">,</span>
+			<span class="p">{</span>
+				<span class="na">singleQuote</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+				<span class="na">semi</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+				<span class="na">useTabs</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+				<span class="na">tabWidth</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+				<span class="na">trailingComma</span><span class="p">:</span> <span class="dl">'</span><span class="s1">all</span><span class="dl">'</span><span class="p">,</span>
+				<span class="na">printWidth</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
+			<span class="p">},</span>
+		<span class="p">],</span>
+	<span class="p">},</span>
+<span class="p">};</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>생성한 파일안에 복붙해주기 <code class="language-plaintext highlighter-rouge">'vue/multi-word-component-names': 'off',</code> 이부분이 multi name 꺼주는 부분이다.<br />
+이렇게 하면 에러는 보여주지 않는데, 로컬에서 서버를 돌렸을때 에러를 뱉어낸다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">vue.config.js</code>파일에 <code class="language-plaintext highlighter-rouge">lintOnSave:false</code>를 추가해 준다.</p>
+
+<p>이렇게 해주면 에러는 사라지지만 웬만하면 두단어이상 조합으로 파일과 네임을 생성하는게 좋다.<br />
+vue에서 권장하는 사항이므로 지켜주는게 좋을듯!</p>
+
+<ul>
+  <li><a href="https://islet4you.tistory.com/entry/ESLint-%EC%A0%81%EC%9A%A9%EC%8B%9C-multi-word-component-names-%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95">.eslintrc.js 참고 페이지</a></li>
+</ul>
+:ET

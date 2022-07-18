@@ -1,0 +1,44 @@
+I"�<h2 id="91-이넘-소개">9.1 이넘 소개</h2>
+
+<p>이넘(Enums)<br />
+이넘은 특정 값들의 집합을 의미하는 자료형<br />
+예를 들면 아래와 같은 목록이 이넘이 될 수 있다.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>나이키
+아디다스
+뉴발란스
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이넘은 다른 프로그래밍 언어를 다뤄본 사람들에게 친숙한 타입, 타입스크립트에서는 문자형 이넘과 숫자형 이넘을 지원한다.</p>
+
+<p>드롭다운과 같은 정해져있는 목록의 값들을 지정할 때 쓰면 좋다.</p>
+
+<h2 id="92-숫자형-이넘">9.2 숫자형 이넘</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kr">enum</span> <span class="nx">Shoes</span> <span class="p">{</span>
+    <span class="nx">Nike</span><span class="p">,</span>
+    <span class="nx">Adidas</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">myShoes</span> <span class="o">=</span> <span class="nx">Shoes</span><span class="p">.</span><span class="nx">Nike</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myShoes</span><span class="p">);</span> <span class="c1">// 0 출력</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위와 같이 각 enum에 값을 지정하지 않으면 기본적으로 숫자형 이넘으로 취급한다.</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/1bec6bacc86b765343313530f99a56701f2f5fb9">diff check</a></p>
+</blockquote>
+
+:ET

@@ -1,0 +1,59 @@
+I"	<h2 id="41-기본타입---문자열-숫자-배열">4.1 기본타입 - 문자열, 숫자, 배열</h2>
+
+<ul>
+  <li>
+    <p><a href="https://joshua1988.github.io/ts/guide/basic-types.html">타입스크립트 변수 타입</a></p>
+  </li>
+  <li>Boolean</li>
+  <li>Number</li>
+  <li>String</li>
+  <li>Object</li>
+  <li>Array</li>
+  <li>Tuple</li>
+  <li>Enum</li>
+  <li>Any</li>
+  <li>Void</li>
+  <li>Null</li>
+  <li>Undefined</li>
+  <li>Never</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/f9c7b10688ecc57c2ceb078dcd0e7f2a2ac87c6b">diff check</a></p>
+</blockquote>
+
+<h2 id="42-기본-타입---튜플-객체-진위값">4.2 기본 타입 - 튜플, 객체, 진위값</h2>
+
+<ul>
+  <li>튜플 : 배열의 특정 인덱스의 타입을 정의 하는것 <code class="language-plaintext highlighter-rouge">const address: [string, number] = ['gangnam', 100];</code></li>
+  <li>객체 : 대다수의 데이터형이 객체이기 때문에 object로 했을때 호환되는 변수가 많을것이다.
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">person: object</code> 객체명에 object라고만 타입을 선언해도 에러가 나지 않는다.</li>
+      <li>좀더 구체적으로 명시하고 싶다면 객체 안의 프로퍼티의 타입을 선언해 준다.</li>
+    </ul>
+  </li>
+  <li>진위값 : boolean</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/b3089f7bbc8f254ca1eff138ace9def91ceee33e">diff check</a></p>
+</blockquote>
+
+<h2 id="43-함수-타입---파라미터-반환값">4.3 함수 타입 - 파라미터, 반환값</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/bab4d27472f0ed03116a8d4c5686356b9ab19e84">diff check</a></p>
+</blockquote>
+
+<h2 id="44-함수-타입---파라미터를-제한하는-특성">4.4 함수 타입 - 파라미터를 제한하는 특성</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/e3b4d4d02ac229811b127e215b5af92c1330d193">diff check</a></p>
+</blockquote>
+
+<h2 id="45-함수-타입---옵셔널-파라미터">4.5 함수 타입 - 옵셔널 파라미터</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/45bd2b613db76a29e7cec836f9f8567761df2efa">diff check</a></p>
+</blockquote>
+:ET

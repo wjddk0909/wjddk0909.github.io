@@ -232,3 +232,5 @@ map -> 기존 배열을 변환을 해서 새로운 배열을 만들어주는 함
 > [diff check](https://github.com/wjddk0909/typescript-part1/commit/a3ab3d5955a31bb93c1d3e092252801a726e4f0f)
 
 
+
+

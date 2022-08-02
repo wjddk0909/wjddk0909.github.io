@@ -26,4 +26,6 @@ toc: false
 `~@/assets/images/sprites/sprite-${basename}.png`  
 위와 같이 물결하나 추가해줘야 했음.. 
 
+[참고 stack overflow](https://stackoverflow.com/questions/51621458/for-handling-assets-in-vue-js-not-working)
+
 

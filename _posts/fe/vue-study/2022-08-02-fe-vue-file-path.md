@@ -28,4 +28,7 @@ toc: false
 
 [참고 stack overflow](https://stackoverflow.com/questions/51621458/for-handling-assets-in-vue-js-not-working)
 
+[webpack 정적 자산 처리 stack overflow](https://stackoverflow.com/questions/51531821/vue-cli-include-image-from-assets-folder-in-static-file#answer-52097176)
+
+[vue.js 정적자산처리](https://vuejs-templates.github.io/webpack/static.html)
 

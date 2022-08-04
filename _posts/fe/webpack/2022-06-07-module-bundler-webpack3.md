@@ -43,3 +43,5 @@ cdn으로 들고오던 lodash스크립트는 주석처리하고 body안의 스�
 >"scripts": {  
 >  "build": "webpack --mode=none"  
 >}
+
+## 3.4 웹팩 시작하기 튜토리얼 파트 3 - mode 적용

@@ -85,6 +85,13 @@
         </ul>
         <ul>
             {% for category in site.categories %}
+                {% if category[0] == "js-beginner" %}
+                    <li><a href="/categories/js-beginner" class="">JavaScript 비기너 : 튼튼한 기본 만들기 ({{category[1].size}})</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <ul>
+            {% for category in site.categories %}
                 {% if category[0] == "js-advanced" %}
                     <li><a href="/categories/js-advanced" class="">JavaScript 중고급 : 근본 핵심 논리 ({{category[1].size}})</a></li>
                 {% endif %}

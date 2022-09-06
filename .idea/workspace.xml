@@ -21,7 +21,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/ellin.hand/wjddk0909.github.io/_posts/fe/vue-study",
+    "last_opened_file_path": "/Users/ellin.hand/wjddk0909.github.io",
     "nodejs_package_manager_path": "yarn",
     "vue.rearranger.settings.migration": "true"
   }
@@ -42,6 +42,7 @@
       <workItem from="1647322992126" duration="10000" />
       <workItem from="1647323346390" duration="620000" />
       <workItem from="1655766907581" duration="1765000" />
+      <workItem from="1661830659654" duration="294000" />
     </task>
     <servers />
   </component>

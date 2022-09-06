@@ -288,7 +288,7 @@
 
 
 
-  1 분 소요
+  2 분 소요
 </p>
             devinlife comments :
                 싱글 페이지(포스트)에 제목 밑에 Updated 시간 표기
@@ -408,12 +408,53 @@
 }
 </style>
 
-<p>```</p>
-<ul>
-  <li>flex-basis를 생략하면 값은 0이 된다</li>
-</ul>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre></td><td class="rouge-code"><pre>- flex-basis를 생략하면 값은 0이 된다
 
-<p><a href="https://studiomeal.com/archives/197">flex에 대한 정보 참고 페이지</a></p>
+[flex에 대한 정보 참고 페이지](https://studiomeal.com/archives/197)
+
+### flex로 안에 아이템 수직 가운데 정렬 하는 방법1
+
+```html
+&lt;div class="wrap"&gt;
+    &lt;div class="d-flex"&gt;
+        &lt;div class="item"&gt;
+            아이템&lt;br /&gt;
+            아이템&lt;br /&gt;
+            아이템&lt;br /&gt;
+            아이템&lt;br /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+    .wrap {height: 100%;}
+    .d-flex {display: flex; height: 100%;}
+    .item {align-self: center;}
+&lt;/style&gt;
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>wrap와 d-flex는 height가 잡혀있어야 하는듯?(원하는 높이값 만큼)</p>
 
 
         
@@ -514,42 +555,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/typescript-part1/typescript-part1-beginners9/" rel="permalink">[TypeScript-part1] 이넘
-</a>
-      
-    </h2>
-<!--
-    devinlife comments :
-        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
-        기존에는 read_time이 표기. read_time -> date 변경
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  최대 1 분 소요
-</p>
-    
--->
-    
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> July 13 2022</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">typescript enum
-</p>
-  </article>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/typescript-part1/typescript-part1-beginners8/" rel="permalink">[TypeScript-part1] 연산자를 이용한 타입 정의
+        <a href="/js-beginner/js-beginner1/" rel="permalink">[JavaScript: Beginner] 1 - 기본문법
 </a>
       
     </h2>
@@ -568,9 +574,9 @@
     
 -->
     
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> July 13 2022</p>
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> September 06 2022</p>
     
-    <p class="archive__item-excerpt" itemprop="description">typescript 연산자 이용
+    <p class="archive__item-excerpt" itemprop="description">변수, 주석, 정수, 실수, 상수, 진수, 데이터타입
 </p>
   </article>
 </div>
@@ -584,7 +590,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/typescript-part1/typescript-part1-beginners7/" rel="permalink">[TypeScript-part1] 타입 별칭
+        <a href="/javascript/chartjs/" rel="permalink">[javascript]Chart.js의 option을 활용해서 커스텀하기
 </a>
       
     </h2>
@@ -603,9 +609,9 @@
     
 -->
     
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> July 13 2022</p>
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> August 17 2022</p>
     
-    <p class="archive__item-excerpt" itemprop="description">typescript 타입 별칭
+    <p class="archive__item-excerpt" itemprop="description">Chart.js
 </p>
   </article>
 </div>
@@ -619,7 +625,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/typescript-part1/typescript-part1-beginners6/" rel="permalink">[TypeScript-part1] 인터페이스
+        <a href="/tips/stylelint-error1/" rel="permalink">Stylelint: browserslist: caniuse-lite is outdated. Please run 에러
 </a>
       
     </h2>
@@ -638,9 +644,44 @@
     
 -->
     
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> July 13 2022</p>
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> August 08 2022</p>
     
-    <p class="archive__item-excerpt" itemprop="description">typescript 인터페이스
+    <p class="archive__item-excerpt" itemprop="description">웹스톰 사용중 stylelint error?
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/vue-study/fe-vue-file-path/" rel="permalink">[vue]파일 경로 - 이미지 스프라이트 사용하면서..
+</a>
+      
+    </h2>
+<!--
+    devinlife comments :
+        아키이브 싱글 페이지(ex. 카테고리)에 각 포스트 제목 밑에 Updated 시간 표기
+        기존에는 read_time이 표기. read_time -> date 변경
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+-->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> August 02 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">파일 경로
 </p>
   </article>
 </div>

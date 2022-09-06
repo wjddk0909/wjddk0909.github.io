@@ -1,0 +1,33 @@
+I"B<h2 id="chartjs">Chart.js</h2>
+
+<p><a href="https://www.youtube.com/watch?v=aAzZDG_L-i4">Chart.js 옵션 활용하는 유튜브 영상</a></p>
+
+<ul>
+  <li>상단 데이터 라벨 이미지 모양 커스텀</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="nx">options</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">plugins</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">legend</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">labels</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">usePointStyle</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// false가 default라서 true값을 줘야 모양 커스텀 가능</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<ul>
+  <li>xamarin 컴포넌트 syncfusion 라이브러리?<br />
+<a href="https://www.syncfusion.com/">syncfusion</a></li>
+</ul>
+
+:ET

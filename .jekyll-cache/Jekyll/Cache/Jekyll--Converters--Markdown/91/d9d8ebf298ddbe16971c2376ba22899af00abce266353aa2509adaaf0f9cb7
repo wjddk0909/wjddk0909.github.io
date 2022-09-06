@@ -1,0 +1,408 @@
+I"��<h2 id="111-제네릭-소개">11.1 제네릭 소개</h2>
+
+<p>제네릭은 C#, Java등의 언어에서 재사용성이 높은 컴포넌트를 만들 때 자주 활용 되는 특징이다.<br />
+특히, 한가지 타입보다 여러가지 타입에서 동작하는 컴포넌트를 생성하는데 사용된다.</p>
+
+<p>제네릭이란, 타입을 마치 함수의 파라미터처럼 사용하는 것을 의미한다.</p>
+
+<h2 id="112-제네릭의-기본-문법">11.2 제네릭의 기본 문법</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">logText</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">text</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">logText</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// 숫자 10</span>
+<span class="nx">logText</span><span class="p">(</span><span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 문자열 hi</span>
+<span class="nx">logText</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span> <span class="c1">// 진위값 true</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>위 함수는 <code class="language-plaintext highlighter-rouge">text</code>라는 파라미터에 값을 넘겨받아 <code class="language-plaintext highlighter-rouge">return text;</code> 반환해준다.<br />
+어떤 값이 들어가도 그대로 반환한다.<br />
+여기에서 제네릭을 한번 살펴보자.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">logText</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">text</span><span class="p">:</span> <span class="nx">T</span><span class="p">):</span><span class="nx">T</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">text</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>위 함수는 제네릭 기본 문법이 적용된 형태<br />
+이제 함수를 호툴할 때 아래와 같이 함수 안에서 사용할 타입을 넘겨 줄 수 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nx">logText</span><span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span><span class="p">(</span><span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">logText</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이렇게 넘겨주면 함수에 마우스 오버했을때 프리뷰에 <code class="language-plaintext highlighter-rouge">function logText&lt;number&gt;(text: number): number</code> 이런식으로 타입 정의가 된다.</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/4babbd1fdd215a05dc5a90db4d5ed74c57a08f30">diff check</a></p>
+</blockquote>
+
+<h2 id="113-기존-타입-정의-방식과-제네릭의-차이점---함수-중복-선언의-단점">11.3 기존 타입 정의 방식과 제네릭의 차이점 - 함수 중복 선언의 단점</h2>
+
+<p>처음에 타입을 정의 하지 않았을때 어떤 타입이 들어가도 에러가 나지 않았던 것은 기본적으로 타입이 <code class="language-plaintext highlighter-rouge">any</code>로 되어있기 때문이다.</p>
+
+<p>그런데 여기에서 같은 로직안에서 string에서 사용하는 메소드 <code class="language-plaintext highlighter-rouge">split</code>를 사용하거나 number에서 사용하는 <code class="language-plaintext highlighter-rouge">toString</code>을 사용한다거나 하려면 같은 형식이지만 각각 코드를 계속해서 따로 생성해야 한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">logText</span><span class="p">(</span><span class="nx">text</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+    <span class="nx">text</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">text</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">logNumber</span><span class="p">(</span><span class="nx">num</span><span class="p">:</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">num</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">logText</span><span class="p">(</span><span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">logNumber</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이렇게 해도 사실 크게 문제는 없지만, 단순히 타입을 따로 받기 위해서 중복되는 코드를 계속 추가하는 것은 유지보수 측면에서 좋지 않다.</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/7b0f3913be42aef3c4cd9d07563c1a1e7cf90c0c">diff check</a></p>
+</blockquote>
+
+<h2 id="114-기존-문법과-제네릭의-차이점---유니온-타입을-이용한-선언-방식의-문제점">11.4 기존 문법과 제네릭의 차이점 - 유니온 타입을 이용한 선언 방식의 문제점</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">logText</span><span class="p">(</span><span class="nx">text</span><span class="p">:</span> <span class="nx">string</span> <span class="o">|</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">text</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">logText</span><span class="p">(</span><span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">logText</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>위와 같이 여러가지 타입을 받을 수 있게 하는 것이 유니온 타입<br />
+유니온 타입은 input에 대한 것은 해결하지만 반환값에 대한 문제는 해결하지 못한다는 단점이 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">logText</span><span class="p">(</span><span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 변수 a에 담긴 값을 추론할 때 string 또는 number로 추론한다.</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span> <span class="c1">// 그렇기 떄문에 string이 들어왔지만 split메소드를 사용하면 error가 발생한다. -&gt; 정확하게 a의 타입이 string이라고 추론이 되어야만 split메소드를 사용할 수 있다.</span>
+<span class="c1">// 왜냐하면 number타입에는 split메소드가 없으므로.</span>
+<span class="nx">logText</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/2af8c266b7d15d1f6c518dcf9b9687b95b294132">diff check</a></p>
+</blockquote>
+
+<h2 id="115-제네릭의-장점과-타입-추론에서의-이점">11.5 제네릭의 장점과 타입 추론에서의 이점</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/0a245578d710c2260a52b6876407e99f68066899">diff check</a></p>
+</blockquote>
+
+<h2 id="116-제네릭-실전-예제-살펴보기---예제-설명">11.6 제네릭 실전 예제 살펴보기 - 예제 설명</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">createDropdownItem</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// item: 배열의 요소</span>
+  <span class="kd">const</span> <span class="nx">option</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">option</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// option이라는 태그를 만들어서</span>
+  <span class="nx">option</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span> <span class="c1">// value들의 값들을 해당 속성에 그대로 연결</span>
+  <span class="nx">option</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+  <span class="nx">option</span><span class="p">.</span><span class="nx">selected</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">selected</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">option</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="117-제네릭-실전-예제-살펴보기---코드에-타입-정의하기">11.7 제네릭 실전 예제 살펴보기 - 코드에 타입 정의하기</h2>
+
+<p><code class="language-plaintext highlighter-rouge">const emails는 타입이 { value: string; selected: boolean }[]</code>인 반면,<br />
+<code class="language-plaintext highlighter-rouge">const numberOfProducts는 타입이 { value: number; selected: boolean }[]</code>이라서<br />
+밑에서 함수 <code class="language-plaintext highlighter-rouge">function createDropdownItem(item: { value: string; selected: boolean })</code>으로 정의하면 변수 <code class="language-plaintext highlighter-rouge">numberOfProducts</code>를 정의 할 수 없기때문에 <code class="language-plaintext highlighter-rouge">value: number</code>로 바꾸면 아래 <code class="language-plaintext highlighter-rouge">emails.forEach</code>부분에서 에러가 난다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">emails</span><span class="p">:</span> <span class="p">{</span> <span class="nl">value</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span> <span class="nl">selected</span><span class="p">:</span> <span class="nx">boolean</span> <span class="p">}[]</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">naver.com</span><span class="dl">'</span><span class="p">,</span> <span class="na">selected</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">gmail.com</span><span class="dl">'</span><span class="p">,</span> <span class="na">selected</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">hanmail.net</span><span class="dl">'</span><span class="p">,</span> <span class="na">selected</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
+<span class="p">];</span>
+
+<span class="kd">const</span> <span class="nx">numberOfProducts</span><span class="p">:</span> <span class="p">{</span> <span class="nl">value</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span> <span class="nl">selected</span><span class="p">:</span> <span class="nx">boolean</span> <span class="p">}[]</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">selected</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">selected</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="na">selected</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
+<span class="p">];</span>
+
+<span class="kd">function</span> <span class="nx">createDropdownItem</span><span class="p">(</span><span class="nx">item</span><span class="p">:</span> <span class="p">{</span> <span class="nl">value</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span> <span class="nl">selected</span><span class="p">:</span> <span class="nx">boolean</span> <span class="p">})</span> <span class="p">{</span> <span class="c1">// value: string; 여기를 number로 바꾸면 아래 emails.forEach 부분 변수 item안에 email에 error 발생</span>
+  <span class="kd">const</span> <span class="nx">option</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">option</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">option</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+  <span class="nx">option</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+  <span class="nx">option</span><span class="p">.</span><span class="nx">selected</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">selected</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">option</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// NOTE: 이메일 드롭 다운 아이템 추가</span>
+<span class="nx">emails</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">email</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">createDropdownItem</span><span class="p">(</span><span class="nx">email</span><span class="p">);</span> <span class="c1">// 위에서 value: number로 타입 지정하면 여기 추론 과정에서 error가 난다. emails의 value는 string이기 때문</span>
+  <span class="kd">const</span> <span class="nx">selectTag</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#email-dropdown</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">selectTag</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>유니온 타입을 이용해서 수정해보자</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+</pre></td><td class="rouge-code"><pre><span class="kr">interface</span> <span class="nx">Email</span> <span class="p">{</span>
+  <span class="nl">value</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">selected</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">emails</span><span class="p">:</span> <span class="nx">Email</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">naver.com</span><span class="dl">'</span><span class="p">,</span> <span class="na">selected</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">gmail.com</span><span class="dl">'</span><span class="p">,</span> <span class="na">selected</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">hanmail.net</span><span class="dl">'</span><span class="p">,</span> <span class="na">selected</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
+<span class="p">];</span>
+
+<span class="kr">interface</span> <span class="nx">ProductNumber</span> <span class="p">{</span>
+  <span class="nl">value</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nl">selected</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">numberOfProducts</span><span class="p">:</span> <span class="nx">ProductNumber</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">selected</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">selected</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="na">selected</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
+<span class="p">];</span>
+
+<span class="kd">function</span> <span class="nx">createDropdownItem</span><span class="p">(</span><span class="nx">item</span><span class="p">:</span> <span class="nx">Email</span> <span class="o">|</span> <span class="nx">ProductNumber</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">option</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">option</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">option</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+  <span class="nx">option</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+  <span class="nx">option</span><span class="p">.</span><span class="nx">selected</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">selected</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">option</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// NOTE: 이메일 드롭 다운 아이템 추가</span>
+<span class="nx">emails</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">email</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">createDropdownItem</span><span class="p">(</span><span class="nx">email</span><span class="p">);</span> <span class="c1">// error 없음</span>
+  <span class="kd">const</span> <span class="nx">selectTag</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#email-dropdown</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">selectTag</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">numberOfProducts</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">product</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">createDropdownItem</span><span class="p">(</span><span class="nx">product</span><span class="p">);</span> <span class="c1">// error 없음</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/600773f5ce8cb0e6f1344d12e56c286c6fc83360">diff check</a></p>
+</blockquote>
+
+<h2 id="118-인터페이스에-제네릭을-선언하는-방법">11.8 인터페이스에 제네릭을 선언하는 방법</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="kr">interface</span> <span class="nx">DropDown</span> <span class="p">{</span>
+    <span class="nl">value</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">selected</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">obj</span><span class="p">:</span> <span class="nx">DropDown</span> <span class="o">=</span> <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">abc</span><span class="dl">'</span><span class="p">;</span> <span class="nl">selected</span><span class="p">:</span> <span class="kc">false</span> <span class="p">};</span>
+
+<span class="kr">interface</span> <span class="nx">DropDown</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="na">value</span><span class="p">:</span> <span class="nx">T</span><span class="p">;</span>
+    <span class="nl">selected</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">obj</span><span class="p">:</span> <span class="nx">DropDow</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="mi">10</span><span class="p">;</span> <span class="nl">selected</span><span class="p">:</span> <span class="kc">false</span> <span class="p">};</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="119-제네릭-실전-예제-살펴보기---제네릭을-이용한-타입-정의">11.9 제네릭 실전 예제 살펴보기 - 제네릭을 이용한 타입 정의</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/6a97bde5ce8f53123f3fc4752bf7c8f8c431e3ff">diff check</a></p>
+</blockquote>
+
+<p>함수 부분 유니온 코드도 제거한 버전</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/1ab9e7c198552274b30ef65f3d2d0198c0094c8f">diff check</a></p>
+</blockquote>
+
+<h2 id="1110-제네릭의-타입-제한">11.10 제네릭의 타입 제한</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="c1">// 제네릭의 타입 제한</span>
+<span class="kd">function</span> <span class="nx">logTextLength</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">text</span><span class="p">:</span> <span class="nx">T</span><span class="p">):</span> <span class="nx">T</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// error가 발생: T에 length가 없다는 에러가 발생한다. 왜냐면 아직 typescript는 text에 타입이 어떤건지 모르기 때문</span>
+  
+  <span class="k">return</span> <span class="nx">text</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">logTextLength</span><span class="p">(</span><span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="c1">// 제네릭의 타입 제한</span>
+<span class="kd">function</span> <span class="nx">logTextLength1</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">text</span><span class="p">:</span> <span class="nx">T</span><span class="p">[]):</span> <span class="nx">T</span><span class="p">[]</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 배열이 들어온다는 것을 알았기 때문에 에러 해결(배열에는 length 프로퍼티 존재)</span>
+
+  <span class="k">return</span> <span class="nx">text</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">logTextLength1</span><span class="p">(</span><span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 여기서는 아직 에러 발생, 인자에 데이터형태는 배열이 들어와야하는데 string이 들어왔기 때문</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">logTextLength2</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">text</span><span class="p">:</span> <span class="nx">T</span><span class="p">[]):</span> <span class="nx">T</span><span class="p">[]</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 배열이 들어온다는 것을 알았기 때문에 에러 해결(배열에는 length 프로퍼티 존재)</span>
+  <span class="k">return</span> <span class="nx">text</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">logTextLength2</span><span class="p">([</span><span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">]);</span> <span class="c1">// 배열로 전달하면 에러 해결, 제네릭의 타입 제한</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/67a386e62f4aa7a0788bfce748991ddaf5d36b14">diff check</a></p>
+</blockquote>
+
+<h2 id="1111-정의된-타입으로-타입을-제한하기">11.11 정의된 타입으로 타입을 제한하기</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/b6bdf22dedc0bddc4857745775e299ec04a7d052">diff check</a></p>
+</blockquote>
+
+<h2 id="1112-keyof로-제네릭의-타입-제한하기">11.12 keyof로 제네릭의 타입 제한하기</h2>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/ac43da5ed8f3b90e65f175fd0046940bfe9bf101">diff check</a></p>
+</blockquote>
+
+:ET

@@ -1,0 +1,314 @@
+I"L<h2 id="161-타입-호환이란">16.1 타입 호환이란?</h2>
+
+<p><a href="https://joshua1988.github.io/ts/guide/type-compatibility.html">타입 호환</a></p>
+
+<p>타입호환이란 타입스크립트 코드에서 특정 타입이 다른 타입에 잘 맞는지를 의미한다.<br />
+예를 들면 아래와 같은 코드를 의미한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="kr">interface</span> <span class="nx">Ironman</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">Avengers</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">i</span><span class="p">:</span> <span class="nx">Ironman</span><span class="p">;</span>
+<span class="nx">i</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Avengers</span><span class="p">();</span> <span class="c1">// OK, because of structural typing</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>C#이나 Java였다면 위에서 에러가 났을것이다.<br />
+왜냐면 <code class="language-plaintext highlighter-rouge">Avengers</code>클래스가 명시적으로 <code class="language-plaintext highlighter-rouge">Ironman</code>인터페이스를 상속받아 구현되지 않았기 때문이다.</p>
+
+<p>하지만 위와 같은 코드가 타입스크립트에서 정상적으로 작동하는 이유는 자바스크립트의 작동방식과 관련있다.<br />
+기본적으로 자바스크립트는 객체 리터럴이나 익명 함수 등을 사용하기 때문에 명시적으로 타입을 지정하는 것보다는 코드의 구조 관점에서 타입을 지정하는 것이 더 잘 어울린다.(structural typing)</p>
+
+<h3 id="1611-구조적-타이핑-예시">16.1.1 구조적 타이핑 예시</h3>
+
+<p>구조적 타이핑이란?<br />
+코드 구조 관점에서 타입이 서로 호환되는지의 여부를 판단하는 것이다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kr">interface</span> <span class="nx">Avengers</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">hero</span><span class="p">:</span> <span class="nx">Avengers</span><span class="p">;</span>
+<span class="c1">// 타입스크립트가 추론한 capt의 타입은 { name: string, location: string }이다. </span>
+<span class="kd">let</span> <span class="nx">capt</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Captain</span><span class="dl">'</span><span class="p">,</span> <span class="na">location</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Pangyo</span><span class="dl">'</span> <span class="p">}</span>
+<span class="nx">hero</span> <span class="o">=</span> <span class="nx">capt</span> <span class="c1">// hero에는 location이 없지만 에러가 나지 않는다.</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>위 코드에서 <code class="language-plaintext highlighter-rouge">capt</code>가 <code class="language-plaintext highlighter-rouge">hero</code>타입에 호환될 수 있는 이유는 <code class="language-plaintext highlighter-rouge">capt</code>의 속성중에 <code class="language-plaintext highlighter-rouge">name</code>이 있기 때문이다.<br />
+<code class="language-plaintext highlighter-rouge">Avengers</code>인터페이스에서 <code class="language-plaintext highlighter-rouge">name</code>속성을 갖고 있기 떄문에 <code class="language-plaintext highlighter-rouge">capt</code>는 <code class="language-plaintext highlighter-rouge">Avengers</code> 타입에 호환이 가능하다. 함수를 호출할 때도 마찬가지이다.</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/6ab180cd6faca4497766e8a2639a3f05db57c161">diff check</a></p>
+</blockquote>
+
+<h3 id="1612-soundness란">16.1.2 Soundness란?</h3>
+
+<p>타입스크립트는 컴파일 시점에 타입을 추론할 수 없는 특정 타입에 대해서 일단 안전하다고 보는 특성이 있다.
+이걸 <code class="language-plaintext highlighter-rouge">"들리지 않는다(it is said to not be sound)"</code>라고 표현한다.</p>
+
+<h3 id="1613-enum-타입-호환-주의-사항">16.1.3 Enum 타입 호환 주의 사항</h3>
+
+<p>이넘 타입은 <code class="language-plaintext highlighter-rouge">number</code> 타입과 호환 되지만 이넘 타입끼리는 호환 되지 않는다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="kr">enum</span> <span class="nx">Status</span> <span class="p">{</span> <span class="nx">Ready</span><span class="p">,</span> <span class="nx">Waiting</span> <span class="p">};</span>
+
+<span class="kr">enum</span> <span class="nx">Color</span> <span class="p">{</span> <span class="nx">Red</span><span class="p">,</span> <span class="nx">Blue</span><span class="p">,</span> <span class="nx">Green</span> <span class="p">};</span>
+
+<span class="kd">let</span> <span class="nx">status1</span> <span class="o">=</span> <span class="nx">Status</span><span class="p">.</span><span class="nx">Ready</span><span class="p">;</span>
+<span class="nx">status1</span> <span class="o">=</span> <span class="nx">Color</span><span class="p">.</span><span class="nx">Green</span><span class="p">;</span>  <span class="c1">// error</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/17d701737dd65ba15a442e5c10357ce809228830">diff check</a></p>
+</blockquote>
+
+<h3 id="1614-class-타입-호환-주의-사항">16.1.4 Class 타입 호환 주의 사항</h3>
+
+<p>클래스 타입은 클래스 타입끼리 비교할 때 스태틱 멤버(static member)와 생성자(constructor)를 제외하고 속성만 비교한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nx">Hulk</span> <span class="p">{</span>
+    <span class="nl">handSize</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">numHand</span><span class="p">:</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nx">Captain</span> <span class="p">{</span>
+    <span class="nl">handSize</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">numHand</span><span class="p">:</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">a</span><span class="p">:</span> <span class="nx">Hulk</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">s</span><span class="p">:</span> <span class="nx">Captain</span><span class="p">;</span>
+
+<span class="nx">a</span> <span class="o">=</span> <span class="nx">s</span><span class="p">;</span> <span class="c1">// OK</span>
+<span class="nx">s</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span> <span class="c1">// OK</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/2be9642a12b0152e237de3a7090c6bca663464b5">diff check</a></p>
+</blockquote>
+
+<h3 id="1615-generics">16.1.5 Generics</h3>
+
+<p>제네릭은 제네릭 타입 간의 호환 여부를 판단할 때 타입 인자 <code class="language-plaintext highlighter-rouge">&lt;T&gt;</code>가 속성에 할당 되었는지를 기준으로 한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="kr">interface</span> <span class="nx">Empty</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="nx">Empty</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">y</span><span class="p">:</span> <span class="nx">Empty</span><span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="nx">x</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span> <span class="c1">// OK</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위 인터페이스는 일단 속성(member 변수)이 없기 때문에 x와 y는 같은 타입으로 간주 된다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kr">interface</span> <span class="nx">NotEmpty</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">{</span>
+    <span class="na">data</span><span class="p">:</span> <span class="nx">T</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">xx</span><span class="p">:</span> <span class="nx">NotEmpty</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">yy</span><span class="p">:</span> <span class="nx">NotEmpty</span><span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="nx">xx</span> <span class="o">=</span> <span class="nx">yy</span><span class="p">;</span> <span class="c1">// error</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>그러나 인터페이스 <code class="language-plaintext highlighter-rouge">NotEmpty</code>에 넘긴 제네릭 타입 <code class="language-plaintext highlighter-rouge">&lt;T&gt;</code>에 data속성이 할당되었으므로 x와 y는 서로 다른타입으로 간주된다.</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/9c1962c9b127c06d4429c574079430d1102c6af5">diff check</a></p>
+</blockquote>
+
+<h2 id="162-타입-호환-예제---인터페이스-클래스">16.2 타입 호환 예제 - 인터페이스, 클래스</h2>
+
+<p>타입스크립트에서는 interface, class등 서로 다른 유형도 비교가 가능하다.<br />
+그 안의 속성들을 통해 비교를 한다.<br />
+이를 구조적 타이핑 이라고 한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="c1">// 인터페이스</span>
+<span class="kr">interface</span> <span class="nx">Developer</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">skill</span><span class="p">:</span> <span class="nx">string</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">Person</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">developer</span><span class="p">:</span> <span class="nx">Developer</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">person</span><span class="p">:</span> <span class="nx">Person</span><span class="p">;</span>
+
+<span class="nx">person</span> <span class="o">=</span> <span class="nx">developer</span><span class="p">;</span> <span class="c1">// 반면, person 인터페이스의 속성이 더 많고, developer의 속성을 포함하고 있으므로 왼쪽과 같이 명시하면 추론과정에서 에러가 발생하지 않는다.</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="c1">// 인터페이스</span>
+<span class="kr">interface</span> <span class="nx">Developer</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">skill</span><span class="p">:</span> <span class="nx">string</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">Person</span> <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">developer</span><span class="p">:</span> <span class="nx">Developer</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">person</span><span class="p">:</span> <span class="nx">Person</span><span class="p">;</span>
+
+<span class="nx">developer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span> <span class="c1">// error: 왼쪽도 마찬가지 이유로 에러가난다.</span>
+                          <span class="c1">// 추론 과정에서 developer는 name, skill 속성이 있어야되는데</span>
+                          <span class="c1">// Person 클래스는 name 속성밖에 없으므로.</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/afd28e1ae9e6eb2f40d37642d2fb45462f98b9e9">diff check</a></p>
+</blockquote>
+
+<h2 id="163-타입-호환-예제---함수-제네릭">16.3 타입 호환 예제 - 함수, 제네릭</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+</pre></td><td class="rouge-code"><pre><span class="c1">// 함수</span>
+<span class="kd">let</span> <span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">:</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">b</span><span class="p">:</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+<span class="c1">// 여기까지의 차이는 일단 파라미터의 갯수 차이가 있다. sum의 구조가 add의 구조보다 크다고 볼 수 있다.</span>
+
+<span class="nx">add</span> <span class="o">=</span> <span class="nx">sum</span> <span class="c1">// 그렇기 때문에 add에 sum을 할당하면 에러가 발생한다.</span>
+
+<span class="nx">sum</span> <span class="o">=</span> <span class="nx">add</span> <span class="c1">// 이거는 가능하다고 판단함</span>
+
+<span class="c1">// 제네릭</span>
+<span class="kr">interface</span> <span class="nx">Empty</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">empty1</span><span class="p">:</span> <span class="nx">Empty</span><span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">empty2</span><span class="p">:</span> <span class="nx">Empty</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="nx">empty1</span> <span class="o">=</span> <span class="nx">empty2</span><span class="p">;</span>
+<span class="nx">empty2</span> <span class="o">=</span> <span class="nx">empty1</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">NotEmpty</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="na">data</span><span class="p">:</span> <span class="nx">T</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">notempty1</span><span class="p">:</span> <span class="nx">NotEmpty</span><span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">notempty2</span><span class="p">:</span> <span class="nx">NotEmpty</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="nx">notempty1</span> <span class="o">=</span> <span class="nx">notempty2</span><span class="p">;</span> <span class="c1">// error</span>
+<span class="nx">notempty2</span> <span class="o">=</span> <span class="nx">notempty1</span><span class="p">;</span> <span class="c1">// error</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/37cdc7e8fe55fccfe5515219170351c71ffc3f38">diff check</a></p>
+</blockquote>
+:ET

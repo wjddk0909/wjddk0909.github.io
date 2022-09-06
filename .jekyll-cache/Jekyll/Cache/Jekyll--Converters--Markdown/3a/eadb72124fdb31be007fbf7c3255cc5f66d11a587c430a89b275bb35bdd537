@@ -1,0 +1,20 @@
+I"�<h2 id="stylelint-error-인가">stylelint error 인가?</h2>
+
+<p>웹스톰 사용중 <code class="language-plaintext highlighter-rouge">Stylelint: browserslist: caniuse-lite is outdated. Please run</code> 어떤 파일 상단에 이런 에러문구가 나타남</p>
+
+<p>세부정보를 눌러보면</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nx">Browserslist</span><span class="p">:</span> <span class="nx">caniuse</span><span class="o">-</span><span class="nx">lite</span> <span class="nx">is</span> <span class="nx">outdated</span><span class="p">.</span> <span class="nx">Please</span> <span class="nx">run</span><span class="p">:</span>
+  <span class="nx">npx</span> <span class="nx">browserslist</span><span class="p">@</span><span class="nd">latest</span> <span class="o">--</span><span class="nx">update</span><span class="o">-</span><span class="nx">db</span>
+  <span class="nx">Why</span> <span class="nx">you</span> <span class="nx">should</span> <span class="k">do</span> <span class="nx">it</span> <span class="nx">regularly</span><span class="p">:</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//github.com/browserslistbrowserslist#browsers-data-updating</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>이런 정보가 나온다.</p>
+
+<p>서치를 해보니 브라우저리스트를 업데이트 하라는거 같음 -&gt; <code class="language-plaintext highlighter-rouge">npx browserslist@latest --update-db</code></p>
+
+<p>일단은 문제가 에러문구는 뜨지만 컴파일시 딱히 문제가 있지는 않으므로 업데이트를 하지는 않았음, 추후에 컴파일시 문제가 생기면 업데이트 예정.(22.08.08 - QRScanner.vue)</p>
+:ET

@@ -1,0 +1,33 @@
+I"O<h2 id="141-타입-단언-소개">14.1 타입 단언 소개</h2>
+
+<p>타입스크립트보다 오히려 개발자가 타입을 추론하는것이 더 빠르고 정확할 때가 있기 때문에 개발자가 정의한 타입으로 간주하라고 하는것이 <code class="language-plaintext highlighter-rouge">타입단언</code>이다.</p>
+
+<p>타입 단언은 DOM API를 조작할 때 가장 많이 사용된다.</p>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/6d589f06539bb26b7f743f2980d5576896f6c1c6">diff check</a></p>
+</blockquote>
+
+<h2 id="142-타입-단언-예제">14.2 타입 단언 예제</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">let</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">div</span><span class="dl">'</span><span class="p">);</span>
+<span class="c1">// div에 호버해보면 HTMLDivElement 또는 null일수 있다고 추론한다.</span>
+<span class="c1">// 때문에 바로 div.innerText등으로 사용하면 에러가 발생하기때문에 null이 아님을 보장해줘야함</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">div</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">div</span><span class="p">.</span><span class="nx">innerText</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// let div = document.querySelector('div') as HTMLDivElement; // 이렇게 타입 단언을 해서 null이 있는 유니온 타입이 아닌 타입을 단언해주는 방법도 있음</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><a href="https://github.com/wjddk0909/typescript-part1/commit/6a8c4c7442393bdc5e483188035c38e5f58ae483">diff check</a></p>
+</blockquote>
+
+:ET

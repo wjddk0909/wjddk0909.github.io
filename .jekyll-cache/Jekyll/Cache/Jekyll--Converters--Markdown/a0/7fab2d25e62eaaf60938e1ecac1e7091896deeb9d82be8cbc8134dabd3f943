@@ -1,0 +1,62 @@
+I"�
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/tips/stylelint-error1/">Stylelint: browserslist: caniuse-lite is outdated. Please run 에러</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2022.08.08
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#tips" class="page__taxonomy-item-category" rel="tag">tips</a>
+                    
+                    
+                    <a href="/tags/#error" class="page__taxonomy-item-tag" rel="tag">error</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#stylelint" class="page__taxonomy-item-tag" rel="tag">stylelint</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#webstorm" class="page__taxonomy-item-tag" rel="tag">webstorm</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+<div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/tips/mac-keybinding/">맥북 키보드에서 원화 표시 기호(₩) 대신 백쿼트(`) 표시되게 하기</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.12.03
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#tips" class="page__taxonomy-item-category" rel="tag">tips</a>
+                    
+                    
+                    <a href="/tags/#keyboard" class="page__taxonomy-item-tag" rel="tag">keyboard</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#mac" class="page__taxonomy-item-tag" rel="tag">mac</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+
+:ET

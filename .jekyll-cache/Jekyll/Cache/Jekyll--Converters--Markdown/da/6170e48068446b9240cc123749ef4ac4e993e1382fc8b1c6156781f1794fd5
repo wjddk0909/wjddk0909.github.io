@@ -1,0 +1,156 @@
+I"B<h2 id="flex에-대한-정리">flex에 대한 정리</h2>
+
+<p>flex는 부모 요소인 flex container와 자식 요소인 flex item으로 구성된다.</p>
+
+<h3 id="컨테이너에-적용하는-속성">컨테이너에 적용하는 속성</h3>
+
+<p>display: flex;</p>
+<ul>
+  <li>item들은 가로방향으로 배치되고, 자신이 가진 contents만큼 width값이 정해진다.</li>
+</ul>
+
+<p>flex-direction</p>
+<ul>
+  <li>item이 배치되는 축의 방향 결정
+    <ul>
+      <li>row : 기본값, item들이 가로(행) 방향으로 배치</li>
+      <li>row-reverse : item들이 역순으로 가로 배치</li>
+      <li>column : item들이 세로(열) 방향으로 배치</li>
+      <li>column-reverse : item들이 역순으로 세로 배치</li>
+    </ul>
+  </li>
+</ul>
+
+<p>flex-wrap</p>
+<ul>
+  <li>줄넘김 처리 설정
+    <ul>
+      <li>nowrap : 줄 바꿈 하지 않고 넘치면 삐져나감</li>
+      <li>wrap : 줄바꿈을 함</li>
+      <li>wrap-reverse : 줄바꿈을 하는데 item을 역순으로 배치</li>
+    </ul>
+  </li>
+</ul>
+
+<p>justify-content</p>
+<ul>
+  <li>메인축 방향으로 item들을 정렬하는 속성
+    <ul>
+      <li>flex-start : item들을 시작점에서 부터 정렬, flex-direction이 row일때는 왼쪽 / column일때는 위</li>
+      <li>flex-end: item들을 끝점에서 부터 정렬, flex-direction이 row일때는 오른쪽 / column일때는 아래</li>
+      <li>center : item들을 가운데로 정렬</li>
+      <li>space-between : item들의 사이에 균일한 간격을 만들어 준다.</li>
+      <li>space-around : item들의 주변에 균일한 간격을 만들어 준다.(즉, 붙어있는 item들 사이는 여백이 양 끝에 비해 두배임)</li>
+      <li>space-evenly : item들의 사이와 양 끝에 균일한 간격을 만들어 준다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>align-items</p>
+<ul>
+  <li>수직축 방향으로 item들을 정렬하는 속성
+    <ul>
+      <li>stretch : item들이 수직축 방향으로 끝까지 쭈욱 늘어난다.</li>
+      <li>flex-start : 아이템들을 시작점으로 정렬, flex-direction이 row일때는 위 / column일때는 왼쪽</li>
+      <li>flex-end : 아이템들을 끝으로 정렬, flex-direction이 row일때는 아래 / column일때는 오른쪽</li>
+      <li>center : item들을 가운데로 정렬</li>
+      <li>baseline : item들을 텍스트 베이스라인 기준으로 정렬</li>
+    </ul>
+  </li>
+</ul>
+
+<p>align-content</p>
+<ul>
+  <li>flex-wrap이 설정된 상태에서 아이템들의 행이 두줄 이상 되었을 때의 수직축 방향 정렬을 결정하는 속성</li>
+</ul>
+
+<h3 id="아이템에-적용하는-속성">아이템에 적용하는 속성</h3>
+
+<p>flex-basis</p>
+<ul>
+  <li>item의 기본 크기 설정, flex-direction이 row일 때는 너비 / column일 때는 높이</li>
+  <li>각종 단위의 수가 들어갈 수 있고 기본값 auto는 해당 item의 width값을 사용</li>
+  <li>width를 설정하지 않으면 컨텐츠의 크기가 됨</li>
+  <li>flex-basis : 100px;로 설정하면 원래 width가 100px이 안되는 item은 100px로 늘어나고 100px이 넘는 item은 자기 값을 유지</li>
+  <li>width: 100px을 설정해주면 100px이 넘는 item도 100px로 결정</li>
+</ul>
+
+<p>flex-grow</p>
+<ul>
+  <li>item이 flex-basis의 값보다 커질 수 있는지 결정하는 속성</li>
+  <li>숫자값이 들어가는데 몇이든 일단 0 보다 큰 값이 세팅 되면 해당 item이 유연한(flexible) 박스로 변하고 원래의 크기보다 커지며 빈 공간을 메운다. flex-grow: 1;</li>
+  <li>flex-grow에 들어가는 숫자는 item들의 flex-basis를 제외한 여백 부분을 flex-grow에 지정된 숫자의 비율로 나누어 가진다</li>
+</ul>
+
+<p>flex-shrink</p>
+<ul>
+  <li>flex-grow오 쌍을 이루는 속성, item이 flex-basis의 값보다 작아질 수 있는지 결정</li>
+  <li>숫자값이 들어가는데 몇이든 일단 0 보다 큰 값이 세팅 되면 해당 item이 유연한(flexible) 박스로 변하고 flex-basis보다 작아진다.</li>
+  <li>flex-shrink를 0으로 세팅하면 아이템의 크기가 flex-basis보다 작아지지 않기 때문에 고정width의 컬럼을 쉽게 만들 수 있다. 고정 크기는 width로 결정</li>
+</ul>
+
+<p>flex</p>
+<ul>
+  <li>flex-grow, flex-shrink, felx-basis를 한 번에 쓸 수 있는 축약형 속성
+```css</li>
+</ul>
+<style>
+.item {
+    flex: 1;
+    /* flex-grow: 1; flex-shrink: 1; flex-basis: 0%; */
+    flex: 1 1 auto;
+    /* flex-grow: 1; flex-shrink: 1; flex-basis: auto; */
+    flex: 1 500px;
+    /* flex-grow: 1; flex-shrink: 1; flex-basis: 500px; */
+}
+</style>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre></td><td class="rouge-code"><pre>- flex-basis를 생략하면 값은 0이 된다
+
+[flex에 대한 정보 참고 페이지](https://studiomeal.com/archives/197)
+
+### flex로 안에 아이템 수직 가운데 정렬 하는 방법1
+
+```html
+&lt;div class="wrap"&gt;
+    &lt;div class="d-flex"&gt;
+        &lt;div class="item"&gt;
+            아이템&lt;br /&gt;
+            아이템&lt;br /&gt;
+            아이템&lt;br /&gt;
+            아이템&lt;br /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+    .wrap {height: 100%;}
+    .d-flex {display: flex; height: 100%;}
+    .item {align-self: center;}
+&lt;/style&gt;
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>wrap와 d-flex는 height가 잡혀있어야 하는듯?(원하는 높이값 만큼)</p>
+
+:ET

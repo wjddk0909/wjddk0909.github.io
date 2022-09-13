@@ -1,0 +1,15 @@
+I"6<h2 id="21-연산자-표현식">2.1 연산자, 표현식</h2>
+
+<p>표현식(Expression) 형태</p>
+<ul>
+  <li>1 + 2</li>
+  <li>var total = 1 + 2;</li>
+  <li>var value = total / (2 + 3);</li>
+  <li>‘표현식을 평가’ 한다고 한다.</li>
+  <li>표현식을 평가하면 결과가 반환되며 이를 <code class="language-plaintext highlighter-rouge">평가결과</code> 라고 한다.</li>
+</ul>
+
+<h2 id="22-할당-연산자-해석실행-순서">2.2 할당 연산자, 해석/실행 순서</h2>
+
+<h2 id="단일-할당-연산자">단일 할당 연산자</h2>
+:ET

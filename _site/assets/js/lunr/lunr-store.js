@@ -700,4 +700,10 @@ var store = [{
         "tags": ["javascript","type"],
         "url": "/js-beginner/js-beginner1/",
         "teaser": null
+      },{
+        "title": "[JavaScript: Beginner] 2 - 연산자(Operator)",
+        "excerpt":"2.1 연산자, 표현식   표현식(Expression) 형태     1 + 2   var total = 1 + 2;   var value = total / (2 + 3);   ‘표현식을 평가’ 한다고 한다.   표현식을 평가하면 결과가 반환되며 이를 평가결과 라고 한다.   2.2 할당 연산자, 해석/실행 순서   단일 할당 연산자  ","categories": ["js-beginner"],
+        "tags": ["javascript","operator"],
+        "url": "/js-beginner/js-beginner2/",
+        "teaser": null
       }]

@@ -163,5 +163,34 @@ switch(exp) {
 
 ## 3.5 try-catch, throw
 
+try-catch  
+- try 문에서 예외 발생을 인식
+- 예외가 발생하면 catch 블록 실행
+- finally 블록은 예외 발생과 관게없이 실행
+
+```javascript
+var value;
+try {
+    value = ball;
+} catch(error) {
+    console.log('catch 실행');
+} finally {
+    console.log('finally 실행');
+} // catch 실행 / finally 실행
+
+// 1. try블록에서 ball을 value에 할당할 때 ball 변수가 없으므로 에러 발생
+// 2. 에러가 발생하면 catch(error) 블록 실행, 파라미터 error에 JS의 Error 오브젝트 설정
+// 3. error는 식별자로 임의의 이름 사용 가능
+// 4. 에러가 발생할 가능성이 있으면 반드시 try-catch를 사용해야 한다.
+```
+
+서버에서 데이터를 가져올때는 반드시 try-catch문을 사용해야 한다.  
+
+throw  
+
+- 명시적으로 예외를 발생시킴
+- 예외가 발생하면 catch 실행
+
+
 
 

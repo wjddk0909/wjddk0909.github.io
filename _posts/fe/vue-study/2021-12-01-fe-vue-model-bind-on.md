@@ -108,3 +108,147 @@ export default {
 }
 </script>
 ```
+
+### v-model 사용하기
+
+v-model은 `:value`와 `@input`의 축약 문법이다.  
+#### 부모컴포넌트
+
+- `:value`를 사용해서 변수를 바인딩해주고
+- 이벤트함수를 사용해서 자식 컴포넌트에서 값 변경을 감지한다. (대신 자식 컴포넌트에서 `this.$emit('input', 변경할 값)` 으로 값이 변경 되었음을 알려줘야 함)  
+
+```html
+<!-- 예시 -->
+<!-- App.vue -->
+<template>
+  <div>
+    <div>parent-compo {{number}}</div>
+    <child-compo :value="number" @input="onChangeNumber" />
+  </div>
+</template>
+
+<script>
+import ChildCompo from "@/components/ChildCompo";
+
+export default {
+  data () {
+    return {
+      number: 0
+    }
+  },
+  methods: {
+    onChangeNumber (val) {
+      this.number = val;
+    }
+  },
+  components: {
+    ChildCompo
+  }
+}
+</script>
+<!-- 예시 -->
+
+<!-- DL예시 -->
+<!-- 여기서 사용한 commentRegist를 자식컴포넌트에서도 사용하고 싶어서 props로 내려줌 -->
+<v-textarea
+  v-model="commentRegist"
+  outlined
+  hide-details
+  no-resize
+  height="108"
+  placeholder="댓글을 입력해주세요."
+  :value="commentRegistParam.P_CNTS_NTC"
+  @input="onChange"
+></v-textarea>
+
+<notice-view-parent-comment
+  :value="commentRegist"
+  :is-content="isContent"
+  @input="onChange"
+>
+
+<script>
+  export default defineComponent({
+    setup() {
+      const isContent = ref<boolean>(false);
+      const commentRegist = ref<string | null>(null);
+
+      // 일단 @input="onChange"(댓글 박스 입력이 있으면)isContent 'true'로 만들기
+      // 댓글 박스 입력 지워지면 isContent 'false'로 만들기
+      const onChange = val => {
+        isContent.value = val !== '';
+        console.log('isContent', isContent.value);
+      };
+    }
+  })
+</script>
+<!-- DL예시 -->
+```
+
+### 자식 컴포넌트
+
+- 자식 컴포넌트에서는 `this.$emit('input', 변경할 값)` 으로 값이 변경 되었음을 부모 컴포넌트에게 알려야한다.
+- 이때, `input`은 부모 컴포넌트에서 `@input`으로 선언한 키워드(`@`뒤에 오는 키워드-임의지정)
+
+```html
+<!-- 예시 -->
+<!-- ChildCompo.vue -->
+<template>
+  <div>
+    <div>child-compo {{value}}</div>
+    <button @click="onClickButton">Add 1</button>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    value: Number
+  },
+  data () {
+    return {
+      pvalue: this.value
+    }
+  },
+  methods: {
+    onClickButton() {
+      this.$emit('input', this.pvalue++)
+    }
+  }
+}
+</script>
+<!-- 예시 -->
+<!-- DL예시 -->
+<v-textarea
+  :value="commentRegist"
+  outlined
+  hide-details
+  no-resize
+  height="108"
+  placeholder="답글을 입력해주세요."
+  @change="changeCommentRegistParam"
+  @input="onChange"
+></v-textarea>
+<script>
+  export default defineComponent({
+    setup() {
+      props: {
+        commentRegist: {
+          type: String,
+        },
+        isContent: {
+          type: Boolean,
+        },
+      },
+
+
+      const onChange = val => {
+        context.emit('input', val);
+      };
+    }
+  })
+</script>
+<!-- DL예시 -->
+```
+
+- [v-model 설명 참고 페이지](https://velog.io/@okyungjin/Vue-%EB%B6%80%EB%AA%A8-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%99%80-%EC%9E%90%EC%8B%9D-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B0%94%EC%9D%B8%EB%94%A9-v-model-value-input)

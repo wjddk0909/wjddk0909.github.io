@@ -191,6 +191,16 @@ throw
 - 명시적으로 예외를 발생시킴
 - 예외가 발생하면 catch 실행
 
-
+```javascript
+try {
+    throw new Error("예외 발생시킴");
+} catch {
+    console.log(error.message);
+}
+// 1. throw 표현식에 Error 오브젝트 작성, Error()의 파라미터에 메시지 작성 -> 오브젝트의 message에 메시지가 설정된다.
+// 2. catch(error)의 error에 Error 오브젝트가 설정된다.
+// 3. error.message로 작성한 메시지 사용
+// 실행결과 -> 예외 발생시킴
+```
 
 

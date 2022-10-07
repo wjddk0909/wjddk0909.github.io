@@ -203,4 +203,23 @@ try {
 // 실행결과 -> 예외 발생시킴
 ```
 
+## 3.6 strict 모드
 
+- 엄격하게 JS 문법 사용의 선언
+- 작성한 위치부터 적용
+- ES5부터 지원
+
+```javascript
+"use strict"
+try {
+    book = "변수 선언하지 않음";
+    console.log(book);
+} catch (error) {
+    console.log(error.message);
+}
+// 1. 변수 키워드를 작성하지 않은 형태
+// 2. book 변수에 에러 발생
+// 3. error.message에 에러 메시지로 설정된다.
+// 4. 코딩실수 예방 -> use strict 선언 필수?
+// 실행결과 -> book is not defined
+```

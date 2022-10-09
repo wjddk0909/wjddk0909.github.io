@@ -125,4 +125,37 @@ Primitive Value
 valueOf()
 - Number 인스턴스의 프리미티브 값 반환 
 
+## 7.6 String 타입으로 변환, 지역화 문자
+
+toString()
+- data를 String 타입으로 변환
+
+```javascript
+var value = 20;
+conosle.log(20 === value.toString());
+console.log(value.toString(16));
+/**
+ * 1. 20 === value.toString()의 결과는 타입이 같지 않기때문에 false
+ * 2. value.toString(16) -> 20을 16진수로 변환하여 값은 14
+ * **/
+```
+
+toLocaleString()
+- 숫자를 브라우저가 지 원하는 지역화 문자로 변환
+    - 지역화 지원 및 형태를 브라우저 개발사에 일임
+    - 지역화를 지원하지 않으면 toString()으로 변환
+- ES5: 파라미터 사용불가
+- ES6: 파라미터에 언어 타입 사용 가능
+
+## 7.7 지수 표기, 고정 소숫점 표기
+
+toExponential()
+- 숫자를 지수 표기로 변환하여 문자열로 반환
+
+toFixed()
+- 고정 소숫점 표기로 변환하여 문자열로 반환
+    - 파라미터에 소수 이하 자릿수 작성
+    - 0에서 20까지
+- 파라미터 값보다 소수 자릿수가 길면 작성한 자리수에 1을 더한 위치에서 반올림
+- 변환 대상 자릿수보다 파라미터 값이 크면 나머지를 0으로 채워 반환
 

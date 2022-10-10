@@ -75,7 +75,7 @@ console.log(typeof obj);
 
 - 인스턴스 생성 목적
     - 인스턴스마다 값을 갖기 위한 것
-    - 원본을 복사해서 각각 나눠줌 -
+    - 원본을 복사해서 각각 나눠줌
 
 ```javascript
 var oneObj = new Number("123");

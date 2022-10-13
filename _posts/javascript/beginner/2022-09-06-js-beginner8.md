@@ -114,3 +114,81 @@ var instance = new String("123");
 
 charAt()
 - 인덱스의 문자를 반환
+- 문자열 길이보다 인덱스가 크면 빈 문자열 반환
+- 일반적으로 존재하지 않으면 undefined 반환
+
+```javascript
+var value = "sports";
+console.log(value.cartAt(1)); // p
+console.log(value[1]) // p
+
+var value1 = "sports";
+conosle.log(value.cahrtAt(12)); // ""
+
+var value2 = "sports";
+console.log(value[12]); // undefined
+/**
+ * 1. value[12]에서 12번째 인덱스가 없으니 undefined 반환
+ * 2. chartAt(12)에서 빈 문자열을 반환하는 것과는 차이가 있음
+ * 3. 개념적으로 undefined 반환이 더 적절
+ * - undefined는 시맨틱적으로 인덱스 번째가 없다는 위앙스가 강함
+ * **/
+```
+
+indexOf()
+- data위치의 문자열에서 파라미터의 문자와 같은 첫번째 인덱스를 반환
+- 검색 기준
+    - 왼쪼겡서 오른쪽으로 검색
+    - 두번째 파라미터를 작성하면 두번째에 작성한 인덱스부터 검색
+    - 같은 문자가 없으면 -1 반환
+
+```javascript
+var value = "123123";
+console.log(value.indexOf(2)); // 1
+console.log(value.indexOf(23)); // 1
+/**
+ * 1. "123123"에서 2가 두개지만 처음 인덱스를 반환하므로 1을 반환
+ * 2. 값을 구하게 되면 더이상 값을 구하지 않음
+ * 3, indexOf(23)에서 23이 존재하며 2가 검색된 인덱스를 반환
+ * **/
+
+var value1 = "123123";
+conosle.log(value.indexOf(2, 3)); // 4
+/**
+ * 1. indexOf(2, 3)에서 두번째 파라미터 3은 3번 인덱스부터 2를 검색하라는 뜻
+ * 2. 3번 인덱스부터 2를 검색해서 4 반환
+ * **/
+
+var value2 = "123123";
+console.log(value.indexOf(15)); // -1
+
+var value3 = "123123";
+console.log(value.indexOf(2, -1)); // 1
+console.log(value.indexOf(2, 9)); // -1
+console.log(value.indexOf(2, "A")); // 1
+/**
+ * 1. 두번째 파라미터 값이 0보다 작으면 처음부터 검색
+ * 2. 두번째 파라미터 값이 length보다 크면 -1 반환
+ * 3. 두번째 파라미터가 NaN이면 처음부터 검색
+ * **/
+```
+
+lastIndexOf()
+- data 위치의 문자열에서 파라미터의 문자와 같은 인덱스를 반환
+- 단, 뒤에서 앞으로 검색
+- 검색기준
+    - 두번쨰 파라미터를 작성하면 작성한 인덱스부터 검색
+    - 같은 문자가 없으면 -1 반환
+
+```javascript
+var value = "123123";
+console.log(value.lastIndexOf(2)); // 4
+
+var value1 = "123123";
+console.log(value.lastIndexOf(1, 4)); // 3
+console.log(value.lastIndexOf(2, -1)); // -1
+/**
+ * 1. 앞에서부터 4번째 인덱스부터 뒤에서 1을 검색
+ * 2. 두번째 파라미터가 0보다 작으면 -1 반환
+ * **/
+```

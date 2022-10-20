@@ -224,3 +224,73 @@ console.log(own); // false
  * 3. Object 인스턴스를 만드므로 자신이 만든 것이 아님
 */
 ```
+
+propertyIsEnumerable()
+- 오브젝트에서 프로퍼티를 열거할 수 있으면 true를 반환
+- 열거할 수 없으면 false 반환
+
+```javascript
+var obj = {sports: "축구"};
+console.log(obj.propertyIsEnumerable('sports')); // true
+/**
+ * 1. {sports: "축구"} 형태로 생성한 인스턴스
+ * 2. obj의 프로퍼티를 열거할 수 있다.
+*/
+
+var obj = {sports: "축구"};
+Object.defineProperty(obj, "sports", {
+    enumerable: false
+    });
+console.log(obj.propertyIsEnumerable('sports'));  // false
+for(var name in obj){
+    console.log(name);
+}
+/**
+ * 1. {enemerable: false}로 열거 불가 설정
+ * 2. for-in 문에서 프로퍼티가 열거되지 않음
+*/
+```
+
+## 9.7 Object와 prototype, 빌트인 Object 특징
+
+빌트인 Object 특징
+- 인스턴스를 만들 수 있는 모든 빌트인 오브젝트의 `__proto__`에 Object.prototype의 6개 메소드가 설정됨
+- 따라서 빌트인 오브젝트로 만든 인스턴스에도 설정됨
+- Object.prototype
+
+```javascript
+var numberInstance = new Number(123);
+/**
+ * 1. numberInstane를 펼쳐서 __proto__ 확인
+ * 2. [[PrimitiveValue]]: 123이 있고
+ * new Number(123) 에서 123이 설정된 것
+*/
+```
+
+isPrototypeOf()
+- 파라미터에 작성한 오브젝트에 Object 위치에 작성한 prototype이 존재하면 true 반환, 존재하지 않으면 false 반환
+
+```javascript
+var numObj = new Number(123);
+console.log(Object.prototype.isPrototypeOf(numObj)); // ture
+/**
+ * 1. Object.prototype처럼 오브젝트의 prototype을 작성
+ * 2. numObj에 Object.prototype의 존재를 체크 -> 존재하므로 true 반환
+*/
+```
+
+toString()
+- 인스턴스 타입을 문자열로 반환
+
+```javascript
+var point = {book: "책"};
+console.log(point.toString()); // [object Object]
+
+var obj = new Number(123);
+console.log(Object.prototype.toString.call(obj)); // [object Number]
+/**
+ * 1. toString() 앞에 Object 인스턴스를 작성
+ * 2. toString()을 실행하면 [실행 결과] 처럼 [object Object]를 표시
+ * 3. 아ㅠ의 소문자 object는 인스턴스를 나타내고 뒤의 대문자 Object는 빌트인 Object를 나타낸다.
+*/
+```

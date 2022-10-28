@@ -22,7 +22,7 @@ toc: false
 - policy 서비스 절대경로 설정시  
 `@/assets/images/sprites/sprite-${basename}.png`  
 
-- dl 절대경로 설정시
+- 프로젝트 절대경로 설정시
 `~@/assets/images/sprites/sprite-${basename}.png`  
 위와 같이 물결하나 추가해줘야 했음.. 
 

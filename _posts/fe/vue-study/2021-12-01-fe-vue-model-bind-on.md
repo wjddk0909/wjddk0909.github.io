@@ -148,7 +148,7 @@ export default {
 </script>
 <!-- 예시 -->
 
-<!-- DL예시 -->
+<!-- 프로젝트 예시 -->
 <!-- 여기서 사용한 commentRegist를 자식컴포넌트에서도 사용하고 싶어서 props로 내려줌 -->
 <v-textarea
   v-model="commentRegist"
@@ -182,7 +182,7 @@ export default {
     }
   })
 </script>
-<!-- DL예시 -->
+<!-- 프로젝트 예시 -->
 ```
 
 ### 자식 컴포넌트
@@ -218,7 +218,7 @@ export default {
 }
 </script>
 <!-- 예시 -->
-<!-- DL예시 -->
+<!-- 프로젝트 예시 -->
 <v-textarea
   :value="commentRegist"
   outlined
@@ -248,7 +248,7 @@ export default {
     }
   })
 </script>
-<!-- DL예시 -->
+<!-- 예시 -->
 ```
 
 - [v-model 설명 참고 페이지](https://velog.io/@okyungjin/Vue-%EB%B6%80%EB%AA%A8-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%99%80-%EC%9E%90%EC%8B%9D-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B0%94%EC%9D%B8%EB%94%A9-v-model-value-input)

@@ -26,7 +26,7 @@ watch에는 옵션을 부여할 수 있다. 옵션을 사용할 경우 handler �
         handler: function (새로운값, 이전값) {
             // 감시 대상 데이터가 변했을 때, 처리 로직
         },
-        deep: true, // 네스트된 객체도 감시할지 여부, data 형식은 boolean
+        deep: true, // 네스트(중첩)된 객체도 감시할지 여부, data 형식은 boolean
         immediate: true, // 처음 값을 읽어 들이는 시점에도 호출할지 여부, data형식은 boolean
     }
 }

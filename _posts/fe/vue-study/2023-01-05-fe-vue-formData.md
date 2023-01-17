@@ -10,7 +10,8 @@ toc: false
 ## FormData
 
 FormData는 폼을 쉽게 보내도록 도와주는 객체  
-FormData 객체는 HTML 폼 데이터를 나타낸다.
+FormData 객체는 HTML 폼 데이터를 나타낸다.  
+HTML form 태그에 담긴 데이터를 AJAX 요청으로 보내고 싶은 경우
 
 ## formData method
 - formData.append(name, value): name과 value를 가진 폼 필드 추가
@@ -21,6 +22,13 @@ FormData 객체는 HTML 폼 데이터를 나타낸다.
 
 폼은 이름(name)이 같은 필드를 여러 개 허용, append 메서드를 여러번 호출해서 추가해도 문제 없다.  
 set은 name이 같은 필드를 제거하고 새로운 필드 하나를 추가 -> 하나의 name이 단 한개만 있도록 보장  
+
+- Append로 데이터를 하나씩 추가
+- Has로 데이터 존재 여부 확인
+- Get으로 데이터 조회
+- getAll로 데이터 모두 조회
+- delete로 데이터 삭제
+- set으로 데이터 수정
 
 ```javascript
 const a = new FormData();

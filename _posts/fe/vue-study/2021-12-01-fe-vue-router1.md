@@ -74,6 +74,16 @@ const createInit = async () => {
 createInit();
 ```
 
+## 라우터 미변경 이슈
+
+`const route = router.app.$route;`로 되어있던 부분 수정
+
+```javascript
+const route = computed(() => {
+    return router.app.$route;
+});
+```
+
 
 
 

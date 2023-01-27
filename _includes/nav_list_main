@@ -75,6 +75,13 @@
                 {% endif %}
             {% endfor %}
         </ul>
+        <ul>
+            {% for category in site.categories %}
+                {% if category[0] == "typescript-study" %}
+                    <li><a href="/categories/typescript-study" class="">TypeScript-study 알게된 내용 ({{category[1].size}})</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
         <span class="nav__sub-title">JavaScript</span>
         <ul>
             {% for category in site.categories %}

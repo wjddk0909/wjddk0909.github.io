@@ -2,7 +2,7 @@
 title: "[TypeScript] api AxiosResponse 타입 정의" 
 excerpt: "interface"
 categories: 
-    - typescript
+    - typescript-study
 tags: 
     - axios
     - response

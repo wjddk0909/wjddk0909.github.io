@@ -4,7 +4,7 @@ excerpt: "homebrew로 git upgrade 하기"
 categories: 
     - git
 tags: 
-    - hombrew
+    - homerewbrew
     - gitupgrade
 --- 
 ## git upgrade

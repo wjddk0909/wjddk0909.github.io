@@ -52,8 +52,8 @@ slot 사용하기
 <template>
 	<div v-if="isList">
 		<div class="text-box">
-			<slot name="title"></slot>
-			<slot name="text"></slot>
+			<slot name="title"><!-- 상위컴포넌트에서 정의할 영역 --></slot>
+			<slot name="text"><!-- 상위컴포넌트에서 정의할 영역 --></slot>
 		</div>
 	</div>
 </template>

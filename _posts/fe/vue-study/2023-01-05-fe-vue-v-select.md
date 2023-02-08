@@ -5,7 +5,6 @@ categories:
     - vue-study
 tags: 
     - vuetify
-	- v-select
 toc: false
 --- 
 ## v-select event

@@ -14,7 +14,7 @@ vuetify로 v-select 사용시 select 박스 열고 닫을때 이벤트 발생시
 팝업안에 v-select박스 있고 select 박스가 열려있을때 팝업 스크롤시 select박스가 따라서 스크롤됨  
 -> v-select박스 열려있을때 팝업 overflow-y: hidden해주기
 
-- 코드 적용
+- 코드 적용  
 ```html
 <!-- 부모 modal.vue -->
 <template>
@@ -68,7 +68,7 @@ vuetify로 v-select 사용시 select 박스 열고 닫을때 이벤트 발생시
 </script>
 ```
 
-- 참고 코드
+- 참고 코드  
 ```html
 <div id="app">
   <v-app id="inspire">

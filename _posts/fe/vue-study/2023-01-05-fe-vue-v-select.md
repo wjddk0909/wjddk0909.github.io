@@ -15,8 +15,8 @@ vuetify로 v-select 사용시 select 박스 열고 닫을때 이벤트 발생시
 -> v-select박스 열려있을때 팝업 overflow-y: hidden해주기
 
 - 코드 적용  
-```html
-<!-- 부모 modal.vue -->
+```javascript
+// 부모 modal.vue 
 <template>
   <modal
 	class="workreport-modal"
@@ -42,7 +42,7 @@ vuetify로 v-select 사용시 select 박스 열고 닫을때 이벤트 발생시
 	}
 </script>
 
-<!-- 자식 selectBox.vue -->
+// 자식 selectBox.vue
 <template>
   <v-select
 	ref="selectComp"
@@ -69,7 +69,7 @@ vuetify로 v-select 사용시 select 박스 열고 닫을때 이벤트 발생시
 ```
 
 - 참고 코드  
-```html
+```javascript
 <div id="app">
   <v-app id="inspire">
     <v-container fluid grid-list-xl>

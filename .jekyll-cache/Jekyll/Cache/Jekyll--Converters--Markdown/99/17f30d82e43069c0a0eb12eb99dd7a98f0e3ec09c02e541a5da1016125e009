@@ -1,0 +1,152 @@
+I"�%<h2 id="21-연산자-표현식">2.1 연산자, 표현식</h2>
+
+<p>표현식(Expression) 형태</p>
+<ul>
+  <li>1 + 2</li>
+  <li>var total = 1 + 2;</li>
+  <li>var value = total / (2 + 3);</li>
+  <li>‘표현식을 평가’ 한다고 한다.</li>
+  <li>표현식을 평가하면 결과가 반환되며 이를 <code class="language-plaintext highlighter-rouge">평가결과</code> 라고 한다.</li>
+</ul>
+
+<h2 id="22-숫자로-변환">2.2 숫자로 변환</h2>
+<ul>
+  <li>연산하기 전에 우선 숫자로 변환</li>
+  <li>변환된 값으로 연산
+    <ul>
+      <li>Undefined: NaN</li>
+      <li>Null: +0</li>
+      <li>Boolean: true:1, false:0</li>
+      <li>Number: 변환 전,후 같음</li>
+      <li>String: 값이 숫자이면 숫자로 연산 / 그러나 더하기는 연결한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">value</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="nx">value</span><span class="p">)</span> <span class="c1">// NaN</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="kc">null</span><span class="p">)</span> <span class="c1">// 10</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="kc">true</span><span class="p">)</span> <span class="c1">// 11</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="kc">false</span><span class="p">)</span> <span class="c1">// 10</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">123</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// 10123</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">123</span> <span class="o">-</span> <span class="dl">'</span><span class="s1">23</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// 100</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="23-관계연산자">2.3 관계연산자</h2>
+<ul>
+  <li>부등호 &gt;</li>
+  <li>양쪽이 Number타입일 때
+    <ul>
+      <li>왼쪽이 오른쪽 보다 크면 true 반환 아니면 false 반환</li>
+    </ul>
+  </li>
+  <li>String 타입 비교
+    <ul>
+      <li>한 쪽이 String 타입이면 false</li>
+      <li>양쪽이 모두 String 타입이면 유니코드 사전 순서로 비교</li>
+      <li>문자 하나씩 비교</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="24-논리-연산자">2.4 논리 연산자</h2>
+<ul>
+  <li>논리 OR 연산자</li>
+  <li>표현식의 평가 결과가 하나라도 true이면 true, 아니면 false</li>
+  <li>왼쪽 결과가 true이면 오른쪽은 비교하지 않음</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">zero</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">two</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span> <span class="o">||</span> <span class="nx">zero</span> <span class="o">||</span> <span class="nx">two</span><span class="p">)</span> <span class="c1">// 2</span>
+<span class="c1">// 1. value 변수값이 undefinde이므로 false</span>
+<span class="c1">// 2. zero 변수값이 0이므로 false</span>
+<span class="c1">// 3. two 변수값이 2이므로 true가 되며 two 변수값을 반환</span>
+<span class="c1">// 4. true가 아니라 true가 되는 변수값 반환</span>
+
+<span class="kd">var</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">zero</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">zero</span> <span class="o">||</span> <span class="nx">value</span><span class="p">);</span> <span class="c1">// undefined</span>
+<span class="c1">// 1. 마지막까지 비교했는데 모두가 false면 false가 아닌 마지막 변수값 반환</span>
+
+<span class="kd">var</span> <span class="nx">one</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">one</span> <span class="o">===</span> <span class="mi">1</span> <span class="o">||</span> <span class="nx">two</span> <span class="o">===</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// true</span>
+<span class="c1">// 1. 왼쪽의 결과가 true이므로 true가 반환</span>
+<span class="c1">// 2. 왼쪽 비교 결과가 true면 오른쪽은 비교하지 않음</span>
+<span class="c1">// 3. 오른쪽을 비교하면 two 변수가 없으므로 에러 발생</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>논리 AND 연산자</li>
+  <li>표현식의 평가 결과가 모두 true이면 true, 아니면 false</li>
+  <li>왼쪽 결과가 false이면 오른쪽은 비교하지 않음</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">one</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">two</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">one</span> <span class="o">&amp;&amp;</span> <span class="nx">two</span><span class="p">);</span> <span class="c1">// 2</span>
+<span class="c1">// 1. one 변수값이 1이므로 true, 오른쪽 비교</span>
+<span class="c1">// 2. two 변수값이 2이므로 true, 모두가 true이므로 마지막 2를 반환</span>
+
+<span class="kd">var</span> <span class="nx">one</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">zero</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">one</span> <span class="o">&amp;&amp;</span> <span class="nx">zero</span> <span class="o">&amp;&amp;</span> <span class="nx">nine</span><span class="p">);</span> <span class="c1">// 0;</span>
+<span class="c1">// 1. one 변수값이 1이므로 true, 오른쪽 비교</span>
+<span class="c1">// 2. zero 변수값이 0이므로 false, 오른쪽 비교하지 않고 zero 변수값 0 반환</span>
+<span class="c1">// 3. nine을 비교하면 nine변수가 없으므로 에러 발생</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="25-조건연산자-연산자-우선순위">2.5 조건연산자, 연산자 우선순위</h2>
+<ul>
+  <li>exp ? exp-1 : exp-2
+    <ul>
+      <li>삼항연산자라고도 함</li>
+    </ul>
+  </li>
+  <li>exp 위치의 표현식을 먼저 평가함
+    <ul>
+      <li>true면 exp-1의 결과 반환</li>
+      <li>false면 exp-2의 결과 반환</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">===</span> <span class="mi">1</span> <span class="p">?</span> <span class="dl">"</span><span class="s2">같음</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">다름</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// 같음</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span> <span class="p">?</span> <span class="dl">"</span><span class="s2">같음</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">다름</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// 다름</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+:ET

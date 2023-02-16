@@ -1,0 +1,147 @@
+I"�<h2 id="41-함수-구성-요소-함수-이름-규칙과-관례">4.1 함수 구성 요소, 함수 이름 규칙과 관례</h2>
+
+<p>function</p>
+<ul>
+  <li>특정 기능을 처리하는 자바스크립트 코드 묶음</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">book</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">title</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">js 책</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">point</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">one</span><span class="p">,</span> <span class="nx">two</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">total</span> <span class="o">=</span> <span class="nx">one</span> <span class="o">+</span> <span class="nx">two</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">bonus</span> <span class="o">=</span> <span class="nx">total</span> <span class="o">+</span> <span class="mi">100</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>파라미터</p>
+<ul>
+  <li>소괄호 안에 작성한것을 파라미터라고 함</li>
+  <li>매개 변수, 인자, 아규먼트로도 부름</li>
+  <li>파라미터 작성은 선택</li>
+</ul>
+
+<p>함수이름 관례</p>
+<ul>
+  <li>동사로 시작</li>
+  <li>두번째 단어부터 명사 사용</li>
+  <li>명사의 첫 문자를 대문자로(CamelCase)</li>
+  <li>동사+명사 형태로 동적인 모습</li>
+</ul>
+
+<h2 id="42-함수-호출-return-문">4.2 함수 호출, return 문</h2>
+
+<ul>
+  <li>함수는 호출되어야 실행</li>
+  <li>호출 받는 함수
+    <ul>
+      <li>함수가 호출 되었을때 실행된느 함수</li>
+      <li>함수라고 하면 호출받는 함수를 지칭</li>
+    </ul>
+  </li>
+  <li>파라미터
+    <ul>
+      <li>호출한 함수에서 넘겨준 값을 받음</li>
+      <li>(one, two) 처럼 소괄호() 안에 파라미터 이름 작성</li>
+    </ul>
+  </li>
+</ul>
+
+<p>함수호출</p>
+<ul>
+  <li>setValue()형태로 호출
+    <ul>
+      <li>함수 이름과 소괄호()를 작성</li>
+    </ul>
+  </li>
+  <li>파라미터
+    <ul>
+      <li>호출된 한수에 넘겨줄 값 작성</li>
+      <li>setValue(10, 20)처럼 소괄호() 안에 작성</li>
+      <li>JS에서 지원하는 타입 작성</li>
+      <li>콤마(,)로 구분하여 다수 작성 가능</li>
+    </ul>
+  </li>
+</ul>
+
+<p>함수를 선언하고 -&gt; 함수를 호출 -&gt; 파라미터 넘겨주고 -&gt; 파라미터값 설정하고 -&gt; 함수코드 실행</p>
+
+<p>가독성을 위해서 선언을 먼저 작성 하고 아래에 실행문을 작성</p>
+
+<p>return</p>
+<ul>
+  <li>표현식의 평가 결과 반환</li>
+  <li>return 또는 표현식을 작성하지 않으면 undefined 반환</li>
+  <li>return 과 표현식을 한 줄에 작성</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">getPoint</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">30</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">getPoint</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+<span class="c1">// 실행순서</span>
+<span class="cm">/** 
+ * 1. getPoint() 함수 호출
+ * 2. return의 오른쪽 표현식(10 * 30)dmf vudrk
+ * 3. 평가 결과 300을 반환
+ * 4. 300을 갖고 getPoint()로 돌아간다.
+ * 5. 400을 result 변수에 할당
+ * 실행결과 -&gt; 300
+ * **/</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">getPoint</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span>
+    <span class="mi">10</span> <span class="o">*</span> <span class="mi">30</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">getPoint</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+<span class="cm">/** 
+ * 1. return 끝에 세미콜론을 자동으로 첨부
+ * 2. return 문에서 return하므로 10 * 30을 수행하지 않음
+ * 실행결과 -&gt; undefined
+ * **/</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="43-주석-작성의-궁극적인-목적">4.3 주석 작성의 궁극적인 목적</h2>
+
+<ul>
+  <li>코드의 목적, 결곽 미치는 영향을 작성</li>
+  <li>다른 사람이 알 수 있도록 자세하게 작성</li>
+</ul>
+:ET

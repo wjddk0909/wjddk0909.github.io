@@ -1,0 +1,128 @@
+I"g<h2 id="v-select-event">v-select event</h2>
+
+<p>vuetify로 v-select 사용시 select 박스 열고 닫을때 이벤트 발생시키는 방법</p>
+
+<p>팝업안에 v-select박스 있고 select 박스가 열려있을때 팝업 스크롤시 select박스가 따라서 스크롤됨<br />
+-&gt; v-select박스 열려있을때 팝업 overflow-y: hidden해주기</p>
+
+<ul>
+  <li>코드 적용<br />
+```javascript
+// 부모 modal.vue</li>
+</ul>
+<template>
+  &lt;modal
+	class="workreport-modal"
+	:class="{ 'no-scroll': isOpenSelect }"
+  &gt;
+    &lt;selectBox @isOpen="isOpen"/&gt;
+  &lt;/modal&gt;
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				isOpenSelect: false,
+			}
+		},
+		methods: {
+			isOpen(newVal) {
+			this.isOpenSelect = newVal;
+			console.log('isOpenSelect', this.isOpenSelect);
+		},
+		}
+	}
+</script>
+
+<p>// 자식 selectBox.vue</p>
+<template>
+  <v-select ref="selectComp">
+    &lt;selectBox @isOpen="isOpen"/&gt;
+  </v-select>
+</template>
+
+<script>
+	export default {
+		mounted() {
+			this.$watch(
+				() => {
+					return this.$refs.selectComp.isMenuActive;
+				},
+				val => {
+					console.log(val);
+					this.$emit('isOpen', val);
+				},
+			);
+		},
+	}
+</script>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre>
+- 참고 코드  
+```javascript
+&lt;div id="app"&gt;
+  &lt;v-app id="inspire"&gt;
+    &lt;v-container fluid grid-list-xl&gt;
+      &lt;v-select ref='selectComp'
+                v-model="model"
+                :items="items"
+                box
+                label="Box style"
+      &gt;&lt;/v-select&gt;
+    &lt;/v-container&gt;
+  &lt;/v-app&gt;
+&lt;/div&gt;
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">el</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">data</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">({</span>
+      <span class="na">items</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Foo</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Bar</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Fizz</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Buzz</span><span class="dl">'</span><span class="p">],</span>
+      <span class="na">model</span><span class="p">:</span> <span class="k">void</span> <span class="mi">0</span>
+  <span class="p">}),</span>
+  <span class="nx">mounted</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">$watch</span><span class="p">(</span>
+         <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+           <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">selectComp</span><span class="p">.</span><span class="nx">isMenuActive</span>
+         <span class="p">},</span>
+         <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span>
+         <span class="p">}</span>
+      <span class="p">)</span>
+   <span class="p">}</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+:ET

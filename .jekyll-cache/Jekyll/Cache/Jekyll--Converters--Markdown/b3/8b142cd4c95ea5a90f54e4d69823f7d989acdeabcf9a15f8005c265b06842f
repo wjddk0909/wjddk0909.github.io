@@ -1,0 +1,35 @@
+I"�<h2 id="git-upgrade">git upgrade</h2>
+
+<p>mac에서 homebrew로 git upgrade 하기</p>
+
+<ul>
+  <li>git 버전 확인
+    <blockquote>
+      <p>git –version
+git version 2.30.1</p>
+    </blockquote>
+  </li>
+  <li>hombrew를 이용해 git 최신 버전 설치
+    <blockquote>
+      <p>brew install git</p>
+    </blockquote>
+  </li>
+</ul>
+
+<p>설치 후 git 버전을 확인해도 최신버전으로 변경되지 않음</p>
+
+<ul>
+  <li>해결책 -&gt; git에 대한 link 재정의
+    <blockquote>
+      <p>brew link –overwrite git</p>
+    </blockquote>
+  </li>
+  <li>터미널 종료하고 새터미널에서 git version 확인</li>
+</ul>
+
+<p>그래도 안되면 brew 업데이트</p>
+<blockquote>
+  <p>brew update
+brew upgrade</p>
+</blockquote>
+:ET

@@ -1,0 +1,14 @@
+I"5<h2 id="ellipsis">ellipsis</h2>
+
+<p>여러줄 말줄임</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="nt">overflow</span><span class="o">:</span> <span class="nt">hidden</span><span class="o">;</span>
+<span class="nt">text-overflow</span><span class="o">:</span> <span class="nt">ellipsis</span><span class="o">;</span>
+<span class="nt">-webkit-box-orient</span><span class="o">:</span> <span class="nt">vertical</span><span class="o">;</span>
+<span class="nt">-webkit-line-clamp</span><span class="o">:</span> <span class="err">3</span><span class="o">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+:ET

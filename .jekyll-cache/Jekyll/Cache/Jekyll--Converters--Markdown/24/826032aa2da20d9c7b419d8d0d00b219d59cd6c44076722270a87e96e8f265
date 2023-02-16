@@ -1,0 +1,27 @@
+I"�<h2 id="props로-부모에서-자식한테-data-넘기기">props로 부모에서 자식한테 data 넘기기</h2>
+
+<ul>
+  <li>부모(fixed.vue)</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="nt">&lt;text-filed</span>
+    <span class="na">v-model=</span><span class="s">"EXECUTION_QTY"</span>
+    <span class="na">:type=</span><span class="s">"numberType"</span>
+    <span class="na">placeholder=</span><span class="s">"처리물량을 입력해주세요."</span>
+    <span class="na">title=</span><span class="s">"처리물량"</span>
+    <span class="na">only-number</span>
+    <span class="na">required</span>
+    <span class="err">@</span><span class="na">numVal=</span><span class="s">"numVal"</span>
+<span class="nt">/&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+:ET

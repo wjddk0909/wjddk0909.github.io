@@ -1,0 +1,94 @@
+I"�<h2 id="51-프로퍼티property-개요-프로퍼티-추가변경">5.1 프로퍼티(Property) 개요, 프로퍼티 추가/변경</h2>
+
+<p>Property</p>
+<ul>
+  <li>{name: value}형태</li>
+  <li>obj.abc = 123;</li>
+  <li>obj 오브젝트에 프로퍼티 이름으로 abc가 없으면 abc:123가 추가되고 있으면 프로퍼티 값이 123으로 변경</li>
+</ul>
+
+<h2 id="52-프로퍼티-값-추출-forin-문">5.2 프로퍼티 값 추출, for~in 문</h2>
+
+<p>프로퍼티 값 추출</p>
+<ul>
+  <li>오브젝트에서 프로퍼티 값 추출
+    <ul>
+      <li>var obj = {book: “책”}</li>
+      <li>var value = obj.book;</li>
+    </ul>
+  </li>
+  <li>obj 오브젝트에 프로퍼티이름
+    <ul>
+      <li>book이 있으면 프로퍼티 값 반환</li>
+      <li>book이 없으면 undefined 반환</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">book</span><span class="p">:</span> <span class="dl">"</span><span class="s2">책</span><span class="dl">"</span><span class="p">};</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">book</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">[</span><span class="dl">"</span><span class="s2">sports</span><span class="dl">"</span><span class="p">]);</span>
+<span class="cm">/**
+ * 1. obj.book
+ * obj 오브젝트에 프로퍼티 이름으로 book이 있으므로 프로퍼티 값인 "책"이 반환
+ * 2. obj["spors"]
+ * obj 오브젝트에 프로퍼티 이름으로 sports가 없으므로 undefined가 반환
+ * 실행결과 -&gt; 책 / undefined
+ * **/</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>for~in문</p>
+<ul>
+  <li>오브젝트에서 프로퍼티를 열거</li>
+  <li>형태: for (변수 in 오브젝트) 문장; / for (표현식 in 오브젝트) 문장;</li>
+  <li>for (var item in sports) {코드}
+    <ul>
+      <li>프로퍼티 이름이 item에 설정</li>
+      <li><code class="language-plaintext highlighter-rouge">sports[item]</code>으로 프로퍼티 값을 구함</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">sports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">soccer</span><span class="p">:</span> <span class="dl">"</span><span class="s2">축구</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">baseball</span><span class="p">:</span> <span class="dl">"</span><span class="s2">야구</span><span class="dl">"</span>
+<span class="p">};</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">item</span> <span class="k">in</span> <span class="nx">sports</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sports</span><span class="p">[</span><span class="nx">item</span><span class="p">]);</span>
+<span class="p">}</span>
+<span class="cm">/**
+ * 실행결과
+ * soccer
+ * 축구
+ * baseball
+ * 야구
+ * **/</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+:ET

@@ -1,0 +1,74 @@
+I";<h2 id="vue-slot-사용법">vue slot 사용법</h2>
+
+<p>slot 사용하기</p>
+
+<p>부모 컴포넌트 -&gt; 자식 컴포넌트의 엘리먼트를 지정할때 사용<br />
+부모에 따라서 자식 컴포넌트가 영향을 받기 때문에 컴포넌트 재사용에 좋다.</p>
+
+<h3 id="기본-slot-사용">기본 slot 사용</h3>
+
+<ul>
+  <li>부모
+```html</li>
+</ul>
+<template>
+	<CommonBottomPopupBox>
+		<ReportWrite />
+	</CommonBottomPopupBox>
+</template>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>
+- 자식
+```html
+&lt;template&gt;
+	&lt;div&gt;
+		&lt;!-- 부모에서 정의한 ReportWrite가 slot에 위치 --&gt;
+		&lt;slot&gt;&lt;/slot&gt;
+	&lt;/div&gt;&gt;
+&lt;/template&gt;
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="이름있는-슬롯">이름있는 슬롯</h3>
+
+<ul>
+  <li>부모
+```html</li>
+</ul>
+<template>
+	&lt;content-null-box :isList="isList"&gt;
+		<p slot="title">결과</p>
+		<p slot="text">내역이 없습니다.</p>
+	&lt;/content-null-box&gt;
+</template>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>
+- 자식
+```html
+&lt;template&gt;
+	&lt;div v-if="isList"&gt;
+		&lt;div class="text-box"&gt;
+			&lt;slot name="title"&gt;&lt;!-- 상위컴포넌트에서 정의할 영역 --&gt;&lt;/slot&gt;
+			&lt;slot name="text"&gt;&lt;!-- 상위컴포넌트에서 정의할 영역 --&gt;&lt;/slot&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/template&gt;
+</pre></td></tr></tbody></table></code></pre></div></div>
+:ET

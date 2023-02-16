@@ -1,0 +1,149 @@
+I"$<h2 id="부모에게-받은-props값-자식-컴포넌트에서-변경하고-값-부모-컴포넌트에-알리기">부모에게 받은 props값 자식 컴포넌트에서 변경하고 값 부모 컴포넌트에 알리기</h2>
+
+<ul>
+  <li>인풋 텍스트필드에 숫자만 입력하고 숫자 최대값을 제한하기</li>
+</ul>
+
+<p>필드에서 직접 데이터 수정을 하면 수정된 데이터는 자식 컴포넌트에서만 변경된 값을 적용한다.<br />
+부모 컴포넌트로 수정된 데이터를 넘기려면 <code class="language-plaintext highlighter-rouge">$emit()</code>을 사용해야 한다.</p>
+
+<h3 id="부모-컴포넌트에-emit-받을-준비">부모 컴포넌트에 $emit() 받을 준비</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">box_select</span><span class="dl">"</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="nx">text</span><span class="o">-</span><span class="nx">filed</span>
+		<span class="nx">v</span><span class="o">-</span><span class="nx">model</span><span class="o">=</span><span class="dl">"</span><span class="s2">statementParams.CONTRACT_QTY</span><span class="dl">"</span>
+		<span class="nx">placeholder</span><span class="o">=</span><span class="dl">"</span><span class="s2">물량을 입력해주세요.</span><span class="dl">"</span>
+		<span class="nx">title</span><span class="o">=</span><span class="dl">"</span><span class="s2">물량</span><span class="dl">"</span>
+		<span class="nx">only</span><span class="o">-</span><span class="nx">number</span>
+		<span class="nx">required</span>
+		<span class="p">@</span><span class="nd">numVal</span><span class="o">=</span><span class="dl">"</span><span class="s2">numVal</span><span class="dl">"</span>
+	<span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
+<span class="c1">// 스크립트 쪽 numVal 함수</span>
+<span class="kd">const</span> <span class="nx">numVal</span> <span class="o">=</span> <span class="nx">inputVal</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="nx">statementParams</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">CONTRACT_QTY</span> <span class="o">=</span> <span class="nx">inputVal</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">@numVal="numVal"</code><br />
+자식 컴포넌트로부터 numVal이라는 요청이 오면 처리는 numVal(method)로 한다. 라는 뜻</p>
+
+<h3 id="자식-컴포넌트에서-emit-사용할-준비">자식 컴포넌트에서 $emit() 사용할 준비</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+</pre></td><td class="rouge-code"><pre><span class="o">&lt;</span><span class="nx">v</span><span class="o">-</span><span class="nx">text</span><span class="o">-</span><span class="nx">field</span>
+	<span class="nx">v</span><span class="o">-</span><span class="nx">model</span><span class="o">=</span><span class="dl">"</span><span class="s2">inputValue</span><span class="dl">"</span>
+	<span class="nx">v</span><span class="o">-</span><span class="nx">ripple</span>
+	<span class="nx">outlined</span>
+	<span class="nx">plain</span>
+	<span class="nx">hide</span><span class="o">-</span><span class="nx">details</span>
+	<span class="p">:</span><span class="nx">placeholder</span><span class="o">=</span><span class="dl">"</span><span class="s2">placeholder</span><span class="dl">"</span>
+	<span class="nx">width</span><span class="o">=</span><span class="dl">"</span><span class="s2">100%</span><span class="dl">"</span>
+	<span class="p">:</span><span class="nx">disabled</span><span class="o">=</span><span class="dl">"</span><span class="s2">readonly</span><span class="dl">"</span>
+	<span class="p">:</span><span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">{ readonly: readonly }</span><span class="dl">"</span>
+	<span class="p">:</span><span class="nx">oninput</span><span class="o">=</span><span class="dl">"</span><span class="s2">onlyNumber ? oninput : ''</span><span class="dl">"</span>
+	<span class="p">@</span><span class="nd">keyup</span><span class="o">=</span><span class="dl">"</span><span class="s2">limitNumber</span><span class="dl">"</span>
+<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="sr">/v-text-field</span><span class="err">&gt;
+</span>
+<span class="c1">// 스크립트</span>
+<span class="nx">props</span><span class="p">:</span> <span class="p">{</span>
+	<span class="nl">value</span><span class="p">:</span> <span class="p">{</span>
+		<span class="na">type</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">,</span> <span class="nb">Number</span><span class="p">],</span>
+		<span class="na">default</span><span class="p">:</span> <span class="dl">''</span><span class="p">,</span>
+	<span class="p">}</span>
+<span class="p">},</span>
+<span class="nx">computed</span><span class="p">:</span> <span class="p">{</span>
+	<span class="nl">inputValue</span><span class="p">:</span> <span class="p">{</span>
+		<span class="kd">get</span><span class="p">()</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+		<span class="p">},</span>
+		<span class="kd">set</span><span class="p">(</span><span class="nx">newVal</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">input</span><span class="dl">'</span><span class="p">,</span> <span class="nx">newVal</span><span class="p">);</span>
+		<span class="p">},</span>
+	<span class="p">}</span>
+<span class="p">},</span>
+<span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="p">{</span>
+		<span class="c1">// 숫자만 입력</span>
+		<span class="na">oninput</span><span class="p">:</span> <span class="dl">"</span><span class="s2">javascript: this.value = this.value.replace(/[^0-9.]/g, '' );</span><span class="dl">"</span><span class="p">,</span>
+	<span class="p">};</span>
+<span class="p">},</span>
+<span class="nx">methods</span><span class="p">:</span> <span class="p">{</span>
+	<span class="nx">limitNumber</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">inputValue</span> <span class="o">&gt;</span> <span class="mi">100000000</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">EventBus</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">alert:error</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">물량은 최대 1억까지 입력 가능합니다.</span><span class="dl">'</span><span class="p">);</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">inputValue</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">inputValue</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+			<span class="c1">// 입력된 값을 인자로 $emit을 이용해 부모 numVal 함수로 넘긴다.</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">numVal</span><span class="dl">'</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">inputValue</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">},</span>
+<span class="p">},</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><a href="https://lifere.tistory.com/entry/Vuejs-Vue-CLI-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-Props-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%88%98%EC%A0%95%ED%95%98%EC%97%AC-%EB%B6%80%EB%AA%A8-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%97%90%EB%8F%84-%EC%95%8C%EB%A6%AC%EA%B8%B0-emit">참고 링크</a></p>
+
+:ET

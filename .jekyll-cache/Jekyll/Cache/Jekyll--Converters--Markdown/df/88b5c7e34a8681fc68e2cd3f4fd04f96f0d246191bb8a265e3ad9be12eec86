@@ -1,0 +1,380 @@
+I"�Q<h2 id="101-프로퍼티-리스트-function-인스턴스-생성">10.1 프로퍼티 리스트, Function 인스턴스 생성</h2>
+
+<p>new Function()</p>
+<ul>
+  <li>Function 인스턴스 생성</li>
+  <li>파라미터에 문자열로 함수의 파라미터와 함수 코드 작성
+    <ul>
+      <li>var obj = new Function(“book”, “return book”);</li>
+      <li>obj(“JS 책”);</li>
+    </ul>
+  </li>
+  <li>파라미터 수에 따라 인스턴스 생성 기준이 다름</li>
+  <li>파라미터 2개 이상 작성
+    <ul>
+      <li>마지막 파라미터에 함수에서 실행할 함수 코드 작성</li>
+      <li>마지막을 제외한 파라미터에 이름 작성</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="dl">"</span><span class="s2">one</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">two</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">return one + two;</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span> <span class="c1">// 300</span>
+<span class="cm">/**
+ * 1. 파라미터를 3개 작성
+ * 2. 1번째와 2번째는 호출한 곳에서 넘겨준 값을 매핑할 파라미터 이름을 작성
+ * 3. 3번째는 호출되었을 때 실행될 함수 코드
+*/</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>파라미터 하나 작성
+    <ul>
+      <li>함수에서 실행할 함수 코드 작성</li>
+      <li>파라미터가 없을 때 사용</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="dl">"</span><span class="s2">return 1 + 2;</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">());</span> <span class="c1">// 3</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>파라미터를 작성하지 않으면
+    <ul>
+      <li>함수 코드가 없는 Function 인스턴스 생성</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="102-함수-생명-주기-함수-분류-length-프로퍼티">10.2 함수 생명 주기, 함수 분류, length 프로퍼티</h2>
+
+<p>함수 생명 주기</p>
+<ul>
+  <li>함수 호출
+    <ul>
+      <li>getBook(“JS북”);</li>
+      <li>함수를 호출하면서 파라미터 값을 넘겨 줌</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">getBook</span><span class="p">(</span><span class="nx">title</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">title</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">getBook</span><span class="p">(</span><span class="dl">"</span><span class="s2">JS북</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// JS북</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>함수 코드 실행
+    <ul>
+      <li>JS 엔진 컨트롤이 함수의 처음으로 이동</li>
+      <li>파라미터 이름에 넘겨 받은 파라미터 값 매핑</li>
+      <li>함수 코드 실행</li>
+      <li>return 작성에 관계없이 반환 값을 갖고 함수를 호출한 곳으로 돌아 감</li>
+    </ul>
+  </li>
+</ul>
+
+<p>length 프로퍼티</p>
+<ul>
+  <li>함수의 파라미터 수가 생성되는 function 오브젝트에 설정됨</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">one</span><span class="p">,</span> <span class="nx">two</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">one</span> <span class="o">+</span> <span class="nx">two</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">add</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>함수를 호출한 곳에서 보낸 파라미터 수가 아님</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">one</span><span class="p">,</span> <span class="nx">two</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">one</span> <span class="o">+</span> <span class="nx">two</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">add</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2</span>
+<span class="cm">/**
+ * 1. add(1, 2, 3, 4)로 호출하면 one에 1이 설정되고 two에 2가 설정
+ * 2. add() 함수를 호출한 곳에서 보낸 값의 수가 아님
+ * 3. length 값은 4가 아니라 2
+*/</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>JS 엔진이 자동으로 설정</li>
+</ul>
+
+<h2 id="103-함수-형태-함수-선언문-함수-표현식">10.3 함수 형태, 함수 선언문, 함수 표현식</h2>
+
+<p>함수 형태</p>
+<ul>
+  <li>함수 선언문</li>
+  <li>함수 표현식</li>
+</ul>
+
+<p>함수 선언문</p>
+<ul>
+  <li>function getBook(title){함수코드} 형태
+    <ul>
+      <li>function 키워드, 함수 이름, 블록{}은 작성 필수</li>
+      <li>파라미터, 함수 코드는 선택</li>
+    </ul>
+  </li>
+  <li>함수 이름을 생성한 function 오브젝트의 이름으로 사용</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">getBook</span><span class="p">(</span><span class="nx">title</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">title</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">getBook</span><span class="p">(</span><span class="dl">"</span><span class="s2">JS책</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// JS책</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>함수 표현식</p>
+<ul>
+  <li>var getBook = function(title){코드}
+    <ul>
+      <li>function 오브젝트를 생성하여 변수에 할당</li>
+      <li>변수 이름이 function 오브젝트 이름이 됨</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">getBook</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">title</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">title</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">getBook</span><span class="p">(</span><span class="dl">"</span><span class="s2">JS책</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// JS책</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>식별자 위치의 함수 이름은 생략 가능
+    <ul>
+      <li>var name = function abc(){} 에서 abc가 식별자 위치의 함수 이름</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">getBook</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">inside</span><span class="p">(</span><span class="nx">value</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">value</span> <span class="o">===</span> <span class="mi">102</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">value</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">inside</span><span class="p">(</span><span class="nx">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="nx">getBook</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span> <span class="c1">// 100 101 102</span>
+<span class="cm">/**
+ * 1. inside 이름으로 function 오브젝트를 생성하여 getBook 변수에 할당
+ * 2. 함수 외부에서 inside()를 호출할 수 없으며 getBook()을 호출하여 함수 안으로 이동한 후 inside()를 호출
+ * 3. 함수 안에서 inside()를 호출하는 것은 자신을 호출(재귀함수)하는 것이므로 무한으로 반복하여 호출
+ * 4. 함수가 종료되도록 조치를 취해야 함
+*/</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="104-함수-호출">10.4 함수 호출</h2>
+
+<p>call()</p>
+<ul>
+  <li>getTotal.call(this, 10, 20);</li>
+  <li>첫 번째 파라미터 호출된 함수에서 this로 참조할 오브젝트</li>
+  <li>일반적으로 this 사용, 다른 오브젝트 작성 가능</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">getTotal</span><span class="p">(</span><span class="nx">one</span><span class="p">,</span> <span class="nx">two</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">one</span> <span class="o">+</span> <span class="nx">two</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">getTotal</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// 30</span>
+<span class="cm">/**
+ * 1. getTotal.call(this, 10, 20) 형태로 호출
+ * 2. 1번째 파라미터 this가 파라미터 값으로 넘어가지 않음
+ * 3. 2번째 파라미터가 첫 번째 파라미터로 넘어감
+ *    3번째 파라미터가 두 번째 파라미터로 넘어감
+ * 4. one에 10. two에 20 설정
+ * 5. call()은 파라미터 수가 고정일 때 사용
+*/</span>
+
+<span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="p">{</span><span class="na">one</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="na">two</span><span class="p">:</span> <span class="mi">20</span><span class="p">};</span>
+<span class="kd">function</span> <span class="nx">getTotal</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">one</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">two</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">getTotal</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// 30</span>
+<span class="cm">/**
+ * 1. getTotal.call(value)의 파라미터에 value 오브젝트 작성
+ * 2. getTotal()에서 this가 value 오브젝트 참조, this.one으로 프로퍼티 값을 구할 수 있음
+*/</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>apply()</p>
+<ul>
+  <li>getTotal.apply(this, [10, 20]);</li>
+  <li>파라미터 수가 유동적일 때 사용</li>
+  <li>두번째 파라미터에 배열 사용</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">getTotal</span><span class="p">(</span><span class="nx">one</span><span class="p">,</span> <span class="nx">two</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">one</span> <span class="o">+</span> <span class="nx">two</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">getTotal</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// 30</span>
+<span class="cm">/**
+ * 1. 파라미터 수가 유동적이므로 배열을 사용
+ * 2. getTotal() 파라미터 one에 10이 two에 20이 설정
+*/</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>call(), apply() 부가적인 목적?
+    <ul>
+      <li>첫 번째 파라미터에다 호출된 함수에서 this로 참조할 오브젝트 사용</li>
+    </ul>
+  </li>
+</ul>
+
+<p>toString()</p>
+<ul>
+  <li>모든 빌트인 오브젝트에 toString()이 있지만 오브젝트마다 반환되는 형태가 다름</li>
+  <li>function 오브젝트의 toString()은 함수 코드를 문자열로 반환</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">getBook</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">23</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">getBook</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// function(){ return 100 + 23; }</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="105-argument-오브젝트">10.5 Argument 오브젝트</h2>
+
+<ul>
+  <li>함수가 호출되어 함수 안으로 이동했을 때 arguments 이름으로 생성되는 오브젝트</li>
+  <li>함수를 호출한 곳에서 넘겨 준 값을 순서대로 저장</li>
+  <li>호출 된 함수에 파라미터를 작성한 경우
+    <ul>
+      <li>호출된 함수의 파라미터에도 값을 설정하고 아규먼트 오브젝트에도 저장</li>
+      <li>aplly()와 아규먼트 오브젝트</li>
+    </ul>
+  </li>
+  <li>파라미터라고 부른것은 아규먼트 오브겢트와 구분하기 위한 것</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">getTotal</span><span class="p">(</span><span class="nx">one</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">one</span> <span class="o">+</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">getTotal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// 60</span>
+<span class="cm">/**
+ * 1. getTotal()을 호출 -&gt; 10 , 20, 30을 파라미터 값으로 넘겨줌
+ * 2. 함수가 호출을 받으면 함수 안의 arguments 이름을 가진 오브젝트 설정
+ * 3. 10, 20, 30이 arguments에 순서대로 설정 -&gt; arguments[0] 처럼 인덱스를 사용하여 값 사용
+ * 4. getTotal()의 one 파라미터에 10이 설정
+*/</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+:ET

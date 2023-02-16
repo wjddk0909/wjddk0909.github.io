@@ -1,0 +1,50 @@
+I"5<h2 id="formdata">FormData</h2>
+
+<p>FormData는 폼을 쉽게 보내도록 도와주는 객체<br />
+FormData 객체는 HTML 폼 데이터를 나타낸다.<br />
+HTML form 태그에 담긴 데이터를 AJAX 요청으로 보내고 싶은 경우</p>
+
+<h2 id="formdata-method">formData method</h2>
+<ul>
+  <li>formData.append(name, value): name과 value를 가진 폼 필드 추가</li>
+  <li>formData.append(name, blob, fileName): input type=”file” 형태의 필드를 추가, 세번째 인수 fileName은(필드 이름이 아님) 사용자가 해당 이름을 가진 파일을 폼에 추가한 것처럼 설정</li>
+  <li>formData.delete(name): name에 해당하는 필드를 삭제</li>
+  <li>formData.get(name): name에 해당하는 필드의 값을 가져옴</li>
+  <li>formData.has(name): name에 해당하는 필드가 있으면 true, 없으면 false 반환</li>
+</ul>
+
+<p>폼은 이름(name)이 같은 필드를 여러 개 허용, append 메서드를 여러번 호출해서 추가해도 문제 없다.<br />
+set은 name이 같은 필드를 제거하고 새로운 필드 하나를 추가 -&gt; 하나의 name이 단 한개만 있도록 보장</p>
+
+<ul>
+  <li>Append로 데이터를 하나씩 추가</li>
+  <li>Has로 데이터 존재 여부 확인</li>
+  <li>Get으로 데이터 조회</li>
+  <li>getAll로 데이터 모두 조회</li>
+  <li>delete로 데이터 삭제</li>
+  <li>set으로 데이터 수정</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">();</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">file</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">getAll</span><span class="p">(</span><span class="dl">'</span><span class="s1">file</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// ['1']</span>
+<span class="nx">a</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="dl">'</span><span class="s1">file</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">getAll</span><span class="p">(</span><span class="dl">'</span><span class="s1">file</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// ['2']</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">file</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">getAll</span><span class="p">(</span><span class="dl">'</span><span class="s1">file</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// ['2', '1']</span>
+<span class="nx">a</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="dl">'</span><span class="s1">file</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">getAll</span><span class="p">(</span><span class="dl">'</span><span class="s1">file</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// ['2']</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><a href="https://ko.javascript.info/formdata">참고 url</a></p>
+
+:ET

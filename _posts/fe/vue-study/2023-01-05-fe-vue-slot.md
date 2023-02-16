@@ -17,7 +17,7 @@ slot 사용하기
 ### 기본 slot 사용
 
 - 부모
-```html
+```vue
 <template>
 	<CommonBottomPopupBox>
 		<ReportWrite />
@@ -26,7 +26,7 @@ slot 사용하기
 ```
 
 - 자식
-```html
+```vue
 <template>
 	<div>
 		<!-- 부모에서 정의한 ReportWrite가 slot에 위치 -->
@@ -38,7 +38,7 @@ slot 사용하기
 ### 이름있는 슬롯
 
 - 부모
-```html
+```vue
 <template>
 	<content-null-box :isList="isList">
 		<p slot="title">결과</p>
@@ -48,7 +48,7 @@ slot 사용하기
 ```
 
 - 자식
-```html
+```vue
 <template>
 	<div v-if="isList">
 		<div class="text-box">

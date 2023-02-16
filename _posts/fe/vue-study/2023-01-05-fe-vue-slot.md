@@ -16,7 +16,8 @@ slot 사용하기
 
 ### 기본 slot 사용
 
-- 부모
+- 부모  
+
 ```vue
 <template>
 	<CommonBottomPopupBox>
@@ -25,7 +26,8 @@ slot 사용하기
 </template>
 ```
 
-- 자식
+- 자식  
+
 ```vue
 <template>
 	<div>
@@ -37,7 +39,8 @@ slot 사용하기
 
 ### 이름있는 슬롯
 
-- 부모
+- 부모  
+
 ```vue
 <template>
 	<content-null-box :isList="isList">
@@ -47,7 +50,8 @@ slot 사용하기
 </template>
 ```
 
-- 자식
+- 자식  
+
 ```vue
 <template>
 	<div v-if="isList">

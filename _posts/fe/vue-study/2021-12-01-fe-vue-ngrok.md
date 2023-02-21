@@ -27,3 +27,11 @@ toc: false
  
 vue에서 기본세팅으로 내부 로컬접속은 허용하지만 외부접속을 허용하지 않아서 생기는 문제  
 ㄴ 위 둘중에 아래꺼 입력시 접근 가능했음
+
+## homebrew로 설치해서 간단하게 사용하기
+
+- ngrok 설치하기  
+> brew install ngrok
+
+- ngrok 사용하여 터널링(로컬 서버 포트에 맞게)
+> ngrok http 8080

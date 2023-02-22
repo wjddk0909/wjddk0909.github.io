@@ -11,11 +11,17 @@ toc: true
 ## 1.1 function 형태, function 오브젝트 생성, 오브젝트 저장, 생각의 전환
 
 function 형태  
-- 빌트인 Function 오브젝트 Function.prototype.call()
+- 빌트인 Function 오브젝트 Function.prototype.call() -> 빌트인 Function 오브젝트의 prototype에 메소드가 연결되어 있는 형태
 - function 오브젝트
-  -  function book(){...}
-  - var book = function() {...}
+  - function book(){...} -> function 키워드를 사용해서 함수 선언
+  - var book = function() {...} -> function 키워드를 사용해서 function 오브젝트를 만들어서 변수에 할당
   - 인스턴스이지만, new 연산자로 생성한 인스턴스와 구분하기 위해 function 오브젝트로 표기
+  - new 연산자?
+    - new 라는 의미는 영역(block)을 지정하여 함수 내부의 정의된 내용을 실행하여 주는 의미라 볼 수 있다.
+    - new 연산자를 사용하지 않으면 변수에 인스턴스를 생성하지 않는다.
+    - 쉽게 접근해서 new 연산자를 사용해야만 함수 내부의 내용을 변수에 대입 할 수 있다.
+    - [new 연산자와 this](/javascript/new-this/)
+
 - function 인스턴스
   - new Book()처럼 new연산자를 사용하여 Book.prototype에 연결된 메소드로 생성
 

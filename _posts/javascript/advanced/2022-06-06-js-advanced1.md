@@ -175,5 +175,34 @@ console.log(Object.getOwnPropertyDescriptors(person))
 */
 ```
 
+## 1.5 함수 정의 형태: 함수 정의, 함수 선언문, 함수 표현식
 
+함수 정의
+- 함수 코드가 실행될 수 있도록 JS 문법에 맞게 함수를 작성하는 것
+
+함수 정의 형태
+- 함수 선언문
+- 함수 표현식
+- new Function(param, body) -> param, body(함수코드)는 문자열로 작성
+
+함수 선언문
+- 엔진이 function 키워드를 만나면 function 오브젝트를 생성하고 함수 이름을 function 오브젝트 이름으로 사용
+
+함수 표현식
+- 식별자 위치의 함수이름은 생략 가능
+- `var name = function abc(){}`에서 abc가 식별자
+
+* 재귀함수
+```javascript
+var getBook = function instide(value) {
+  if (value === 102) { // inside()가 무한으로 호출되지 않도록 빠져나가는 코드
+    return value;
+  };
+  console.log(value);
+  return inside(value + 1); // 2. getBook안에서 재귀함수로 본인 inside()를 호출
+};
+getBook(100); // 1. getBook을 호출
+```
+
+## 1.6 엔진 해석 방법: 엔진 해석 순서, 함수 코드 작성 형태, 엔진 처리 상태
 

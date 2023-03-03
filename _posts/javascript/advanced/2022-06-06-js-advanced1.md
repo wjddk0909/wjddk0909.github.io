@@ -206,3 +206,130 @@ getBook(100); // 1. getBook을 호출
 
 ## 1.6 엔진 해석 방법: 엔진 해석 순서, 함수 코드 작성 형태, 엔진 처리 상태
 
+- 자바스크립트는 스크립팅 언어, 스크립팅 언어는 위에서부터 한 줄씩 해석(환경 설정)하고 실행
+- 그러나 자바스크립트는 중간에 있는 코드가 먼저 해석될 수 있다.
+- 첫번째, 함수 선언문을 순서대로 해석 / 두번째,표현식을 순서대로 해석
+
+## 1.7 함수 코드 해석 순서
+
+1. 함수 선언문 해석
+- function getBook(){};
+
+2. 변수 초기화
+- var title = undefined;
+- var readBook = undefined;
+
+3. 코드 실행
+- var title = "JS책";
+- var readBook = function(){};
+- getBook();
+
+### 함수 선언문 해석
+
+```javascript
+function book() {
+  // debugger;
+  var title = "JS책";
+  function getBook() {
+    return title;
+  };
+  var readBook = function() {
+    getBook();
+  };
+  book();
+}
+```
+
+1. 마지막 줄에서 book() 함수 호출
+2. 엔진 제어가 book 함수의 첫 번째 줄로 이동
+3. 함수 안에서 함수 선언문 찾음
+  - 위에서 아래로 내려가며 하나씩 검색
+4. function getBook(){}이 함수 선언문이므로 function 오브젝트 생성
+5. 더 이상 함수 선언문이 없으면 다시 함수 첫번째 줄로 이동
+
+- 변수 초기화
+6. var title 변수에 undefined 할당 -> "JS책"은 할당하지 않는다.
+7. function getBook(){}은 초기화를 이미 했으니 다시 하지 않는다.
+8. var readBook = function(){};
+  - readBook 변수에 undefined 할당
+  - 함수 표현식은 변수를 선언만 함
+9. 여기까지가 초기화 단계이고 다시 함수의 첫번째 줄로 이동
+
+- 코드 실행
+10. var title변수에 "JS책" 할당
+11. function getBook(){return title}
+  - 실행이 아닌 선언이므로 다음줄로 이동
+12. var readBook = function(){};
+  - function 오브젝트를 생성해서 readBook 변수에 할당
+  - readBook이 function 오브젝트가 되므로 이제 readBook함수 호출 가능
+13. getBoo() 함수 호출
+
+## 1.8 호이스팅, 함수 앞에서 호출
+
+함수 선언문은 초기화 단계에서 function 오브젝트를 생성하므로 어디에서도 함수 호출 가능하다. -> 호이스팅(Hoisting)  
+
+```javascript
+var result = book();
+console.log(result); // 호이스팅
+function book(){
+    return "호이스팅";
+};
+console.log(book()); // 호이스팅
+book = function() {
+    return "함수 표현식"
+
+};
+console.log(book()); // 함수 표현식
+```
+
+### 함수 표현식과 함수 선언문 이행
+
+```javascript
+function test() {
+  return "함수 선언문1";
+};
+console.log(test()); // 함수 선언문2
+function test() {
+  return "함수 선언문2";
+};
+```
+
+```javascript
+var test = function() {
+  return "함수 표현식1";
+};
+console.log(test()); // 함수 표현식1
+var test = function() {
+  return "함수 표현식2";
+};
+```
+
+```javascript
+function test() {
+  return "함수 선언문";
+};
+console.log(test()); // 함수 선언문
+var test = function() {
+  return "함수 표현식";
+};
+```
+
+```javascript
+var test = function() {
+  return "함수 표현식";
+};
+console.log(test()); // 함수 표현식
+function test() {
+  return "함수 선언문";
+};
+```
+
+## 1.9 오버로딩
+
+오버로딩
+- 함수 이름이 같더라도 파라미터 수 또는 값 타입이 다르면 각각 존재
+- JS는 파라미터 수와 값 타입을 구분하지 않고 오버로딩을 지원하지 않는다.
+- {name: value} 형태로 저장하기 때문 -> 이름(name)이 같으므로 값(value)이 대체된다.
+
+
+
